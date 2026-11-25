@@ -1,4 +1,4 @@
-/* Gen V: Campus Godolkin — Motor Jogável V0.2.0
+/* Gen V: Campus Godolkin — Motor Jogável V0.2.1
  * Inclui: Criação de Personagem (4 passos), 3 Slots, Diário de Consequências,
  * Fichas de Elenco, Sistema "Reação em Cadeia" (Efeito Borboleta) e Exportação/Importação.
  */
@@ -125,6 +125,7 @@
   let castSelected = null;
   let chainSelected = null;
   let chainFlash = null;
+  let chainTimer = null;
 
   // Estado temporário da Criação de Personagem
   let creatorStep = 1;
@@ -217,13 +218,23 @@
 
   function chainNotice() {
     if (screen !== 'game' || !chainFlash) return '';
-    return `<div class="butterfly-notice" role="status">
+    return `<div class="butterfly-notice" id="bf-toast" role="status" title="Toque para fechar">
       <span class="bf-icon">🧬</span>
       <span>
         <b>${safe(chainFlash.isNew ? 'Nova Reação em Cadeia' : 'Reação em Cadeia Atualizada')}</b>
         <small>${safe(chainFlash.title)}</small>
       </span>
     </div>`;
+  }
+
+  function scheduleChainDismiss() {
+    if (chainTimer) clearTimeout(chainTimer);
+    if (!chainFlash) return;
+    chainTimer = setTimeout(() => {
+      chainFlash = null;
+      const el = document.getElementById('bf-toast');
+      if (el) el.remove();
+    }, 3800);
   }
 
   function layout(body) {
@@ -236,6 +247,7 @@
         <span class="vought-footer-mark">V7 VOUGHT</span>
       </footer>
     </div>`;
+    scheduleChainDismiss();
   }
 
   /* ============================================================
@@ -248,7 +260,6 @@
     const hasSave = !!enter();
     layout(`<main class="menu-view">
       <div class="menu-art" aria-hidden="true">
-        <div class="vandal-tag">GEN V</div>
         <svg class="menu-art-svg" viewBox="0 0 600 720" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M180 120L390 45L590 120V560H180V120Z" fill="#27272A"/>
           <rect x="210" y="140" width="24" height="360" fill="#18181B"/>
@@ -425,7 +436,7 @@
   function finishCreation() {
     save = {
       game: 'genv-campus-godolkin',
-      version: '0.2.0',
+      version: '0.2.1',
       slot,
       node: DATA.meta.start,
       perfil: {
@@ -886,6 +897,13 @@
   });
 
   root.addEventListener('click', (e) => {
+    const toast = e.target.closest('#bf-toast');
+    if (toast) {
+      chainFlash = null;
+      if (chainTimer) clearTimeout(chainTimer);
+      toast.remove();
+      return;
+    }
     const btn = e.target.closest('button');
     if (!btn) return;
 

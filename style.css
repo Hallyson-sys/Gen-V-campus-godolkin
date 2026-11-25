@@ -387,24 +387,6 @@ p { line-height: 1.6; }
   pointer-events: none;
 }
 
-/* Pichação amarela "GEN V" no canto superior esquerdo */
-.vandal-tag {
-  position: absolute;
-  top: 24px;
-  left: 4%;
-  font-family: 'Anton', sans-serif;
-  font-size: clamp(44px, 9vw, 84px);
-  line-height: 0.85;
-  color: rgba(12, 12, 14, 0.72);
-  background: var(--yellow-vandal);
-  padding: 10px 22px;
-  transform: rotate(-11deg);
-  clip-path: polygon(4% 12%, 94% 0%, 100% 86%, 89% 100%, 0% 92%, 2% 24%);
-  opacity: 0.78;
-  pointer-events: none;
-  user-select: none;
-}
-
 .menu-body {
   width: min(640px, 92vw);
   margin: 34px auto 44px;
@@ -982,11 +964,14 @@ p { line-height: 1.6; }
   align-items: center;
   gap: 10px;
   max-width: 300px;
-  animation: slideIn 0.25s ease;
+  cursor: pointer;
+  animation: toastLifecycle 3.8s ease forwards;
 }
-@keyframes slideIn {
-  from { opacity: 0; transform: translateY(-8px); }
-  to { opacity: 1; transform: translateY(0); }
+@keyframes toastLifecycle {
+  0% { opacity: 0; transform: translateY(-10px); }
+  8% { opacity: 1; transform: translateY(0); }
+  82% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-10px); pointer-events: none; }
 }
 .bf-icon { font-size: 20px; }
 .butterfly-notice b { display: block; font-size: 11px; color: var(--yellow); text-transform: uppercase; letter-spacing: 0.08em; }
