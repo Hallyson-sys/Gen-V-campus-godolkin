@@ -1,4 +1,4 @@
-/* Gen V: Campus Godolkin — Motor Jogável V0.1.0
+/* Gen V: Campus Godolkin — Motor Jogável V0.1.1
  * Inclui: Criação de Personagem (4 passos), 3 Slots, Diário de Consequências,
  * Fichas de Elenco, Sistema "Reação em Cadeia" (Efeito Borboleta) e Exportação/Importação.
  */
@@ -443,10 +443,7 @@
   function formatNarrative(raw) {
     const nome = save?.perfil?.nome || 'Calouro';
     const text = String(raw || '').replaceAll('{NOME}', nome);
-    return text.split(/
-\s*
-|
-/g).map(s => s.trim()).filter(Boolean).map(s => {
+    return text.split(/\n\s*\n|\n/g).map(s => s.trim()).filter(Boolean).map(s => {
       const m = s.match(/^([^:]{2,26}):\s*(—\s*.+)$/u);
       if (m) return `<div class="line spoken"><strong>${safe(m[1])}</strong><span>${safe(m[2])}</span></div>`;
       if (/^(PRIMEIRO DIA|FIM DO PRÓLOGO|\[COMUNICADO)/.test(s)) return `<p class="line big-emphasis">${safe(s)}</p>`;
