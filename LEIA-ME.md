@@ -1,27 +1,13 @@
-# Gen V: Campus Godolkin — Prólogo V0.1.0
+# Gen V: Campus Godolkin — Prólogo V0.2 (Edição Grunge)
 
-**SANGUE, CÂMERAS E O RANKING** · Jogo narrativo interativo inspirado no universo de *Gen V*.
+**PODER, RANKING E SEGREDOS SOB O CAMPUS** · Jogo narrativo interativo inspirado no universo de *Gen V*.
 
-## Sobre o Jogo
+## Novidades da V0.2
 
-Em **Gen V: Campus Godolkin**, você cria o seu próprio estudante calouro (nome, idade entre 18 e 20 anos, pronomes, arquétipo, poder do Composto V, 8 características entre 30 opções e 5 atributos customizáveis) e entra na disputa pelo Top 10 da universidade enquanto investiga os segredos ocultos sob o campus.
+- **Nova Identidade Visual Grunge / Colagem:** Tipografia condensada desgastada (*Anton*), faixa de papel rasgado, bloco de citação estilo dossiê Vought, pinceladas amarelas nos botões principais e botões chanfrados.
+- **Cabeçalho Limpo:** Removido o selo *Vought // Dossiê* do topo para priorizar o logotipo **CAMPUS GODOLKIN — GEN V** e o botão **MENU** no mobile.
+- **Criação de Personagem Completa (4 Etapas), Reação em Cadeia, Diário de Consequências e 3 Slots de Save.**
 
-### Sistemas Incluídos nesta Versão
+## Como Publicar no GitHub / Render
 
-- **Criação de Personagem Completa (4 Etapas):**
-  - Identidade (Nome, Idade 18–20, Pronomes) e 5 Arquétipos.
-  - 8 Poderes jogáveis (Hemocinese, Telecinese, Superforça, Pirocinese, Manipulação de Tamanho, Troca de Forma, Persuasão Tátil e Tecnopatia), cada um com custos e consequências próprias.
-  - 30 Características disponíveis (escolha de 8) que desbloqueiam opções exclusivas nas cenas.
-  - 5 Atributos (*Potência, Controle, Intelecto, Carisma e Vigor*) com 7 pontos livres para distribuir.
-- **Reação em Cadeia (Sistema Estilo Efeito Borboleta):**
-  - Rastreia progressivamente as consequências das suas ações públicas, uso de poderes e decisões na investigação.
-- **Diário de Consequências & Elenco:**
-  - Acompanhe a evolução da afinidade com os outros alunos, sua posição no Ranking do Campus, Vitalidade e Estresse de Poder.
-- **3 Slots de Save + Exportação/Importação JSON.**
-
-## Como Rodar Localmente (XAMPP, VS Code ou Celular)
-
-O jogo foi construído em **HTML, CSS e JavaScript puro (estático)** — não precisa de banco de dados ou backend.
-
-- **No XAMPP:** Basta extrair os arquivos para dentro da pasta `htdocs/genv-godolkin/` e acessar `http://localhost/genv-godolkin/` no navegador (ou abrir diretamente o `index.html`).
-- **No GitHub Pages:** Suba os arquivos (`index.html`, `style.css`, `game.js`, `story.js`, `story.json` e `LEIA-ME.md`) para a raiz do seu repositório no GitHub e ative o **GitHub Pages** em *Settings > Pages > Branch: main / root*.
+Suba todos os 6 arquivos (`index.html`, `style.css`, `game.js`, `story.js`, `story.json` e `LEIA-ME.md`) para a raiz do seu repositório no GitHub substituindo os antigos.

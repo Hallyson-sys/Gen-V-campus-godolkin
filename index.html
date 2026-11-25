@@ -3,14 +3,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#080d17">
-  <meta name="description" content="Gen V: Campus Godolkin — Prólogo V0.1.1. Escolhas, criação de personagem, relações no campus e o sistema Reação em Cadeia.">
+  <meta name="theme-color" content="#0d0d0f">
+  <meta name="description" content="Gen V: Campus Godolkin — Prólogo V0.2. Estética grunge, criação de personagem, relações no campus e Reação em Cadeia.">
   <title>Gen V: Campus Godolkin — Sangue &amp; Ranking</title>
-  <link rel="stylesheet" href="style.css?v=0.1.1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime:ital,wght@0,400;0,700;1,700&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=0.2.0">
 </head>
 <body>
+  <svg class="svg-defs" aria-hidden="true" width="0" height="0" style="position:absolute">
+    <defs>
+      <filter id="grunge-rough">
+        <feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="3" result="noise"/>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+    </defs>
+  </svg>
   <div id="app" aria-live="polite"></div>
-  <script src="story.js?v=0.1.1" defer></script>
-  <script src="game.js?v=0.1.1" defer></script>
+  <script src="story.js?v=0.2.0" defer></script>
+  <script src="game.js?v=0.2.0" defer></script>
 </body>
 </html>

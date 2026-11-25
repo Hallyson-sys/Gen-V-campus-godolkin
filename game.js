@@ -1,4 +1,4 @@
-/* Gen V: Campus Godolkin — Motor Jogável V0.1.1
+/* Gen V: Campus Godolkin — Motor Jogável V0.2.0
  * Inclui: Criação de Personagem (4 passos), 3 Slots, Diário de Consequências,
  * Fichas de Elenco, Sistema "Reação em Cadeia" (Efeito Borboleta) e Exportação/Importação.
  */
@@ -195,9 +195,11 @@
     return `<header class="app-header">
       <button class="brand" data-action="menu" aria-label="Menu principal">${wordmark()}</button>
       <div class="header-right">
-        <span class="vought-pill">VOUGHT // DOSSIÊ</span>
-        <span class="header-status">PRÓLOGO · V0.1</span>
-        <button class="menu-btn" data-action="drawer" aria-expanded="${drawerOpen}">${drawerOpen ? 'FECHAR ✕' : 'MENU ☰'}</button>
+        <span class="header-status">PRÓLOGO · V0.2</span>
+        <button class="menu-btn" data-action="drawer" aria-expanded="${drawerOpen}">
+          <span class="menu-btn-bars">${drawerOpen ? '✕' : '☰'}</span>
+          <span>${drawerOpen ? 'FECHAR' : 'MENU'}</span>
+        </button>
       </div>
     </header>
     ${drawerOpen ? `<nav class="drawer" aria-label="Menu do jogo">
@@ -231,7 +233,7 @@
       ${chainNotice()}
       <footer class="app-footer">
         <span>GEN V: CAMPUS GODOLKIN · PRÓLOGO INTERATIVO</span>
-        <span>VOUGHT INTERNATIONAL · TODOS OS DIREITOS RESERVADOS</span>
+        <span class="vought-footer-mark">V7 VOUGHT</span>
       </footer>
     </div>`;
   }
@@ -245,14 +247,30 @@
     chainFlash = null;
     const hasSave = !!enter();
     layout(`<main class="menu-view">
-      <div class="menu-art" aria-hidden="true"></div>
+      <div class="menu-art" aria-hidden="true">
+        <div class="vandal-tag">GEN V</div>
+        <svg class="menu-art-svg" viewBox="0 0 600 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M180 120L390 45L590 120V560H180V120Z" fill="#27272A"/>
+          <rect x="210" y="140" width="24" height="360" fill="#18181B"/>
+          <rect x="265" y="140" width="24" height="360" fill="#18181B"/>
+          <rect x="320" y="140" width="24" height="360" fill="#18181B"/>
+          <rect x="375" y="140" width="24" height="360" fill="#18181B"/>
+          <rect x="430" y="140" width="24" height="360" fill="#18181B"/>
+          <rect x="485" y="140" width="24" height="360" fill="#18181B"/>
+          <rect x="310" y="480" width="230" height="240" fill="#141417"/>
+          <path d="M385 245C385 225 402 210 422 210C442 210 458 225 458 245C458 262 446 276 430 279L475 330L515 480H335L365 330L412 279C396 276 385 262 385 245Z" fill="#09090B"/>
+        </svg>
+      </div>
       <div class="menu-body">
-        <div class="kicker">UNIVERSIDADE GODOLKIN · CALOUROS</div>
+        <div class="kicker">UNIVERSIDADE GODOLKIN • CALOUROS</div>
         <h1 class="menu-wordmark">${wordmark(true)}</h1>
-        <p class="menu-tagline">Poder, ranking e segredos sob o campus.</p>
+        <div><span class="torn-strip">PODER, RANKING E SEGREDOS SOB O CAMPUS.</span></div>
         <p class="menu-lead">Crie seu estudante, domine suas habilidades do Composto V e descubra até onde a Vought vai para proteger sua imagem.</p>
-        <div class="menu-quote">“No Campus Godolkin, ser o número um salva sua vida — ou coloca um alvo nas suas costas.”</div>
-        <div class="button-row">
+        <div class="torn-quote-box">
+          <p>“No Campus Godolkin, ser o número um salva sua vida — ou coloca um alvo nas suas costas.”</p>
+          <span class="torn-quote-watermark">V7</span>
+        </div>
+        <div class="menu-stack-buttons">
           ${hasSave ? `<button class="primary" data-action="resume">CONTINUAR COMO ${safe(save.perfil.nome.toUpperCase())} <span>›</span></button>` : ''}
           <button class="${hasSave ? 'secondary' : 'primary'}" data-action="new">${hasSave ? 'NOVO ALUNO (RECOMEÇAR)' : 'CRIAR ALUNO E INICIAR'} <span>›</span></button>
           <button class="secondary" data-action="slots">PARTIDAS E SLOTS</button>
@@ -407,7 +425,7 @@
   function finishCreation() {
     save = {
       game: 'genv-campus-godolkin',
-      version: '0.1.0',
+      version: '0.2.0',
       slot,
       node: DATA.meta.start,
       perfil: {
@@ -793,7 +811,7 @@
           <p>• Vitalidade: <strong>${save.recursos.vitalidade}%</strong> | Estresse de Poder: <strong>${save.recursos.estresse}%</strong></p>
           <p>• Postura no Pacto: ${safe(pactText)}</p>
         </div>
-        <blockquote>“Eles nos criaram para serem heróis na TV. Ninguém perguntou o que acontece quando desligam as câmeras.”</blockquote>
+        <div class="torn-quote-box"><p>“Eles nos criaram para serem heróis na TV. Ninguém perguntou o que acontece quando desligam as câmeras.”</p><span class="torn-quote-watermark">V7</span></div>
         <div class="button-row">
           <button class="primary" data-action="export">EXPORTAR SAVE DO PRÓLOGO</button>
           <button class="secondary" data-action="journal">VER DIÁRIO</button>
