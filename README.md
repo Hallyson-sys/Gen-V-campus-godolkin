@@ -1,15 +1,14 @@
-# Gen V: Campus Godolkin — Sangue & Ranking (V0.8.0)
+# Gen V: Campus Godolkin — 0.9.0
 
-## Novidades da V0.8.0
-1. **Ranking Oficial Completo (#1 ao #100):** Painel dedicado acessível tanto pelo **Menu Principal** quanto pelo **Menu Lateral (Drawer)** ou clicando no botão `RANK #XX` no topo da tela do jogo.
-2. **Elenco + 92 NPCs Universitários + Protagonista:** Todas as 100 posições preenchidas com nome, ano letivo, poder e faixa (*Elite Vought*, *Destaque*, *Intermediário* e *Zona de Corte*), incluindo a vaga suspeita **#6 [REGISTRO BLOQUEADO · F-01]** e cliques diretos nos personagens do elenco principal.
-3. **Notificações em Tempo Real:** Sempre que uma escolha faz você subir (`▲`) ou cair (`▼`) no Ranking, um alerta estilo Vought+ aparece instantaneamente no topo da tela e fica registrado no Diário de Escolhas.
-4. **Filtros Rápidos:** Visualize *Todos (#1–#100)*, *Top 10 · Elite*, *Perto de Você* ou *Calouros (1º Ano)*.
+Abra index.html ou publique os arquivos na raiz do repositório. Não crie pasta assets: campus.webp e grain.webp ficam junto do CSS.
 
-## Como rodar localmente ou no Render
-- **Localmente:** Abra `index.html` no navegador ou rode `php -S localhost:8000` na pasta do projeto.
-- **No Render / GitHub:** Envie os arquivos (`index.html`, `index.php`, `style.css`, `game.js`, `story.js`, `story.json`) para seu repositório GitHub.
+## Novidades
+- 54 cenas, incluindo recepção, dormitórios, dois intervalos exploráveis e encontros opcionais.
+- Mapa esquemático interativo com 13 locais e posições narrativas dos seis alunos principais e protagonista. Deslocamento nos intervalos liberados.
+- Memórias individuais e notificações de escolhas relevantes, registradas no diário; consequências do favor de Clara e regras do quarto reaparecem em cenas posteriores.
+- Dois encontros pela manhã; até três atividades à tarde (duas se aceitar o favor).
+- Diálogos de abertura revisados e títulos sem numeração de turnos.
+- Chaves de saves anteriores preservadas. Para experimentar as novas cenas, comece uma partida nova em outro slot.
 
-## Atualização visual da tela inicial
-- Inclui a pasta `assets/` com o fundo recortado da referência fornecida e textura local. Mantenha essa pasta ao publicar.
-- Estilos restritos à tela inicial; ranking, história e saves mantêm a estrutura original.
+## Verificação
+Sintaxe JS, destinos de cenas e teste de lógica em Node com DOM simulado. Navegação real no navegador de teste bloqueada pelo ambiente; verificar visual e demais caminhos no Render.

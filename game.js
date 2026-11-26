@@ -1,4 +1,4 @@
-/* Gen V: Campus Godolkin — Motor Jogável V0.8.0
+/* Gen V: Campus Godolkin — Motor Jogável V0.9.0
  * Inclui:
  * - Ranking Oficial Completo (#1 ao #100) com Elenco Principal, 92 NPCs da Universidade e o Protagonista
  * - Aba "RANKING" no Menu Principal e no Drawer com filtros (Top 10, Perto de Você, Calouros, Todos #1–#100)
@@ -31,7 +31,7 @@
       id: 'hemocinese',
       nome: 'Hemocinese (Controle Sanguíneo)',
       desc: 'Solidifica o próprio sangue em lâminas ou barreiras e detecta batimentos cardíacos à distância.',
-      custo: 'Custo: Exige se cortar (perde Vitalidade) e deixa rastros comprometedores.'
+      custo: 'Custo: consome energia e exige controle.'
     },
     {
       id: 'superforca',
@@ -274,6 +274,7 @@
   let chainTimer = null;
   let rankFlash = null;
   let rankTimer = null;
+  let memoryFlash = [], memoryTimer, mapSelected = null;
 
   let creatorStep = 1;
   let draft = null;
@@ -423,7 +424,7 @@
     return `<header class="app-header">
       <button class="brand" data-action="menu" aria-label="Menu principal">${wordmark()}</button>
       <div class="header-right">
-        <span class="header-status">${screen === 'menu' ? 'VOUGHT // DOSSIÊ' : 'PRÓLOGO · V0.8.0'}</span>
+        <span class="header-status">${screen === 'menu' ? 'VOUGHT // DOSSIÊ' : 'PRÓLOGO · V0.9.0'}</span>
         <button class="menu-btn" data-action="drawer" aria-expanded="${drawerOpen}">
           <span class="menu-btn-bars">${drawerOpen ? '✕' : '☰'}</span>
           <span>${drawerOpen ? 'FECHAR' : 'MENU'}</span>
@@ -433,6 +434,7 @@
     ${drawerOpen ? `<nav class="drawer" aria-label="Menu do jogo">
       ${save ? '<button data-action="resume">Retomar a história</button>' : ''}
       ${save ? '<button data-action="dossier">Ficha do Meu Aluno</button>' : ''}
+      ${save ? '<button data-action="map">Mapa de Godolkin</button>' : ''}
       <button data-action="ranking">Ranking Oficial (#1–#100)</button>
       ${save ? '<button data-action="journal">Diário de Escolhas</button>' : ''}
       <button data-action="chain">Reação em Cadeia</button>
@@ -466,10 +468,13 @@
         </span>
       </div>`;
     }
+    if (memoryFlash.length) html += `<div class="memory-toast" role="status">◈ ${memoryFlash.map(id => safe(getFirstName(CAST.find(x=>x.id===id)?.name || id))).join(' e ')} ${memoryFlash.length>1?'se lembrarão':'se lembrará'} disso.</div>`;
     return html;
   }
 
   function scheduleToastDismiss() {
+    if (memoryTimer) clearTimeout(memoryTimer);
+    if (memoryFlash.length) memoryTimer=setTimeout(()=>{memoryFlash=[];document.querySelector(".memory-toast")?.remove();},5500);
     if (chainTimer) clearTimeout(chainTimer);
     if (rankTimer) clearTimeout(rankTimer);
     if (chainFlash) {
@@ -504,6 +509,8 @@
     if (!keepDrawer) drawerOpen = false;
     chainFlash = null;
     rankFlash = null;
+    memoryFlash = [];
+
     const hasSave = !!enter();
     const firstName = hasSave ? getFirstName(save.perfil.nome) : '';
     layout(`<main class="menu-view">
@@ -671,7 +678,7 @@
   function finishCreation() {
     save = {
       game: 'genv-campus-godolkin',
-      version: '0.8.0',
+      version: '0.9.0',
       slot,
       node: DATA.meta.start,
       perfil: {
@@ -719,6 +726,10 @@
   }
 
   function evaluateChoice(c) {
+    if (c.room && ((save.perfil.pronomes === "ele/dele" && c.room !== "m") || (save.perfil.pronomes === "ela/dela" && c.room !== "f"))) return {visible:false};
+    if (c.once && save.visited.includes(c.once)) return {visible:false};
+    if (SCENES[save.node]?.hub === "morning" && c.once && morningCount() >= 2) return {visible:false};
+    if (SCENES[save.node]?.hub === "afternoon" && c.once && afternoonCount() >= (save.flags.favor_aceito ? 2 : 3)) return {visible:false};
     if (c.requirePower && save.perfil.poder_id !== c.requirePower) {
       return { visible: false };
     }
@@ -750,6 +761,9 @@
 
   function move(to, choice) {
     if (!SCENES[to]) return;
+    memoryFlash=[];
+    save.memories ||= [];
+    if(choice?.memory?.length){ memoryFlash=[...new Set(choice.memory)]; save.memories.push({people:memoryFlash,scene:save.node,label:choice.label}); }
     chainFlash = null;
     rankFlash = null;
     if (!save.romance) save.romance = { ...BASE_ROMANCE };
@@ -884,6 +898,7 @@
         }).join('')}</div>`
       : `<div class="button-row"><button class="primary" data-action="end">VER RESULTADO DO PRÓLOGO <span>›</span></button></div>`;
 
+    const hub = n.hub ? `<div class="explore-status">${n.hub==='morning'?`Encontros disponíveis: ${Math.max(0,2-morningCount())}`:`Atividades disponíveis: ${Math.max(0,(save.flags.favor_aceito?2:3)-afternoonCount())}`} · <button data-action="map">Abrir mapa ↗</button></div>` : "";
     const pct = save.node === 'end' ? 100 : Math.min(97, Math.max(5, Math.round((save.visited.length / 26) * 100)));
 
     layout(`<main class="play-view">
@@ -894,6 +909,7 @@
             <button type="button" class="hud-rank-btn" data-action="ranking" title="Abrir Ranking Oficial (#1–#100)">RANK #${save.perfil.ranking_campus} ↗</button>
             <span class="fine">(${safe(podObj ? podObj.nome.split(' ')[0] : '')})</span>
           </div>
+          <button class="map-icon" data-action="map" aria-label="Mapa de Godolkin">▧ MAPA</button>
           <div class="hud-meters">
             <span class="hud-hp">VITALIDADE: ${save.recursos.vitalidade}%</span>
             <span class="hud-stress">ESTRESSE: ${save.recursos.estresse}%</span>
@@ -910,7 +926,7 @@
 
         <section class="story-window">
           <div class="story-scroll">${baseTextHtml}${extraTextHtml}${afterDynamicHtml}</div>
-          ${choicesHtml}
+          ${hub}${choicesHtml}
           <div class="story-bottom">
             <span>◉ Slot ${slot} · <button data-action="ranking">RANKING #1–#100</button></span>
             <button data-action="journal">DIÁRIO &amp; VÍNCULOS ↗</button>
@@ -924,6 +940,31 @@
         </div>
       </div>
     </main>`);
+  }
+
+
+  const morningCount=()=>['calouros_1','elite_1','arcadas_1','favor_clara','biblioteca_m'].filter(k=>save.visited.includes(k)).length;
+  const afternoonCount=()=>['clara_retorno','maya_tarde','dorm_tarde'].filter(k=>save.visited.includes(k)).length;
+  const MAP_PLACES=[['gate','Portões / recepção',50,91],['male','Dormitório masculino',16,70],['female','Dormitório feminino',83,70],['single','Alojamento individual',50,76],['patio','Pátio central',50,51],['stairs','Escadarias',17,48],['library','Biblioteca',16,25],['arcade','Arcadas',83,47],['vip','Área VIP',83,25],['arena','Pavilhão B / arena',50,27],['office','Reitoria',50,9],['food','Refeitório',16,9],['tower','Torre Norte',83,9]];
+  const scenePlace=k=>k==='chegada_campus'||k==='dorm_escolha'?'gate':k==='dorm_m'?'male':k==='dorm_f'?'female':k==='dorm_ind'?'single':k==='dorm_tarde'||k==='tarde_7'?(save.flags.dorm_m?'male':save.flags.dorm_f?'female':'single'):k.startsWith('calouros')||k==='favor_clara'?'stairs':k.startsWith('elite')?'vip':k.startsWith('arcadas')?'arcade':k.startsWith('arena')?'arena':k==='biblioteca_m'||k==='maya_tarde'?'library':/^tarde_[234]$/.test(k)?'office':/^tarde_[56]$/.test(k)?'food':k.startsWith('festa')||k==='end'?'tower':k.startsWith('explorar')||k==='clara_retorno'||k==='tarde_1'?'patio':null;
+  function campusPositions(){
+    const k=save.node, here=scenePlace(k); if(!here)return {};
+    let pos={clara:'stairs',luka:'stairs',maya:'arcade',otavio:'arcade',matteo:'vip',zoe:'vip'};
+    if(k==='dorm_m')Object.assign(pos,{luka:'male',otavio:'male'});
+    if(k==='dorm_f')Object.assign(pos,{clara:'female',maya:'female'});
+    if(k.startsWith('arena'))Object.keys(pos).forEach(id=>pos[id]='arena');
+    if(k.startsWith('tarde')||k==='explorar_tarde'||k==='maya_tarde'||k==='clara_retorno'||k==='dorm_tarde')pos={clara:'patio',maya:'library',luka:'male',otavio:'male',matteo:'vip',zoe:'vip'};
+    if(/^tarde_[56]$/.test(k))Object.assign(pos,{clara:'food',maya:'food',luka:'food',otavio:'food'});
+    if(k==='dorm_tarde'||k==='tarde_7')Object.assign(pos,{clara:'female',maya:'female',luka:'male',otavio:'male'});
+    if(here==='tower')Object.keys(pos).forEach(id=>pos[id]='tower');
+    return {...pos,player:here};
+  }
+  function mapView(){
+    if(!save){menu();return;} screen='map';drawerOpen=false;
+    const positions=campusPositions(), selected=MAP_PLACES.find(p=>p[0]===mapSelected), names=id=>id==='player'?getFirstName(save.perfil.nome)+' (você)':getFirstName(CAST.find(x=>x.id===id)?.name||id);
+    const choices=SCENES[save.node]?.choices||[];
+    const access=selected&&SCENES[save.node]?.hub?choices.map((c,i)=>({c,i})).filter(({c})=>scenePlace(c.to)===selected[0]&&evaluateChoice(c).visible&&evaluateChoice(c).enabled):[];
+    layout(`<main class="play-view"><div class="play-content"><div class="kicker">GODOLKIN // GUIA DO CAMPUS</div><h2>Mapa da universidade</h2><p class="fine">${safe(SCENES[save.node]?.time)} · Localização narrativa do grupo. Toque em um prédio.</p><div class="campus-map"><svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M50 92V9 M16 9V70 M83 9V70 M16 25H83 M16 48H83 M16 70H83 M16 9H83" fill="none" stroke="#8d8059" stroke-width="1.7" stroke-dasharray="2 1"/></svg>${MAP_PLACES.map(([id,label,x,y])=>{const people=Object.keys(positions).filter(k=>positions[k]===id);return `<button class="campus-pin ${people.includes('player')?'here':''} ${mapSelected===id?'selected':''}" data-map-pin="${id}" style="left:${x}%;top:${y}%"><span>${safe(label)}</span><small>${people.map(k=>safe(names(k).slice(0,1))).join(' · ')||'◇'}</small></button>`}).join('')}</div><section class="map-detail"><h3>${selected?safe(selected[1]):'Onde está o grupo?'}</h3>${(selected?Object.entries(positions).filter(([k,v])=>v===selected[0]):Object.entries(positions)).map(([k,v])=>`<div class="map-person"><b>${safe(names(k))}</b><span>${safe(MAP_PLACES.find(p=>p[0]===v)?.[1])}</span></div>`).join('')||'<p>Nenhuma localização conhecida neste ponto da história.</p>'}${access.map(({c,i})=>`<button class="choice" data-map-choice="${i}">${safe(c.label)} ↗</button>`).join('')}${selected&&!access.length?'<p class="fine">Deslocamento disponível apenas nos intervalos e destinos liberados.</p>':''}</section><button class="primary" data-action="resume">← VOLTAR À HISTÓRIA</button></div></main>`);
   }
 
   function rankingView() {
@@ -1084,7 +1125,7 @@
             }).join('')}
           </section>
           <section>
-            <h2>Decisões Registradas (${save.history.length})</h2>
+            <h2>Memórias dos personagens (${(save.memories||[]).length})</h2><ol class="history">${(save.memories||[]).slice().reverse().map(m=>`<li><small>${m.people.map(id=>safe(getFirstName(CAST.find(c=>c.id===id)?.name||id))).join(' · ')}</small><span>${safe(m.label)}</span></li>`).join('')||'<li>Nenhuma memória registrada ainda.</li>'}</ol><h2>Decisões Registradas (${save.history.length})</h2>
             <ol class="history">${entries || '<li>Suas escolhas aparecerão aqui conforme você avança.</li>'}</ol>
           </section>
         </div>
@@ -1343,6 +1384,7 @@
   function render() {
     if (screen === 'creator') creator();
     else if (screen === 'game') game();
+    else if (screen === 'map') mapView();
     else if (screen === 'ranking') rankingView();
     else if (screen === 'dossier') dossier();
     else if (screen === 'journal') journal();
@@ -1368,6 +1410,10 @@
   });
 
   root.addEventListener('click', (e) => {
+    const pin=e.target.closest('[data-map-pin]');
+    if(pin){mapSelected=pin.dataset.mapPin;mapView();return;}
+    const travel=e.target.closest('[data-map-choice]');
+    if(travel){const c=SCENES[save?.node]?.choices?.[Number(travel.dataset.mapChoice)];if(c&&evaluateChoice(c).visible&&evaluateChoice(c).enabled)move(c.to,c);return;}
     const rToast = e.target.closest('#rank-toast');
     if (rToast) {
       rankFlash = null;
@@ -1429,7 +1475,7 @@
     if (btn.hasAttribute('data-choice-idx')) {
       const n = SCENES[save?.node];
       const c = n?.choices?.[Number(btn.dataset.choiceIdx)];
-      if (c) move(c.to, c);
+      if (c && evaluateChoice(c).visible && evaluateChoice(c).enabled) move(c.to, c);
       return;
     }
     if (btn.hasAttribute('data-pick-cast')) {
@@ -1466,6 +1512,7 @@
         else finishCreation();
         break;
       case 'resume': drawerOpen = false; if (!save) enter(); if (save) game(); else menu(); break;
+      case 'map': mapSelected=null; mapView(); break;
       case 'ranking': rankingView(); break;
       case 'dossier': dossier(); break;
       case 'journal': journal(); break;

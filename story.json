@@ -1,7 +1,7 @@
 {
   "meta": {
     "game": "Gen V: Campus Godolkin",
-    "version": "0.8.0",
+    "version": "0.9.0",
     "chapter": "Prólogo — Despertar, Anos Ocultos, Reitoria e a Noite na Torre Norte",
     "start": "origem_roteador"
   },
@@ -1032,62 +1032,14 @@
       "title": "Ato III · Calouro em Godolkin",
       "time": "08:15 · PRIMEIRO DIA",
       "stage": "PÁTIO CENTRAL · UNIVERSIDADE GODOLKIN",
-      "text": "PRIMEIRO DIA COMO CALOURO.\n\nOs portões de ferro da Universidade Godolkin se abrem diante de você. Estátuas douradas dos antigos membros dos Sete vigiam o pátio central enquanto drones de transmissão da Vought+ sobrevoam os novatos.\n\nNo telão digital acima da biblioteca, o Ranking Oficial do Campus (#1 ao #100) pisca em tempo real. Como recém-chegado, você entra na lista entre centenas de estudantes ambiciosos e colegas tão perdidos quanto você.\n\nAinda faltam mais de quarenta minutos para a primeira chamada na Arena de Simulação. Perto das escadarias, Clara Vance e Luka Lancelloti observam os drones; na área VIP, Matteo e Zoe Lee posam para câmeras; sob as arcadas de pedra, Maya Dunlap e Otávio O'Connor acompanham tudo em silêncio.",
+      "text": "PRIMEIRO DIA COMO CALOURO.\n\nOs portões de ferro da Universidade Godolkin se abrem diante de você. Estátuas douradas dos antigos membros dos Sete vigiam o pátio central enquanto drones de transmissão da Vought+ sobrevoam os novatos.\n\nNo telão digital acima da biblioteca, o Ranking Oficial do Campus (#1 ao #100) pisca em tempo real. Como recém-chegado, você entra na lista entre centenas de estudantes ambiciosos e colegas tão perdidos quanto você.\n\nNa recepção, uma funcionária entrega seu cartão estudantil.\n\nFuncionária: — Antes de sair por aí, escolha seu alojamento. A avaliação começa às nove.",
       "choices": [
         {
-          "label": "Aproximar-se dos outros calouros (Clara e Luka) perto das escadarias",
-          "to": "calouros_1",
+          "label": "Receber a chave e escolher o quarto",
+          "to": "dorm_escolha",
           "effects": {
-            "flags": {
-              "aproximou_calouros": true
-            },
-            "bonds": {
-              "clara": 5,
-              "luka": 5
-            }
-          }
-        },
-        {
-          "label": "Caminhar até a área VIP para se apresentar a Matteo e Zoe Lee",
-          "to": "elite_1",
-          "effects": {
-            "flags": {
-              "aproximou_elite": true
-            },
-            "bonds": {
-              "matteo": 5,
-              "zoe": 4
-            },
-            "rank": -2
-          }
-        },
-        {
-          "label": "Ficar sob as arcadas ao lado de Maya Dunlap e Otávio O'Connor observando o pátio",
-          "to": "arcadas_1",
-          "effects": {
-            "flags": {
-              "aproximou_observadores": true
-            },
-            "bonds": {
-              "maya": 5,
-              "otavio": 5
-            }
-          }
-        },
-        {
-          "label": "Soltar um comentário sarcástico sobre o show dos drones perto da escadaria",
-          "requireTrait": "sarcastico",
-          "to": "calouros_1",
-          "effects": {
-            "flags": {
-              "aproximou_calouros": true,
-              "ironia_patio": true
-            },
-            "bonds": {
-              "clara": 8,
-              "luka": 7,
-              "matteo": -3
-            }
+            "flags": {},
+            "bonds": {}
           }
         }
       ],
@@ -1112,13 +1064,13 @@
     },
     "calouros_1": {
       "id": "calouros_1",
-      "title": "Os Novatos da Escadaria · Turno 1",
+      "title": "Os Novatos da Escadaria",
       "time": "08:20",
       "stage": "ESCADARIAS DA BIBLIOTECA",
       "text": "Clara solta um assobio baixo quando você se aproxima, medindo você de cima a baixo antes de estender o punho para um cumprimento rápido.\n\nClara: — Mais um carneiro novo pro abate. Sou a Clara, e esse aqui calculando a velocidade dos drones como se fosse cair na prova é o Luka. Pelo menos você não parece um robô sorridente igual à turma do Matteo lá na frente.\n\nLuka fecha o caderno gasto e aperta sua mão em frações de segundo, com um sorriso cético.\n\nLuka: — Bem-vindo ao 1º ano, {NOME}. Dica grátis de quem leu o regulamento inteiro antes de assinar: o ranking aqui não mede quem é mais forte, mede quem dá mais audiência.",
       "choices": [
         {
-          "label": "Perguntar a Luka como ele já sabe tanto sobre os bastidores sendo calouro também",
+          "label": "Como você sabe tanto sobre isso, Luka?",
           "to": "calouros_2",
           "effects": {
             "flags": {
@@ -1131,7 +1083,7 @@
           }
         },
         {
-          "label": "Brincar com Clara sobre os veteranos posando para as câmeras no meio do pátio",
+          "label": "Parece que o pessoal ensaiou para as câmeras, né?",
           "to": "calouros_2",
           "effects": {
             "flags": {
@@ -1141,10 +1093,13 @@
               "clara": 5,
               "luka": 2
             }
-          }
+          },
+          "memory": [
+            "clara"
+          ]
         },
         {
-          "label": "Perguntar se eles já sabem como funciona a primeira aula prática do dia",
+          "label": "Vocês sabem como vai ser a primeira aula?",
           "to": "calouros_2",
           "effects": {
             "flags": {
@@ -1157,7 +1112,7 @@
           }
         },
         {
-          "label": "Apontar uma falha na rota de vigilância dos drones que nem Luka havia anotado",
+          "label": "Tem algo estranho na rota dos drones.",
           "requireAttr": {
             "attr": "intelecto",
             "min": 3
@@ -1172,14 +1127,17 @@
               "luka": 7,
               "clara": 4
             }
-          }
+          },
+          "memory": [
+            "luka"
+          ]
         }
       ],
       "dynamic": []
     },
     "calouros_2": {
       "id": "calouros_2",
-      "title": "Os Novatos da Escadaria · Turno 2",
+      "title": "Os Novatos da Escadaria",
       "time": "08:28",
       "stage": "ESCADARIAS DA BIBLIOTECA",
       "text": "",
@@ -1226,7 +1184,10 @@
             "bonds": {
               "clara": 5
             }
-          }
+          },
+          "memory": [
+            "clara"
+          ]
         },
         {
           "label": "Dizer que não tem medo de veteranos e pretende subir no Ranking do seu jeito",
@@ -1254,13 +1215,16 @@
               "luka": 5,
               "clara": 4
             }
-          }
+          },
+          "memory": [
+            "luka"
+          ]
         }
       ]
     },
     "calouros_3": {
       "id": "calouros_3",
-      "title": "Os Novatos da Escadaria · Turno 3",
+      "title": "Os Novatos da Escadaria",
       "time": "08:36",
       "stage": "ESCADARIAS DA BIBLIOTECA",
       "text": "",
@@ -1296,7 +1260,11 @@
               "clara": 6,
               "luka": 6
             }
-          }
+          },
+          "memory": [
+            "clara",
+            "luka"
+          ]
         },
         {
           "label": "Aceitar caminhar junto, mas avisar que prefere ir com calma antes de confiar totalmente",
@@ -1322,7 +1290,10 @@
               "clara": 5,
               "luka": 3
             }
-          }
+          },
+          "memory": [
+            "clara"
+          ]
         },
         {
           "label": "Ler a tensão nos ombros de Clara e garantir que ela não vai enfrentar o treino sozinha",
@@ -1337,13 +1308,17 @@
               "clara": 8,
               "luka": 6
             }
-          }
+          },
+          "memory": [
+            "clara",
+            "luka"
+          ]
         }
       ]
     },
     "calouros_4": {
       "id": "calouros_4",
-      "title": "Rumo ao Pavilhão B · Turno 4",
+      "title": "Rumo ao Pavilhão B",
       "time": "08:48",
       "stage": "CORREDOR DE ACESSO À ARENA",
       "text": "",
@@ -1365,11 +1340,11 @@
           "text": "Clara relaxa os ombros por um segundo e olha para você com gratidão sincera: 'Valeu, {NOME}. Sério mesmo. É bom ter alguém que não tá aqui só pra competir.'"
         }
       ],
-      "textAfterDynamic": "Nesse exato instante, o alto-falante central do pátio emite um sinal sonoro agudo, convocando todos os alunos do 1º e 2º anos para a avaliação inicial de campo.\n\nClara dá um salto ágil do degrau, pendurando a mochila em um ombro só e apontando para as portas duplas blindadas ao fundo do pátio.\n\nClara: — É isso, hora do show de horrores do Professor Brinker. Bora pra Arena antes que o Matteo pegue os melhores lugares na frente das câmeras, {NOME}. Vamos andando!\n\nLuka ajusta os tênis e acompanha o passo de vocês dois pelo corredor que leva ao Pavilhão B.",
+      "textAfterDynamic": "O painel anuncia que a avaliação começará às nove. Ainda há tempo para voltar ao pátio ou seguir para o Pavilhão B.",
       "choices": [
         {
-          "label": "Seguir ao lado de Clara e Luka até a entrada da Arena de Simulação",
-          "to": "arena_1",
+          "label": "Seguir ao lado de Clara e Luka de volta ao pátio",
+          "to": "explorar_manha",
           "effects": {
             "bonds": {
               "clara": 2,
@@ -1379,7 +1354,7 @@
         },
         {
           "label": "Acelerar o passo para entrar na Arena com postura confiante diante dos veteranos",
-          "to": "arena_1",
+          "to": "explorar_manha",
           "effects": {
             "rank": -2
           }
@@ -1390,7 +1365,7 @@
             "attr": "controle",
             "min": 3
           },
-          "to": "arena_1",
+          "to": "explorar_manha",
           "effects": {
             "flags": {
               "foco_pre_arena": true
@@ -1401,13 +1376,13 @@
     },
     "elite_1": {
       "id": "elite_1",
-      "title": "Sob a Luz dos Patrocinadores · Turno 1",
+      "title": "Sob a Luz dos Patrocinadores",
       "time": "08:20",
       "stage": "ÁREA VIP · PÁTIO CENTRAL",
       "text": "Assim que você cruza a faixa reservada, um dos drones dá zoom no seu rosto, fazendo seu nome subir no painel digital acima da biblioteca.\n\nMatteo ajusta o casaco impecável e estende a mão com um sorriso de comercial de TV, enquanto Zoe Lee apoia o queixo na mão, analisando cada detalhe da sua postura com olhos elétricos.\n\nMatteo: — Coragem de vir direto falar com o Top 2 no primeiro dia, {NOME}. Sou Matteo. A maioria dos calouros fica tremendo perto da escadaria.\n\nZoe: — E eu sou Zoe Lee. Adoro quem sabe onde as câmeras estão apontadas, {NOME}. Mas diga: você veio para Godolkin para aparecer ou tem poder suficiente para sustentar essa entrada?",
       "choices": [
         {
-          "label": "Responder com firmeza que não veio para ser figurante no fundo do pátio",
+          "label": "Não vim até aqui para ser figurante.",
           "to": "elite_2",
           "effects": {
             "flags": {
@@ -1418,10 +1393,13 @@
               "zoe": 4
             },
             "rank": -2
-          }
+          },
+          "memory": [
+            "matteo"
+          ]
         },
         {
-          "label": "Responder com ironia suave que prefere deixar os resultados da Arena falarem por você",
+          "label": "Prefiro deixar os resultados falarem por mim.",
           "to": "elite_2",
           "effects": {
             "flags": {
@@ -1431,10 +1409,13 @@
               "zoe": 6,
               "matteo": 2
             }
-          }
+          },
+          "memory": [
+            "zoe"
+          ]
         },
         {
-          "label": "Elogiar o alcance midiático dos dois e perguntar como funciona o sistema de patrocínios",
+          "label": "Como funcionam os patrocínios de vocês?",
           "to": "elite_2",
           "effects": {
             "flags": {
@@ -1444,10 +1425,13 @@
               "matteo": 6,
               "zoe": 3
             }
-          }
+          },
+          "memory": [
+            "matteo"
+          ]
         },
         {
-          "label": "Ler a linguagem corporal tensa de Matteo e responder exatamente o que ele quer ouvir",
+          "label": "Imagino que sustentar essa imagem não seja fácil.",
           "requireAttr": {
             "attr": "carisma",
             "min": 3
@@ -1463,14 +1447,18 @@
               "zoe": 7
             },
             "rank": -2
-          }
+          },
+          "memory": [
+            "matteo",
+            "zoe"
+          ]
         }
       ],
       "dynamic": []
     },
     "elite_2": {
       "id": "elite_2",
-      "title": "Sob a Luz dos Patrocinadores · Turno 2",
+      "title": "Sob a Luz dos Patrocinadores",
       "time": "08:28",
       "stage": "ÁREA VIP · PÁTIO CENTRAL",
       "text": "",
@@ -1505,7 +1493,10 @@
               "zoe": 5,
               "matteo": 2
             }
-          }
+          },
+          "memory": [
+            "zoe"
+          ]
         },
         {
           "label": "Perguntar por que Matteo parece evitar olhar para Clara Vance na escadaria",
@@ -1531,7 +1522,10 @@
               "matteo": 6,
               "zoe": 4
             }
-          }
+          },
+          "memory": [
+            "matteo"
+          ]
         },
         {
           "label": "Perceber pequenas faíscas estáticas nos dedos de Zoe sempre que ela testa alguém",
@@ -1545,13 +1539,16 @@
               "zoe": 6,
               "matteo": 3
             }
-          }
+          },
+          "memory": [
+            "zoe"
+          ]
         }
       ]
     },
     "elite_3": {
       "id": "elite_3",
-      "title": "Sob a Luz dos Patrocinadores · Turno 3",
+      "title": "Sob a Luz dos Patrocinadores",
       "time": "08:36",
       "stage": "ÁREA VIP · PÁTIO CENTRAL",
       "text": "",
@@ -1587,7 +1584,11 @@
               "zoe": 5
             },
             "rank": -2
-          }
+          },
+          "memory": [
+            "matteo",
+            "zoe"
+          ]
         },
         {
           "label": "Dizer que prefere observar como as coisas funcionam na prática antes de fechar acordos",
@@ -1606,7 +1607,7 @@
     },
     "elite_4": {
       "id": "elite_4",
-      "title": "Convite para o Pavilhão B · Turno 4",
+      "title": "Convite para o Pavilhão B",
       "time": "08:48",
       "stage": "CORREDOR DE ACESSO À ARENA",
       "text": "",
@@ -1620,11 +1621,11 @@
           "text": "Zoe inclina levemente a cabeça com um sorriso divertido: 'Cauteloso. Justo, {NOME} — a Arena sempre revela quem é quem.'"
         }
       ],
-      "textAfterDynamic": "A sirene de chamada ecoa pelo pátio central. Zoe passa a alça da bolsa pelo ombro com elegância enquanto Matteo aponta para o corredor principal.\n\nMatteo: — Vamos para a Arena agora, {NOME}. O Professor Brinker odeia atrasos, e a imprensa estudantil já está posicionada nas galerias superiores.\n\nZoe olha para trás por cima do ombro com um meio sorriso desafiador:\n\nZoe: — Venha com a gente, {NOME}. Vamos ver se você brilha tanto sob pressão quanto aqui fora.",
+      "textAfterDynamic": "O painel anuncia que a avaliação começará às nove. Ainda há tempo para voltar ao pátio ou seguir para o Pavilhão B.",
       "choices": [
         {
           "label": "Caminhar ao lado de Matteo e Zoe até o Pavilhão B",
-          "to": "arena_1",
+          "to": "explorar_manha",
           "effects": {
             "bonds": {
               "matteo": 2,
@@ -1634,7 +1635,7 @@
         },
         {
           "label": "Acompanhar o ritmo deles mantendo distância estratégica para observar o ambiente",
-          "to": "arena_1",
+          "to": "explorar_manha",
           "effects": {
             "bonds": {
               "zoe": 3
@@ -1645,13 +1646,13 @@
     },
     "arcadas_1": {
       "id": "arcadas_1",
-      "title": "Sombra das Pilastras · Turno 1",
+      "title": "Sombra das Pilastras",
       "time": "08:20",
       "stage": "ARCADAS LATERAIS",
       "text": "Você se encosta na pilastra de pedra longe dos refletores. Otávio O'Connor vira-se com um sorriso tranquilo e oferece uma garrafa de água lacrada, enquanto Maya Dunlap observa você com as mãos protegidas por luvas pretas.\n\nOtávio: — Olha só, um calouro com instinto de autopreservação. Sou o Otávio, e essa é a Maya. Não se assuste com o jeito sério dela, ela só está contando quantas câmeras estão apontadas pra gente.\n\nMaya: — Sete. E três delas pertencem à segurança interna, não à transmissão pública da Vought+. Prazer, {NOME}.",
       "choices": [
         {
-          "label": "Aceitar a água de Otávio e perguntar por que a segurança interna vigia tanto os novatos",
+          "label": "Valeu pela água. Por que tanta segurança?",
           "to": "arcadas_2",
           "effects": {
             "flags": {
@@ -1662,10 +1663,14 @@
               "otavio": 5,
               "maya": 5
             }
-          }
+          },
+          "memory": [
+            "otavio",
+            "maya"
+          ]
         },
         {
-          "label": "Brincar com Otávio dizendo que já estava cansado de ver gente posando para drones",
+          "label": "Já estava cansado daquele desfile de câmeras.",
           "to": "arcadas_2",
           "effects": {
             "flags": {
@@ -1675,10 +1680,13 @@
               "otavio": 7,
               "maya": 3
             }
-          }
+          },
+          "memory": [
+            "otavio"
+          ]
         },
         {
-          "label": "Perguntar por que Maya usa luvas pretas mesmo no calor da manhã",
+          "label": "Maya, você sempre usa essas luvas?",
           "to": "arcadas_2",
           "effects": {
             "flags": {
@@ -1691,7 +1699,7 @@
           }
         },
         {
-          "label": "Apontar a quarta câmera oculta perto do elevador de serviço ao fundo do corredor",
+          "label": "Acho que tem mais uma câmera ali.",
           "requireTrait": "observador",
           "to": "arcadas_2",
           "effects": {
@@ -1704,14 +1712,18 @@
               "maya": 9,
               "otavio": 5
             }
-          }
+          },
+          "memory": [
+            "maya",
+            "otavio"
+          ]
         }
       ],
       "dynamic": []
     },
     "arcadas_2": {
       "id": "arcadas_2",
-      "title": "Sombra das Pilastras · Turno 2",
+      "title": "Sombra das Pilastras",
       "time": "08:28",
       "stage": "ARCADAS LATERAIS",
       "text": "",
@@ -1748,7 +1760,10 @@
               "clara": 2,
               "luka": 2
             }
-          }
+          },
+          "memory": [
+            "otavio"
+          ]
         },
         {
           "label": "Dizer a Maya que ela tem razão em investigar o que a Vought esconde",
@@ -1761,7 +1776,10 @@
               "maya": 6,
               "otavio": 2
             }
-          }
+          },
+          "memory": [
+            "maya"
+          ]
         },
         {
           "label": "Apoiar a cautela de Otávio e dizer que primeiro é preciso sobreviver ao primeiro dia",
@@ -1774,7 +1792,10 @@
               "otavio": 6,
               "maya": 3
             }
-          }
+          },
+          "memory": [
+            "otavio"
+          ]
         },
         {
           "label": "Demonstrar empatia pela carga emocional que Otávio esconde por trás do bom humor",
@@ -1788,13 +1809,17 @@
               "otavio": 9,
               "maya": 5
             }
-          }
+          },
+          "memory": [
+            "otavio",
+            "maya"
+          ]
         }
       ]
     },
     "arcadas_3": {
       "id": "arcadas_3",
-      "title": "Sombra das Pilastras · Turno 3",
+      "title": "Sombra das Pilastras",
       "time": "08:36",
       "stage": "ARCADAS LATERAIS",
       "text": "",
@@ -1829,7 +1854,11 @@
               "maya": 5,
               "otavio": 5
             }
-          }
+          },
+          "memory": [
+            "maya",
+            "otavio"
+          ]
         },
         {
           "label": "Agradecer o aviso e dizer que sabe se cuidar quando o caos começa",
@@ -1848,7 +1877,7 @@
     },
     "arcadas_4": {
       "id": "arcadas_4",
-      "title": "Chamada para a Arena · Turno 4",
+      "title": "Chamada para a Arena",
       "time": "08:48",
       "stage": "CORREDOR DE ACESSO À ARENA",
       "text": "",
@@ -1862,11 +1891,11 @@
           "text": "Maya assente levemente: 'Só não subestime os drones do Brinker, {NOME}. Eles não são brinquedos de treino.'"
         }
       ],
-      "textAfterDynamic": "O sinal sonoro da primeira aula ecoa pelas arcadas de pedra. Otávio endireita os ombros e aponta com o polegar para o corredor que leva ao ginásio blindado.\n\nOtávio: — Bom, hora de encarar a Arena de Simulação, {NOME}. Vamos andando antes que o Professor Brinker comece a descontar pontos de presença.\n\nMaya caminha ao seu lado mantendo um passo de distância respeitoso até a entrada do Pavilhão B.",
+      "textAfterDynamic": "O painel anuncia que a avaliação começará às nove. Ainda há tempo para voltar ao pátio ou seguir para o Pavilhão B.",
       "choices": [
         {
           "label": "Seguir com Maya e Otávio para a Arena de Simulação",
-          "to": "arena_1",
+          "to": "explorar_manha",
           "effects": {
             "bonds": {
               "maya": 2,
@@ -1876,7 +1905,7 @@
         },
         {
           "label": "Entrar na Arena atento a cada movimento de Matteo",
-          "to": "arena_1",
+          "to": "explorar_manha",
           "effects": {
             "flags": {
               "alerta_matteo": true
@@ -1890,7 +1919,7 @@
     },
     "arena_1": {
       "id": "arena_1",
-      "title": "O Teste de Campo · Turno 1",
+      "title": "O Teste de Campo",
       "time": "10:00",
       "stage": "ARENA DE SIMULAÇÃO · PAVILHÃO B",
       "text": "O ginásio blindado cheira a ozônio e concreto novo. O Professor Brinker posiciona os alunos diante de drones táticos de contenção programados para simular uma emboscada urbana.\n\nBrinker: — A Vought não quer apenas poder bruto. Queremos precisão, controle e sangue-frio. Mostrem do que são feitos!\n\nA sirene dispara. Um drone blindado sai da rota programada em alta velocidade na direção de Clara Vance, que ainda estava encolhida desviando de um obstáculo enquanto Matteo preparava uma rajada de fogo sem se importar com quem estava na linha de tiro.",
@@ -1915,7 +1944,12 @@
               "matteo": -3
             },
             "rank": -7
-          }
+          },
+          "memory": [
+            "clara",
+            "luka",
+            "otavio"
+          ]
         },
         {
           "label": "Avançar como um projétil e estilhaçar o drone no impacto frontal",
@@ -1935,7 +1969,12 @@
               "luka": 6
             },
             "rank": -6
-          }
+          },
+          "memory": [
+            "clara",
+            "otavio",
+            "luka"
+          ]
         },
         {
           "label": "Invadir o sinal do drone pelo ar e desligar seus rotores a centímetros de Clara",
@@ -1955,7 +1994,12 @@
               "zoe": 5
             },
             "rank": -7
-          }
+          },
+          "memory": [
+            "clara",
+            "maya",
+            "zoe"
+          ]
         },
         {
           "label": "Arremessar o drone contra a parede blindada com um gesto seco",
@@ -1975,7 +2019,11 @@
               "matteo": 3
             },
             "rank": -7
-          }
+          },
+          "memory": [
+            "clara",
+            "luka"
+          ]
         },
         {
           "label": "Assumir sua forma blindada e absorver o impacto no lugar de Clara",
@@ -1995,7 +2043,11 @@
               "zoe": 4
             },
             "rank": -7
-          }
+          },
+          "memory": [
+            "clara",
+            "otavio"
+          ]
         },
         {
           "label": "Empurrar Clara para fora da trajetória usando apenas velocidade física sem expor seu poder",
@@ -2011,7 +2063,12 @@
               "maya": 5
             },
             "rank": -3
-          }
+          },
+          "memory": [
+            "clara",
+            "luka",
+            "maya"
+          ]
         },
         {
           "label": "Recuar para a zona segura e deixar os veteranos resolverem o problema",
@@ -2026,7 +2083,11 @@
               "matteo": 3
             },
             "rank": 5
-          }
+          },
+          "memory": [
+            "clara",
+            "luka"
+          ]
         },
         {
           "label": "Derrubar o drone no corpo a corpo com precisão sem revelar o alcance do seu poder",
@@ -2046,14 +2107,19 @@
               "otavio": 6
             },
             "rank": -5
-          }
+          },
+          "memory": [
+            "clara",
+            "maya",
+            "otavio"
+          ]
         }
       ],
       "dynamic": []
     },
     "arena_2": {
       "id": "arena_2",
-      "title": "O Teste de Campo · Turno 2",
+      "title": "O Teste de Campo",
       "time": "10:12",
       "stage": "SAÍDA DA ARENA · CORREDOR PRINCIPAL",
       "text": "O apito final encerra o exercício. No telão do ginásio, os pontos são recalculados diante de toda a turma enquanto a fumaça dos drones se dissipa.\n\nMatteo passa enxugando o suor do pescoço e lança um olhar competitivo para você antes de seguir para o vestiário, enquanto Zoe Lee para ao seu lado ajeitando os cabelos onde faíscas azuis ainda estalam suavemente.\n\nZoe: — Interessante ver como cada um reage quando o roteiro sai do controle, {NOME}. Hoje à noite vai rolar uma festa fechada na cobertura da Torre Norte. Apareça às dez se quiser conhecer quem realmente dita as regras aqui.",
@@ -2112,7 +2178,7 @@
     },
     "tarde_1": {
       "id": "tarde_1",
-      "title": "A Tarde em Godolkin · Turno 1",
+      "title": "A Tarde em Godolkin",
       "time": "11:15",
       "stage": "CORREDOR DA ALA ADMINISTRATIVA",
       "text": "",
@@ -2169,7 +2235,7 @@
     },
     "tarde_2": {
       "id": "tarde_2",
-      "title": "Gabinete do Diretor Caldwell · Turno 2",
+      "title": "Gabinete do Diretor Caldwell",
       "time": "11:25",
       "stage": "TORRE ADMINISTRATIVA · GABINETE DA REITORIA",
       "text": "",
@@ -2235,7 +2301,7 @@
     },
     "tarde_3": {
       "id": "tarde_3",
-      "title": "As Regras da Casa · Turno 3",
+      "title": "As Regras da Casa",
       "time": "11:36",
       "stage": "TORRE ADMINISTRATIVA · GABINETE DA REITORIA",
       "text": "",
@@ -2290,7 +2356,7 @@
     },
     "tarde_4": {
       "id": "tarde_4",
-      "title": "O Peso do Aviso · Turno 4",
+      "title": "O Peso do Aviso",
       "time": "11:48",
       "stage": "SAGUÃO DA REITORIA",
       "text": "",
@@ -2321,7 +2387,11 @@
               "maya": 6,
               "otavio": 5
             }
-          }
+          },
+          "memory": [
+            "maya",
+            "otavio"
+          ]
         },
         {
           "label": "Dizer apenas que foi uma conversa padrão sobre comportamento e o Ranking",
@@ -2346,13 +2416,16 @@
               "otavio": 5,
               "maya": 2
             }
-          }
+          },
+          "memory": [
+            "otavio"
+          ]
         }
       ]
     },
     "tarde_5": {
       "id": "tarde_5",
-      "title": "Almoço no Refeitório · Turno 5",
+      "title": "Almoço no Refeitório",
       "time": "13:05",
       "stage": "REFEITÓRIO CENTRAL · CAMPUS GODOLKIN",
       "text": "",
@@ -2385,7 +2458,10 @@
             "romance": {
               "maya": 12
             }
-          }
+          },
+          "memory": [
+            "maya"
+          ]
         },
         {
           "label": "[Flerte] Sorrir para Clara e dizer que ela fica ainda mais impressionante quando enfrenta veteranos",
@@ -2400,7 +2476,10 @@
             "romance": {
               "clara": 12
             }
-          }
+          },
+          "memory": [
+            "clara"
+          ]
         },
         {
           "label": "[Flerte] Agradecer a atenção de Otávio e dizer que a presença dele deixa qualquer lugar mais leve",
@@ -2415,7 +2494,10 @@
             "romance": {
               "otavio": 12
             }
-          }
+          },
+          "memory": [
+            "otavio"
+          ]
         },
         {
           "label": "[Flerte] Brincar com Luka dizendo que gostou do ritmo acelerado dele desde o pátio",
@@ -2430,7 +2512,10 @@
             "romance": {
               "luka": 12
             }
-          }
+          },
+          "memory": [
+            "luka"
+          ]
         },
         {
           "label": "Perguntar ao grupo como funciona na prática o pagamento e os contratos dos patrocinadores",
@@ -2450,7 +2535,7 @@
     },
     "tarde_6": {
       "id": "tarde_6",
-      "title": "Laços à Mesa · Turno 6",
+      "title": "Laços à Mesa",
       "time": "13:35",
       "stage": "REFEITÓRIO CENTRAL · CAMPUS GODOLKIN",
       "text": "",
@@ -2480,7 +2565,7 @@
       "choices": [
         {
           "label": "Confirmar presença e dizer que vai usar o convite da Zoe para circular pela festa",
-          "to": "tarde_7",
+          "to": "explorar_tarde",
           "effects": {
             "flags": {
               "t6_plano_zoe": true
@@ -2493,7 +2578,7 @@
         },
         {
           "label": "Confirmar presença e combinar de chegar junto com o grupo",
-          "to": "tarde_7",
+          "to": "explorar_tarde",
           "effects": {
             "flags": {
               "t6_plano_grupo": true
@@ -2508,7 +2593,7 @@
     },
     "tarde_7": {
       "id": "tarde_7",
-      "title": "Preparação para a Noite · Turno 7",
+      "title": "Preparação para a Noite",
       "time": "18:45",
       "stage": "PÁTIO DOS DORMITÓRIOS",
       "text": "",
@@ -2554,7 +2639,7 @@
     },
     "festa_1": {
       "id": "festa_1",
-      "title": "Noite na Torre Norte · Turno 1",
+      "title": "Noite na Torre Norte",
       "time": "22:30",
       "stage": "COBERTURA DA TORRE NORTE · SALÃO PRINCIPAL",
       "text": "",
@@ -2613,7 +2698,7 @@
     },
     "festa_2": {
       "id": "festa_2",
-      "title": "O Interesse de Matteo · Turno 2",
+      "title": "O Interesse de Matteo",
       "time": "22:45",
       "stage": "BAR DA COBERTURA · TORRE NORTE",
       "text": "",
@@ -2643,7 +2728,10 @@
             "bonds": {
               "matteo": 5
             }
-          }
+          },
+          "memory": [
+            "matteo"
+          ]
         },
         {
           "label": "Responder com mistério que nem todo poder precisa de propaganda antes da hora",
@@ -2668,13 +2756,16 @@
             "bonds": {
               "matteo": 6
             }
-          }
+          },
+          "memory": [
+            "matteo"
+          ]
         }
       ]
     },
     "festa_3": {
       "id": "festa_3",
-      "title": "Por Trás do Top 2 · Turno 3",
+      "title": "Por Trás do Top 2",
       "time": "23:00",
       "stage": "BAR DA COBERTURA · TORRE NORTE",
       "text": "",
@@ -2704,7 +2795,10 @@
             "bonds": {
               "matteo": 5
             }
-          }
+          },
+          "memory": [
+            "matteo"
+          ]
         },
         {
           "label": "Dizer que está apenas observando quem merece confiança aqui dentro",
@@ -2734,7 +2828,7 @@
     },
     "festa_4": {
       "id": "festa_4",
-      "title": "O Jogo da Zoe · Turno 4",
+      "title": "O Jogo da Zoe",
       "time": "23:12",
       "stage": "LOUNGE VIP · TORRE NORTE",
       "text": "",
@@ -2764,7 +2858,10 @@
             "bonds": {
               "zoe": 6
             }
-          }
+          },
+          "memory": [
+            "zoe"
+          ]
         },
         {
           "label": "Fingir inocência e dizer que ele apenas desejou boas-vindas ao campus",
@@ -2790,13 +2887,16 @@
               "zoe": 7,
               "maya": 3
             }
-          }
+          },
+          "memory": [
+            "zoe"
+          ]
         }
       ]
     },
     "festa_5": {
       "id": "festa_5",
-      "title": "Caos no Centro da Pista · Turno 5",
+      "title": "Caos no Centro da Pista",
       "time": "23:25",
       "stage": "PISTA CENTRAL · TORRE NORTE",
       "text": "",
@@ -2829,7 +2929,11 @@
               "clara": 5
             },
             "rank": -3
-          }
+          },
+          "memory": [
+            "otavio",
+            "clara"
+          ]
         },
         {
           "label": "Segurar a mesa pesada de mármore com uma só mão sem derramar um único copo",
@@ -2844,7 +2948,11 @@
               "clara": 5
             },
             "rank": -4
-          }
+          },
+          "memory": [
+            "matteo",
+            "clara"
+          ]
         },
         {
           "label": "Hackear o sistema de som da pista para baixar o volume e dispersar o tumulto",
@@ -2859,7 +2967,11 @@
               "luka": 5
             },
             "rank": -2
-          }
+          },
+          "memory": [
+            "maya",
+            "luka"
+          ]
         },
         {
           "label": "Suspender todas as taças no ar com telecinese antes que toquem o chão",
@@ -2874,7 +2986,10 @@
               "matteo": 4
             },
             "rank": -4
-          }
+          },
+          "memory": [
+            "zoe"
+          ]
         },
         {
           "label": "Alternar para sua forma ágil e amparar o calouro antes da queda",
@@ -2889,7 +3004,11 @@
               "luka": 5
             },
             "rank": -3
-          }
+          },
+          "memory": [
+            "otavio",
+            "luka"
+          ]
         },
         {
           "label": "Aproveitar a distração da pista para deslizar silenciosamente rumo à porta da varanda",
@@ -2901,13 +3020,16 @@
             "bonds": {
               "maya": 5
             }
-          }
+          },
+          "memory": [
+            "maya"
+          ]
         }
       ]
     },
     "festa_6": {
       "id": "festa_6",
-      "title": "Momento a Dois Antes da Varanda · Turno 6",
+      "title": "Momento a Dois Antes da Varanda",
       "time": "23:38",
       "stage": "CORREDOR LATERAL DA COBERTURA",
       "text": "",
@@ -2936,7 +3058,10 @@
             "romance": {
               "clara": 15
             }
-          }
+          },
+          "memory": [
+            "clara"
+          ]
         },
         {
           "label": "[Flerte] Aproximar-se de Maya no parapeito respeitando suas luvas e dizer que gosta da companhia dela",
@@ -2951,7 +3076,10 @@
             "romance": {
               "maya": 15
             }
-          }
+          },
+          "memory": [
+            "maya"
+          ]
         },
         {
           "label": "[Flerte] Brincar com Otávio dizendo que ele é a melhor companhia desta festa inteira",
@@ -2966,7 +3094,10 @@
             "romance": {
               "otavio": 15
             }
-          }
+          },
+          "memory": [
+            "otavio"
+          ]
         },
         {
           "label": "[Flerte] Provocar Luka com um sorriso dizendo que ele não precisava correr tão rápido para te encontrar",
@@ -2981,7 +3112,10 @@
             "romance": {
               "luka": 15
             }
-          }
+          },
+          "memory": [
+            "luka"
+          ]
         },
         {
           "label": "Focar direto na missão e perguntar a Maya o que ela descobriu sobre o aluno desaparecido",
@@ -3000,7 +3134,7 @@
     },
     "festa_7": {
       "id": "festa_7",
-      "title": "A Varanda da Torre Norte · Turno 7",
+      "title": "A Varanda da Torre Norte",
       "time": "23:50",
       "stage": "VARANDA EXTERNA · TORRE NORTE",
       "text": "",
@@ -3065,13 +3199,16 @@
               "maya": 5,
               "zoe": 2
             }
-          }
+          },
+          "memory": [
+            "maya"
+          ]
         }
       ]
     },
     "festa_8": {
       "id": "festa_8",
-      "title": "O Pacto sob as Estrelas · Turno 8",
+      "title": "O Pacto sob as Estrelas",
       "time": "00:05",
       "stage": "VARANDA EXTERNA · TORRE NORTE",
       "text": "",
@@ -3104,7 +3241,12 @@
               "clara": 7,
               "otavio": 5
             }
-          }
+          },
+          "memory": [
+            "maya",
+            "luka",
+            "clara"
+          ]
         },
         {
           "label": "Propor um jogo duplo: manter proximidade com Matteo e Zoe enquanto coletam provas por dentro",
@@ -3119,7 +3261,12 @@
               "maya": 5,
               "otavio": 6
             }
-          }
+          },
+          "memory": [
+            "zoe",
+            "matteo",
+            "maya"
+          ]
         },
         {
           "label": "Pedir cautela e focar primeiro em subir no Ranking antes de enfrentar o Diretor Caldwell",
@@ -3134,7 +3281,10 @@
               "clara": -3
             },
             "rank": -2
-          }
+          },
+          "memory": [
+            "matteo"
+          ]
         },
         {
           "label": "Perceber uma sombra observando atrás da cortina do salão e avisar o grupo em silêncio",
@@ -3150,7 +3300,12 @@
               "luka": 9,
               "otavio": 8
             }
-          }
+          },
+          "memory": [
+            "maya",
+            "luka",
+            "otavio"
+          ]
         }
       ]
     },
@@ -3162,6 +3317,507 @@
       "text": "O toque de recolher ecoa pelos alto-falantes do campus. De volta ao dormitório dos calouros, você observa pela janela as luzes vermelhas dos drones patrulhando o pátio escuro e a torre onde fica o gabinete do Diretor Caldwell.\n\nA criança que descobriu seus poderes anos atrás ficou para trás. Agora, entre segredos subterrâneos, jogos de poder na Torre Norte e sua escalada no Ranking Oficial de Godolkin, sua história apenas começou.",
       "choices": [],
       "dynamic": []
+    },
+    "dorm_escolha": {
+      "id": "dorm_escolha",
+      "title": "Sua chave, seu quarto",
+      "time": "08:20",
+      "stage": "RECEPÇÃO",
+      "text": "Funcionária: — Temos dois alojamentos disponíveis. Você pode escolher o quarto indicado ou solicitar um individual, se preferir.",
+      "choices": [
+        {
+          "label": "Quarto com Luka e Otávio",
+          "to": "dorm_m",
+          "room": "m",
+          "effects": {
+            "flags": {
+              "dorm_m": true
+            },
+            "bonds": {}
+          }
+        },
+        {
+          "label": "Quarto com Maya e Clara",
+          "to": "dorm_f",
+          "room": "f",
+          "effects": {
+            "flags": {
+              "dorm_f": true
+            },
+            "bonds": {}
+          }
+        },
+        {
+          "label": "Solicitar quarto individual",
+          "to": "dorm_ind",
+          "effects": {
+            "flags": {
+              "dorm_ind": true
+            },
+            "bonds": {}
+          }
+        }
+      ]
+    },
+    "dorm_m": {
+      "id": "dorm_m",
+      "title": "Dividindo espaço",
+      "time": "08:25",
+      "stage": "DORMITÓRIO MASCULINO",
+      "text": "Luka está tentando organizar uma pilha de livros. Otávio aponta para a cama livre.\n\nOtávio: — Essa é sua. A tomada perto da janela funciona, por incrível que pareça.\n\nLuka: — Só não deixa a Vought instalar uma câmera aqui também.\n\nOtávio: — Ele fala isso de tudo. Enfim, como você prefere organizar o quarto?",
+      "choices": [
+        {
+          "label": "Vamos combinar as regras juntos.",
+          "to": "explorar_manha",
+          "effects": {
+            "flags": {
+              "quarto_cooperativo": true
+            },
+            "bonds": {
+              "luka": 3,
+              "otavio": 3
+            }
+          },
+          "memory": [
+            "luka",
+            "otavio"
+          ]
+        },
+        {
+          "label": "Prefiro ter meu próprio espaço.",
+          "to": "explorar_manha",
+          "effects": {
+            "flags": {
+              "quarto_reservado": true
+            },
+            "bonds": {}
+          },
+          "memory": [
+            "luka",
+            "otavio"
+          ]
+        },
+        {
+          "label": "Podem escolher, sou tranquilo com isso.",
+          "to": "explorar_manha",
+          "effects": {
+            "flags": {
+              "quarto_flexivel": true
+            },
+            "bonds": {
+              "otavio": 2
+            }
+          }
+        }
+      ]
+    },
+    "dorm_f": {
+      "id": "dorm_f",
+      "title": "Dividindo espaço",
+      "time": "08:25",
+      "stage": "DORMITÓRIO FEMININO",
+      "text": "Clara tira a mochila da cama livre. Maya fecha um livro e olha para você.\n\nClara: — Finalmente! Achei que a terceira pessoa não vinha.\n\nMaya: — Ela está tentando descobrir quem fica com a melhor tomada.\n\nClara: — Questão de sobrevivência acadêmica. E aí, como vamos dividir o espaço?",
+      "choices": [
+        {
+          "label": "Vamos combinar as regras juntas.",
+          "to": "explorar_manha",
+          "effects": {
+            "flags": {
+              "quarto_cooperativo": true
+            },
+            "bonds": {
+              "clara": 3,
+              "maya": 3
+            }
+          },
+          "memory": [
+            "clara",
+            "maya"
+          ]
+        },
+        {
+          "label": "Prefiro ter meu próprio espaço.",
+          "to": "explorar_manha",
+          "effects": {
+            "flags": {
+              "quarto_reservado": true
+            },
+            "bonds": {}
+          },
+          "memory": [
+            "clara",
+            "maya"
+          ]
+        },
+        {
+          "label": "Escolham vocês, não me importo.",
+          "to": "explorar_manha",
+          "effects": {
+            "flags": {
+              "quarto_flexivel": true
+            },
+            "bonds": {
+              "clara": 2
+            }
+          }
+        }
+      ]
+    },
+    "dorm_ind": {
+      "id": "dorm_ind",
+      "title": "Um espaço só seu",
+      "time": "08:25",
+      "stage": "ALOJAMENTO INDIVIDUAL",
+      "text": "Você guarda sua mochila e confere o cartão estudantil. O quarto é silencioso. Do lado de fora, o campus começa a ganhar movimento.",
+      "choices": [
+        {
+          "label": "Sair e conhecer o campus",
+          "to": "explorar_manha",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        }
+      ]
+    },
+    "explorar_manha": {
+      "id": "explorar_manha",
+      "title": "Explore Godolkin",
+      "time": "08:30–09:00",
+      "stage": "PÁTIO CENTRAL",
+      "text": "Você tem algum tempo antes da avaliação. Consulte o mapa para localizar o grupo. Cada encontro principal ocupa parte do intervalo.",
+      "choices": [
+        {
+          "label": "Aproximar-se dos outros calouros (Clara e Luka) perto das escadarias",
+          "to": "calouros_1",
+          "effects": {
+            "flags": {
+              "aproximou_calouros": true
+            },
+            "bonds": {
+              "clara": 5,
+              "luka": 5
+            }
+          },
+          "once": "calouros_1",
+          "memory": [
+            "clara",
+            "luka"
+          ]
+        },
+        {
+          "label": "Caminhar até a área VIP para se apresentar a Matteo e Zoe Lee",
+          "to": "elite_1",
+          "effects": {
+            "flags": {
+              "aproximou_elite": true
+            },
+            "bonds": {
+              "matteo": 5,
+              "zoe": 4
+            },
+            "rank": -2
+          },
+          "once": "elite_1",
+          "memory": [
+            "matteo",
+            "zoe"
+          ]
+        },
+        {
+          "label": "Ficar sob as arcadas ao lado de Maya Dunlap e Otávio O'Connor observando o pátio",
+          "to": "arcadas_1",
+          "effects": {
+            "flags": {
+              "aproximou_observadores": true
+            },
+            "bonds": {
+              "maya": 5,
+              "otavio": 5
+            }
+          },
+          "once": "arcadas_1",
+          "memory": [
+            "maya",
+            "otavio"
+          ]
+        },
+        {
+          "label": "Soltar um comentário sarcástico sobre o show dos drones perto da escadaria",
+          "requireTrait": "sarcastico",
+          "to": "calouros_1",
+          "effects": {
+            "flags": {
+              "aproximou_calouros": true,
+              "ironia_patio": true
+            },
+            "bonds": {
+              "clara": 8,
+              "luka": 7,
+              "matteo": -3
+            }
+          },
+          "once": "calouros_1",
+          "memory": [
+            "clara",
+            "luka"
+          ]
+        },
+        {
+          "label": "Conversar com Clara sobre um favor",
+          "to": "favor_clara",
+          "once": "favor_clara",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        },
+        {
+          "label": "Consultar o mural da biblioteca",
+          "to": "biblioteca_m",
+          "once": "biblioteca_m",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        },
+        {
+          "label": "Ir para a avaliação na arena",
+          "to": "arena_1",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        }
+      ],
+      "hub": "morning"
+    },
+    "favor_clara": {
+      "id": "favor_clara",
+      "title": "Um pedido inesperado",
+      "time": "MANHÃ",
+      "stage": "ESCADARIAS",
+      "text": "Clara segura um formulário de inscrição para uma atividade estudantil.\n\nClara: — A organização precisa de mais um nome. Se você assinar comigo, talvez perca parte do horário livre da tarde. Não quero te colocar numa fria. O que acha?",
+      "choices": [
+        {
+          "label": "Pode colocar meu nome.",
+          "to": "explorar_manha",
+          "effects": {
+            "flags": {
+              "favor_aceito": true
+            },
+            "bonds": {
+              "clara": 4
+            }
+          },
+          "memory": [
+            "clara"
+          ]
+        },
+        {
+          "label": "Desculpa, preciso manter meu horário livre.",
+          "to": "explorar_manha",
+          "effects": {
+            "flags": {
+              "favor_recusado": true
+            },
+            "bonds": {
+              "clara": -1
+            }
+          },
+          "memory": [
+            "clara"
+          ]
+        },
+        {
+          "label": "Posso ajudar a encontrar outra pessoa.",
+          "to": "explorar_manha",
+          "effects": {
+            "flags": {
+              "favor_alternativa": true
+            },
+            "bonds": {
+              "clara": 2
+            }
+          },
+          "memory": [
+            "clara"
+          ]
+        }
+      ]
+    },
+    "biblioteca_m": {
+      "id": "biblioteca_m",
+      "title": "O mural de avisos",
+      "time": "MANHÃ",
+      "stage": "BIBLIOTECA",
+      "text": "Entre anúncios de clubes, você encontra um aviso sobre mudanças nos horários de orientação. Maya anotou uma observação no mural: nem todos os eventos aparecem no calendário público.",
+      "choices": [
+        {
+          "label": "Guardar a informação e retornar",
+          "to": "explorar_manha",
+          "effects": {
+            "flags": {
+              "mural_visto": true
+            },
+            "bonds": {}
+          }
+        }
+      ]
+    },
+    "explorar_tarde": {
+      "id": "explorar_tarde",
+      "title": "Intervalo da tarde",
+      "time": "16:30–18:45",
+      "stage": "PÁTIO CENTRAL",
+      "text": "As atividades obrigatórias terminaram. Você pode rever seus colegas ou descansar antes da festa.",
+      "choices": [
+        {
+          "label": "Encontrar Clara no pátio",
+          "to": "clara_retorno",
+          "once": "clara_retorno",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        },
+        {
+          "label": "Visitar Maya na biblioteca",
+          "to": "maya_tarde",
+          "once": "maya_tarde",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        },
+        {
+          "label": "Voltar ao seu quarto",
+          "to": "dorm_tarde",
+          "once": "dorm_tarde",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        },
+        {
+          "label": "Encerrar o intervalo e se preparar",
+          "to": "tarde_7",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        }
+      ],
+      "hub": "afternoon"
+    },
+    "clara_retorno": {
+      "id": "clara_retorno",
+      "title": "O que ficou da manhã",
+      "time": "17:00",
+      "stage": "PÁTIO CENTRAL",
+      "text": "Clara está sentada no degrau, conferindo seus compromissos.",
+      "choices": [
+        {
+          "label": "Conversar sobre o resto do dia",
+          "to": "explorar_tarde",
+          "effects": {
+            "flags": {
+              "conversa_clara": true
+            },
+            "bonds": {
+              "clara": 2
+            }
+          }
+        }
+      ],
+      "dynamic": [
+        {
+          "flag": "favor_aceito",
+          "text": "Clara: — Valeu por assinar comigo. A organização confirmou seu nome. Vai ocupar um pedaço da tarde, mas eu posso resolver a parte mais demorada."
+        },
+        {
+          "flag": "favor_recusado",
+          "text": "Clara: — Sobre o formulário... fiquei meio frustrada na hora. Mas você foi direto comigo. Prefiro isso a uma promessa falsa."
+        },
+        {
+          "flag": "favor_alternativa",
+          "text": "Clara: — Consegui outra pessoa para o evento. Valeu por não me deixar sem saída."
+        }
+      ]
+    },
+    "maya_tarde": {
+      "id": "maya_tarde",
+      "title": "Uma conversa tranquila",
+      "time": "17:20",
+      "stage": "BIBLIOTECA",
+      "text": "Maya fecha seu caderno.\n\nMaya: — Finalmente um lugar sem tanta gente falando de ranking. O que achou do campus até agora?",
+      "choices": [
+        {
+          "label": "Ainda estou tentando entender as regras.",
+          "to": "explorar_tarde",
+          "effects": {
+            "flags": {
+              "maya_conversa": true
+            },
+            "bonds": {
+              "maya": 3
+            }
+          },
+          "memory": [
+            "maya"
+          ]
+        },
+        {
+          "label": "Prefiro focar nas aulas por enquanto.",
+          "to": "explorar_tarde",
+          "effects": {
+            "flags": {
+              "maya_foco": true
+            },
+            "bonds": {}
+          },
+          "memory": [
+            "maya"
+          ]
+        }
+      ]
+    },
+    "dorm_tarde": {
+      "id": "dorm_tarde",
+      "title": "De volta ao quarto",
+      "time": "18:00",
+      "stage": "DORMITÓRIOS",
+      "text": "Você deixa a mochila e aproveita alguns minutos de descanso.",
+      "choices": [
+        {
+          "label": "Conversar e depois voltar ao pátio",
+          "to": "explorar_tarde",
+          "effects": {
+            "flags": {
+              "descanso_quarto": true
+            },
+            "bonds": {}
+          }
+        }
+      ],
+      "dynamic": [
+        {
+          "flag": "dorm_m",
+          "text": "Otávio: — E aí, sobreviveu ao primeiro dia?\n\nLuka: — Ainda não acabou. Mas pelo menos temos um lugar para descansar."
+        },
+        {
+          "flag": "dorm_f",
+          "text": "Clara: — Eu voto em cinco minutos sem falar de ranking.\n\nMaya: — Pela primeira vez hoje, concordo."
+        },
+        {
+          "flag": "quarto_reservado",
+          "text": "Seus colegas respeitam o espaço que você pediu pela manhã."
+        },
+        {
+          "flag": "quarto_cooperativo",
+          "text": "As regras que vocês combinaram pela manhã já deixaram o quarto mais organizado."
+        }
+      ]
     }
   }
 }
