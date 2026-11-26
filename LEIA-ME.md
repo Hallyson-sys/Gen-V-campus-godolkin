@@ -1,6 +1,6 @@
-# Gen V: Campus Godolkin — Prólogo Completo V0.5.0
+# Gen V: Campus Godolkin — Prólogo Completo V0.6.0
 
-## Novidades da V0.5.0
-1. **Cenas Longas com Múltiplas Escolhas (Começo, Meio e Fim):** Todos os encontros com os personagens agora possuem **4 a 5 turnos sequenciais de conversa e interação** antes de avançar para o próximo local.
-2. **Transições Orgânicas sem Cortes Bruscos:** Os próprios personagens conduzem a mudança de cenário no diálogo (ex.: Clara e Luka encerram o papo nas escadarias chamando você para caminhar até o Pavilhão B; Matteo e Zoe convidam você para a Arena; Maya e Otávio combinam de subir para a Torre Norte).
-3. **Mantidas todas as melhorias anteriores:** Primeiro nome nos diálogos, Ato I (Infância & Adolescência) em duas etapas para cada poder e barras de afinidade cruzadas nos dossiês dos alunos.
+## Novidades da V0.6.0
+1. **Turnos Reativos às Suas Escolhas Exatas:** Em todas as conversas e cenas (Infância, Escadarias, Área VIP, Arcadas, Arena e Torre Norte), cada opção escolhida no turno anterior gera a resposta direta e específica dos personagens no início do turno seguinte (por exemplo: se você perguntar a Clara e Luka se Maya e Otávio são confiáveis, eles respondem diretamente sobre isso antes de seguir a conversa).
+2. **Ramificações Reais:** Suas escolhas de diálogo alteram as reações ao longo de toda a cena e ecoam nas etapas seguintes.
+3. **Mantidas todas as melhorias anteriores:** Primeiro nome nos diálogos, Ato I em duas etapas por poder, transições orgânicas entre cenários e barras de afinidade cruzadas nos dossiês dos alunos.

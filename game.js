@@ -1,5 +1,5 @@
-/* Gen V: Campus Godolkin — Motor Jogável V0.5.0
- * Inclui: Cenas longas com múltiplos turnos de diálogo e transições orgânicas,
+/* Gen V: Campus Godolkin — Motor Jogável V0.6.0
+ * Inclui: Turnos reativos às escolhas exatas do jogador em todas as cenas (text + dynamic + textAfterDynamic),
  * Primeiro nome nos diálogos, Ato I expandido em 2 partes por poder,
  * 5 Poderes Exclusivos, Calouro (1º Ano), Escolhas Bloqueadas sem Spoiler,
  * Ficha Interativa dos 6 Alunos com Barras de Afinidade Cruzadas e Reação em Cadeia.
@@ -248,7 +248,7 @@
     return `<header class="app-header">
       <button class="brand" data-action="menu" aria-label="Menu principal">${wordmark()}</button>
       <div class="header-right">
-        <span class="header-status">PRÓLOGO · V0.5.0</span>
+        <span class="header-status">PRÓLOGO · V0.6.0</span>
         <button class="menu-btn" data-action="drawer" aria-expanded="${drawerOpen}">
           <span class="menu-btn-bars">${drawerOpen ? '✕' : '☰'}</span>
           <span>${drawerOpen ? 'FECHAR' : 'MENU'}</span>
@@ -484,7 +484,7 @@
   function finishCreation() {
     save = {
       game: 'genv-campus-godolkin',
-      version: '0.5.0',
+      version: '0.6.0',
       slot,
       node: DATA.meta.start,
       perfil: {
@@ -632,10 +632,12 @@
       .map((c, idx) => ({ c, idx, evalRes: evaluateChoice(c) }))
       .filter(x => x.evalRes.visible);
 
-    const extraText = (n.dynamic || [])
+    const baseTextHtml = n.text ? formatNarrative(n.text) : '';
+    const extraTextHtml = (n.dynamic || [])
       .filter(d => d.flag && save.flags[d.flag])
       .map(d => formatNarrative(d.text))
       .join('');
+    const afterDynamicHtml = n.textAfterDynamic ? formatNarrative(n.textAfterDynamic) : '';
 
     const choicesHtml = visibleChoices.length
       ? `<div class="choices">${visibleChoices.map(({ c, idx, evalRes }, i) => {
@@ -685,7 +687,7 @@
         </div>
 
         <section class="story-window">
-          <div class="story-scroll">${formatNarrative(n.text)}${extraText}</div>
+          <div class="story-scroll">${baseTextHtml}${extraTextHtml}${afterDynamicHtml}</div>
           ${choicesHtml}
           <div class="story-bottom">
             <span>◉ Progresso salvo no Slot ${slot}</span>
@@ -696,7 +698,7 @@
         <div class="progress-track"><i style="width:${pct}%"></i></div>
         <div class="progress-caption">
           <span>CAMPUS GODOLKIN · CALOURO (1º ANO)</span>
-          <span>${save.visited.length} etapas concluídas</span>
+          <span>${save.visited.length} turnos concluídos</span>
         </div>
       </div>
     </main>`);
