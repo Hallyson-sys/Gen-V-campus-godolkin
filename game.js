@@ -1,4 +1,4 @@
-/* Gen V: Campus Godolkin — Motor Jogável V0.3.0
+/* Gen V: Campus Godolkin — Motor Jogável V0.3.1
  * Inclui: 5 Poderes Exclusivos, Prólogo de Origem na Infância + Recrutamento Vought,
  * Calouro (1º Ano) independente da idade, Escolhas Bloqueadas sem Spoiler (sempre 4 opções),
  * Ficha Interativa dos 6 Alunos de Godolkin com Relações Cruzadas e Reação em Cadeia.
@@ -240,7 +240,7 @@
     return `<header class="app-header">
       <button class="brand" data-action="menu" aria-label="Menu principal">${wordmark()}</button>
       <div class="header-right">
-        <span class="header-status">PRÓLOGO · V0.3</span>
+        <span class="header-status">PRÓLOGO · V0.3.1</span>
         <button class="menu-btn" data-action="drawer" aria-expanded="${drawerOpen}">
           <span class="menu-btn-bars">${drawerOpen ? '✕' : '☰'}</span>
           <span>${drawerOpen ? 'FECHAR' : 'MENU'}</span>
@@ -474,7 +474,7 @@
   function finishCreation() {
     save = {
       game: 'genv-campus-godolkin',
-      version: '0.3.0',
+      version: '0.3.1',
       slot,
       node: DATA.meta.start,
       perfil: {
@@ -508,10 +508,7 @@
   function formatNarrative(raw) {
     const nome = save?.perfil?.nome || 'Calouro';
     const text = String(raw || '').replaceAll('{NOME}', nome);
-    return text.split(/
-\s*
-|
-/g).map(s => s.trim()).filter(Boolean).map(s => {
+    return text.split(/\n\s*\n|\n/g).map(s => s.trim()).filter(Boolean).map(s => {
       const m = s.match(/^([^:]{2,28}):\s*(—\s*.+)$/u);
       if (m) return `<div class="line spoken"><strong>${safe(m[1])}</strong><span>${safe(m[2])}</span></div>`;
       if (/^(PRIMEIRO DIA|FIM DO PRÓLOGO|\[COMUNICADO)/.test(s)) return `<p class="line big-emphasis">${safe(s)}</p>`;
