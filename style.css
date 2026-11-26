@@ -1021,7 +1021,7 @@ p { line-height: 1.6; }
 }
 
 /* ============================================================
-   V0.3.1 — MODAL/PERFIL DETALHADO DOS ALUNOS & TAGS DE ATRIBUTO
+   V0.4.0 — MODAL/PERFIL DETALHADO DOS ALUNOS & BARRAS DE AFINIDADE
 ============================================================ */
 .cast-card-btn {
   display: flex;
@@ -1061,13 +1061,13 @@ p { line-height: 1.6; }
 }
 .cast-rel-list {
   display: grid;
-  gap: 8px;
+  gap: 10px;
   margin-top: 10px;
 }
 .cast-rel-item {
   background: #141418;
   border-left: 3px solid var(--yellow);
-  padding: 9px 12px;
+  padding: 11px 14px;
   font-size: 13px;
 }
 .cast-rel-item strong {
@@ -1076,6 +1076,19 @@ p { line-height: 1.6; }
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+}
+.rel-meter-row {
+  display: grid;
+  grid-template-columns: 1fr 34px;
+  align-items: center;
+  gap: 10px;
+  margin: 7px 0 8px;
+}
+.rel-meter-row b {
+  font-family: 'Courier Prime', monospace;
+  font-size: 12px;
+  color: #fff;
+  text-align: right;
 }
 .cast-rel-item.player-rel {
   border-left-color: var(--red);

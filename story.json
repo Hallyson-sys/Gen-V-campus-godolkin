@@ -1,8 +1,8 @@
 {
   "meta": {
     "game": "Gen V: Campus Godolkin",
-    "version": "0.3.1",
-    "chapter": "Prólogo — Despertar, Recrutamento e o Primeiro Dia",
+    "version": "0.4.0",
+    "chapter": "Prólogo — Despertar, Anos Ocultos, Recrutamento e o Primeiro Dia",
     "start": "origem_roteador"
   },
   "cast": [
@@ -17,27 +17,37 @@
       "bio": "Rosto oficial das campanhas estudantis de Godolkin. Sob os holofotes é impecável; nos bastidores vive sob pressão constante.",
       "relations": [
         {
+          "targetId": "zoe",
           "target": "Zoe Lee",
+          "affinity": 82,
           "label": "Namorada & Aliada Estratégica",
           "desc": "Mantêm um relacionamento intenso e uma aliança de poder no topo do ranking, embora ambos escondam cartas na manga."
         },
         {
+          "targetId": "clara",
           "target": "Clara Vance",
+          "affinity": 22,
           "label": "Ex-Melhor Amiga",
           "desc": "Eram inseparáveis antes de Matteo abraçar o jogo corporativo e a disputa pelo ranking criar um abismo entre os dois."
         },
         {
+          "targetId": "luka",
           "target": "Luka Lancelloti",
+          "affinity": 18,
           "label": "Rivalidade Aberta",
           "desc": "Já foram próximos em eventos juvenis antes de Luka se afastar da política da Vought. Hoje trocam provocações constantes."
         },
         {
+          "targetId": "maya",
           "target": "Maya Dunlap",
+          "affinity": 26,
           "label": "Atrito Silencioso",
           "desc": "Matteo desconfia do que Maya sabe nos servidores do campus e não suporta o jeito frio com que ela o analisa."
         },
         {
+          "targetId": "otavio",
           "target": "Otávio O'Connor",
+          "affinity": 30,
           "label": "Tensão Constante",
           "desc": "Otávio bate de frente com a postura arrogante de Matteo sempre que o veterano pressiona os novatos."
         }
@@ -54,29 +64,39 @@
       "bio": "Sempre de luvas pretas e olhar atento. Prefere observar de longe a correr o risco de controlar alguém acidentalmente.",
       "relations": [
         {
+          "targetId": "luka",
           "target": "Luka Lancelloti",
+          "affinity": 84,
           "label": "Confidente Próximo",
           "desc": "Uma das únicas pessoas com quem Maya realmente consegue se abrir e baixar a guarda sem medo de julgamento."
         },
         {
+          "targetId": "clara",
           "target": "Clara Vance",
+          "affinity": 76,
           "label": "Colega de Quarto",
           "desc": "Dividem o dormitório. Apesar do jeito explosivo de Clara e da reserva de Maya, protegem uma à outra."
         },
         {
+          "targetId": "otavio",
+          "target": "Otávio O'Connor",
+          "affinity": 64,
+          "label": "Respeito Mútuo",
+          "desc": "Aprecia o fato de Otávio respeitar seu espaço pessoal e nunca forçar intimidade."
+        },
+        {
+          "targetId": "zoe",
           "target": "Zoe Lee",
+          "affinity": 24,
           "label": "Vigilância Mútua",
           "desc": "Maya sabe que Zoe a observa de perto e nunca confia nos sorrisos ensaiados da colega."
         },
         {
+          "targetId": "matteo",
           "target": "Matteo",
+          "affinity": 20,
           "label": "Desconfiança",
           "desc": "Considera Matteo um peão perigoso dos patrocinadores e evita qualquer contato físico ou político com ele."
-        },
-        {
-          "target": "Otávio O'Connor",
-          "label": "Respeito Mútuo",
-          "desc": "Aprecia o fato de Otávio respeitar seu espaço pessoal e nunca forçar intimidade."
         }
       ]
     },
@@ -91,27 +111,37 @@
       "bio": "Entrou no mesmo ano que você. Não tem paciência para discursos corporativos e fala o que pensa na cara de qualquer veterano.",
       "relations": [
         {
+          "targetId": "luka",
           "target": "Luka Lancelloti",
+          "affinity": 88,
           "label": "Amigo de Infância",
           "desc": "Cresceram juntos e se protegem desde antes de pisarem em Godolkin. Entendem um ao outro só pelo olhar."
         },
         {
+          "targetId": "otavio",
           "target": "Otávio O'Connor",
+          "affinity": 80,
           "label": "Vizinho de Infância",
           "desc": "Cresceram no mesmo bairro. Clara confia nele de olhos fechados, mesmo quando discute com ele por ser cauteloso demais."
         },
         {
+          "targetId": "maya",
           "target": "Maya Dunlap",
+          "affinity": 74,
           "label": "Colega de Quarto",
           "desc": "Divide o quarto com Maya e respeita rigorosamente a regra das luvas."
         },
         {
+          "targetId": "matteo",
           "target": "Matteo",
+          "affinity": 22,
           "label": "Ex-Melhor Amigo",
           "desc": "Guarda mágoa e irritação por ver Matteo se transformar no garoto-propaganda fútil da Vought."
         },
         {
+          "targetId": "zoe",
           "target": "Zoe Lee",
+          "affinity": 16,
           "label": "Antipatia Declarada",
           "desc": "Detesta a falsidade corporativa e os jogos psicológicos de Zoe."
         }
@@ -128,29 +158,39 @@
       "bio": "Usa o humor para aliviar a tensão do corredor, mas está sempre atento ao estado emocional de quem precisa de ajuda.",
       "relations": [
         {
+          "targetId": "clara",
           "target": "Clara Vance",
+          "affinity": 82,
           "label": "Amiga do Mesmo Bairro",
           "desc": "Conhece Clara desde pequeno e age como o contrapeso calmo para as reações impulsivas dela."
         },
         {
+          "targetId": "luka",
           "target": "Luka Lancelloti",
+          "affinity": 78,
           "label": "Mentor Informal",
           "desc": "Ajuda Luka a navegar pelas armadilhas do campus desde antes do início das aulas."
         },
         {
-          "target": "Zoe Lee",
-          "label": "Desconfiança Profunda",
-          "desc": "Por sentir emoções alheias, percebe que Zoe esconde intenções frias por trás da simpatia."
+          "targetId": "maya",
+          "target": "Maya Dunlap",
+          "affinity": 66,
+          "label": "Apoio Discreto",
+          "desc": "Sente o peso emocional que Maya carrega e tenta deixá-la à vontade sem invadir seu espaço."
         },
         {
+          "targetId": "matteo",
           "target": "Matteo",
+          "affinity": 28,
           "label": "Rivalidade Moral",
           "desc": "Bate de frente com Matteo sempre que o veterano coloca o ranking acima da segurança dos alunos."
         },
         {
-          "target": "Maya Dunlap",
-          "label": "Apoio Discreto",
-          "desc": "Sente o peso emocional que Maya carrega e tenta deixá-la à vontade sem invadir seu espaço."
+          "targetId": "zoe",
+          "target": "Zoe Lee",
+          "affinity": 20,
+          "label": "Desconfiança Profunda",
+          "desc": "Por sentir emoções alheias, percebe que Zoe esconde intenções frias por trás da simpatia."
         }
       ]
     },
@@ -165,29 +205,39 @@
       "bio": "Sempre impecável e sorridente. Ninguém sabe exatamente onde termina o charme de Zoe e onde começa a coleta de informações.",
       "relations": [
         {
+          "targetId": "matteo",
           "target": "Matteo",
+          "affinity": 80,
           "label": "Namorado & Parceiro de Topo",
           "desc": "Forma o casal mais midiático do campus com Matteo, mantendo uma aliança estratégica mútua."
         },
         {
+          "targetId": "luka",
+          "target": "Luka Lancelloti",
+          "affinity": 34,
+          "label": "Subestima / Observa",
+          "desc": "Trata Luka com ironia, embora já tenha notado que o calouro sabe mais do que aparenta."
+        },
+        {
+          "targetId": "maya",
           "target": "Maya Dunlap",
+          "affinity": 25,
           "label": "Alvo de Vigilância",
           "desc": "Vigia Maya de perto por desconfiar de suas investigações e do perigo real de sua Persuasão Tátil."
         },
         {
-          "target": "Clara Vance",
-          "label": "Desprezo Mútuo",
-          "desc": "Enxerga Clara como uma caloura barulhenta e sem visão estratégica."
-        },
-        {
+          "targetId": "otavio",
           "target": "Otávio O'Connor",
+          "affinity": 22,
           "label": "Evita Proximidade",
           "desc": "Sabe que Otávio lê emoções e mantém distância calculada para não ser decifrada."
         },
         {
-          "target": "Luka Lancelloti",
-          "label": "Subestima / Observa",
-          "desc": "Trata Luka com ironia, embora já tenha notado que o calouro sabe mais do que aparenta."
+          "targetId": "clara",
+          "target": "Clara Vance",
+          "affinity": 18,
+          "label": "Desprezo Mútuo",
+          "desc": "Enxerga Clara como uma caloura barulhenta e sem visão estratégica."
         }
       ]
     },
@@ -202,29 +252,39 @@
       "bio": "Chegou no mesmo semestre que você, mas já mapeou metade dos podres da Vought antes mesmo da aula inaugural.",
       "relations": [
         {
+          "targetId": "clara",
           "target": "Clara Vance",
+          "affinity": 88,
           "label": "Amiga de Infância",
           "desc": "Cresceu ao lado de Clara e divide com ela todas as teorias sobre os bastidores da universidade."
         },
         {
+          "targetId": "maya",
           "target": "Maya Dunlap",
+          "affinity": 85,
           "label": "Melhor Amiga / Protetor",
           "desc": "É uma das poucas pessoas em quem Maya confia plenamente; Luka a protege sempre que os veteranos tentam pressioná-la."
         },
         {
+          "targetId": "otavio",
           "target": "Otávio O'Connor",
+          "affinity": 78,
           "label": "Mentor Informal",
           "desc": "Vê Otávio como um irmão mais velho e segue seus conselhos sobre como sobreviver no campus."
         },
         {
-          "target": "Matteo",
-          "label": "Ex-Conhecido / Atrito",
-          "desc": "Já foi próximo de Matteo em eventos juvenis antes de perceber o jogo político da Vought e cortar laços."
-        },
-        {
+          "targetId": "zoe",
           "target": "Zoe Lee",
+          "affinity": 28,
           "label": "Cautela",
           "desc": "Não cai na conversa suave de Zoe e sempre avisa os amigos quando ela está por perto."
+        },
+        {
+          "targetId": "matteo",
+          "target": "Matteo",
+          "affinity": 18,
+          "label": "Ex-Conhecido / Atrito",
+          "desc": "Já foi próximo de Matteo em eventos juvenis antes de perceber o jogo político da Vought e cortar laços."
         }
       ]
     }
@@ -235,46 +295,46 @@
       "title": "Prólogo · O Despertar",
       "time": "ANOS ATRÁS · INFÂNCIA",
       "stage": "MEMÓRIA DE ORIGEM",
-      "text": "Antes da Universidade Godolkin, antes dos drones de transmissão e dos contratos da Vought, houve um dia em que o mundo comum quebrou ao seu redor.\n\nToda história de um portador do Composto V começa com um despertar inesperado — o instante exato em que você descobriu o que corria nas suas veias.",
+      "text": "Antes dos portões de ferro da Universidade Godolkin, antes dos drones de transmissão da Vought+ e dos contratos milionários, houve um tempo em que você acreditava ser apenas uma criança comum.\n\nToda história de um portador do Composto V começa com uma fratura silenciosa na rotina — o dia em que o corpo respondeu antes da razão, e os anos seguintes em que você precisou aprender a viver com um segredo perigoso demais para dividir com o mundo.",
       "choices": [
         {
-          "label": "Reviver o dia em que meu poder despertou (Hemocinese)",
+          "label": "Reviver sua infância: O despertar da Hemocinese",
           "requirePower": "hemocinese",
-          "to": "infancia_hemocinese"
+          "to": "infancia_hemocinese_1"
         },
         {
-          "label": "Reviver o dia em que meu poder despertou (Superforça & Invulnerabilidade)",
+          "label": "Reviver sua infância: O despertar da Superforça & Invulnerabilidade",
           "requirePower": "superforca",
-          "to": "infancia_superforca"
+          "to": "infancia_superforca_1"
         },
         {
-          "label": "Reviver o dia em que meu poder despertou (Tecnopatia)",
+          "label": "Reviver sua infância: O despertar da Tecnopatia",
           "requirePower": "tecnopatia",
-          "to": "infancia_tecnopatia"
+          "to": "infancia_tecnopatia_1"
         },
         {
-          "label": "Reviver o dia em que meu poder despertou (Telecinese)",
+          "label": "Reviver sua infância: O despertar da Telecinese",
           "requirePower": "telecinese",
-          "to": "infancia_telecinese"
+          "to": "infancia_telecinese_1"
         },
         {
-          "label": "Reviver o dia em que meu poder despertou (Troca de Corpo / Fluidez)",
+          "label": "Reviver sua infância: O despertar da Troca de Corpo / Fluidez",
           "requirePower": "troca_corpo",
-          "to": "infancia_troca_corpo"
+          "to": "infancia_troca_corpo_1"
         }
       ],
       "dynamic": []
     },
-    "infancia_hemocinese": {
-      "id": "infancia_hemocinese",
-      "title": "Ato I · Vermelho no Asfalto",
+    "infancia_hemocinese_1": {
+      "id": "infancia_hemocinese_1",
+      "title": "Ato I (Parte 1) · Vermelho no Asfalto",
       "time": "10 ANOS DE IDADE",
       "stage": "QUADRA ESCOLAR · FIM DE TARDE",
-      "text": "Você tinha apenas dez anos quando caiu de bicicleta na descida íngreme atrás da escola. O rasgo no antebraço foi fundo, mas antes mesmo de você chorar, algo impossível aconteceu.\n\nO sangue que escorria pelo asfalto parou no ar, solidificou-se em lâminas finas e pulsantes como vidro rubro e orbitou seus dedos obedecendo ao ritmo acelerado do seu coração. Ao mesmo tempo, você conseguia ouvir o batimento cardíaco de cada pessoa dentro da escola a quarteirões de distância.\n\nDois garotos mais velhos que tinham empurrado sua bicicleta deram um passo para trás, pálidos de terror.",
+      "text": "Você tinha apenas dez anos quando caiu de bicicleta na descida íngreme atrás da escola. Dois garotos mais velhos haviam chutado sua roda dianteira por pura maldade, jogando você contra o meio-fio.\n\nO rasgo no antebraço foi fundo, mas antes mesmo de você chorar, o mundo pareceu desacelerar. O sangue que escorria pelo asfalto parou no ar, desafiou a gravidade e solidificou-se em lâminas finas e pulsantes como vidro rubro, orbitando seus dedos ao ritmo acelerado do seu coração.\n\nAo mesmo tempo, um som rítmico invadiu seus ouvidos: tum-tum, tum-tum — você conseguia ouvir o pulso cardíaco dos dois agressores disparando de pavor a metros de distância.",
       "choices": [
         {
-          "label": "Reabsorver o sangue imediatamente e fugir para casa antes que adultos chegassem",
-          "to": "recrutamento_vought",
+          "label": "Reabsorver o sangue às pressas e correr para casa antes que adultos aparecessem",
+          "to": "infancia_hemocinese_2",
           "effects": {
             "flags": {
               "infancia_escondeu": true,
@@ -283,11 +343,11 @@
           }
         },
         {
-          "label": "Manter as lâminas flutuando para assustar os valentões e fazê-los pedir desculpas",
+          "label": "Manter as lâminas flutuando para intimidar os valentões e fazê-los recuar",
           "cost": {
             "estresse": 10
           },
-          "to": "recrutamento_vought",
+          "to": "infancia_hemocinese_2",
           "effects": {
             "flags": {
               "infancia_impos": true,
@@ -301,7 +361,7 @@
             "vitalidade": -10,
             "estresse": 15
           },
-          "to": "recrutamento_vought",
+          "to": "infancia_hemocinese_2",
           "effects": {
             "flags": {
               "infancia_descontrole": true,
@@ -310,12 +370,12 @@
           }
         },
         {
-          "label": "Moldar o sangue em um escudo estável e acalmar a própria respiração",
+          "label": "Moldar o sangue em um anel estável e acalmar a própria respiração",
           "requireAttr": {
             "attr": "controle",
             "min": 3
           },
-          "to": "recrutamento_vought",
+          "to": "infancia_hemocinese_2",
           "effects": {
             "flags": {
               "infancia_maestria": true,
@@ -326,16 +386,68 @@
       ],
       "dynamic": []
     },
-    "infancia_superforca": {
-      "id": "infancia_superforca",
-      "title": "Ato I · Aço Dobrado",
+    "infancia_hemocinese_2": {
+      "id": "infancia_hemocinese_2",
+      "title": "Ato I (Parte 2) · O Pulso no Escuro",
+      "time": "14 ANOS DE IDADE",
+      "stage": "BANHEIRO DE CASA · MADRUGADA",
+      "text": "Quatro anos depois, você já sabia que não era como os outros adolescentes da sua rua. Enquanto seus colegas se preocupavam com provas e festas, você passava noites trancado no banheiro com bandagens e gaze esterilizada sobre a pia.\n\nSua mãe batia suavemente na porta sempre que ouvia a torneira aberta tarde da noite.\n\nMãe: — {NOME}, você ainda está acordado? Amanhã você tem aula cedo, querido.\n\nVocê olhou para o espelho: uma única gota retirada da palma da mão girava suspensa sobre seus dedos como uma agulha perfeita. Você havia aprendido a sentir mentiras apenas ouvindo a aceleração súbita do batimento cardíaco de quem falava com você — e percebia que seus próprios pais escondiam algo sempre que mencionavam os exames médicos da sua infância.",
+      "choices": [
+        {
+          "label": "Guardar os curativos e fingir normalidade total para proteger sua família",
+          "to": "recrutamento_vought",
+          "effects": {
+            "flags": {
+              "adolescencia_cautela": true
+            }
+          }
+        },
+        {
+          "label": "Treinar até a exaustão para transformar cada gota em uma arma precisa",
+          "cost": {
+            "vitalidade": -5,
+            "estresse": 5
+          },
+          "to": "recrutamento_vought",
+          "effects": {
+            "flags": {
+              "adolescencia_treino": true
+            }
+          }
+        },
+        {
+          "label": "Vasculhar escondido a gaveta trancada dos seus pais em busca de exames antigos",
+          "to": "recrutamento_vought",
+          "effects": {
+            "flags": {
+              "adolescencia_investigou": true
+            }
+          }
+        },
+        {
+          "label": "Ouvir o batimento cardíaco irregular de um carro parado na esquina vigiando sua casa",
+          "requireTrait": "observador",
+          "to": "recrutamento_vought",
+          "effects": {
+            "flags": {
+              "adolescencia_investigou": true,
+              "notou_vigilancia_infancia": true
+            }
+          }
+        }
+      ],
+      "dynamic": []
+    },
+    "infancia_superforca_1": {
+      "id": "infancia_superforca_1",
+      "title": "Ato I (Parte 1) · Aço Dobrado",
       "time": "9 ANOS DE IDADE",
       "stage": "GARAGEM DA FAMÍLIA",
-      "text": "Aos nove anos, o macaco hidráulico do carro antigo do seu pai cedeu enquanto ele trocava o pneu. O veículo despencou sem aviso.\n\nVocê não pensou — apenas correu e segurou o para-choque com as duas mãos. O metal amassou como papel alumínio sob seus dedos, mas o carro parou no ar. Quando o choque passou e você largou o veículo, percebeu que não tinha um único arranhão, enquanto suas pegadas haviam afundado dois centímetros no concreto da garagem.\n\nSeu pai ficou imóvel no chão, encarando você como se visse um estranho pela primeira vez.",
+      "text": "Aos nove anos, o macaco hidráulico do sedã antigo do seu pai cedeu com um estalo seco enquanto ele trocava o pneu traseiro. O veículo despencou sem aviso.\n\nVocê não pensou — apenas saltou e segurou o para-choque traseiro com as duas mãos. O aço amassou como folha de alumínio sob seus dedos pequenos, mas o carro parou no ar. Quando você o apoiou no chão e olhou para as próprias mãos, não havia um único arranhão na sua pele, enquanto suas pegadas haviam afundado dois centímetros no concreto da garagem.\n\nSeu pai ficou imóvel no chão, encarando você com os olhos arregalados como se visse um estranho pela primeira vez.",
       "choices": [
         {
           "label": "Pedir segredo absoluto aos seus pais e prometer nunca mais usar força perto de ninguém",
-          "to": "recrutamento_vought",
+          "to": "infancia_superforca_2",
           "effects": {
             "flags": {
               "infancia_escondeu": true,
@@ -345,7 +457,7 @@
         },
         {
           "label": "Sentir orgulho por ter salvado seu pai e testar até onde sua força chegava",
-          "to": "recrutamento_vought",
+          "to": "infancia_superforca_2",
           "effects": {
             "flags": {
               "infancia_impos": true,
@@ -358,7 +470,7 @@
           "cost": {
             "estresse": 15
           },
-          "to": "recrutamento_vought",
+          "to": "infancia_superforca_2",
           "effects": {
             "flags": {
               "infancia_descontrole": true,
@@ -372,7 +484,7 @@
             "attr": "potencia",
             "min": 3
           },
-          "to": "recrutamento_vought",
+          "to": "infancia_superforca_2",
           "effects": {
             "flags": {
               "infancia_maestria": true,
@@ -383,16 +495,64 @@
       ],
       "dynamic": []
     },
-    "infancia_tecnopatia": {
-      "id": "infancia_tecnopatia",
-      "title": "Ato I · Fantasma na Rede",
+    "infancia_superforca_2": {
+      "id": "infancia_superforca_2",
+      "title": "Ato I (Parte 2) · Mundo de Papelão",
+      "time": "15 ANOS DE IDADE",
+      "stage": "GINÁSIO DO ENSINO MÉDIO",
+      "text": "Na adolescência, o maior desafio não era levantar peso — era não quebrar tudo o que você tocava. Maçanetas entortavam na sua mão, lápis partiam ao meio se você ficasse nervoso numa prova, e nas aulas de educação física você precisava fingir cansaço para não humilhar o time inteiro.\n\nDepois do treino, seu pai encostou no carro no estacionamento vazio e colocou uma mão firme no seu ombro.\n\nPai: — Você tem se saído bem escondendo isso, {NOME}. Mas uma hora gente grande vai bater na nossa porta perguntando como um garoto da sua idade entorta ferro sem suar.",
+      "choices": [
+        {
+          "label": "Prometer ao seu pai que continuará segurando sua força a qualquer custo",
+          "to": "recrutamento_vought",
+          "effects": {
+            "flags": {
+              "adolescencia_cautela": true
+            }
+          }
+        },
+        {
+          "label": "Treinar impacto e resistência em um ferro-velho abandonado fora da cidade",
+          "to": "recrutamento_vought",
+          "effects": {
+            "flags": {
+              "adolescencia_treino": true
+            }
+          }
+        },
+        {
+          "label": "Perguntar diretamente ao seu pai de onde vieram os seus poderes",
+          "to": "recrutamento_vought",
+          "effects": {
+            "flags": {
+              "adolescencia_investigou": true
+            }
+          }
+        },
+        {
+          "label": "Perceber que o homem fotografando o treino na arquibancada não era pai de nenhum aluno",
+          "requireTrait": "observador",
+          "to": "recrutamento_vought",
+          "effects": {
+            "flags": {
+              "adolescencia_investigou": true,
+              "notou_vigilancia_infancia": true
+            }
+          }
+        }
+      ],
+      "dynamic": []
+    },
+    "infancia_tecnopatia_1": {
+      "id": "infancia_tecnopatia_1",
+      "title": "Ato I (Parte 1) · Fantasma na Rede",
       "time": "11 ANOS DE IDADE",
       "stage": "LABORATÓRIO DE INFORMÁTICA",
-      "text": "Aos onze anos, durante uma tempestade, você encostou a mão no gabinete de um computador travado da escola.\n\nEm vez de um choque, uma enxurrada de dados invadiu sua mente como vozes sussurrando em código binário. Sem tocar no teclado, você viu as câmeras de segurança do prédio inteiro, destravou as fechaduras eletrônicas dos corredores e fez todas as telas da sala exibirem seu próprio pulso cardíaco em linhas verdes.\n\nO alarme silencioso do distrito escolar disparou — e naquela mesma noite, a linha telefônica da sua casa começou a chiar com interferências.",
+      "text": "Aos onze anos, durante uma tempestade de verão, você encostou a palma da mão no gabinete metálico de um computador travado da escola.\n\nEm vez de um choque elétrico, uma enxurrada de dados invadiu sua mente como milhões de sussurros em código binário. Sem tocar no teclado, você enxergou o sinal de todas as câmeras de segurança do prédio, destravou as fechaduras eletrônicas dos corredores e fez os monitores da sala exibirem seu próprio pulso cardíaco em linhas verdes.\n\nO alarme silencioso do distrito escolar disparou — e naquela mesma noite, todos os aparelhos eletrônicos da sua rua piscaram em sincronia com a sua respiração.",
       "choices": [
         {
           "label": "Apagar os registros das câmeras locais e fingir que foi apenas queda de energia",
-          "to": "recrutamento_vought",
+          "to": "infancia_tecnopatia_2",
           "effects": {
             "flags": {
               "infancia_escondeu": true,
@@ -405,7 +565,7 @@
           "cost": {
             "estresse": 10
           },
-          "to": "recrutamento_vought",
+          "to": "infancia_tecnopatia_2",
           "effects": {
             "flags": {
               "infancia_impos": true,
@@ -418,7 +578,7 @@
           "cost": {
             "estresse": 15
           },
-          "to": "recrutamento_vought",
+          "to": "infancia_tecnopatia_2",
           "effects": {
             "flags": {
               "infancia_descontrole": true,
@@ -432,7 +592,7 @@
             "attr": "intelecto",
             "min": 3
           },
-          "to": "recrutamento_vought",
+          "to": "infancia_tecnopatia_2",
           "effects": {
             "flags": {
               "infancia_maestria": true,
@@ -443,16 +603,64 @@
       ],
       "dynamic": []
     },
-    "infancia_telecinese": {
-      "id": "infancia_telecinese",
-      "title": "Ato I · Gravidade Zero",
+    "infancia_tecnopatia_2": {
+      "id": "infancia_tecnopatia_2",
+      "title": "Ato I (Parte 2) · Ruído Branco",
+      "time": "15 ANOS DE IDADE",
+      "stage": "SEU QUARTO · MADRUGADA",
+      "text": "Com o passar dos anos, caminhar por um shopping ou estação de metrô tornou-se ensurdecedor: centenas de celulares, roteadores e câmeras gritavam sinais no fundo da sua mente. Você aprendeu a usar fones de ouvido desligados apenas como desculpa para fechar os olhos e filtrar o ruído.\n\nCerta madrugada, ao encostar os dedos no roteador de casa, você interceptou um pacote de dados criptografado com o logotipo da Vought monitorando o tráfego de rede do seu bairro.\n\nSua irmã mais nova bateu na porta com cara de sono:\n\nIrmã: — {NOME}, a TV da sala ligou sozinha de novo... você tá mexendo nisso?",
+      "choices": [
+        {
+          "label": "Desligar todos os aparelhos do quarto e bloquear seu próprio sinal na rede",
+          "to": "recrutamento_vought",
+          "effects": {
+            "flags": {
+              "adolescencia_cautela": true
+            }
+          }
+        },
+        {
+          "label": "Criar rotinas neurais para invadir sistemas criptografados em segundos",
+          "to": "recrutamento_vought",
+          "effects": {
+            "flags": {
+              "adolescencia_treino": true
+            }
+          }
+        },
+        {
+          "label": "Rastrear a origem da transmissão da Vought que monitorava sua casa",
+          "to": "recrutamento_vought",
+          "effects": {
+            "flags": {
+              "adolescencia_investigou": true
+            }
+          }
+        },
+        {
+          "label": "Clonar silenciosamente a credencial de acesso do servidor antes de desconectar",
+          "requireTrait": "observador",
+          "to": "recrutamento_vought",
+          "effects": {
+            "flags": {
+              "adolescencia_investigou": true,
+              "notou_vigilancia_infancia": true
+            }
+          }
+        }
+      ],
+      "dynamic": []
+    },
+    "infancia_telecinese_1": {
+      "id": "infancia_telecinese_1",
+      "title": "Ato I (Parte 1) · Gravidade Zero",
       "time": "10 ANOS DE IDADE",
       "stage": "QUARTO DE INFÂNCIA",
-      "text": "Aos dez anos, no meio de uma discussão acalorada com seus pais sobre você nunca poder sair com os outros garotos, o ar dentro do seu quarto ficou pesado e estático.\n\nLivros, cadeiras e o abajur ergueram-se lentamente a um metro do chão, girando em silêncio ao seu redor como satélites presos à sua raiva. Quando você piscou, uma onda de choque invisível estilhaçou o espelho do guarda-roupa e jogou a porta para fora das dobradiças.\n\nSua mãe cobriu a boca com as mãos, olhando para os cacos flutuando antes de caírem todos ao mesmo tempo.",
+      "text": "Aos dez anos, no meio de uma discussão acalorada com seus pais sobre você nunca poder viajar ou dormir na casa dos colegas, o ar dentro do seu quarto ficou pesado e estático.\n\nLivros, cadeiras e o abajur ergueram-se lentamente a um metro do chão, girando em silêncio ao seu redor como satélites presos à sua raiva. Quando você piscou, uma onda de choque invisível estilhaçou o espelho do guarda-roupa e jogou a porta para fora das dobradiças.\n\nSua mãe cobriu a boca com as mãos, olhando para os cacos flutuando antes de caírem todos ao mesmo tempo no carpete.",
       "choices": [
         {
           "label": "Trancar-se no quarto em silêncio, com medo de machucar sua família",
-          "to": "recrutamento_vought",
+          "to": "infancia_telecinese_2",
           "effects": {
             "flags": {
               "infancia_escondeu": true,
@@ -462,7 +670,7 @@
         },
         {
           "label": "Exigir explicações dos seus pais sobre por que sempre esconderam a verdade de você",
-          "to": "recrutamento_vought",
+          "to": "infancia_telecinese_2",
           "effects": {
             "flags": {
               "infancia_impos": true,
@@ -475,7 +683,7 @@
           "cost": {
             "estresse": 15
           },
-          "to": "recrutamento_vought",
+          "to": "infancia_telecinese_2",
           "effects": {
             "flags": {
               "infancia_descontrole": true,
@@ -489,7 +697,7 @@
             "attr": "controle",
             "min": 3
           },
-          "to": "recrutamento_vought",
+          "to": "infancia_telecinese_2",
           "effects": {
             "flags": {
               "infancia_maestria": true,
@@ -500,16 +708,64 @@
       ],
       "dynamic": []
     },
-    "infancia_troca_corpo": {
-      "id": "infancia_troca_corpo",
-      "title": "Ato I · Dois Reflexos",
+    "infancia_telecinese_2": {
+      "id": "infancia_telecinese_2",
+      "title": "Ato I (Parte 2) · Fios Invisíveis",
+      "time": "15 ANOS DE IDADE",
+      "stage": "CLAREIRA ATRÁS DO BAIRRO",
+      "text": "Nos anos seguintes, você descobriu que sua telecinese era um espelho direto das suas emoções: quando você estava calmo, conseguia erguer dezenas de pedras pequenas sem fazer barulho; quando sentia medo ou raiva, o ar vibrava como antes de um trovão.\n\nTodas as tardes depois da escola, você ia até uma clareira isolada para praticar longe de olhares curiosos. Sua mãe sempre deixava um lanche na mochila com um bilhete dobrado:\n\nBilhete da Mãe: — “Respire fundo antes de reagir, {NOME}. Não deixe ninguém provocar você na escola.”",
+      "choices": [
+        {
+          "label": "Evitar qualquer conflito na escola para nunca expor suas habilidades",
+          "to": "recrutamento_vought",
+          "effects": {
+            "flags": {
+              "adolescencia_cautela": true
+            }
+          }
+        },
+        {
+          "label": "Praticar o lançamento e o desvio simultâneo de múltiplos objetos no ar",
+          "to": "recrutamento_vought",
+          "effects": {
+            "flags": {
+              "adolescencia_treino": true
+            }
+          }
+        },
+        {
+          "label": "Confrontar seus pais sobre os pagamentos mensais anônimos que sustentavam a casa",
+          "to": "recrutamento_vought",
+          "effects": {
+            "flags": {
+              "adolescencia_investigou": true
+            }
+          }
+        },
+        {
+          "label": "Notar marcas de pneus pretos na estrada de terra perto da sua clareira de treino",
+          "requireTrait": "observador",
+          "to": "recrutamento_vought",
+          "effects": {
+            "flags": {
+              "adolescencia_investigou": true,
+              "notou_vigilancia_infancia": true
+            }
+          }
+        }
+      ],
+      "dynamic": []
+    },
+    "infancia_troca_corpo_1": {
+      "id": "infancia_troca_corpo_1",
+      "title": "Ato I (Parte 1) · Dois Reflexos",
       "time": "11 ANOS DE IDADE",
       "stage": "VESTIÁRIO DO GINÁSIO",
       "text": "Aos onze anos, encurralado por três garotos mais velhos no vestiário vazio do ginásio, você sentiu um calor súbito percorrer sua coluna como mercúrio líquido.\n\nEm meio segundo, sua estrutura física mudou diante do espelho embaçado: sua postura ficou densa, blindada e imponente, desviando o soco do primeiro agressor com um estalo metálico — e no instante seguinte, seu corpo fluiu para uma forma ágil e luminosa que atravessou a saída antes que pudessem piscar.\n\nVocê correu por três quarteirões até conseguir voltar à sua aparência original, ofegante e sem entender qual dos dois corpos era realmente o seu.",
       "choices": [
         {
           "label": "Evitar espelhos e jamais revelar a ninguém que consegue alternar de forma",
-          "to": "recrutamento_vought",
+          "to": "infancia_troca_corpo_2",
           "effects": {
             "flags": {
               "infancia_escondeu": true,
@@ -519,7 +775,7 @@
         },
         {
           "label": "Treinar escondido à noite para dominar cada transição entre suas formas",
-          "to": "recrutamento_vought",
+          "to": "infancia_troca_corpo_2",
           "effects": {
             "flags": {
               "infancia_impos": true,
@@ -532,7 +788,7 @@
           "cost": {
             "estresse": 15
           },
-          "to": "recrutamento_vought",
+          "to": "infancia_troca_corpo_2",
           "effects": {
             "flags": {
               "infancia_descontrole": true,
@@ -546,11 +802,59 @@
             "attr": "vigor",
             "min": 3
           },
-          "to": "recrutamento_vought",
+          "to": "infancia_troca_corpo_2",
           "effects": {
             "flags": {
               "infancia_maestria": true,
               "origem_troca_corpo": true
+            }
+          }
+        }
+      ],
+      "dynamic": []
+    },
+    "infancia_troca_corpo_2": {
+      "id": "infancia_troca_corpo_2",
+      "title": "Ato I (Parte 2) · Entre Duas Peles",
+      "time": "15 ANOS DE IDADE",
+      "stage": "TERRAÇO DO PRÉDIO · ANOITECER",
+      "text": "Durante a adolescência, alternar de forma cobrava um preço físico alto: você comia o dobro de qualquer pessoa da sua idade e acordava exausto sempre que mudava de estrutura por instinto durante pesadelos.\n\nSeu melhor amigo de infância, o único que sabia metade da verdade, jogou uma garrafa de isotônico para você no terraço.\n\nAmigo de Infância: — Sério mesmo, {NOME}, se você entrar nessa universidade de supers, vê se não esquece quem você é de verdade quando mudar de forma.",
+      "choices": [
+        {
+          "label": "Manter-se na sua forma original o máximo possível para não chamar atenção",
+          "to": "recrutamento_vought",
+          "effects": {
+            "flags": {
+              "adolescencia_cautela": true
+            }
+          }
+        },
+        {
+          "label": "Praticar transições rápidas em combate combinando defesa pesada e agilidade",
+          "to": "recrutamento_vought",
+          "effects": {
+            "flags": {
+              "adolescencia_treino": true
+            }
+          }
+        },
+        {
+          "label": "Investigar os registros médicos do pronto-socorro sobre o seu metabolismo",
+          "to": "recrutamento_vought",
+          "effects": {
+            "flags": {
+              "adolescencia_investigou": true
+            }
+          }
+        },
+        {
+          "label": "Perceber um drone de reconhecimento pairando acima das antenas do prédio vizinho",
+          "requireTrait": "observador",
+          "to": "recrutamento_vought",
+          "effects": {
+            "flags": {
+              "adolescencia_investigou": true,
+              "notou_vigilancia_infancia": true
             }
           }
         }
@@ -562,7 +866,7 @@
       "title": "Ato II · A Visita dos De Cima",
       "time": "SEMANAS ANTES DO SEMESTRE",
       "stage": "SALA DE ESTAR · SUA CASA",
-      "text": "O incidente da sua infância nunca desapareceu de verdade — apenas ficou arquivado nos servidores da Vought esperando a idade certa.\n\nDois executivos de terno escuro e uma representante da Reitoria de Godolkin bateram à sua porta com uma pasta timbrada com o selo V7. Eles já tinham relatórios médicos, gravações antigas e uma proposta irrecusável: bolsa integral como Calouro do 1º Ano na Universidade Godolkin, blindagem jurídica para o passado da sua família e acesso ao programa oficial de heróis.\n\nO representante sorriu de forma ensaiada ao abrir o contrato sobre a mesa:\n\nExecutivo Vought: — Você já adiou sua entrada tempo demais, {NOME}. Lá fora, pessoas com as suas habilidades são tratadas como ameaças. Em Godolkin, transformamos você em uma lenda.",
+      "text": "Os anos escondendo seus poderes nunca apagaram seus rastros — eles apenas ficaram arquivados nos servidores da Vought esperando você atingir a maioridade.\n\nDois executivos de terno escuro e uma representante da Reitoria de Godolkin bateram à sua porta com uma pasta timbrada com o selo V7. Sobre o contrato impresso estava o seu registro completo: {NOME_COMPLETO}, ingressante como Calouro do 1º Ano com bolsa integral, blindagem jurídica para o passado da sua família e acesso ao programa oficial de heróis.\n\nO representante sorriu de forma ensaiada ao abrir a caneta sobre a mesa:\n\nExecutivo Vought: — Você já adiou sua entrada tempo demais, {NOME}. Lá fora, pessoas com as suas habilidades são tratadas como ameaças. Em Godolkin, transformamos você em uma lenda.",
       "choices": [
         {
           "label": "Assinar o contrato mirando o topo do Ranking e o futuro da sua família",
@@ -616,8 +920,8 @@
           "text": "Sobre a mesa, uma das fotos anexadas ao dossiê mostrava exatamente os estragos do dia em que seu poder fugiu do controle anos atrás — um lembrete silencioso de que você não tinha muita escolha."
         },
         {
-          "flag": "infancia_escondeu",
-          "text": "Mesmo tendo escondido suas habilidades por anos, a pasta continha exames de sangue da infância que provavam que a Vought sempre soube onde você estava."
+          "flag": "notou_vigilancia_infancia",
+          "text": "Você reconheceu na hora o logotipo na pasta: era a mesma operação silenciosa que já vigiava você desde a adolescência."
         }
       ]
     },
@@ -749,7 +1053,7 @@
       "title": "Sob a Luz dos Patrocinadores",
       "time": "08:30",
       "stage": "ÁREA VIP · PÁTIO CENTRAL",
-      "text": "Assim que você cruza a faixa reservada, um dos drones dá zoom no seu rosto, fazendo seu nome subir três posições no painel digital.\n\nMatteo ajusta o casaco impecável e estende a mão com um sorriso de comercial de TV, enquanto Zoe Lee apoia o queixo na mão, analisando cada detalhe da sua postura com olhos elétricos.\n\nMatteo: — Coragem de vir direto falar com o Top 2 no primeiro dia, calouro. Sou Matteo. Se você souber jogar o jogo certo, esse campus abre qualquer porta.\n\nZoe: — E se não souber, as portas fecham bem rápido, {NOME}. Fique perto e vamos ver do que você é feito na Arena.",
+      "text": "Assim que você cruza a faixa reservada, um dos drones dá zoom no seu rosto, fazendo seu nome subir três posições no painel digital.\n\nMatteo ajusta o casaco impecável e estende a mão com um sorriso de comercial de TV, enquanto Zoe Lee apoia o queixo na mão, analisando cada detalhe da sua postura com olhos elétricos.\n\nMatteo: — Coragem de vir direto falar com o Top 2 no primeiro dia, {NOME}. Sou Matteo. Se você souber jogar o jogo certo, esse campus abre qualquer porta.\n\nZoe: — E se não souber, as portas fecham bem rápido, {NOME}. Fique perto e vamos ver do que você é feito na Arena.",
       "choices": [
         {
           "label": "Mostrar ambição e dizer que pretende disputar o Top 10 ainda este semestre",
@@ -808,10 +1112,10 @@
       "title": "Sombra das Pilastras",
       "time": "08:30",
       "stage": "ARCADAS LATERAIS",
-      "text": "Você se encosta na pilastra de pedra longe das câmeras. Otávio O'Connor vira-se com um sorriso tranquilo e oferece uma garrafa de água, enquanto Maya Dunlap observa você com as mãos protegidas por luvas pretas.\n\nOtávio: — Olha só, um calouro com instinto de autopreservação. Sou o Otávio, e essa é a Maya. Não se assuste com o jeito sério dela, ela só está contando quantas câmeras estão apontadas pra gente.\n\nMaya: — Sete. E três delas pertencem à segurança interna, não à transmissão pública. Qual é o seu nome, novato?",
+      "text": "Você se encosta na pilastra de pedra longe das câmeras. Otávio O'Connor vira-se com um sorriso tranquilo e oferece uma garrafa de água, enquanto Maya Dunlap observa você com as mãos protegidas por luvas pretas.\n\nOtávio: — Olha só, um calouro com instinto de autopreservação. Sou o Otávio, e essa é a Maya. Não se assuste com o jeito sério dela, ela só está contando quantas câmeras estão apontadas pra gente.\n\nMaya: — Sete. E três delas pertencem à segurança interna, não à transmissão pública. Prazer, {NOME}.",
       "choices": [
         {
-          "label": "Apresentar-se com calma e agradecer pelo aviso sobre as câmeras",
+          "label": "Agradecer pelo aviso sobre as câmeras e puxar assunto com calma",
           "to": "arena_chegada",
           "effects": {
             "bonds": {
@@ -1096,7 +1400,7 @@
       "title": "A Varanda da Torre Norte",
       "time": "23:20",
       "stage": "COBERTURA · TORRE NORTE",
-      "text": "A cobertura pulsa com luzes neon e música alta. Enquanto Matteo e Zoe comandam o centro da pista cercados por veteranos, Maya Dunlap chama você, Clara, Luka e Otávio para a varanda externa longe dos microfones.\n\nDe luvas pretas cruzadas, Maya fala baixo:\n\nMaya: — O aluno #6 do Ranking não foi transferido para uma agência em Nova York como a reitoria anunciou hoje à tarde. Luka cruzou os horários das câmeras com o elevador de serviço: levaram ele para um nível subterrâneo chamado 'A Floresta'.\n\nOtávio franze a testa, sentindo a tensão elétrica no ar.\n\nOtávio: — Se a gente mexer nisso sem cuidado, todos nós viramos o próximo nome apagado da lista.",
+      "text": "A cobertura pulsa com luzes neon e música alta. Enquanto Matteo e Zoe comandam o centro da pista cercados por veteranos, Maya Dunlap chama você, Clara, Luka e Otávio para a varanda externa longe dos microfones.\n\nDe luvas pretas cruzadas, Maya fala baixo:\n\nMaya: — Escuta bem, {NOME}. O aluno #6 do Ranking não foi transferido para uma agência em Nova York como a reitoria anunciou hoje à tarde. Luka cruzou os horários das câmeras com o elevador de serviço: levaram ele para um nível subterrâneo chamado 'A Floresta'.\n\nOtávio franze a testa, sentindo a tensão elétrica no ar.\n\nOtávio: — Se a gente mexer nisso sem cuidado, todos nós viramos o próximo nome apagado da lista.",
       "choices": [
         {
           "label": "Apoiar Maya e Luka e jurar investigar 'A Floresta' em segredo com o grupo",

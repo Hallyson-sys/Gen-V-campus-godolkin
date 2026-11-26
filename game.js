@@ -1,7 +1,7 @@
-/* Gen V: Campus Godolkin — Motor Jogável V0.3.1
- * Inclui: 5 Poderes Exclusivos, Prólogo de Origem na Infância + Recrutamento Vought,
- * Calouro (1º Ano) independente da idade, Escolhas Bloqueadas sem Spoiler (sempre 4 opções),
- * Ficha Interativa dos 6 Alunos de Godolkin com Relações Cruzadas e Reação em Cadeia.
+/* Gen V: Campus Godolkin — Motor Jogável V0.4.0
+ * Inclui: Primeiro nome nos diálogos, Ato I (Infância & Adolescência) expandido em 2 partes por poder,
+ * 5 Poderes Exclusivos, Calouro (1º Ano), Escolhas Bloqueadas sem Spoiler,
+ * Ficha Interativa dos 6 Alunos de Godolkin com Barras de Afinidade Cruzadas e Reação em Cadeia.
  */
 (() => {
   'use strict';
@@ -111,11 +111,12 @@
   const CHAIN_REACTIONS = [
     {
       id: 'origem_cicatriz',
-      title: 'Marcas da Infância',
-      teaser: 'O modo como você reagiu ao despertar do seu poder ainda ecoa no seu comportamento.',
+      title: 'Marcas da Infância & Adolescência',
+      teaser: 'O modo como você reagiu ao despertar do seu poder e viveu seus anos ocultos ainda ecoa no seu comportamento.',
       steps: [
-        { when: f => f.infancia_escondeu || f.infancia_impos || f.infancia_descontrole || f.infancia_maestria, description: 'Você enfrentou o despertar do Composto V na infância e carregou essa marca até o recrutamento.' },
-        { when: f => f.motivacao_ambicao || f.motivacao_verdade || f.motivacao_controle || f.motivacao_negociador, description: 'Sua postura diante dos executivos da Vought selou os termos da sua matrícula em Godolkin.' }
+        { when: f => f.infancia_escondeu || f.infancia_impos || f.infancia_descontrole || f.infancia_maestria, description: 'Você enfrentou o despertar do Composto V na infância e carregou essa marca pela adolescência.' },
+        { when: f => f.adolescencia_cautela || f.adolescencia_treino || f.adolescencia_investigou, description: 'Seus anos ocultos moldaram seu preparo antes mesmo da chegada dos executivos da Vought.' },
+        { when: f => f.motivacao_ambicao || f.motivacao_verdade || f.motivacao_controle || f.motivacao_negociador, description: 'Sua postura diante da Reitoria selou os termos da sua matrícula em Godolkin.' }
       ]
     },
     {
@@ -165,6 +166,12 @@
     .replaceAll('>', '&gt;')
     .replaceAll('"', '&quot;')
     .replaceAll("'", '&#39;');
+
+  function getFirstName(fullName) {
+    const clean = String(fullName || '').trim();
+    if (!clean) return 'Calouro';
+    return clean.split(/\s+/)[0];
+  }
 
   function resetDraft() {
     draft = {
@@ -240,7 +247,7 @@
     return `<header class="app-header">
       <button class="brand" data-action="menu" aria-label="Menu principal">${wordmark()}</button>
       <div class="header-right">
-        <span class="header-status">PRÓLOGO · V0.3.1</span>
+        <span class="header-status">PRÓLOGO · V0.4.0</span>
         <button class="menu-btn" data-action="drawer" aria-expanded="${drawerOpen}">
           <span class="menu-btn-bars">${drawerOpen ? '✕' : '☰'}</span>
           <span>${drawerOpen ? 'FECHAR' : 'MENU'}</span>
@@ -299,6 +306,7 @@
     drawerOpen = false;
     chainFlash = null;
     const hasSave = !!enter();
+    const firstName = hasSave ? getFirstName(save.perfil.nome) : '';
     layout(`<main class="menu-view">
       <div class="menu-art" aria-hidden="true">
         <svg class="menu-art-svg" viewBox="0 0 600 720" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -323,7 +331,7 @@
           <span class="torn-quote-watermark">V7</span>
         </div>
         <div class="menu-stack-buttons">
-          ${hasSave ? `<button class="primary" data-action="resume">CONTINUAR COMO ${safe(save.perfil.nome.toUpperCase())} <span>›</span></button>` : ''}
+          ${hasSave ? `<button class="primary" data-action="resume">CONTINUAR COMO ${safe(firstName.toUpperCase())} <span>›</span></button>` : ''}
           <button class="${hasSave ? 'secondary' : 'primary'}" data-action="new">${hasSave ? 'NOVO ALUNO (RECOMEÇAR)' : 'CRIAR ALUNO E INICIAR'} <span>›</span></button>
           <button class="secondary" data-action="slots">PARTIDAS E SLOTS</button>
           <button class="secondary" data-action="cast">ALUNOS DE GODOLKIN</button>
@@ -355,8 +363,9 @@
       nextLabel = 'Próximo: Poder ›';
       stepHtml = `
         <div class="field-group">
-          <label for="inp-nome">Nome do Estudante *</label>
+          <label for="inp-nome">Nome Completo do Estudante *</label>
           <input id="inp-nome" class="field-input" type="text" maxlength="28" placeholder="Ex: Gabriel Vance" value="${safe(draft.nome)}">
+          <small class="fine">Nos diálogos do dia a dia, os alunos chamarão você pelo seu primeiro nome.</small>
         </div>
         <div class="form-grid-2">
           <div class="field-group">
@@ -393,7 +402,7 @@
       canAdvance = !!draft.poder_id;
       nextLabel = 'Próximo: Características ›';
       stepHtml = `
-        <p class="fine">Escolha uma das 5 mutações exclusivas. Nenhum colega do seu grupo possui o mesmo poder que você — e cada habilidade tem sua própria cena de origem na infância.</p>
+        <p class="fine">Escolha uma das 5 mutações exclusivas. Nenhum colega do seu grupo possui o mesmo poder que você — e cada habilidade tem sua própria história na infância e adolescência.</p>
         <div class="option-cards">
           ${PODERES.map(p => `
             <button type="button" class="opt-card ${draft.poder_id === p.id ? 'selected' : ''}" data-pick-pod="${p.id}">
@@ -474,7 +483,7 @@
   function finishCreation() {
     save = {
       game: 'genv-campus-godolkin',
-      version: '0.3.1',
+      version: '0.4.0',
       slot,
       node: DATA.meta.start,
       perfil: {
@@ -506,8 +515,11 @@
   }
 
   function formatNarrative(raw) {
-    const nome = save?.perfil?.nome || 'Calouro';
-    const text = String(raw || '').replaceAll('{NOME}', nome);
+    const fullName = save?.perfil?.nome || 'Calouro';
+    const firstName = getFirstName(fullName);
+    const text = String(raw || '')
+      .replaceAll('{NOME_COMPLETO}', fullName)
+      .replaceAll('{NOME}', firstName);
     return text.split(/\n\s*\n|\n/g).map(s => s.trim()).filter(Boolean).map(s => {
       const m = s.match(/^([^:]{2,28}):\s*(—\s*.+)$/u);
       if (m) return `<div class="line spoken"><strong>${safe(m[1])}</strong><span>${safe(m[2])}</span></div>`;
@@ -524,7 +536,6 @@
       return { visible: false };
     }
 
-    // Sem spoiler: exibe apenas o requisito caso o jogador não possua a característica ou atributo
     if (c.requireTrait && !save.perfil.caracteristicas.includes(c.requireTrait)) {
       return {
         visible: true,
@@ -614,6 +625,7 @@
     const n = SCENES[save.node];
     if (!n) { menu(); return; }
 
+    const firstName = getFirstName(save.perfil.nome);
     const podObj = PODERES.find(p => p.id === save.perfil.poder_id);
     const visibleChoices = (n.choices || [])
       .map((c, idx) => ({ c, idx, evalRes: evaluateChoice(c) }))
@@ -647,13 +659,13 @@
         }).join('')}</div>`
       : `<div class="button-row"><button class="primary" data-action="end">VER RESULTADO DO PRÓLOGO <span>›</span></button></div>`;
 
-    const pct = save.node === 'end' ? 100 : Math.min(95, Math.max(12, save.visited.length * 16));
+    const pct = save.node === 'end' ? 100 : Math.min(95, Math.max(10, save.visited.length * 14));
 
     layout(`<main class="play-view">
       <div class="play-content">
         <div class="hud-bar">
           <div class="hud-player">
-            <span>${safe(save.perfil.nome)}</span>
+            <span>${safe(firstName)}</span>
             <span class="hud-rank">RANK #${save.perfil.ranking_campus}</span>
             <span class="fine">(${safe(podObj ? podObj.nome.split(' ')[0] : '')})</span>
           </div>
@@ -665,7 +677,7 @@
 
         <div class="story-meta">
           <div>
-            <div class="kicker">PRÓLOGO · ${safe(save.perfil.nome.toUpperCase())}</div>
+            <div class="kicker">PRÓLOGO · ${safe(firstName.toUpperCase())}</div>
             <h2>${safe(n.title)}</h2>
             <p>${safe(n.stage)} • ${safe(n.time)}</p>
           </div>
@@ -811,13 +823,13 @@
     const sel = CAST.find(c => c.id === castSelected) || CAST[0];
     const playerBond = save ? (save.bonds[sel.id] ?? BASE_BONDS[sel.id] ?? 28) : (BASE_BONDS[sel.id] ?? 28);
     const relStatus = getRelationshipStatus(playerBond);
-    const playerName = save?.perfil?.nome || 'Você (Calouro)';
+    const playerFirstName = save ? getFirstName(save.perfil.nome) : 'Você (Calouro)';
 
     layout(`<main class="panel-view">
       <div class="panel">
         <div class="kicker">CORPO DISCENTE // TOQUE EM UM ALUNO PARA INSPECIONAR</div>
         <h1>Alunos de Godolkin</h1>
-        <p class="fine">Selecione o ícone de cada estudante para ver sua personalidade, poderes, o nível de intimidade com <strong>${safe(playerName)}</strong> e suas relações prévias no campus.</p>
+        <p class="fine">Selecione o card de cada estudante para ver sua personalidade, poderes, o nível de intimidade com <strong>${safe(playerFirstName)}</strong> e as barras de afinidade com os outros alunos.</p>
 
         <div class="cast-grid">
           ${CAST.map(c => {
@@ -829,7 +841,7 @@
                 <strong>${safe(c.name)}</strong>
                 <small>${safe(c.role)}</small>
                 <span>${safe(c.age)} • ${safe(c.archetype)}</span>
-                <em>Intimidade atual: ${bVal}/100</em>
+                <em>Intimidade com ${safe(playerFirstName)}: ${bVal}/100</em>
               </div>
             </button>`;
           }).join('')}
@@ -848,28 +860,37 @@
           <p><strong>Personalidade:</strong> ${safe(sel.personality)}</p>
           <p class="fine">${safe(sel.bio)}</p>
 
-          <h2>Relação com ${safe(playerName)}</h2>
+          <h2>Relação com ${safe(playerFirstName)}</h2>
           <div class="cast-rel-list">
             <div class="cast-rel-item player-rel">
-              <strong>${safe(playerName)} · Intimidade: ${playerBond}/100 (${safe(relStatus.label)})</strong>
+              <strong>${safe(playerFirstName)} • ${safe(relStatus.label)}</strong>
+              <div class="rel-meter-row">
+                <div class="meter"><i style="width:${playerBond}%"></i></div>
+                <b>${playerBond}</b>
+              </div>
               <span>${save
                 ? (playerBond >= 55
-                    ? `${sel.name} já demonstra confiança real em você e compartilha informações sem rodeios.`
+                    ? `${sel.name} já demonstra confiança real em ${playerFirstName} e compartilha informações sem rodeios.`
                     : playerBond >= 36
-                    ? `${sel.name} começa a se aproximar e enxerga você como um colega promissor no campus.`
-                    : `${sel.name} ainda vê você como um calouro recém-chegado — a confiança precisa ser conquistada passo a passo.`)
+                    ? `${sel.name} começa a se aproximar e enxerga ${playerFirstName} como um colega promissor no campus.`
+                    : `${sel.name} ainda vê ${playerFirstName} como um calouro recém-chegado — a confiança precisa ser conquistada passo a passo.`)
                 : 'Inicie uma partida para construir laços e aumentar sua intimidade com este personagem.'}</span>
             </div>
           </div>
 
-          <h2>Relações com os Outros Alunos</h2>
+          <h2>Relações &amp; Afinidade com os Outros Alunos</h2>
           <div class="cast-rel-list">
-            ${(sel.relations || []).map(r => `
-              <div class="cast-rel-item">
+            ${(sel.relations || []).map(r => {
+              const aff = typeof r.affinity === 'number' ? r.affinity : 50;
+              return `<div class="cast-rel-item">
                 <strong>${safe(r.target)} • ${safe(r.label)}</strong>
+                <div class="rel-meter-row">
+                  <div class="meter"><i style="width:${aff}%"></i></div>
+                  <b>${aff}</b>
+                </div>
                 <span>${safe(r.desc)}</span>
-              </div>
-            `).join('')}
+              </div>`;
+            }).join('')}
           </div>
         </section>
 
@@ -912,6 +933,7 @@
     if (!save) { menu(); return; }
     screen = 'ending';
     const f = save.flags || {};
+    const firstName = getFirstName(save.perfil.nome);
     const pactText = f.pacto_investigacao
       ? 'Você jurou ao lado de Maya, Luka e Clara investigar os desaparecimentos da Floresta.'
       : f.pacto_duplo
@@ -922,9 +944,10 @@
       <section class="end-card">
         <div class="kicker">FIM DO PRÓLOGO</div>
         <h1>A VERDADE SOB GODOLKIN</h1>
-        <p>Da infância até o primeiro toque de recolher como calouro, a jornada de <strong>${safe(save.perfil.nome)}</strong> está apenas começando.</p>
+        <p>Da infância até o primeiro toque de recolher como calouro, a jornada de <strong>${safe(firstName)}</strong> (${safe(save.perfil.nome)}) está apenas começando.</p>
         <div class="end-summary">
           <h2>RESUMO DO SEU DOSSIÊ</h2>
+          <p>• Aluno Matriculado: <strong>${safe(save.perfil.nome)}</strong></p>
           <p>• Situação Acadêmica: <strong>Calouro (1º Ano) · ${save.perfil.idade} anos</strong></p>
           <p>• Ranking Atual no Campus: <strong>#${save.perfil.ranking_campus}</strong></p>
           <p>• Vitalidade: <strong>${save.recursos.vitalidade}%</strong> | Estresse de Poder: <strong>${save.recursos.estresse}%</strong></p>
