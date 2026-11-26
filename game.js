@@ -1,8 +1,8 @@
-/* Gen V: Campus Godolkin — Motor Jogável V0.6.0
- * Inclui: Turnos reativos às escolhas exatas do jogador em todas as cenas (text + dynamic + textAfterDynamic),
- * Primeiro nome nos diálogos, Ato I expandido em 2 partes por poder,
- * 5 Poderes Exclusivos, Calouro (1º Ano), Escolhas Bloqueadas sem Spoiler,
- * Ficha Interativa dos 6 Alunos com Barras de Afinidade Cruzadas e Reação em Cadeia.
+/* Gen V: Campus Godolkin — Motor Jogável V0.8.0
+ * Inclui:
+ * - Ranking Oficial Completo (#1 ao #100) com Elenco Principal, 92 NPCs da Universidade e o Protagonista
+ * - Aba "RANKING" no Menu Principal e no Drawer com filtros (Top 10, Perto de Você, Calouros, Todos #1–#100)
+ * - Notificação instantânea na tela sempre que o jogador sobe ou desce no Ranking!
  */
 (() => {
   'use strict';
@@ -109,6 +109,119 @@
     luka: 30
   };
 
+  const BASE_ROMANCE = {
+    maya: 0,
+    clara: 0,
+    otavio: 0,
+    luka: 0
+  };
+
+  // Banco completo de 100 alunos do Ranking Oficial de Godolkin (Top 1 ao #100)
+  const CAMPUS_ROSTER_BASE = [
+    { basePos: 1, name: 'Dante Mercer', year: '3º Ano', power: 'Fotocinese Solar', tag: 'ELITE VOUGHT', castId: null },
+    { basePos: 2, name: 'Matteo', year: '3º Ano', power: 'Pirocinese', tag: 'ELITE VOUGHT', castId: 'matteo' },
+    { basePos: 3, name: 'Valerie Cross', year: '3º Ano', power: 'Criocinese & Blindagem', tag: 'ELITE VOUGHT', castId: null },
+    { basePos: 4, name: 'Zoe Lee', year: '2º Ano', power: 'Eletrocinese', tag: 'ELITE VOUGHT', castId: 'zoe' },
+    { basePos: 5, name: 'Maya Dunlap', year: '2º Ano', power: 'Persuasão Tátil', tag: 'ELITE VOUGHT', castId: 'maya' },
+    { basePos: 6, name: '[REGISTRO BLOQUEADO · F-01]', year: '2º Ano', power: 'Transferência Sigilosa', tag: 'SUSPENSO', castId: null, missing: true },
+    { basePos: 7, name: 'kieran Thorne', year: '3º Ano', power: 'Grito Sônico', tag: 'ELITE VOUGHT', castId: null },
+    { basePos: 8, name: "Otávio O'Connor", year: '2º Ano', power: 'Empatia & Absorção Cinética', tag: 'ELITE VOUGHT', castId: 'otavio' },
+    { basePos: 9, name: 'Sienna Park', year: '2º Ano', power: 'Invisibilidade Óptica', tag: 'ELITE VOUGHT', castId: null },
+    { basePos: 10, name: 'Marcus Sterling', year: '3º Ano', power: 'Voo & Densidade Óssea', tag: 'ELITE VOUGHT', castId: null },
+    { basePos: 11, name: 'Elena Rostova', year: '2º Ano', power: 'Magnetismo', tag: 'DESTAQUE', castId: null },
+    { basePos: 12, name: 'Devon Brooks', year: '3º Ano', power: 'Elasticidade', tag: 'DESTAQUE', castId: null },
+    { basePos: 13, name: 'Camila Navarro', year: '2º Ano', power: 'Projeção Astral', tag: 'DESTAQUE', castId: null },
+    { basePos: 14, name: 'Luka Lancelloti', year: '1º Ano (Calouro)', power: 'Supervelocidade', tag: 'DESTAQUE', castId: 'luka' },
+    { basePos: 15, name: 'Hector Alvarez', year: '2º Ano', power: 'Pele Metálica', tag: 'DESTAQUE', castId: null },
+    { basePos: 16, name: 'Chloe Bennett', year: '3º Ano', power: 'Manipulação de Gravidade', tag: 'DESTAQUE', castId: null },
+    { basePos: 17, name: 'Tariq Hassan', year: '2º Ano', power: 'Teletransporte Curto', tag: 'DESTAQUE', castId: null },
+    { basePos: 18, name: 'Bianca Moretti', year: '2º Ano', power: 'Feromônios', tag: 'DESTAQUE', castId: null },
+    { basePos: 19, name: 'Clara Vance', year: '1º Ano (Caloura)', power: 'Manipulação de Tamanho', tag: 'DESTAQUE', castId: 'clara' },
+    { basePos: 20, name: 'Julian Pierce', year: '3º Ano', power: 'Visão Térmica', tag: 'DESTAQUE', castId: null },
+    { basePos: 21, name: 'Naomi Takahashi', year: '2º Ano', power: 'Reflexos Preditivos', tag: 'DESTAQUE', castId: null },
+    { basePos: 22, name: 'Rafael Costa', year: '2º Ano', power: 'Hidrocinese', tag: 'DESTAQUE', castId: null },
+    { basePos: 23, name: 'Tessa Gallagher', year: '3º Ano', power: 'Regeneração Acelerada', tag: 'DESTAQUE', castId: null },
+    { basePos: 24, name: 'Andre Whitaker', year: '2º Ano', power: 'Ondas Sísmicas', tag: 'DESTAQUE', castId: null },
+    { basePos: 25, name: 'Sofia Lindqvist', year: '1º Ano (Caloura)', power: 'Campos de Força', tag: 'DESTAQUE', castId: null },
+    { basePos: 26, name: 'Malik Henderson', year: '2º Ano', power: 'Mimetismo de Rocha', tag: 'DESTAQUE', castId: null },
+    { basePos: 27, name: 'Isadora Lima', year: '2º Ano', power: 'Ilusão Sensorial', tag: 'DESTAQUE', castId: null },
+    { basePos: 28, name: 'Connor Walsh', year: '3º Ano', power: 'Força Bruta', tag: 'DESTAQUE', castId: null },
+    { basePos: 29, name: 'Mei-Ling Zhou', year: '2º Ano', power: 'Manipulação de Sombras', tag: 'DESTAQUE', castId: null },
+    { basePos: 30, name: 'Gavin O’Malley', year: '2º Ano', power: 'Secreção Ácida', tag: 'DESTAQUE', castId: null },
+    { basePos: 31, name: 'Larissa Mendes', year: '1º Ano (Caloura)', power: 'Geocinese', tag: 'INTERMEDIÁRIO', castId: null },
+    { basePos: 32, name: 'Caleb Dawson', year: '2º Ano', power: 'Salto Propulsivo', tag: 'INTERMEDIÁRIO', castId: null },
+    { basePos: 33, name: 'Amara Okafor', year: '2º Ano', power: 'Cura Celular', tag: 'INTERMEDIÁRIO', castId: null },
+    { basePos: 34, name: 'enzo Pellegrini', year: '1º Ano (Calouro)', power: 'Aerocinese', tag: 'INTERMEDIÁRIO', castId: null },
+    { basePos: 35, name: 'Hannah Kowalski', year: '2º Ano', power: 'Visão de Raio-X', tag: 'INTERMEDIÁRIO', castId: null },
+    { basePos: 36, name: 'Diego Santoro', year: '3º Ano', power: 'Combustão de Toque', tag: 'INTERMEDIÁRIO', castId: null },
+    { basePos: 37, name: 'Nadia Petrova', year: '2º Ano', power: 'Elasticidade Térmica', tag: 'INTERMEDIÁRIO', castId: null },
+    { basePos: 38, name: 'Lucas Ferreira', year: '1º Ano (Calouro)', power: 'Sentidos Aguçados', tag: 'INTERMEDIÁRIO', castId: null },
+    { basePos: 39, name: 'Jade Montgomery', year: '2º Ano', power: 'Camuflagem Camaleônica', tag: 'INTERMEDIÁRIO', castId: null },
+    { basePos: 40, name: 'Owen Gallagher', year: '2º Ano', power: 'Endurecimento Epidérmico', tag: 'INTERMEDIÁRIO', castId: null },
+    { basePos: 41, name: 'Beatriz Rocha', year: '1º Ano (Caloura)', power: 'Pulsos Estáticos', tag: 'INTERMEDIÁRIO', castId: null },
+    { basePos: 42, name: 'Trevor Hayes', year: '2º Ano', power: 'Garras Ósseas', tag: 'INTERMEDIÁRIO', castId: null },
+    { basePos: 43, name: 'Yumi Sato', year: '2º Ano', power: 'Equilíbrio Absoluto', tag: 'INTERMEDIÁRIO', castId: null },
+    { basePos: 44, name: 'Mateus Oliveira', year: '1º Ano (Calouro)', power: 'Detecção de Calor', tag: 'INTERMEDIÁRIO', castId: null },
+    { basePos: 45, name: 'Kira Volkov', year: '2º Ano', power: 'Duplicação Breve', tag: 'INTERMEDIÁRIO', castId: null },
+    { basePos: 46, name: 'Noah Sinclair', year: '1º Ano (Calouro)', power: 'Pele de Quartzo', tag: 'INTERMEDIÁRIO', castId: null },
+    { basePos: 47, name: 'Alice Carvalho', year: '1º Ano (Caloura)', power: 'Manipulação de Fumaça', tag: 'INTERMEDIÁRIO', castId: null },
+    { basePos: 48, name: 'Brandon Cole', year: '1º Ano (Calouro)', power: 'Salto Cinético', tag: 'INTERMEDIÁRIO', castId: null },
+    { basePos: 49, name: 'Samira Haddad', year: '2º Ano', power: 'Ressonância Vocal', tag: 'INTERMEDIÁRIO', castId: null },
+    { basePos: 50, name: 'Thiago Ribeiro', year: '1º Ano (Calouro)', power: 'Força Muscular Leve', tag: 'INTERMEDIÁRIO', castId: null },
+    { basePos: 51, name: 'Mila Novak', year: '2º Ano', power: 'Memória Fotográfica', tag: 'INTERMEDIÁRIO', castId: null },
+    { basePos: 52, name: 'Davi Nogueira', year: '1º Ano (Calouro)', power: 'Toque Congelante', tag: 'INTERMEDIÁRIO', castId: null },
+    { basePos: 53, name: 'Paige Turner', year: '2º Ano', power: 'Visão Noturna', tag: 'INTERMEDIÁRIO', castId: null },
+    { basePos: 54, name: 'Samuel Boateng', year: '1º Ano (Calouro)', power: 'Resistência Térmica', tag: 'INTERMEDIÁRIO', castId: null },
+    { basePos: 55, name: 'Clara Monteiro', year: '2º Ano', power: 'Controle de Planta', tag: 'INTERMEDIÁRIO', castId: null },
+    { basePos: 56, name: 'Liam Gallagher', year: '1º Ano (Calouro)', power: 'Impulso Elástico', tag: 'INTERMEDIÁRIO', castId: null },
+    { basePos: 57, name: 'Renata Barros', year: '2º Ano', power: 'Aderência em Paredes', tag: 'INTERMEDIÁRIO', castId: null },
+    { basePos: 58, name: 'Victor Krum', year: '2º Ano', power: 'Sopro de Vendaval', tag: 'INTERMEDIÁRIO', castId: null },
+    { basePos: 59, name: 'Helena Duarte', year: '1º Ano (Caloura)', power: 'Luminescência', tag: 'INTERMEDIÁRIO', castId: null },
+    { basePos: 60, name: 'Joon-Ho Kim', year: '2º Ano', power: 'Reflexo Acústico', tag: 'INTERMEDIÁRIO', castId: null },
+    { basePos: 61, name: 'pedro Alencar', year: '1º Ano (Calouro)', power: 'Mimetismo de Madeira', tag: 'ZONA DE CORTE', castId: null },
+    { basePos: 62, name: 'Zara Mensah', year: '1º Ano (Caloura)', power: 'Faíscas Estáticas', tag: 'ZONA DE CORTE', castId: null },
+    { basePos: 63, name: 'Dylan Harper', year: '2º Ano', power: 'Fôlego Anfíbio', tag: 'ZONA DE CORTE', castId: null },
+    { basePos: 64, name: 'Laura Siqueira', year: '1º Ano (Caloura)', power: 'Telepatia de Curto Alcance', tag: 'ZONA DE CORTE', castId: null },
+    { basePos: 65, name: 'Omar Farooq', year: '1º Ano (Calouro)', power: 'Velocidade de Corrida', tag: 'ZONA DE CORTE', castId: null },
+    { basePos: 66, name: 'tessa Vance-Kerr', year: '2º Ano', power: 'Visão Telescópica', tag: 'ZONA DE CORTE', castId: null },
+    { basePos: 67, name: 'Bruno Teixeira', year: '1º Ano (Calouro)', power: 'Dentes Retráteis', tag: 'ZONA DE CORTE', castId: null },
+    { basePos: 68, name: 'Chloe Moreau', year: '1º Ano (Caloura)', power: 'Neblina Local', tag: 'ZONA DE CORTE', castId: null },
+    { basePos: 69, name: 'kaio Santana', year: '1º Ano (Calouro)', power: 'Pele Borrachosa', tag: 'ZONA DE CORTE', castId: null },
+    { basePos: 70, name: 'Freya Lindholm', year: '2º Ano', power: 'Toque Febril', tag: 'ZONA DE CORTE', castId: null },
+    { basePos: 71, name: 'Arthur Melo', year: '1º Ano (Calouro)', power: 'Saliva Adesiva', tag: 'ZONA DE CORTE', castId: null },
+    { basePos: 72, name: 'Nina Dobrev-Lee', year: '1º Ano (Caloura)', power: 'Eco Localização', tag: 'ZONA DE CORTE', castId: null },
+    { basePos: 73, name: 'Hugo Vasconcelos', year: '2º Ano', power: 'Peso Aumentado', tag: 'ZONA DE CORTE', castId: null },
+    { basePos: 74, name: 'Maya Lin', year: '1º Ano (Caloura)', power: 'Coloração Capilar', tag: 'ZONA DE CORTE', castId: null },
+    { basePos: 75, name: 'Igor Sokolov', year: '1º Ano (Calouro)', power: 'Tolerância ao Frio', tag: 'ZONA DE CORTE', castId: null },
+    { basePos: 76, name: 'Camille Laurent', year: '1º Ano (Caloura)', power: 'Sussurro Direcional', tag: 'ZONA DE CORTE', castId: null },
+    { basePos: 77, name: 'Felipe Cardoso', year: '1º Ano (Calouro)', power: 'Unhas de Queratina', tag: 'ZONA DE CORTE', castId: null },
+    { basePos: 78, name: 'Sara Benitez', year: '2º Ano', power: 'Cheiro Aprimorado', tag: 'ZONA DE CORTE', castId: null },
+    { basePos: 79, name: 'leo Lombardi', year: '1º Ano (Calouro)', power: 'Micro-vibracão', tag: 'ZONA DE CORTE', castId: null },
+    { basePos: 80, name: 'Aisha Rahman', year: '1º Ano (Caloura)', power: 'Bússola Interna', tag: 'ZONA DE CORTE', castId: null },
+    { basePos: 81, name: 'Guilherme Pinto', year: '1º Ano (Calouro)', power: 'Flexibilidade Articular', tag: 'ZONA DE CORTE', castId: null },
+    { basePos: 82, name: 'Eva Lindstrom', year: '1º Ano (Caloura)', power: 'Piscar Estroboscópico', tag: 'ZONA DE CORTE', castId: null },
+    { basePos: 83, name: 'Henrique Farias', year: '1º Ano (Calouro)', power: 'Audição Seletiva', tag: 'ZONA DE CORTE', castId: null },
+    { basePos: 84, name: 'Talia Cohen', year: '2º Ano', power: 'Mudança de Voz', tag: 'ZONA DE CORTE', castId: null },
+    { basePos: 85, name: 'Victor Hugo Moraes', year: '1º Ano (Calouro)', power: 'Digestão Metálica', tag: 'ZONA DE CORTE', castId: null },
+    { basePos: 86, name: 'Clara Oswald', year: '1º Ano (Caloura)', power: 'Levitação de 10cm', tag: 'ZONA DE CORTE', castId: null },
+    { basePos: 87, name: 'Rodrigo Neves', year: '1º Ano (Calouro)', power: 'Brilho Ocular', tag: 'ZONA DE CORTE', castId: null },
+    { basePos: 88, name: 'Soraia Pires', year: '1º Ano (Caloura)', power: 'Suor Ácido Leve', tag: 'ZONA DE CORTE', castId: null },
+    { basePos: 89, name: 'benjamin Ross', year: '1º Ano (Calouro)', power: 'Prender Respiração 15m', tag: 'ZONA DE CORTE', castId: null },
+    { basePos: 90, name: 'Livia Castro', year: '1º Ano (Caloura)', power: 'Estática Capilar', tag: 'ZONA DE CORTE', castId: null },
+    { basePos: 91, name: 'Matias Silva', year: '1º Ano (Calouro)', power: 'Tato Amplificado', tag: 'ZONA DE CORTE', castId: null },
+    { basePos: 92, name: 'Giselle Paiva', year: '1º Ano (Caloura)', power: 'Imitação Gestual', tag: 'ZONA DE CORTE', castId: null },
+    { basePos: 93, name: 'Nicolas Prado', year: '1º Ano (Calouro)', power: 'Pulso Acelerado', tag: 'ZONA DE CORTE', castId: null },
+    { basePos: 94, name: 'Yara Fonseca', year: '1º Ano (Caloura)', power: 'Visão Periférica', tag: 'ZONA DE CORTE', castId: null },
+    { basePos: 95, name: 'cauã Rezende', year: '1º Ano (Calouro)', power: 'Pele Pigmentada', tag: 'ZONA DE CORTE', castId: null },
+    { basePos: 96, name: 'Estela Ramos', year: '1º Ano (Caloura)', power: 'Assovio Ultrassônico', tag: 'ZONA DE CORTE', castId: null },
+    { basePos: 97, name: 'danilo Borges', year: '1º Ano (Calouro)', power: 'Equilíbrio em Corda', tag: 'ZONA DE CORTE', castId: null },
+    { basePos: 98, name: 'Brenda Soares', year: '1º Ano (Caloura)', power: 'Calor nas Palmas', tag: 'ZONA DE CORTE', castId: null },
+    { basePos: 99, name: 'Otávio Augusto', year: '1º Ano (Calouro)', power: 'Mimetismo de Cor', tag: 'ZONA DE CORTE', castId: null }
+  ].map(item => ({
+    ...item,
+    name: item.name.startsWith('[') ? item.name : item.name.charAt(0).toUpperCase() + item.name.slice(1)
+  }));
+
   const CHAIN_REACTIONS = [
     {
       id: 'origem_cicatriz',
@@ -121,30 +234,31 @@
       ]
     },
     {
-      id: 'holofotes',
-      title: 'Olhos da Vought',
-      teaser: 'A atenção da mídia abre portas, mas elimina sua privacidade no campus.',
+      id: 'olhar_reitoria',
+      title: 'No Radar da Reitoria',
+      teaser: 'Ser chamado ao gabinete do Diretor Victor Caldwell no primeiro dia colocou você sob observação direta.',
       steps: [
-        { when: f => f.aproximou_elite || f.alianca_vip_inicial, description: 'Você chamou a atenção de Matteo e Zoe logo na chegada ao pátio.' },
-        { when: f => f.controle_impecavel || f.usou_poder_arena, description: 'Sua performance na Arena consolidou sua reputação perante os patrocinadores.' }
+        { when: f => f.t2_dir_ambicioso || f.t2_dir_controle || f.t2_dir_questionou || f.t2_dir_diplomatico, description: 'Você ficou cara a cara com o Diretor Caldwell e definiu como ele enxerga o seu perfil.' },
+        { when: f => f.t4_contou_tudo || f.t4_resumiu || f.t4_brincou, description: 'Sua decisão sobre revelar ou guardar o aviso das "transferências" moldou a confiança de Maya e Otávio.' }
       ]
     },
     {
-      id: 'arena_marca',
-      title: 'O Teste de Fogo',
-      teaser: 'Quem você protege — ou deixa para trás — define quem confia em você.',
+      id: 'noite_torre_norte',
+      title: 'Noite na Torre Norte',
+      teaser: 'Na festa da cobertura, você circulou entre a elite do Ranking e os segredos da varanda.',
       steps: [
-        { when: f => f.salvou_clara || f.hesitou_arena, description: 'Sua reação diante do drone na Arena marcou seu primeiro dia entre os calouros.' },
-        { when: f => f.escondeu_poder || f.usou_poder_arena, description: 'O modo como você lidou com seus poderes já entrou nos relatórios do Prof. Brinker.' }
+        { when: f => f.f2_matteo_honesto || f.f2_matteo_misterio || f.f2_matteo_desafiou, description: 'Você conversou longe das câmeras com Matteo e entendeu o peso do Top 2.' },
+        { when: f => f.f5_usou_poder || f.f5_discreto, description: 'Sua postura durante o tumulto na pista definiu sua visibilidade antes da reunião na varanda.' },
+        { when: f => f.pacto_investigacao || f.pacto_duplo || f.pacto_silencio, description: 'O pacto selado sob as estrelas definiu o rumo do grupo para o Capítulo 1.' }
       ]
     },
     {
-      id: 'pacto_godolkin',
-      title: 'Sinais da Floresta',
-      teaser: 'Na Torre Norte, você descobriu o que acontece com alunos apagados do Ranking.',
+      id: 'primeiros_coracoes',
+      title: 'Fagulhas no Campus',
+      teaser: 'Mesmo entre treinos e conspirações, gestos próximos e flertes começaram a criar conexões além da amizade.',
       steps: [
-        { when: f => f.viu_cameras_internas || f.viu_elevador_subsolo || f.mapeou_drones, description: 'Você notou movimentações suspeitas da segurança interna logo nas primeiras horas.' },
-        { when: f => f.pacto_investigacao || f.pacto_duplo || f.pacto_silencio, description: 'Sua decisão na varanda da Torre Norte definiu suas alianças para o Capítulo 1.' }
+        { when: f => f.t5_flerte_maya || f.t5_flerte_clara || f.t5_flerte_otavio || f.t5_flerte_luka, description: 'Você demonstrou interesse romântico sutil durante o almoço no Refeitório Central.' },
+        { when: f => f.f6_flerte_maya || f.f6_flerte_clara || f.f6_flerte_otavio || f.f6_flerte_luka, description: 'Na festa da Torre Norte, o clima a dois ficou ainda mais evidente antes da reunião na varanda.' }
       ]
     }
   ];
@@ -155,8 +269,11 @@
   let drawerOpen = false;
   let castSelected = CAST[0]?.id || 'matteo';
   let chainSelected = null;
+  let rankingFilter = 'all'; // 'all' | 'top10' | 'near' | 'freshmen'
   let chainFlash = null;
   let chainTimer = null;
+  let rankFlash = null;
+  let rankTimer = null;
 
   let creatorStep = 1;
   let draft = null;
@@ -187,6 +304,57 @@
     creatorStep = 1;
   }
 
+  function getRankTier(pos) {
+    if (pos <= 10) return 'ELITE VOUGHT';
+    if (pos <= 30) return 'DESTAQUE';
+    if (pos <= 60) return 'INTERMEDIÁRIO';
+    return 'ZONA DE CORTE';
+  }
+
+  // Monta a tabela dinâmica de 100 posições (#1 a #100) inserindo o jogador na sua posição exata
+  function buildFullRankingList() {
+    const playerRank = save ? Math.max(1, Math.min(100, save.perfil.ranking_campus)) : 48;
+    const playerDelta = save ? (save.lastRankDelta || 0) : 0;
+    const playerPowerObj = save ? PODERES.find(p => p.id === save.perfil.poder_id) : null;
+    const playerPowerShort = playerPowerObj ? playerPowerObj.nome.split(' (')[0] : 'Mutação Composto V';
+
+    const list = [];
+    let npcIdx = 0;
+    for (let pos = 1; pos <= 100; pos++) {
+      if (pos === playerRank) {
+        list.push({
+          pos,
+          name: save ? save.perfil.nome : 'Seu Aluno (Calouro)',
+          year: '1º Ano (Calouro)',
+          power: playerPowerShort,
+          tag: getRankTier(pos),
+          isPlayer: true,
+          delta: playerDelta
+        });
+      } else {
+        const npc = CAMPUS_ROSTER_BASE[npcIdx++] || {
+          name: `Estudante #${pos}`,
+          year: '1º Ano (Calouro)',
+          power: 'Habilidade Latente',
+          tag: getRankTier(pos),
+          castId: null
+        };
+        list.push({
+          pos,
+          name: npc.name,
+          year: npc.year,
+          power: npc.power,
+          tag: npc.tag,
+          castId: npc.castId || null,
+          missing: !!npc.missing,
+          isPlayer: false,
+          delta: 0
+        });
+      }
+    }
+    return list;
+  }
+
   function chainStage(def, f) {
     let level = 0;
     for (let i = 0; i < def.steps.length; i++) {
@@ -200,7 +368,12 @@
       const raw = localStorage.getItem(SAVE_KEY + n);
       if (!raw) return null;
       const obj = JSON.parse(raw);
-      return obj && obj.game === 'genv-campus-godolkin' && SCENES[obj.node] ? obj : null;
+      if (obj && obj.game === 'genv-campus-godolkin' && SCENES[obj.node]) {
+        if (!obj.romance) obj.romance = { ...BASE_ROMANCE };
+        if (typeof obj.lastRankDelta !== 'number') obj.lastRankDelta = 0;
+        return obj;
+      }
+      return null;
     } catch {
       return null;
     }
@@ -229,7 +402,9 @@
     return CARACTERISTICAS.find(c => c.id === traitId)?.nome || traitId;
   }
 
-  function getRelationshipStatus(val) {
+  function getRelationshipStatus(val, romVal = 0) {
+    if (romVal >= 20) return { label: 'Interesse Romântico & Química Evidente', cls: 'positive' };
+    if (romVal >= 10) return { label: 'Clima de Flerte / Aproximação Especial', cls: 'positive' };
     if (val >= 75) return { label: 'Confiança Plena / Aliado Próximo', cls: 'positive' };
     if (val >= 55) return { label: 'Amigável / Boa Intimidade', cls: 'positive' };
     if (val >= 40) return { label: 'Colega de Campus / Aproximando-se', cls: '' };
@@ -248,7 +423,7 @@
     return `<header class="app-header">
       <button class="brand" data-action="menu" aria-label="Menu principal">${wordmark()}</button>
       <div class="header-right">
-        <span class="header-status">PRÓLOGO · V0.6.0</span>
+        <span class="header-status">PRÓLOGO · V0.8.0</span>
         <button class="menu-btn" data-action="drawer" aria-expanded="${drawerOpen}">
           <span class="menu-btn-bars">${drawerOpen ? '✕' : '☰'}</span>
           <span>${drawerOpen ? 'FECHAR' : 'MENU'}</span>
@@ -258,6 +433,7 @@
     ${drawerOpen ? `<nav class="drawer" aria-label="Menu do jogo">
       ${save ? '<button data-action="resume">Retomar a história</button>' : ''}
       ${save ? '<button data-action="dossier">Ficha do Meu Aluno</button>' : ''}
+      <button data-action="ranking">Ranking Oficial (#1–#100)</button>
       ${save ? '<button data-action="journal">Diário de Escolhas</button>' : ''}
       <button data-action="chain">Reação em Cadeia</button>
       <button data-action="cast">Alunos de Godolkin</button>
@@ -268,44 +444,66 @@
     </nav>` : ''}`;
   }
 
-  function chainNotice() {
-    if (screen !== 'game' || !chainFlash) return '';
-    return `<div class="butterfly-notice" id="bf-toast" role="status" title="Toque para fechar">
-      <span class="bf-icon">🧬</span>
-      <span>
-        <b>${safe(chainFlash.isNew ? 'Nova Reação em Cadeia' : 'Reação em Cadeia Atualizada')}</b>
-        <small>${safe(chainFlash.title)}</small>
-      </span>
-    </div>`;
+  function toastsHtml() {
+    if (screen !== 'game') return '';
+    let html = '';
+    if (rankFlash) {
+      const up = rankFlash.diff > 0;
+      html += `<div class="rank-toast ${up ? 'is-up' : 'is-down'}" id="rank-toast" role="status" title="Toque para ver o Ranking">
+        <span class="rk-arrow">${up ? '▲' : '▼'}</span>
+        <span>
+          <b>${up ? `SUBIU NO RANKING (+${rankFlash.diff})` : `CAIU NO RANKING (${rankFlash.diff})`}</b>
+          <small>#${rankFlash.from} → #${rankFlash.to} · ${safe(getRankTier(rankFlash.to))}</small>
+        </span>
+      </div>`;
+    }
+    if (chainFlash) {
+      html += `<div class="butterfly-notice" id="bf-toast" role="status" style="${rankFlash ? 'top:154px;' : ''}" title="Toque para fechar">
+        <span class="bf-icon">🧬</span>
+        <span>
+          <b>${safe(chainFlash.isNew ? 'Nova Reação em Cadeia' : 'Reação em Cadeia Atualizada')}</b>
+          <small>${safe(chainFlash.title)}</small>
+        </span>
+      </div>`;
+    }
+    return html;
   }
 
-  function scheduleChainDismiss() {
+  function scheduleToastDismiss() {
     if (chainTimer) clearTimeout(chainTimer);
-    if (!chainFlash) return;
-    chainTimer = setTimeout(() => {
-      chainFlash = null;
-      const el = document.getElementById('bf-toast');
-      if (el) el.remove();
-    }, 3800);
+    if (rankTimer) clearTimeout(rankTimer);
+    if (chainFlash) {
+      chainTimer = setTimeout(() => {
+        chainFlash = null;
+        document.getElementById('bf-toast')?.remove();
+      }, 4200);
+    }
+    if (rankFlash) {
+      rankTimer = setTimeout(() => {
+        rankFlash = null;
+        document.getElementById('rank-toast')?.remove();
+      }, 4600);
+    }
   }
 
   function layout(body) {
     root.innerHTML = `<div class="layout">
       ${header()}
       ${body}
-      ${chainNotice()}
+      ${toastsHtml()}
       <footer class="app-footer">
         <span>GEN V: CAMPUS GODOLKIN · PRÓLOGO INTERATIVO</span>
         <span class="vought-footer-mark">V7 VOUGHT</span>
       </footer>
     </div>`;
-    scheduleChainDismiss();
+    scheduleToastDismiss();
   }
 
   function menu() {
     screen = 'menu';
     drawerOpen = false;
     chainFlash = null;
+    rankFlash = null;
     const hasSave = !!enter();
     const firstName = hasSave ? getFirstName(save.perfil.nome) : '';
     layout(`<main class="menu-view">
@@ -326,17 +524,18 @@
         <div class="kicker">UNIVERSIDADE GODOLKIN • CALOUROS</div>
         <h1 class="menu-wordmark">${wordmark(true)}</h1>
         <div><span class="torn-strip">PODER, RANKING E SEGREDOS SOB O CAMPUS.</span></div>
-        <p class="menu-lead">Crie seu estudante, reviva o despertar dos seus poderes na infância e enfrente seu primeiro ano em Godolkin.</p>
+        <p class="menu-lead">Crie seu estudante, reviva o despertar dos seus poderes na infância e dispute espaço no Ranking Oficial (#1 ao #100) de Godolkin.</p>
         <div class="torn-quote-box">
           <p>“No Campus Godolkin, ser o número um salva sua vida — ou coloca um alvo nas suas costas.”</p>
           <span class="torn-quote-watermark">V7</span>
         </div>
         <div class="menu-stack-buttons">
-          ${hasSave ? `<button class="primary" data-action="resume">CONTINUAR COMO ${safe(firstName.toUpperCase())} <span>›</span></button>` : ''}
+          ${hasSave ? `<button class="primary" data-action="resume">CONTINUAR COMO ${safe(firstName.toUpperCase())} (RANK #${save.perfil.ranking_campus}) <span>›</span></button>` : ''}
           <button class="${hasSave ? 'secondary' : 'primary'}" data-action="new">${hasSave ? 'NOVO ALUNO (RECOMEÇAR)' : 'CRIAR ALUNO E INICIAR'} <span>›</span></button>
-          <button class="secondary" data-action="slots">PARTIDAS E SLOTS</button>
+          <button class="secondary" data-action="ranking">RANKING OFICIAL (#1–#100)</button>
           <button class="secondary" data-action="cast">ALUNOS DE GODOLKIN</button>
           <button class="secondary" data-action="chain">REAÇÃO EM CADEIA</button>
+          <button class="secondary" data-action="slots">PARTIDAS E SLOTS</button>
           <button class="quiet" data-action="import">IMPORTAR SAVE</button>
         </div>
       </div>
@@ -484,7 +683,7 @@
   function finishCreation() {
     save = {
       game: 'genv-campus-godolkin',
-      version: '0.6.0',
+      version: '0.8.0',
       slot,
       node: DATA.meta.start,
       perfil: {
@@ -497,6 +696,7 @@
         caracteristicas: [...draft.caracteristicas],
         ranking_campus: 48
       },
+      lastRankDelta: 0,
       atributos: { ...draft.atributos },
       recursos: {
         vitalidade: 100,
@@ -506,6 +706,7 @@
       },
       flags: {},
       bonds: { ...BASE_BONDS },
+      romance: { ...BASE_ROMANCE },
       history: [],
       visited: [DATA.meta.start],
       updated: Date.now()
@@ -562,6 +763,8 @@
   function move(to, choice) {
     if (!SCENES[to]) return;
     chainFlash = null;
+    rankFlash = null;
+    if (!save.romance) save.romance = { ...BASE_ROMANCE };
 
     if (choice) {
       const oldStages = CHAIN_REACTIONS.map(d => chainStage(d, save.flags));
@@ -586,11 +789,34 @@
           save.bonds[id] = toVal;
           if (toVal !== from) {
             const name = CAST.find(x => x.id === id)?.name || id;
-            changes.push({ name, from, to: toVal });
+            changes.push({ name, from, to: toVal, type: 'bond' });
+          }
+        }
+        for (const [id, delta] of Object.entries(choice.effects.romance || {})) {
+          const from = save.romance[id] ?? 0;
+          const toVal = Math.max(0, Math.min(100, from + delta));
+          save.romance[id] = toVal;
+          if (toVal !== from) {
+            const name = CAST.find(x => x.id === id)?.name || id;
+            changes.push({ name: `${name} (Atração)`, from, to: toVal, type: 'romance' });
           }
         }
         if (choice.effects.rank) {
-          save.perfil.ranking_campus = Math.max(1, save.perfil.ranking_campus + choice.effects.rank);
+          const oldRank = save.perfil.ranking_campus;
+          const newRank = Math.max(1, Math.min(100, oldRank + choice.effects.rank));
+          save.perfil.ranking_campus = newRank;
+          const climbed = oldRank - newRank; // positivo = subiu posições (ex: #48 -> #42 = +6)
+          if (climbed !== 0) {
+            save.lastRankDelta = climbed;
+            rankFlash = { from: oldRank, to: newRank, diff: climbed };
+            changes.push({
+              name: climbed > 0 ? `Ranking Oficial (▲ +${climbed})` : `Ranking Oficial (▼ ${climbed})`,
+              from: `#${oldRank}`,
+              to: `#${newRank}`,
+              type: 'rank',
+              improved: climbed > 0
+            });
+          }
         }
       }
 
@@ -649,27 +875,35 @@
             </button>`;
           }
 
+          let labelText = c.label;
           let badge = '';
-          if (c.requirePower) badge = '<span class="choice-tag power">PODER</span>';
-          else if (c.requireTrait) badge = '<span class="choice-tag trait">CARACTERÍSTICA</span>';
-          else if (c.requireAttr) badge = '<span class="choice-tag">ATRIBUTO</span>';
+          if (labelText.startsWith('[Flerte]')) {
+            labelText = labelText.replace(/^\[Flerte\]\s*/i, '');
+            badge = '<span class="choice-tag romance">♥ FLERTE</span>';
+          } else if (c.requirePower) {
+            badge = '<span class="choice-tag power">PODER</span>';
+          } else if (c.requireTrait) {
+            badge = '<span class="choice-tag trait">CARACTERÍSTICA</span>';
+          } else if (c.requireAttr) {
+            badge = '<span class="choice-tag">ATRIBUTO</span>';
+          }
 
           return `<button class="choice" data-choice-idx="${idx}">
             <span class="choice-num">${String(i + 1).padStart(2, '0')}</span>
-            <span>${badge}${safe(c.label)}</span>
+            <span>${badge}${safe(labelText)}</span>
             <span class="choice-arrow">↗</span>
           </button>`;
         }).join('')}</div>`
       : `<div class="button-row"><button class="primary" data-action="end">VER RESULTADO DO PRÓLOGO <span>›</span></button></div>`;
 
-    const pct = save.node === 'end' ? 100 : Math.min(96, Math.max(8, save.visited.length * 8));
+    const pct = save.node === 'end' ? 100 : Math.min(97, Math.max(5, Math.round((save.visited.length / 26) * 100)));
 
     layout(`<main class="play-view">
       <div class="play-content">
         <div class="hud-bar">
           <div class="hud-player">
             <span>${safe(firstName)}</span>
-            <span class="hud-rank">RANK #${save.perfil.ranking_campus}</span>
+            <button type="button" class="hud-rank-btn" data-action="ranking" title="Abrir Ranking Oficial (#1–#100)">RANK #${save.perfil.ranking_campus} ↗</button>
             <span class="fine">(${safe(podObj ? podObj.nome.split(' ')[0] : '')})</span>
           </div>
           <div class="hud-meters">
@@ -690,7 +924,7 @@
           <div class="story-scroll">${baseTextHtml}${extraTextHtml}${afterDynamicHtml}</div>
           ${choicesHtml}
           <div class="story-bottom">
-            <span>◉ Progresso salvo no Slot ${slot}</span>
+            <span>◉ Slot ${slot} · <button data-action="ranking">RANKING #1–#100</button></span>
             <button data-action="journal">DIÁRIO &amp; VÍNCULOS ↗</button>
           </div>
         </section>
@@ -698,7 +932,93 @@
         <div class="progress-track"><i style="width:${pct}%"></i></div>
         <div class="progress-caption">
           <span>CAMPUS GODOLKIN · CALOURO (1º ANO)</span>
-          <span>${save.visited.length} turnos concluídos</span>
+          <span>${save.visited.length} cenas jogadas</span>
+        </div>
+      </div>
+    </main>`);
+  }
+
+  function rankingView() {
+    if (!save) enter();
+    screen = 'ranking';
+    drawerOpen = false;
+    const fullList = buildFullRankingList();
+    const playerPos = save ? save.perfil.ranking_campus : 48;
+    const playerDelta = save ? (save.lastRankDelta || 0) : 0;
+
+    let filtered = fullList;
+    if (rankingFilter === 'top10') {
+      filtered = fullList.filter(r => r.pos <= 10);
+    } else if (rankingFilter === 'near') {
+      filtered = fullList.filter(r => Math.abs(r.pos - playerPos) <= 8);
+    } else if (rankingFilter === 'freshmen') {
+      filtered = fullList.filter(r => r.year.includes('1º Ano') || r.isPlayer);
+    }
+
+    layout(`<main class="panel-view">
+      <div class="panel">
+        <div class="kicker">PAINEL OFICIAL VOUGHT+ // ATUALIZAÇÃO EM TEMPO REAL</div>
+        <h1>Ranking Oficial (#1 – #100)</h1>
+        <p class="fine">A classificação oficial dos 100 melhores estudantes da Universidade Godolkin. Suas decisões na Arena, diante dos patrocinadores e nos eventos do campus fazem você subir ou cair em tempo real.</p>
+
+        <div class="rank-hero-card">
+          <div>
+            <span class="kicker">SUA POSIÇÃO ATUAL</span>
+            <div class="rank-hero-num">#${playerPos} <small>/ 100</small></div>
+            <span class="opt-badge">${safe(getRankTier(playerPos))}</span>
+          </div>
+          <div class="rank-hero-meta">
+            <strong>${safe(save ? save.perfil.nome : 'Calouro Não Matriculado')}</strong>
+            <span>${save ? `1º Ano (Calouro) · ${safe(PODERES.find(p => p.id === save.perfil.poder_id)?.nome.split(' (')[0] || '')}` : 'Inicie uma partida para entrar no placar'}</span>
+            ${playerDelta !== 0
+              ? `<em class="rank-delta-pill ${playerDelta > 0 ? 'up' : 'down'}">${playerDelta > 0 ? `▲ Subiu ${playerDelta} posição(ões) recentemente` : `▼ Caiu ${Math.abs(playerDelta)} posição(ões) recentemente`}</em>`
+              : `<em class="rank-delta-pill neutral">— Posição inicial do semestre</em>`}
+          </div>
+        </div>
+
+        <div class="rank-filters">
+          <button type="button" class="filter-chip ${rankingFilter === 'all' ? 'active' : ''}" data-rank-filter="all">TODOS (#1–#100)</button>
+          <button type="button" class="filter-chip ${rankingFilter === 'top10' ? 'active' : ''}" data-rank-filter="top10">TOP 10 · ELITE</button>
+          <button type="button" class="filter-chip ${rankingFilter === 'near' ? 'active' : ''}" data-rank-filter="near">PERTO DE VOCÊ (#${Math.max(1, playerPos - 8)}–#${Math.min(100, playerPos + 8)})</button>
+          <button type="button" class="filter-chip ${rankingFilter === 'freshmen' ? 'active' : ''}" data-rank-filter="freshmen">CALOUROS (1º ANO)</button>
+        </div>
+
+        <div class="ranking-table-wrap">
+          <table class="ranking-table">
+            <thead>
+              <tr>
+                <th>POS</th>
+                <th>ESTUDANTE</th>
+                <th>ANO</th>
+                <th>PODER / STATUS</th>
+                <th>FAIXA</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${filtered.map(row => {
+                const rowCls = row.isPlayer ? 'is-player' : row.castId ? 'is-cast' : row.missing ? 'is-missing' : '';
+                const deltaTag = row.isPlayer && row.delta !== 0
+                  ? `<span class="row-delta ${row.delta > 0 ? 'up' : 'down'}">${row.delta > 0 ? `▲ +${row.delta}` : `▼ ${row.delta}`}</span>`
+                  : '';
+                return `<tr class="${rowCls}" ${row.castId ? `data-open-cast="${row.castId}" style="cursor:pointer" title="Clique para ver dossiê"` : ''}>
+                  <td class="col-pos">#${row.pos} ${deltaTag}</td>
+                  <td class="col-name">
+                    <strong>${safe(row.name)}</strong>
+                    ${row.isPlayer ? '<span class="you-pill">VOCÊ</span>' : ''}
+                    ${row.castId ? '<span class="cast-pill">ELENCO ↗</span>' : ''}
+                  </td>
+                  <td class="col-year">${safe(row.year)}</td>
+                  <td class="col-power">${safe(row.power)}</td>
+                  <td class="col-tier"><span class="tier-badge tier-${row.pos <= 10 ? 'elite' : row.pos <= 30 ? 'top' : row.pos <= 60 ? 'mid' : 'cut'}">${safe(row.tag)}</span></td>
+                </tr>`;
+              }).join('')}
+            </tbody>
+          </table>
+        </div>
+
+        <div class="button-row">
+          <button class="primary" data-action="${save ? 'resume' : 'menu'}">${save ? 'VOLTAR À HISTÓRIA' : 'VOLTAR AO MENU'}</button>
+          <button class="secondary" data-action="cast">VER DOSSIÊ DOS ALUNOS</button>
         </div>
       </div>
     </main>`);
@@ -716,7 +1036,7 @@
       <div class="panel">
         <div class="kicker">ARQUIVO VOUGHT // CALOURO (1º ANO)</div>
         <h1>${safe(save.perfil.nome)} (${save.perfil.idade} anos)</h1>
-        <p class="fine">Ano Letivo: <strong>1º Ano (Calouro)</strong> • Pronomes: <strong>${safe(save.perfil.pronomes)}</strong> • Ranking Atual: <strong>#${save.perfil.ranking_campus}</strong> • Arquétipo: <strong>${safe(arq?.nome || '')}</strong></p>
+        <p class="fine">Ano Letivo: <strong>1º Ano (Calouro)</strong> • Pronomes: <strong>${safe(save.perfil.pronomes)}</strong> • Ranking Atual: <strong>#${save.perfil.ranking_campus}/100 (${safe(getRankTier(save.perfil.ranking_campus))})</strong> • Arquétipo: <strong>${safe(arq?.nome || '')}</strong></p>
         <h2>Mutação Registrada</h2>
         <p><strong>${safe(pod?.nome || '')}</strong> — ${safe(pod?.desc || '')}</p>
         <h2>Atributos</h2>
@@ -729,6 +1049,7 @@
         </div>
         <div class="button-row">
           <button class="primary" data-action="resume">VOLTAR À HISTÓRIA</button>
+          <button class="secondary" data-action="ranking">VER RANKING #1–#100</button>
           <button class="secondary" data-action="journal">DIÁRIO DE ESCOLHAS</button>
         </div>
       </div>
@@ -743,7 +1064,10 @@
       <li>
         <small>${safe(h.time)}</small>
         <span>${safe(h.label)}</span>
-        ${(h.changes || []).length ? `<div class="affinity-changes">${h.changes.map(c => `<span class="affinity-change ${c.to > c.from ? 'positive' : 'negative'}">${safe(c.name)} <strong>${c.from} ${c.to > c.from ? '↗' : '↘'} ${c.to}</strong></span>`).join('')}</div>` : ''}
+        ${(h.changes || []).length ? `<div class="affinity-changes">${h.changes.map(c => {
+          const isUp = c.type === 'rank' ? c.improved : (c.to > c.from);
+          return `<span class="affinity-change ${isUp ? 'positive' : 'negative'}">${safe(c.name)} <strong>${c.from} ${isUp ? '↗' : '↘'} ${c.to}</strong></span>`;
+        }).join('')}</div>` : ''}
       </li>
     `).join('');
 
@@ -753,13 +1077,21 @@
         <h1>Diário de Consequências</h1>
         <div class="dashboard">
           <section>
-            <h2>Intimidade &amp; Relações no Campus</h2>
+            <h2>Intimidade &amp; Atração no Campus</h2>
             ${CAST.map(c => {
               const val = save.bonds[c.id] ?? BASE_BONDS[c.id] ?? 28;
-              return `<div class="bond">
-                <label>${safe(c.name)}</label>
-                <div class="meter"><i style="width:${val}%"></i></div>
-                <b>${val}</b>
+              const rom = c.romanceable ? (save.romance?.[c.id] ?? 0) : 0;
+              return `<div class="bond-block">
+                <div class="bond">
+                  <label>${safe(c.name)}</label>
+                  <div class="meter"><i style="width:${val}%"></i></div>
+                  <b>${val}</b>
+                </div>
+                ${c.romanceable && rom > 0 ? `<div class="bond romance-sub">
+                  <label>♥ Atração</label>
+                  <div class="meter romance-meter"><i style="width:${rom}%"></i></div>
+                  <b>${rom}</b>
+                </div>` : ''}
               </div>`;
             }).join('')}
           </section>
@@ -770,6 +1102,7 @@
         </div>
         <div class="button-row">
           <button class="primary" data-action="resume">VOLTAR À HISTÓRIA</button>
+          <button class="secondary" data-action="ranking">VER RANKING #1–#100</button>
           <button class="secondary" data-action="cast">VER PERFIL DOS ALUNOS</button>
         </div>
       </div>
@@ -825,26 +1158,28 @@
     drawerOpen = false;
     const sel = CAST.find(c => c.id === castSelected) || CAST[0];
     const playerBond = save ? (save.bonds[sel.id] ?? BASE_BONDS[sel.id] ?? 28) : (BASE_BONDS[sel.id] ?? 28);
-    const relStatus = getRelationshipStatus(playerBond);
+    const playerRom = (save && sel.romanceable) ? (save.romance?.[sel.id] ?? 0) : 0;
+    const relStatus = getRelationshipStatus(playerBond, playerRom);
     const playerFirstName = save ? getFirstName(save.perfil.nome) : 'Você (Calouro)';
 
     layout(`<main class="panel-view">
       <div class="panel">
         <div class="kicker">CORPO DISCENTE // TOQUE EM UM ALUNO PARA INSPECIONAR</div>
         <h1>Alunos de Godolkin</h1>
-        <p class="fine">Selecione o card de cada estudante para ver sua personalidade, poderes, o nível de intimidade com <strong>${safe(playerFirstName)}</strong> e as barras de afinidade com os outros alunos.</p>
+        <p class="fine">Selecione o card de cada estudante para ver sua personalidade, status de relacionamento, intimidade com <strong>${safe(playerFirstName)}</strong> e as barras de afinidade com os outros alunos.</p>
 
         <div class="cast-grid">
           ${CAST.map(c => {
             const isSel = c.id === sel.id;
             const bVal = save ? (save.bonds[c.id] ?? BASE_BONDS[c.id] ?? 28) : (BASE_BONDS[c.id] ?? 28);
+            const rVal = (save && c.romanceable) ? (save.romance?.[c.id] ?? 0) : 0;
             return `<button type="button" class="cast-card-btn ${isSel ? 'selected' : ''}" data-pick-cast="${c.id}">
               <div class="cast-avatar">${safe(c.name[0])}</div>
               <div class="cast-info">
                 <strong>${safe(c.name)}</strong>
                 <small>${safe(c.role)}</small>
-                <span>${safe(c.age)} • ${safe(c.archetype)}</span>
-                <em>Intimidade com ${safe(playerFirstName)}: ${bVal}/100</em>
+                <span>${safe(c.age)} • ${safe(c.relationshipStatus || '')}</span>
+                <em>Intimidade: ${bVal}/100${c.romanceable && rVal > 0 ? ` · ♥ Atração: ${rVal}/100` : ''}</em>
               </div>
             </button>`;
           }).join('')}
@@ -855,7 +1190,10 @@
             <div>
               <div class="kicker">DOSSIÊ INDIVIDUAL · ${safe(sel.age.toUpperCase())}</div>
               <h2 style="font-family:'Anton',sans-serif;font-size:28px;color:#fff;margin:4px 0;">${safe(sel.name)} — ${safe(sel.role)}</h2>
-              <span class="opt-badge">${safe(sel.archetype)}</span>
+              <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;">
+                <span class="opt-badge">${safe(sel.archetype)}</span>
+                <span class="opt-badge" style="background:${sel.romanceable ? '#ec4899' : '#3f3f46'};color:#fff;">${safe(sel.relationshipStatus || '')}</span>
+              </div>
             </div>
           </div>
 
@@ -871,6 +1209,13 @@
                 <div class="meter"><i style="width:${playerBond}%"></i></div>
                 <b>${playerBond}</b>
               </div>
+              ${sel.romanceable ? `
+                <div style="font-size:11px;color:#f9a8d4;font-weight:800;margin-top:6px;">♥ INTERESSE ROMÂNTICO / ATRAÇÃO</div>
+                <div class="rel-meter-row">
+                  <div class="meter romance-meter"><i style="width:${playerRom}%"></i></div>
+                  <b>${playerRom}</b>
+                </div>
+              ` : `<div style="font-size:11px;color:#a1a1aa;margin-top:4px;">Status: ${safe(sel.relationshipStatus || 'Compromissado(a)')}</div>`}
               <span>${save
                 ? (playerBond >= 55
                     ? `${sel.name} já demonstra confiança real em ${playerFirstName} e compartilha informações sem rodeios.`
@@ -899,6 +1244,7 @@
 
         <div class="button-row">
           <button class="primary" data-action="${save ? 'resume' : 'menu'}">${save ? 'VOLTAR À HISTÓRIA' : 'VOLTAR AO MENU'}</button>
+          <button class="secondary" data-action="ranking">VER RANKING #1–#100</button>
         </div>
       </div>
     </main>`);
@@ -918,7 +1264,7 @@
             return `<div class="slot-card ${n === slot ? 'active' : ''}">
               <small>SLOT ${n} ${n === slot ? '· ATIVO' : ''}</small>
               <h2>${s ? safe(s.perfil.nome) : 'Vazio'}</h2>
-              <p>${s ? `Calouro • Rank #${s.perfil.ranking_campus} • ${safe(SCENES[s.node]?.title || '')}` : 'Nenhum aluno matriculado'}</p>
+              <p>${s ? `Calouro • Rank #${s.perfil.ranking_campus}/100 • ${safe(SCENES[s.node]?.title || '')}` : 'Nenhum aluno matriculado'}</p>
               <button class="${n === slot ? 'primary' : 'secondary'}" data-slot="${n}">${n === slot ? 'SLOT SELECIONADO' : 'USAR ESTE SLOT'}</button>
             </div>`;
           }).join('')}
@@ -938,10 +1284,10 @@
     const f = save.flags || {};
     const firstName = getFirstName(save.perfil.nome);
     const pactText = f.pacto_investigacao
-      ? 'Você jurou ao lado de Maya, Luka e Clara investigar os desaparecimentos da Floresta.'
+      ? 'Você jurou ao lado de Maya, Luka, Clara e Otávio investigar os registros secretos do subnível F-01.'
       : f.pacto_duplo
       ? 'Você decidiu manter as aparências perto de Matteo e Zoe enquanto coleta provas contra a Vought.'
-      : 'Você escolheu o silêncio e a autopreservação acima das conspirações do campus.';
+      : 'Você escolheu o silêncio e a ascensão no Ranking antes de enfrentar o Diretor Caldwell.';
 
     layout(`<main class="end-view">
       <section class="end-card">
@@ -952,13 +1298,14 @@
           <h2>RESUMO DO SEU DOSSIÊ</h2>
           <p>• Aluno Matriculado: <strong>${safe(save.perfil.nome)}</strong></p>
           <p>• Situação Acadêmica: <strong>Calouro (1º Ano) · ${save.perfil.idade} anos</strong></p>
-          <p>• Ranking Atual no Campus: <strong>#${save.perfil.ranking_campus}</strong></p>
+          <p>• Ranking Atual no Campus: <strong>#${save.perfil.ranking_campus} / 100 (${safe(getRankTier(save.perfil.ranking_campus))})</strong></p>
           <p>• Vitalidade: <strong>${save.recursos.vitalidade}%</strong> | Estresse de Poder: <strong>${save.recursos.estresse}%</strong></p>
           <p>• Postura no Pacto: ${safe(pactText)}</p>
         </div>
         <div class="torn-quote-box"><p>“Eles nos criaram para serem heróis na TV. Ninguém perguntou o que acontece quando desligam as câmeras.”</p><span class="torn-quote-watermark">V7</span></div>
         <div class="button-row">
-          <button class="primary" data-action="export">EXPORTAR SAVE DO PRÓLOGO</button>
+          <button class="primary" data-action="ranking">VER RANKING OFICIAL (#1–#100)</button>
+          <button class="secondary" data-action="export">EXPORTAR SAVE DO PRÓLOGO</button>
           <button class="secondary" data-action="cast">VER RELAÇÕES COM ALUNOS</button>
           <button class="secondary" data-action="menu">MENU PRINCIPAL</button>
         </div>
@@ -992,6 +1339,8 @@
         if (obj.game !== 'genv-campus-godolkin' || !SCENES[obj.node]) {
           throw new Error('Arquivo incompatível com Gen V: Campus Godolkin.');
         }
+        if (!obj.romance) obj.romance = { ...BASE_ROMANCE };
+        if (typeof obj.lastRankDelta !== 'number') obj.lastRankDelta = 0;
         save = { ...obj, slot };
         store();
         screen = 'game';
@@ -1006,6 +1355,7 @@
   function render() {
     if (screen === 'creator') creator();
     else if (screen === 'game') game();
+    else if (screen === 'ranking') rankingView();
     else if (screen === 'dossier') dossier();
     else if (screen === 'journal') journal();
     else if (screen === 'chain') chainView();
@@ -1030,6 +1380,13 @@
   });
 
   root.addEventListener('click', (e) => {
+    const rToast = e.target.closest('#rank-toast');
+    if (rToast) {
+      rankFlash = null;
+      if (rankTimer) clearTimeout(rankTimer);
+      rankingView();
+      return;
+    }
     const toast = e.target.closest('#bf-toast');
     if (toast) {
       chainFlash = null;
@@ -1037,9 +1394,20 @@
       toast.remove();
       return;
     }
+    const castRow = e.target.closest('[data-open-cast]');
+    if (castRow) {
+      castSelected = castRow.dataset.openCast;
+      castView();
+      return;
+    }
     const btn = e.target.closest('button');
     if (!btn) return;
 
+    if (btn.hasAttribute('data-rank-filter')) {
+      rankingFilter = btn.dataset.rankFilter;
+      rankingView();
+      return;
+    }
     if (btn.hasAttribute('data-pick-arq')) {
       draft.arquetipo = btn.dataset.pickArq;
       creator();
@@ -1110,6 +1478,7 @@
         else finishCreation();
         break;
       case 'resume': drawerOpen = false; if (!save) enter(); if (save) game(); else menu(); break;
+      case 'ranking': rankingView(); break;
       case 'dossier': dossier(); break;
       case 'journal': journal(); break;
       case 'chain': chainView(); break;
