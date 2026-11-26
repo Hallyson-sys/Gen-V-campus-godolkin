@@ -1,7 +1,8 @@
-/* Gen V: Campus Godolkin — Motor Jogável V0.4.0
- * Inclui: Primeiro nome nos diálogos, Ato I (Infância & Adolescência) expandido em 2 partes por poder,
+/* Gen V: Campus Godolkin — Motor Jogável V0.5.0
+ * Inclui: Cenas longas com múltiplos turnos de diálogo e transições orgânicas,
+ * Primeiro nome nos diálogos, Ato I expandido em 2 partes por poder,
  * 5 Poderes Exclusivos, Calouro (1º Ano), Escolhas Bloqueadas sem Spoiler,
- * Ficha Interativa dos 6 Alunos de Godolkin com Barras de Afinidade Cruzadas e Reação em Cadeia.
+ * Ficha Interativa dos 6 Alunos com Barras de Afinidade Cruzadas e Reação em Cadeia.
  */
 (() => {
   'use strict';
@@ -247,7 +248,7 @@
     return `<header class="app-header">
       <button class="brand" data-action="menu" aria-label="Menu principal">${wordmark()}</button>
       <div class="header-right">
-        <span class="header-status">PRÓLOGO · V0.4.0</span>
+        <span class="header-status">PRÓLOGO · V0.5.0</span>
         <button class="menu-btn" data-action="drawer" aria-expanded="${drawerOpen}">
           <span class="menu-btn-bars">${drawerOpen ? '✕' : '☰'}</span>
           <span>${drawerOpen ? 'FECHAR' : 'MENU'}</span>
@@ -483,7 +484,7 @@
   function finishCreation() {
     save = {
       game: 'genv-campus-godolkin',
-      version: '0.4.0',
+      version: '0.5.0',
       slot,
       node: DATA.meta.start,
       perfil: {
@@ -659,7 +660,7 @@
         }).join('')}</div>`
       : `<div class="button-row"><button class="primary" data-action="end">VER RESULTADO DO PRÓLOGO <span>›</span></button></div>`;
 
-    const pct = save.node === 'end' ? 100 : Math.min(95, Math.max(10, save.visited.length * 14));
+    const pct = save.node === 'end' ? 100 : Math.min(96, Math.max(8, save.visited.length * 8));
 
     layout(`<main class="play-view">
       <div class="play-content">
@@ -695,7 +696,7 @@
         <div class="progress-track"><i style="width:${pct}%"></i></div>
         <div class="progress-caption">
           <span>CAMPUS GODOLKIN · CALOURO (1º ANO)</span>
-          <span>${save.visited.length} cenas visitadas</span>
+          <span>${save.visited.length} etapas concluídas</span>
         </div>
       </div>
     </main>`);

@@ -1,7 +1,7 @@
 {
   "meta": {
     "game": "Gen V: Campus Godolkin",
-    "version": "0.4.0",
+    "version": "0.5.0",
     "chapter": "Prólogo — Despertar, Anos Ocultos, Recrutamento e o Primeiro Dia",
     "start": "origem_roteador"
   },
@@ -656,7 +656,7 @@
       "title": "Ato I (Parte 1) · Gravidade Zero",
       "time": "10 ANOS DE IDADE",
       "stage": "QUARTO DE INFÂNCIA",
-      "text": "Aos dez anos, no meio de uma discussão acalorada com seus pais sobre você nunca poder viajar ou dormir na casa dos colegas, o ar dentro do seu quarto ficou pesado e estático.\n\nLivros, cadeiras e o abajur ergueram-se lentamente a um metro do chão, girando em silêncio ao seu redor como satélites presos à sua raiva. Quando você piscou, uma onda de choque invisível estilhaçou o espelho do guarda-roupa e jogou a porta para fora das dobradiças.\n\nSua mãe cobriu a boca com as mãos, olhando para os cacos flutuando antes de caírem todos ao mesmo tempo no carpete.",
+      "text": "Aos dez anos, no meio de uma discussão acalorada com seus pais sobre você nunca poder viajar ou dormir na casa dos colegas, o ar dentro do seu quarto ficou pesado e estático.\n\nLivros, cadeiras e o abajur ergueram-se lentamente a um metro do chão, girando em silncio ao seu redor como satélites presos à sua raiva. Quando você piscou, uma onda de choque invisível estilhaçou o espelho do guarda-roupa e jogou a porta para fora das dobradiças.\n\nSua mãe cobriu a boca com as mãos, olhando para os cacos flutuando antes de caírem todos ao mesmo tempo no carpete.",
       "choices": [
         {
           "label": "Trancar-se no quarto em silêncio, com medo de machucar sua família",
@@ -930,14 +930,190 @@
       "title": "Ato III · Calouro em Godolkin",
       "time": "08:15 · PRIMEIRO DIA",
       "stage": "PÁTIO CENTRAL · UNIVERSIDADE GODOLKIN",
-      "text": "PRIMEIRO DIA COMO CALOURO.\n\nOs portões de ferro da Universidade Godolkin se abrem diante de você. Estátuas douradas dos antigos membros dos Sete vigiam o pátio central enquanto drones de transmissão da Vought+ sobrevoam os novatos.\n\nNo telão digital acima da biblioteca, o Ranking Oficial do Campus pisca em tempo real. Como recém-chegado, você começa na 48ª posição — um completo desconhecido entre veteranos ambiciosos e colegas tão perdidos quanto você.\n\nPerto das escadarias, dois outros calouros observam a movimentação: Clara Vance, mascando chiclete com expressão entediada, e Luka Lancelloti, analisando o trajeto dos drones com um caderno gasto nas mãos. Mais adiante, na área VIP, Matteo e Zoe Lee posam para as câmeras enquanto Otávio O'Connor e Maya Dunlap observam tudo das arcadas.",
+      "text": "PRIMEIRO DIA COMO CALOURO.\n\nOs portões de ferro da Universidade Godolkin se abrem diante de você. Estátuas douradas dos antigos membros dos Sete vigiam o pátio central enquanto drones de transmissão da Vought+ sobrevoam os novatos.\n\nNo telão digital acima da biblioteca, o Ranking Oficial do Campus pisca em tempo real. Como recém-chegado, você começa na 48ª posição — um completo desconhecido entre veteranos ambiciosos e colegas tão perdidos quanto você.\n\nAinda faltam mais de quarenta minutos para a primeira chamada na Arena de Simulação. Você tem tempo de sobra para escolher com quem vai caminhar e conversar antes das aulas começarem: perto das escadarias, Clara Vance e Luka Lancelloti observam os drones; na área VIP, Matteo e Zoe Lee posam para câmeras; sob as arcadas de pedra, Maya Dunlap e Otávio O'Connor acompanham tudo em silêncio.",
       "choices": [
         {
           "label": "Aproximar-se dos outros calouros (Clara e Luka) perto das escadarias",
-          "to": "encontro_calouros",
+          "to": "calouros_1",
           "effects": {
             "flags": {
               "aproximou_calouros": true
+            },
+            "bonds": {
+              "clara": 5,
+              "luka": 5
+            }
+          }
+        },
+        {
+          "label": "Caminhar até a área VIP para se apresentar a Matteo e Zoe Lee",
+          "to": "elite_1",
+          "effects": {
+            "flags": {
+              "aproximou_elite": true
+            },
+            "bonds": {
+              "matteo": 5,
+              "zoe": 4
+            },
+            "rank": -2
+          }
+        },
+        {
+          "label": "Ficar sob as arcadas ao lado de Maya Dunlap e Otávio O'Connor observando o pátio",
+          "to": "arcadas_1",
+          "effects": {
+            "flags": {
+              "aproximou_observadores": true
+            },
+            "bonds": {
+              "maya": 5,
+              "otavio": 5
+            }
+          }
+        },
+        {
+          "label": "Soltar um comentário sarcástico sobre o show dos drones perto da escadaria",
+          "requireTrait": "sarcastico",
+          "to": "calouros_1",
+          "effects": {
+            "flags": {
+              "aproximou_calouros": true,
+              "ironia_patio": true
+            },
+            "bonds": {
+              "clara": 8,
+              "luka": 7,
+              "matteo": -3
+            }
+          }
+        }
+      ],
+      "dynamic": []
+    },
+    "calouros_1": {
+      "id": "calouros_1",
+      "title": "Os Novatos da Escadaria · Parte 1",
+      "time": "08:20",
+      "stage": "ESCADARIAS DA BIBLIOTECA",
+      "text": "Clara solta um assobio baixo quando você se aproxima, medindo você de cima a baixo antes de estender o punho para um cumprimento rápido.\n\nClara: — Mais um carneiro novo pro abate. Sou a Clara, e esse aqui calculando a velocidade dos drones como se fosse cair na prova é o Luka. Pelo menos você não parece um robô sorridente igual à turma do Matteo lá na frente.\n\nLuka fecha o caderno gasto e aperta sua mão em frações de segundo, com um sorriso cético.\n\nLuka: — Bem-vindo ao 1º ano, {NOME}. Dica grátis de quem leu o regulamento inteiro antes de assinar: o ranking aqui não mede quem é mais forte, mede quem dá mais audiência.",
+      "choices": [
+        {
+          "label": "Perguntar a Luka como ele já sabe tanto sobre os bastidores sendo calouro também",
+          "to": "calouros_2",
+          "effects": {
+            "bonds": {
+              "luka": 4,
+              "clara": 2
+            }
+          }
+        },
+        {
+          "label": "Brincar com Clara sobre os veteranos posando para as câmeras no meio do pátio",
+          "to": "calouros_2",
+          "effects": {
+            "bonds": {
+              "clara": 5,
+              "luka": 2
+            }
+          }
+        },
+        {
+          "label": "Perguntar se eles já sabem como funciona a primeira aula prática do dia",
+          "to": "calouros_2",
+          "effects": {
+            "bonds": {
+              "clara": 3,
+              "luka": 3
+            }
+          }
+        },
+        {
+          "label": "Apontar uma falha na rota de vigilância dos drones que nem Luka havia anotado",
+          "requireAttr": {
+            "attr": "intelecto",
+            "min": 3
+          },
+          "to": "calouros_2",
+          "effects": {
+            "flags": {
+              "mapeou_drones": true
+            },
+            "bonds": {
+              "luka": 7,
+              "clara": 4
+            }
+          }
+        }
+      ],
+      "dynamic": []
+    },
+    "calouros_2": {
+      "id": "calouros_2",
+      "title": "Os Novatos da Escadaria · Parte 2",
+      "time": "08:28",
+      "stage": "ESCADARIAS DA BIBLIOTECA",
+      "text": "Luka abre uma página cheia de recortes e setas desenhadas à mão, enquanto Clara se senta no degrau de pedra balançando uma garrafa de energético.\n\nLuka: — Eu tenho amigos mais velhos aqui dentro. O Otávio cresceu no mesmo bairro que a Clara, e a Maya divide quarto com ela. Eles me passaram a ficha limpa de quem realmente manda no campus.\n\nClara aponta com o queixo para o centro do pátio, onde Matteo ajusta o casaco sob um refletor de câmera.\n\nClara: — Aquele idiota ali é o Matteo, Rank #2. A gente era amigo antes de ele virar umoutdoor ambulante da Vought. E a garota colada nele é a Zoe Lee, Rank #4. Se você cruzar o caminho dos dois sem preparo, eles te engolem vivo, {NOME}.",
+      "choices": [
+        {
+          "label": "Perguntar a Clara o que aconteceu entre ela e Matteo no passado",
+          "to": "calouros_3",
+          "effects": {
+            "bonds": {
+              "clara": 5
+            }
+          }
+        },
+        {
+          "label": "Perguntar a Luka sobre Maya e Otávio e se dá para confiar neles",
+          "to": "calouros_3",
+          "effects": {
+            "bonds": {
+              "luka": 5,
+              "maya": 2,
+              "otavio": 2
+            }
+          }
+        },
+        {
+          "label": "Dizer que não tem medo de veteranos e pretende subir no Ranking do seu jeito",
+          "to": "calouros_3",
+          "effects": {
+            "bonds": {
+              "clara": 3,
+              "luka": 2
+            },
+            "rank": -2
+          }
+        },
+        {
+          "label": "Comentar que percebeu Maya e Otávio observando tudo das arcadas laterais",
+          "requireTrait": "observador",
+          "to": "calouros_3",
+          "effects": {
+            "bonds": {
+              "luka": 6,
+              "clara": 4,
+              "maya": 3
+            }
+          }
+        }
+      ],
+      "dynamic": []
+    },
+    "calouros_3": {
+      "id": "calouros_3",
+      "title": "Os Novatos da Escadaria · Parte 3",
+      "time": "08:36",
+      "stage": "ESCADARIAS DA BIBLIOTECA",
+      "text": "Clara dá de ombros, soltando uma risada seca sem humor, enquanto Luka guarda o caderno na mochila quando um grupo de alunos do 2º ano passa rindo por perto.\n\nClara: — Digamos que o Matteo descobriu que sorrir para patrocinadores paga mais do que ter caráter. Simples assim.\n\nLuka abaixa o tom de voz e olha diretamente para você, avaliando se você veio para competir sozinho ou se dá para formar uma aliança entre calouros.\n\nLuka: — Olha só, {NOME}, no primeiro semestre os veteranos adoram usar os novatos de escada nos exercícios práticos. Ninguém aqui precisa contar todos os segredos agora, mas se a gente não cobrir as costas uns dos outros hoje, vamos virar estatística antes do almoço.",
+      "choices": [
+        {
+          "label": "Fechar parceria com Clara e Luka: 'Podem contar comigo lá dentro.'",
+          "to": "calouros_4",
+          "effects": {
+            "flags": {
+              "alianca_calouros": true
             },
             "bonds": {
               "clara": 6,
@@ -946,129 +1122,103 @@
           }
         },
         {
-          "label": "Caminhar até a área VIP para se apresentar a Matteo e Zoe Lee",
-          "to": "encontro_elite",
+          "label": "Aceitar caminhar junto com eles, mas avisar que prefere ir com calma até conhecer todos",
+          "to": "calouros_4",
           "effects": {
-            "flags": {
-              "aproximou_elite": true
-            },
             "bonds": {
-              "matteo": 6,
-              "zoe": 5
-            },
-            "rank": -3
-          }
-        },
-        {
-          "label": "Ficar sob as arcadas ao lado de Maya Dunlap e Otávio O'Connor observando o pátio",
-          "to": "encontro_arcadas",
-          "effects": {
-            "flags": {
-              "aproximou_observadores": true
-            },
-            "bonds": {
-              "maya": 6,
-              "otavio": 6
+              "clara": 3,
+              "luka": 4
             }
           }
         },
         {
-          "label": "Comentar em voz alta sobre o teatro dos drones da Vought",
-          "requireTrait": "sarcastico",
-          "to": "encontro_calouros",
+          "label": "Brincar dizendo que se eles não atrapalharem, você garante que ninguém sai ferido",
+          "to": "calouros_4",
+          "effects": {
+            "bonds": {
+              "clara": 5,
+              "luka": 3
+            }
+          }
+        },
+        {
+          "label": "Ler a tensão nos ombros de Clara e garantir que ela não vai enfrentar o treino sozinha",
+          "requireTrait": "empatico",
+          "to": "calouros_4",
           "effects": {
             "flags": {
-              "aproximou_calouros": true,
-              "ironia_patio": true
+              "alianca_calouros": true
             },
             "bonds": {
-              "clara": 9,
-              "luka": 8,
-              "matteo": -3
+              "clara": 8,
+              "luka": 6
             }
           }
         }
       ],
       "dynamic": []
     },
-    "encontro_calouros": {
-      "id": "encontro_calouros",
-      "title": "Os Novatos da Escadaria",
-      "time": "08:30",
-      "stage": "ESCADARIAS DA BIBLIOTECA",
-      "text": "Clara solta um assobio baixo quando você se aproxima, medindo você de cima a baixo antes de estender o punho para um cumprimento rápido.\n\nClara: — Mais um carneiro novo pro abate. Sou a Clara, e esse aqui calculando a velocidade dos drones é o Luka. Pelo menos você não parece um robô sorridente igual à turma do Matteo lá na frente.\n\nLuka fecha o caderno e aperta sua mão em frações de segundo, com um sorriso cético.\n\nLuka: — Bem-vindo ao 1º ano, {NOME}. Dica grátis de quem leu o regulamento inteiro: o ranking aqui não mede quem é mais forte, mede quem dá mais audiência.",
+    "calouros_4": {
+      "id": "calouros_4",
+      "title": "Rumo ao Pavilhão B",
+      "time": "08:48",
+      "stage": "CORREDOR DE ACESSO À ARENA",
+      "text": "O alto-falante central do pátio emite um sinal sonoro agudo, convocando todos os alunos do 1º e 2º anos para a avaliação inicial de campo.\n\nClara dá um salto ágil do degrau, pendurando a mochila em um ombro só e fazendo um gesto com a cabeça na direção das portas duplas blindadas ao fundo do pátio.\n\nClara: — É isso, hora do show de horrores do Professor Brinker. Bora pra Arena antes que o Matteo pegue os melhores lugares na frente das câmeras, {NOME}. Quero ver o que você sabe fazer de verdade quando a sirene tocar.\n\nLuka ajusta os tênis e acompanha o passo de vocês dois pelo corredor que leva ao Pavilhão B.\n\nLuka: — Fica atento aos drones táticos lá dentro, {NOME}. Eles sempre miram primeiro em quem parece hesitar.",
       "choices": [
         {
-          "label": "Perguntar a Luka o que ele já descobriu sobre os veteranos do campus",
-          "to": "arena_chegada",
+          "label": "Seguir ao lado de Clara e Luka até a entrada da Arena de Simulação",
+          "to": "arena_1",
           "effects": {
             "bonds": {
-              "luka": 5,
-              "clara": 3
-            }
-          }
-        },
-        {
-          "label": "Brincar com Clara para quebrar o gelo antes do primeiro treino prático",
-          "to": "arena_chegada",
-          "effects": {
-            "bonds": {
-              "clara": 6,
+              "clara": 2,
               "luka": 2
             }
           }
         },
         {
-          "label": "Manter-se reservado e dizer que prefere observar antes de confiar em alguém",
-          "to": "arena_chegada",
+          "label": "Acelerar o passo para entrar na Arena com postura confiante diante dos veteranos",
+          "to": "arena_1",
           "effects": {
-            "bonds": {
-              "luka": 4,
-              "maya": 2
-            }
+            "rank": -2
           }
         },
         {
-          "label": "Apontar uma falha na rota de vigilância que nem Luka havia anotado",
+          "label": "Respirar fundo no corredor para manter total controle emocional antes do teste",
           "requireAttr": {
-            "attr": "intelecto",
+            "attr": "controle",
             "min": 3
           },
-          "to": "arena_chegada",
+          "to": "arena_1",
           "effects": {
             "flags": {
-              "mapeou_drones": true
-            },
-            "bonds": {
-              "luka": 9,
-              "clara": 5
+              "foco_pre_arena": true
             }
           }
         }
       ],
       "dynamic": []
     },
-    "encontro_elite": {
-      "id": "encontro_elite",
-      "title": "Sob a Luz dos Patrocinadores",
-      "time": "08:30",
+    "elite_1": {
+      "id": "elite_1",
+      "title": "Sob a Luz dos Patrocinadores · Parte 1",
+      "time": "08:20",
       "stage": "ÁREA VIP · PÁTIO CENTRAL",
-      "text": "Assim que você cruza a faixa reservada, um dos drones dá zoom no seu rosto, fazendo seu nome subir três posições no painel digital.\n\nMatteo ajusta o casaco impecável e estende a mão com um sorriso de comercial de TV, enquanto Zoe Lee apoia o queixo na mão, analisando cada detalhe da sua postura com olhos elétricos.\n\nMatteo: — Coragem de vir direto falar com o Top 2 no primeiro dia, {NOME}. Sou Matteo. Se você souber jogar o jogo certo, esse campus abre qualquer porta.\n\nZoe: — E se não souber, as portas fecham bem rápido, {NOME}. Fique perto e vamos ver do que você é feito na Arena.",
+      "text": "Assim que você cruza a faixa reservada, um dos drones dá zoom no seu rosto, fazendo seu nome subir duas posições no painel digital acima da biblioteca.\n\nMatteo ajusta o casaco impecável e estende a mão com um sorriso de comercial de TV, enquanto Zoe Lee apoia o queixo na mão, analisando cada detalhe da sua postura com olhos elétricos.\n\nMatteo: — Coragem de vir direto falar com o Top 2 no primeiro dia, {NOME}. Sou Matteo. A maioria dos calouros fica tremendo perto da escadaria.\n\nZoe: — E eu sou Zoe Lee. Adoro quem sabe onde as câmeras estão apontadas, {NOME}. Mas diga: você veio para Godolkin para aparecer ou tem poder suficiente para sustentar essa entrada?",
       "choices": [
         {
-          "label": "Mostrar ambição e dizer que pretende disputar o Top 10 ainda este semestre",
-          "to": "arena_chegada",
+          "label": "Responder com firmeza que não veio para ser figurante no fundo do pátio",
+          "to": "elite_2",
           "effects": {
             "bonds": {
-              "matteo": 6,
+              "matteo": 5,
               "zoe": 4
             },
             "rank": -2
           }
         },
         {
-          "label": "Responder de forma diplomática sem revelar seus verdadeiros objetivos",
-          "to": "arena_chegada",
+          "label": "Responder com ironia suave que prefere deixar os resultados da Arena falarem por você",
+          "to": "elite_2",
           "effects": {
             "bonds": {
               "zoe": 6,
@@ -1077,100 +1227,349 @@
           }
         },
         {
-          "label": "Perguntar por que os calouros parecem tão tensos perto da reitoria",
-          "to": "arena_chegada",
+          "label": "Elogiar o alcance midiático dos dois e perguntar como funciona o sistema de patrocínios",
+          "to": "elite_2",
           "effects": {
             "bonds": {
-              "matteo": -2,
+              "matteo": 6,
               "zoe": 3
             }
           }
         },
         {
-          "label": "Conquistar a simpatia imediata de ambos com uma leitura certeira da mídia",
+          "label": "Ler a linguagem corporal tensa de Matteo e responder exatamente o que ele quer ouvir",
           "requireAttr": {
             "attr": "carisma",
             "min": 3
           },
-          "to": "arena_chegada",
+          "to": "elite_2",
           "effects": {
             "flags": {
               "alianca_vip_inicial": true
             },
             "bonds": {
               "matteo": 8,
-              "zoe": 8
+              "zoe": 7
             },
-            "rank": -3
+            "rank": -2
           }
         }
       ],
       "dynamic": []
     },
-    "encontro_arcadas": {
-      "id": "encontro_arcadas",
-      "title": "Sombra das Pilastras",
-      "time": "08:30",
-      "stage": "ARCADAS LATERAIS",
-      "text": "Você se encosta na pilastra de pedra longe das câmeras. Otávio O'Connor vira-se com um sorriso tranquilo e oferece uma garrafa de água, enquanto Maya Dunlap observa você com as mãos protegidas por luvas pretas.\n\nOtávio: — Olha só, um calouro com instinto de autopreservação. Sou o Otávio, e essa é a Maya. Não se assuste com o jeito sério dela, ela só está contando quantas câmeras estão apontadas pra gente.\n\nMaya: — Sete. E três delas pertencem à segurança interna, não à transmissão pública. Prazer, {NOME}.",
+    "elite_2": {
+      "id": "elite_2",
+      "title": "Sob a Luz dos Patrocinadores · Parte 2",
+      "time": "08:28",
+      "stage": "ÁREA VIP · PÁTIO CENTRAL",
+      "text": "Zoe solta uma risada baixa e dá um passo mais perto, enquanto Matteo acena discretamente para que o operador do drone afaste um pouco a lente.\n\nZoe: — Gostei da resposta, {NOME}. Aqui dentro existe uma regra simples que a reitoria não escreve no manual: os Sete têm vagas contadas, e ninguém sobe sem aliados estratégicos.\n\nMatteo apoia uma mão no parapeito de mármore, olhando rapidamente para Clara e Luka perto das escadarias antes de voltar a encarar você.\n\nMatteo: — Alguns calouros acham bonito bancar os rebeldes anti-Vought no primeiro dia. No segundo semestre, ninguém lembra o nome deles. Se você andar com quem está no topo, os patrocinadores começam a investir em você antes mesmo da primeira prova.",
       "choices": [
         {
-          "label": "Agradecer pelo aviso sobre as câmeras e puxar assunto com calma",
-          "to": "arena_chegada",
+          "label": "Concordar com a visão pragmática de Matteo sobre o Ranking",
+          "to": "elite_3",
           "effects": {
             "bonds": {
-              "otavio": 6,
-              "maya": 5
+              "matteo": 5,
+              "zoe": 3
             }
           }
         },
         {
-          "label": "Perguntar a Maya o que a segurança interna está procurando entre os calouros",
-          "to": "arena_chegada",
+          "label": "Perguntar a Zoe o que eles esperam em troca de um calouro recém-chegado",
+          "to": "elite_3",
+          "effects": {
+            "bonds": {
+              "zoe": 6,
+              "matteo": 2
+            }
+          }
+        },
+        {
+          "label": "Notar que Matteo olhou para Clara com certo incômodo e comentar sobre os outros novatos",
+          "to": "elite_3",
+          "effects": {
+            "bonds": {
+              "matteo": -2,
+              "zoe": 4
+            }
+          }
+        },
+        {
+          "label": "Perceber pequenas faíscas estáticas nos dedos de Zoe sempre que ela testa alguém",
+          "requireTrait": "observador",
+          "to": "elite_3",
+          "effects": {
+            "bonds": {
+              "zoe": 6,
+              "matteo": 4
+            }
+          }
+        }
+      ],
+      "dynamic": []
+    },
+    "elite_3": {
+      "id": "elite_3",
+      "title": "Sob a Luz dos Patrocinadores · Parte 3",
+      "time": "08:36",
+      "stage": "ÁREA VIP · PÁTIO CENTRAL",
+      "text": "Zoe troca um olhar rápido e cúmplice com Matteo antes de responder com sua voz aveludada.\n\nZoe: — O que esperamos? Lealdade inteligente, {NOME}. Informação vale mais do que qualquer rajada de energia nesse campus. Queremos saber quem entre os calouros tem potencial real — e quem está tentando bancar o espertinho pelas costas da diretoria.\n\nMatteo endireita a postura quando vê a equipe técnica abrir os portões do Pavilhão B ao longe.\n\nMatteo: — A primeira avaliação vai começar agora. No ano passado, três novatos travaram na frente das câmeras e despencaram para o fim da tabela.",
+      "choices": [
+        {
+          "label": "Garantir a Matteo e Zoe que você não vai decepcionar diante das câmeras",
+          "to": "elite_4",
+          "effects": {
+            "bonds": {
+              "matteo": 5,
+              "zoe": 5
+            },
+            "rank": -1
+          }
+        },
+        {
+          "label": "Dizer que vai observar tudo na Arena antes de fechar qualquer compromisso",
+          "to": "elite_4",
+          "effects": {
+            "bonds": {
+              "zoe": 4,
+              "matteo": 1
+            }
+          }
+        },
+        {
+          "label": "Sugerir que vocês avaliem o desempenho uns dos outros durante o exercício",
+          "to": "elite_4",
+          "effects": {
+            "bonds": {
+              "matteo": 4,
+              "zoe": 6
+            }
+          }
+        }
+      ],
+      "dynamic": []
+    },
+    "elite_4": {
+      "id": "elite_4",
+      "title": "Convite para o Pavilhão B",
+      "time": "08:48",
+      "stage": "CORREDOR DE ACESSO À ARENA",
+      "text": "A sirene de chamada ecoa pelo pátio central. Zoe passa a alça da bolsa pelo ombro com elegância enquanto Matteo faz um gesto convidativo em direção ao corredor principal.\n\nMatteo: — Vamos para a Arena agora, {NOME}. O Professor Brinker odeia atrasos, e a imprensa estudantil já está posicionada nas galerias superiores.\n\nZoe olha para trás por cima do ombro com um meio sorriso desafiador:\n\nZoe: — Venha com a gente, {NOME}. Vamos ver se você brilha tanto sob pressão quanto aqui fora.",
+      "choices": [
+        {
+          "label": "Caminhar ao lado de Matteo e Zoe até o Pavilhão B",
+          "to": "arena_1",
+          "effects": {
+            "bonds": {
+              "matteo": 2,
+              "zoe": 2
+            }
+          }
+        },
+        {
+          "label": "Acompanhar o ritmo deles mantendo distância estratégica para observar o ambiente",
+          "to": "arena_1",
+          "effects": {
+            "bonds": {
+              "zoe": 3
+            }
+          }
+        }
+      ],
+      "dynamic": []
+    },
+    "arcadas_1": {
+      "id": "arcadas_1",
+      "title": "Sombra das Pilastras · Parte 1",
+      "time": "08:20",
+      "stage": "ARCADAS LATERAIS",
+      "text": "Você se encosta na pilastra de pedra longe dos refletores. Otávio O'Connor vira-se com um sorriso tranquilo e oferece uma garrafa de água lacrada, enquanto Maya Dunlap observa você com as mãos protegidas por luvas pretas.\n\nOtávio: — Olha só, um calouro com instinto de autopreservação. Sou o Otávio, e essa é a Maya. Não se assuste com o jeito sério dela, ela só está contando quantas câmeras estão apontadas pra gente.\n\nMaya: — Sete. E três delas pertencem à segurança interna, não à transmissão pública da Vought+. Prazer, {NOME}.",
+      "choices": [
+        {
+          "label": "Aceitar a água de Otávio e perguntar por que a segurança interna vigia tanto os novatos",
+          "to": "arcadas_2",
           "effects": {
             "flags": {
               "viu_cameras_internas": true
             },
             "bonds": {
-              "maya": 7,
-              "otavio": 3
+              "otavio": 5,
+              "maya": 5
             }
           }
         },
         {
-          "label": "Fazer uma piada leve com Otávio para aliviar o clima pesado",
-          "to": "arena_chegada",
+          "label": "Brincar com Otávio dizendo que já estava cansado de ver gente posando para drones",
+          "to": "arcadas_2",
           "effects": {
             "bonds": {
               "otavio": 7,
-              "maya": 2
+              "maya": 3
             }
           }
         },
         {
-          "label": "Apontar a quarta câmera oculta perto do elevador de serviço",
+          "label": "Perguntar diretamente a Maya o que ela já descobriu observando o pátio",
+          "to": "arcadas_2",
+          "effects": {
+            "flags": {
+              "viu_cameras_internas": true
+            },
+            "bonds": {
+              "maya": 6,
+              "otavio": 2
+            }
+          }
+        },
+        {
+          "label": "Apontar a quarta câmera oculta perto do elevador de serviço ao fundo do corredor",
           "requireTrait": "observador",
-          "to": "arena_chegada",
+          "to": "arcadas_2",
           "effects": {
             "flags": {
               "viu_cameras_internas": true,
               "viu_elevador_subsolo": true
             },
             "bonds": {
-              "maya": 10,
-              "otavio": 6
+              "maya": 9,
+              "otavio": 5
             }
           }
         }
       ],
       "dynamic": []
     },
-    "arena_chegada": {
-      "id": "arena_chegada",
-      "title": "O Teste de Campo",
+    "arcadas_2": {
+      "id": "arcadas_2",
+      "title": "Sombra das Pilastras · Parte 2",
+      "time": "08:28",
+      "stage": "ARCADAS LATERAIS",
+      "text": "Maya ajeita levemente o punho da luva preta, mantendo uma distância cuidadosa de qualquer contato físico, mas seu olhar agora parece um pouco menos fechado.\n\nMaya: — Nas últimas semanas, alunos bem ranqueados começaram a desaparecer do painel oficial com a desculpa de 'transferência imediata'. Nenhum deles atualizou redes sociais nem mandou mensagem para os amigos.\n\nOtávio suspira baixo e passa a mão pela nuca, baixando a voz para que ninguém no corredor ouça.\n\nOtávio: — A Maya é brilhante, {NOME}, mas às vezes eu acho que a gente vai acabar arrumando encrenca grande se ficar cutucando os arquivos da reitoria. Mesmo assim... alguém precisa ficar de olho.",
+      "choices": [
+        {
+          "label": "Dizer a Maya que ela tem razão em desconfiar da versão oficial da Vought",
+          "to": "arcadas_3",
+          "effects": {
+            "bonds": {
+              "maya": 6,
+              "otavio": 2
+            }
+          }
+        },
+        {
+          "label": "Apoiar a cautela de Otávio e dizer que primeiro é preciso sobreviver ao primeiro dia",
+          "to": "arcadas_3",
+          "effects": {
+            "bonds": {
+              "otavio": 6,
+              "maya": 3
+            }
+          }
+        },
+        {
+          "label": "Perguntar por que Maya usa luvas o tempo inteiro mesmo no calor da manhã",
+          "to": "arcadas_3",
+          "effects": {
+            "bonds": {
+              "maya": 4,
+              "otavio": 3
+            }
+          }
+        },
+        {
+          "label": "Demonstrar empatia pela carga emocional que Otávio parece esconder por trás do bom humor",
+          "requireTrait": "empatico",
+          "to": "arcadas_3",
+          "effects": {
+            "bonds": {
+              "otavio": 9,
+              "maya": 5
+            }
+          }
+        }
+      ],
+      "dynamic": []
+    },
+    "arcadas_3": {
+      "id": "arcadas_3",
+      "title": "Sombra das Pilastras · Parte 3",
+      "time": "08:36",
+      "stage": "ARCADAS LATERAIS",
+      "text": "Maya ergue rapidamente as mãos enluvadas com um meio sorriso sarcástico, mas verdadeiro.\n\nMaya: — Digamos que se eu encostar a pele em você e pedir para você pular daquela sacada, você não vai conseguir dizer não, {NOME}. Por isso prefiro manter distância segura e observar de longe. É mais saudável para todo mundo.\n\nOtávio dá uma risada leve para quebrar a tensão e olha para o relógio no pulso.\n\nOtávio: — E eu absorvo impacto e sinto quando todo mundo ao redor está prestes a surtar — o que, em Godolkin, acontece a cada dez minutos. Se você precisar de cobertura lá dentro, pode contar com a gente.",
+      "choices": [
+        {
+          "label": "Agradecer pela sinceridade dos dois e dizer que respeita totalmente o espaço de Maya",
+          "to": "arcadas_4",
+          "effects": {
+            "bonds": {
+              "maya": 6,
+              "otavio": 5
+            }
+          }
+        },
+        {
+          "label": "Perguntar quem são aqueles dois calouros perto da escadaria (Clara e Luka)",
+          "to": "arcadas_4",
+          "effects": {
+            "bonds": {
+              "otavio": 5,
+              "maya": 4,
+              "clara": 2,
+              "luka": 2
+            }
+          }
+        },
+        {
+          "label": "Dizer que prefere trabalhar nos bastidores também em vez de buscar holofotes",
+          "to": "arcadas_4",
+          "effects": {
+            "bonds": {
+              "maya": 7,
+              "otavio": 4
+            }
+          }
+        }
+      ],
+      "dynamic": []
+    },
+    "arcadas_4": {
+      "id": "arcadas_4",
+      "title": "Chamada para a Arena",
+      "time": "08:48",
+      "stage": "CORREDOR DE ACESSO À ARENA",
+      "text": "O sinal sonoro da primeira aula ecoa pelas arcadas de pedra. Otávio endireita os ombros e aponta com o polegar para o corredor que leva ao ginásio blindado.\n\nOtávio: — Bom, hora de encarar a Arena de Simulação, {NOME}. Vamos andando antes que o Professor Brinker comece a descontar pontos de presença.\n\nMaya caminha ao seu lado mantendo um passo de distância e fala baixo:\n\nMaya: — Fique perto da gente no exercício, {NOME}. Quando o Matteo entra na Arena, ele costuma atirar primeiro e olhar quem está na frente depois.",
+      "choices": [
+        {
+          "label": "Seguir com Maya e Otávio para a Arena de Simulação",
+          "to": "arena_1",
+          "effects": {
+            "bonds": {
+              "maya": 2,
+              "otavio": 2
+            }
+          }
+        },
+        {
+          "label": "Agradecer o aviso e entrar na Arena atento a cada movimento de Matteo",
+          "to": "arena_1",
+          "effects": {
+            "flags": {
+              "alerta_matteo": true
+            },
+            "bonds": {
+              "maya": 3
+            }
+          }
+        }
+      ],
+      "dynamic": []
+    },
+    "arena_1": {
+      "id": "arena_1",
+      "title": "O Teste de Campo · Parte 1",
       "time": "10:00",
       "stage": "ARENA DE SIMULAÇÃO · PAVILHÃO B",
-      "text": "O ginásio blindado cheira a ozônio e concreto novo. O Professor Brinker posiciona os alunos diante de drones táticos de contenção programados para simular uma emboscada urbana.\n\nBrinker: — A Vought não quer apenas poder bruto. Queremos precisão, controle e sangue-frio. Mostrem do que são feitos!\n\nA sirene dispara. Um drone blindado sai da rota programada e avança em alta velocidade na direção de Clara Vance, que ainda estava encolhida desviando de um obstáculo enquanto Matteo preparava uma rajada de fogo sem se importar com quem estava na linha de tiro.",
+      "text": "O ginásio blindado cheira a ozônio e concreto novo. O Professor Brinker posiciona os alunos diante de drones táticos de contenção programados para simular uma emboscada urbana.\n\nBrinker: — A Vought não quer apenas poder bruto. Queremos precisão, controle e sangue-frio. Mostrem do que são feitos!\n\nA sirene dispara. Um drone blindado sai da rota programada em alta velocidade na direção de Clara Vance, que ainda estava encolhida desviando de um obstáculo enquanto Matteo preparava uma rajada de fogo sem se importar com quem estava na linha de tiro.",
       "choices": [
         {
           "label": "Solidificar seu sangue em uma barreira e interceptar o drone antes de atingir Clara",
@@ -1179,7 +1578,7 @@
             "vitalidade": -15,
             "estresse": 20
           },
-          "to": "arena_pos_acao",
+          "to": "arena_2",
           "effects": {
             "flags": {
               "salvou_clara": true,
@@ -1200,7 +1599,7 @@
           "cost": {
             "estresse": 15
           },
-          "to": "arena_pos_acao",
+          "to": "arena_2",
           "effects": {
             "flags": {
               "salvou_clara": true,
@@ -1220,7 +1619,7 @@
           "cost": {
             "estresse": 20
           },
-          "to": "arena_pos_acao",
+          "to": "arena_2",
           "effects": {
             "flags": {
               "salvou_clara": true,
@@ -1240,7 +1639,7 @@
           "cost": {
             "estresse": 20
           },
-          "to": "arena_pos_acao",
+          "to": "arena_2",
           "effects": {
             "flags": {
               "salvou_clara": true,
@@ -1260,7 +1659,7 @@
           "cost": {
             "estresse": 20
           },
-          "to": "arena_pos_acao",
+          "to": "arena_2",
           "effects": {
             "flags": {
               "salvou_clara": true,
@@ -1276,7 +1675,7 @@
         },
         {
           "label": "Empurrar Clara para fora da trajetória usando apenas velocidade física sem expor seu poder",
-          "to": "arena_pos_acao",
+          "to": "arena_2",
           "effects": {
             "flags": {
               "salvou_clara": true,
@@ -1292,7 +1691,7 @@
         },
         {
           "label": "Recuar para a zona segura e deixar os veteranos resolverem o problema",
-          "to": "arena_pos_acao",
+          "to": "arena_2",
           "effects": {
             "flags": {
               "hesitou_arena": true
@@ -1311,7 +1710,7 @@
             "attr": "potencia",
             "min": 3
           },
-          "to": "arena_pos_acao",
+          "to": "arena_2",
           "effects": {
             "flags": {
               "salvou_clara": true,
@@ -1328,66 +1727,49 @@
       ],
       "dynamic": []
     },
-    "arena_pos_acao": {
-      "id": "arena_pos_acao",
-      "title": "Repercussão no Placar",
-      "time": "10:15",
-      "stage": "SAÍDA DA ARENA",
-      "text": "O apito final encerra o exercício. No telão do ginásio, os pontos são recalculados diante de toda a turma.\n\nZoe Lee passa por você ajeitando os cabelos onde faíscas azuis ainda estalam suavemente.\n\nZoe: — Interessante ver como cada um reage quando o roteiro sai do controle, {NOME}. A festa na cobertura da Torre Norte começa às dez. Apareça se quiser conhecer quem realmente manda aqui.",
+    "arena_2": {
+      "id": "arena_2",
+      "title": "O Teste de Campo · Parte 2",
+      "time": "10:08",
+      "stage": "SAÍDA DA ARENA · CORREDOR PRINCIPAL",
+      "text": "O apito final encerra o exercício. No telão do ginásio, os pontos são recalculados diante de toda a turma enquanto a fumaça dos drones se dissipa.\n\nMatteo passa enxugando o suor do pescoço e lança um olhar competitivo para você antes de seguir para o vestiário, enquanto Zoe Lee para ao seu lado ajeitando os cabelos onde faíscas azuis ainda estalam suavemente.\n\nZoe: — Interessante ver como cada um reage quando o roteiro sai do controle, {NOME}. Hoje à noite vai rolar uma festa fechada na cobertura da Torre Norte. Apareça às dez se quiser conhecer quem realmente dita as regras aqui.",
       "choices": [
         {
-          "label": "Confirmar presença na festa da Torre Norte",
-          "to": "festa_noite",
+          "label": "Responder a Zoe que estará lá para ver de perto como funciona a Torre Norte",
+          "to": "arena_3",
           "effects": {
             "bonds": {
               "zoe": 4,
-              "matteo": 3
+              "matteo": 2
             }
           }
         },
         {
-          "label": "Combinar com Clara, Luka e Otávio de irem juntos para não ficarem isolados",
-          "to": "festa_noite",
+          "label": "Dar uma resposta vaga sem prometer nada diretamente a Zoe",
+          "to": "arena_3",
           "effects": {
             "bonds": {
-              "clara": 5,
-              "luka": 5,
-              "otavio": 4
+              "zoe": 2,
+              "maya": 2
             }
           }
         },
         {
-          "label": "Ir apenas para observar Maya e descobrir o que está acontecendo nos bastidores",
-          "to": "festa_noite",
+          "label": "Perguntar por que Matteo quase acertou uma colega durante a simulação",
+          "to": "arena_3",
           "effects": {
             "bonds": {
-              "maya": 6
+              "zoe": -2,
+              "matteo": -3,
+              "clara": 3
             }
-          }
-        },
-        {
-          "label": "Manter postura impecável diante das câmeras na saída do ginásio",
-          "requireAttr": {
-            "attr": "controle",
-            "min": 3
-          },
-          "to": "festa_noite",
-          "effects": {
-            "flags": {
-              "controle_impecavel": true
-            },
-            "bonds": {
-              "maya": 5,
-              "zoe": 4
-            },
-            "rank": -2
           }
         }
       ],
       "dynamic": [
         {
           "flag": "salvou_clara",
-          "text": "Clara encosta o ombro no seu ao sair do ginásio: 'Você salvou minha pele lá dentro, {NOME}. A partir de hoje você tá fechado com a gente.'"
+          "text": "Assim que Zoe se afasta, Clara encosta o ombro no seu com um sorriso sincero: 'Você salvou minha pele lá dentro, {NOME}. A partir de hoje você tá fechado com a gente.'"
         },
         {
           "flag": "hesitou_arena",
@@ -1395,12 +1777,131 @@
         }
       ]
     },
-    "festa_noite": {
-      "id": "festa_noite",
-      "title": "A Varanda da Torre Norte",
-      "time": "23:20",
-      "stage": "COBERTURA · TORRE NORTE",
-      "text": "A cobertura pulsa com luzes neon e música alta. Enquanto Matteo e Zoe comandam o centro da pista cercados por veteranos, Maya Dunlap chama você, Clara, Luka e Otávio para a varanda externa longe dos microfones.\n\nDe luvas pretas cruzadas, Maya fala baixo:\n\nMaya: — Escuta bem, {NOME}. O aluno #6 do Ranking não foi transferido para uma agência em Nova York como a reitoria anunciou hoje à tarde. Luka cruzou os horários das câmeras com o elevador de serviço: levaram ele para um nível subterrâneo chamado 'A Floresta'.\n\nOtávio franze a testa, sentindo a tensão elétrica no ar.\n\nOtávio: — Se a gente mexer nisso sem cuidado, todos nós viramos o próximo nome apagado da lista.",
+    "arena_3": {
+      "id": "arena_3",
+      "title": "Planejando a Noite",
+      "time": "18:40",
+      "stage": "PÁTIO DOS DORMITÓRIOS",
+      "text": "O fim de tarde tinge as estátuas do campus de laranja. Luka alcança você na entrada dos dormitórios dos calouros trazendo dois cafés gelados e falando rápido.\n\nLuka: — Ei, {NOME}! A Maya interceptou uma movimentação estranha nos registros do elevador de serviço hoje à tarde. Ela pediu pra gente encontrar com ela e com o Otávio na festa da Torre Norte hoje à noite — é o único lugar com barulho suficiente pra conversar sem microfones captando.\n\nClara aparece logo atrás já trocando de jaqueta:\n\nClara: — Não é pelo glamour dos veteranos, {NOME}. Vamos subir pra Torre Norte juntos às dez, descobrir o que a Maya achou e sair antes que dê merda. Topa?",
+      "choices": [
+        {
+          "label": "Subir para a cobertura da Torre Norte com Clara e Luka",
+          "to": "festa_1",
+          "effects": {
+            "bonds": {
+              "clara": 4,
+              "luka": 4
+            }
+          }
+        },
+        {
+          "label": "Subir um pouco antes para observar o ambiente da festa com calma",
+          "to": "festa_1",
+          "effects": {
+            "bonds": {
+              "maya": 4,
+              "zoe": 2
+            }
+          }
+        }
+      ],
+      "dynamic": []
+    },
+    "festa_1": {
+      "id": "festa_1",
+      "title": "A Cobertura da Torre Norte · Parte 1",
+      "time": "22:45",
+      "stage": "SALÃO PRINCIPAL · TORRE NORTE",
+      "text": "A cobertura pulsa com luzes neon e música grave que faz o vidro das janelas vibrar. No centro do salão, Matteo e Zoe comandam um círculo de veteranos com bebidas caras e flashes de celulares.\n\nPerto do bar, Otávio acena discretamente para você e aponta com o olhar para a porta de vidro que leva à varanda externa.\n\nOtávio: — Chegou na hora certa, {NOME}. A Maya já está lá fora longe do som alto. Pega um copo pra disfarçar e vem com a gente.",
+      "choices": [
+        {
+          "label": "Seguir Otávio direto para a varanda externa onde Maya espera",
+          "to": "festa_2",
+          "effects": {
+            "bonds": {
+              "otavio": 3,
+              "maya": 4
+            }
+          }
+        },
+        {
+          "label": "Cumprimentar Matteo e Zoe rapidamente no salão antes de ir para a varanda",
+          "to": "festa_2",
+          "effects": {
+            "bonds": {
+              "matteo": 4,
+              "zoe": 4
+            }
+          }
+        },
+        {
+          "label": "Checar os cantos do salão em busca de câmeras ocultas antes de sair",
+          "requireTrait": "observador",
+          "to": "festa_2",
+          "effects": {
+            "flags": {
+              "checou_festa": true
+            },
+            "bonds": {
+              "maya": 6,
+              "luka": 4
+            }
+          }
+        }
+      ],
+      "dynamic": []
+    },
+    "festa_2": {
+      "id": "festa_2",
+      "title": "A Varanda da Torre Norte · Parte 2",
+      "time": "23:10",
+      "stage": "VARANDA EXTERNA · TORRE NORTE",
+      "text": "O vento frio da noite corta o calor da festa assim que a porta de vidro se fecha. Encostada no parapeito com suas luvas pretas cruzadas, Maya fala baixo enquanto Luka vigia o vidro.\n\nMaya: — Escuta bem, {NOME}. O aluno #6 do Ranking não foi transferido para uma agência em Nova York como a reitoria anunciou hoje à tarde. Eu cruzei os logs de acesso com o Luka: levaram ele sedado para um nível subterrâneo chamado 'A Floresta'.\n\nClara cerra os punhos, indignada, enquanto Otávio franze a testa sentindo a tensão elétrica no ar.\n\nOtávio: — Se a gente mexer nisso sem cuidado, todos nós viramos o próximo nome apagado da lista.",
+      "choices": [
+        {
+          "label": "Perguntar a Maya o que exatamente existe nesse nível chamado 'A Floresta'",
+          "to": "festa_3",
+          "effects": {
+            "bonds": {
+              "maya": 4,
+              "luka": 3
+            }
+          }
+        },
+        {
+          "label": "Perguntar se Matteo ou Zoe sabem o que está acontecendo no subsolo",
+          "to": "festa_3",
+          "effects": {
+            "bonds": {
+              "clara": 3,
+              "otavio": 3
+            }
+          }
+        },
+        {
+          "label": "Sugerir que vocês precisam de provas concretas antes de enfrentar a diretoria",
+          "to": "festa_3",
+          "effects": {
+            "bonds": {
+              "maya": 5,
+              "otavio": 4
+            }
+          }
+        }
+      ],
+      "dynamic": [
+        {
+          "flag": "viu_elevador_subsolo",
+          "text": "Você confirma o que Maya disse: pela manhã você viu seguranças sem uniforme bloqueando exatamente aquele elevador de serviço."
+        }
+      ]
+    },
+    "festa_3": {
+      "id": "festa_3",
+      "title": "O Pacto sob as Estrelas · Parte 3",
+      "time": "23:35",
+      "stage": "VARANDA EXTERNA · TORRE NORTE",
+      "text": "Maya olha para as luzes vermelhas dos drones patrulhando o pátio lá embaixo antes de encarar você e os outros três.\n\nMaya: — Eu não sei tudo o que fazem lá embaixo ainda, {NOME}. Só sei que estão testando limites de poderes em alunos sem o consentimento deles. E se não descobrirmos como acessar aqueles arquivos, qualquer um de nós pode ser o próximo.\n\nLuka encosta no batente da porta:\n\nLuka: — A sirene do toque de recolher vai tocar em vinte minutos, {NOME}. Precisamos decidir agora qual vai ser o nosso movimento a partir de amanhã.",
       "choices": [
         {
           "label": "Apoiar Maya e Luka e jurar investigar 'A Floresta' em segredo com o grupo",
@@ -1447,7 +1948,7 @@
           }
         },
         {
-          "label": "Detectar que alguém está escutando atrás da porta de vidro",
+          "label": "Detectar uma sombra ouvindo atrás da porta de vidro e alertar o grupo em silêncio",
           "requireTrait": "paranoico",
           "to": "end",
           "effects": {
@@ -1463,19 +1964,14 @@
           }
         }
       ],
-      "dynamic": [
-        {
-          "flag": "viu_elevador_subsolo",
-          "text": "Você confirma o que Maya disse: pela manhã você viu seguranças sem uniforme bloqueando exatamente aquele elevador de serviço."
-        }
-      ]
+      "dynamic": []
     },
     "end": {
       "id": "end",
       "title": "Fim do Prólogo",
       "time": "00:15",
       "stage": "CAMPUS GODOLKIN · TOQUE DE RECOLHER",
-      "text": "O toque de recolher soa pelos alto-falantes do campus. Do dormitório dos calouros, você observa as luzes vermelhas dos drones patrulhando o pátio escuro.\n\nA criança que descobriu seus poderes anos atrás ficou para trás. Agora, em Godolkin, cada aliança — e cada segredo — vai cobrar o seu preço.",
+      "text": "O toque de recolher soa pelos alto-falantes do campus. De volta ao dormitório dos calouros, você observa pela janela as luzes vermelhas dos drones patrulhando o pátio escuro.\n\nA criança que descobriu seus poderes anos atrás ficou para trás. Agora, em Godolkin, cada conversa, cada aliança — e cada segredo — vai cobrar o seu preço.",
       "choices": [],
       "dynamic": []
     }
