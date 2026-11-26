@@ -1,7 +1,6 @@
-/* Gen V: Campus Godolkin — Motor Jogável V0.3.0
- * Inclui: 5 Poderes Exclusivos, Prólogo de Origem na Infância + Recrutamento Vought,
- * Calouro (1º Ano) independente da idade, Escolhas Bloqueadas sem Spoiler (sempre 4 opções),
- * Ficha Interativa dos 6 Alunos de Godolkin com Relações Cruzadas e Reação em Cadeia.
+/* Gen V: Campus Godolkin — Motor Jogável V0.2.1
+ * Inclui: Criação de Personagem (4 passos), 3 Slots, Diário de Consequências,
+ * Fichas de Elenco, Sistema "Reação em Cadeia" (Efeito Borboleta) e Exportação/Importação.
  */
 (() => {
   'use strict';
@@ -15,7 +14,7 @@
   const SCENES = DATA.scenes;
   const CAST = DATA.cast;
   const root = document.getElementById('app');
-  const SAVE_KEY = 'genv_godolkin_v03_slot_';
+  const SAVE_KEY = 'genv_godolkin_v01_slot_';
 
   const ARQUETIPOS = [
     { id: 'prodigio', nome: 'O Prodígio Ambicioso', tag: 'TOP 10', desc: 'Focado no ranking, competitivo e obcecado por aprovação e patrocínios.' },
@@ -26,36 +25,14 @@
   ];
 
   const PODERES = [
-    {
-      id: 'hemocinese',
-      nome: 'Hemocinese (Controle Sanguíneo)',
-      desc: 'Solidifica o próprio sangue em lâminas ou barreiras e detecta batimentos cardíacos à distância.',
-      custo: 'Custo: Exige se cortar (perde Vitalidade) e deixa rastros comprometedores.'
-    },
-    {
-      id: 'superforca',
-      nome: 'Superforça & Invulnerabilidade',
-      desc: 'Força física descomunal e resistência extrema a impactos pesados, quedas e disparos.',
-      custo: 'Custo: Risco constante de destruir o ambiente ou revelar força excessiva.'
-    },
-    {
-      id: 'tecnopatia',
-      nome: 'Tecnopatia (Mimetismo Digital)',
-      desc: 'Invade sistemas eletrônicos, câmeras, drones e servidores pelo toque ou proximidade.',
-      custo: 'Custo: Sem vantagem física direta; vulnerável a sobrecargas elétricas.'
-    },
-    {
-      id: 'telecinese',
-      nome: 'Telecinese (Manipulação Cinética)',
-      desc: 'Move, arremessa ou esmaga objetos e alvos à distância usando apenas a mente.',
-      custo: 'Custo: Exige Controle alto; emoções fortes causam ondas de choque acidentais.'
-    },
-    {
-      id: 'troca_corpo',
-      nome: 'Troca de Corpo / Fluidez',
-      desc: 'Alterna entre uma forma densa ultra-resistente e outra forma ágil de alta mobilidade.',
-      custo: 'Custo: Alto desgaste metabólico e dificuldade de estabilizar transições sob estresse.'
-    }
+    { id: 'hemocinese', nome: 'Hemocinese (Controle Sanguíneo)', desc: 'Solidifica o próprio sangue em lâminas/chicotes e detecta batimentos cardíacos.', custo: 'Custo: Exige se cortar (perde Vitalidade) e deixa rastros comprometedores.' },
+    { id: 'telecinese', nome: 'Telecinese (Manipulação Cinética)', desc: 'Move, arremessa ou esmaga objetos e pessoas à distância com a mente.', custo: 'Custo: Exige Controle alto; sustos causam ondas de choque acidentais.' },
+    { id: 'superforca', nome: 'Superforça & Invulnerabilidade', desc: 'Força física descomunal e resistência a impactos pesados e disparos.', custo: 'Custo: Risco constante de destruir pistas ou ferir aliados sem querer.' },
+    { id: 'pirocinese', nome: 'Pirocinese / Combustão Corporal', desc: 'Envolve o corpo em chamas intensas, dispara rajadas e ganha propulsão.', custo: 'Custo: Zero furtividade; dispara alarmes e causa danos colaterais.' },
+    { id: 'tamanho', nome: 'Manipulação de Tamanho', desc: 'Encolhe a centímetros para infiltração ou cresce em combate aberto.', custo: 'Custo: Alto desgaste metabólico e vulnerabilidade após uso intenso.' },
+    { id: 'troca_corpo', nome: 'Troca de Forma / Fluidez', desc: 'Alterna entre uma forma ultra-resistente e outra ágil com rajadas de energia.', custo: 'Custo: Gera dilemas sociais e tratamento diferente pela mídia.' },
+    { id: 'persuasao', nome: 'Persuasão Tátil', desc: 'Ao tocar a pele de alguém, implanta comandos mentais irresistíveis.', custo: 'Custo: Exige contato direto sem luvas; uso excessivo causa hemorragias.' },
+    { id: 'tecnopatia', nome: 'Tecnopatia (Mimetismo Digital)', desc: 'Invade sistemas eletrônicos, câmeras e apaga registros pelo toque.', custo: 'Custo: Sem força física direta; vulnerável a sobrecargas elétricas.' }
   ];
 
   const CARACTERISTICAS = [
@@ -99,32 +76,17 @@
     { id: 'vigor', nome: 'Vigor', desc: 'Resistência física e fôlego para pagar o custo dos poderes.' }
   ];
 
-  const BASE_BONDS = {
-    matteo: 25,
-    maya: 28,
-    clara: 32,
-    otavio: 30,
-    zoe: 25,
-    luka: 30
-  };
+  const BASE_BONDS = { maya: 50, dante: 48, clara: 56, marcus: 52, elena: 50 };
 
+  /* SISTEMA PERSONALIZADO: REAÇÃO EM CADEIA (EFEITO BORBOLETA) */
   const CHAIN_REACTIONS = [
-    {
-      id: 'origem_cicatriz',
-      title: 'Marcas da Infância',
-      teaser: 'O modo como você reagiu ao despertar do seu poder ainda ecoa no seu comportamento.',
-      steps: [
-        { when: f => f.infancia_escondeu || f.infancia_impos || f.infancia_descontrole || f.infancia_maestria, description: 'Você enfrentou o despertar do Composto V na infância e carregou essa marca até o recrutamento.' },
-        { when: f => f.motivacao_ambicao || f.motivacao_verdade || f.motivacao_controle || f.motivacao_negociador, description: 'Sua postura diante dos executivos da Vought selou os termos da sua matrícula em Godolkin.' }
-      ]
-    },
     {
       id: 'holofotes',
       title: 'Olhos da Vought',
       teaser: 'A atenção da mídia abre portas, mas elimina sua privacidade no campus.',
       steps: [
-        { when: f => f.aproximou_elite || f.alianca_vip_inicial, description: 'Você chamou a atenção de Matteo e Zoe logo na chegada ao pátio.' },
-        { when: f => f.controle_impecavel || f.usou_poder_arena, description: 'Sua performance na Arena consolidou sua reputação perante os patrocinadores.' }
+        { when: f => f.chamou_atencao_midia || f.contato_top10, description: 'Você chamou a atenção das câmeras e dos veteranos logo na chegada.' },
+        { when: f => f.dano_colateral_arena || f.controle_impecavel, description: 'Sua performance na Arena consolidou sua reputação perante os patrocinadores.' }
       ]
     },
     {
@@ -132,17 +94,26 @@
       title: 'O Teste de Fogo',
       teaser: 'Quem você protege — ou deixa para trás — define quem confia em você.',
       steps: [
-        { when: f => f.salvou_clara || f.hesitou_arena, description: 'Sua reação diante do drone na Arena marcou seu primeiro dia entre os calouros.' },
-        { when: f => f.escondeu_poder || f.usou_poder_arena, description: 'O modo como você lidou com seus poderes já entrou nos relatórios do Prof. Brinker.' }
+        { when: f => f.salvou_clara || f.hesitou_arena, description: 'Sua reação diante do drone na Arena marcou seu primeiro dia.' },
+        { when: f => f.escondeu_poder || f.usou_poder_arena, description: 'O modo como você usou (ou ocultou) seu poder já está nos relatórios do Prof. Brinker.' }
+      ]
+    },
+    {
+      id: 'subsolo',
+      title: 'Sinais da Floresta',
+      teaser: 'Algumas portas em Godolkin nunca deveriam ser abertas.',
+      steps: [
+        { when: f => f.viu_elevador_subsolo || f.descobriu_monitoramento_maya, description: 'Você notou movimentações suspeitas da segurança e do servidor interno.' },
+        { when: f => f.identificou_floresta || f.detectou_grampo, description: 'Você encontrou provas concretas de que a Vought vigia e transfere alunos em segredo.' }
       ]
     },
     {
       id: 'pacto_godolkin',
-      title: 'Sinais da Floresta',
-      teaser: 'Na Torre Norte, você descobriu o que acontece com alunos apagados do Ranking.',
+      title: 'O Primeiro Pacto',
+      teaser: 'Na Torre Norte, o grupo decidiu como encarar o desaparecimento do Rank #6.',
       steps: [
-        { when: f => f.viu_cameras_internas || f.viu_elevador_subsolo || f.mapeou_drones, description: 'Você notou movimentações suspeitas da segurança interna logo nas primeiras horas.' },
-        { when: f => f.pacto_investigacao || f.pacto_duplo || f.pacto_silencio, description: 'Sua decisão na varanda da Torre Norte definiu suas alianças para o Capítulo 1.' }
+        { when: f => f.apoiou_investigacao || f.investigacao_cautelosa || f.recusou_investigacao, description: 'Você tomou posição quando Maya revelou os arquivos secretos na festa.' },
+        { when: f => f.pacto_investigacao || f.pacto_duplo || f.pacto_silencio, description: 'O juramento feito na varanda selou sua aliança — ou isolamento — para o Capítulo 1.' }
       ]
     }
   ];
@@ -151,11 +122,12 @@
   let save = null;
   let screen = 'menu';
   let drawerOpen = false;
-  let castSelected = CAST[0]?.id || 'matteo';
+  let castSelected = null;
   let chainSelected = null;
   let chainFlash = null;
   let chainTimer = null;
 
+  // Estado temporário da Criação de Personagem
   let creatorStep = 1;
   let draft = null;
 
@@ -213,22 +185,6 @@
     return save;
   }
 
-  function getAttrLabel(attrId) {
-    return ATRIBUTOS_INFO.find(a => a.id === attrId)?.nome || attrId;
-  }
-
-  function getTraitLabel(traitId) {
-    return CARACTERISTICAS.find(c => c.id === traitId)?.nome || traitId;
-  }
-
-  function getRelationshipStatus(val) {
-    if (val >= 75) return { label: 'Confiança Plena / Aliado Próximo', cls: 'positive' };
-    if (val >= 55) return { label: 'Amigável / Boa Intimidade', cls: 'positive' };
-    if (val >= 40) return { label: 'Colega de Campus / Aproximando-se', cls: '' };
-    if (val >= 25) return { label: 'Recém-Conhecidos / Cautela Inicial', cls: '' };
-    return { label: 'Tensão / Desconfiança Aberta', cls: 'negative' };
-  }
-
   function wordmark(hero = false) {
     return `<span class="gv-wordmark${hero ? ' gv-wordmark--hero' : ''}">
       <span class="gv-wordmark-top">CAMPUS GODOLKIN</span>
@@ -240,7 +196,7 @@
     return `<header class="app-header">
       <button class="brand" data-action="menu" aria-label="Menu principal">${wordmark()}</button>
       <div class="header-right">
-        <span class="header-status">PRÓLOGO · V0.3</span>
+        <span class="header-status">PRÓLOGO · V0.2</span>
         <button class="menu-btn" data-action="drawer" aria-expanded="${drawerOpen}">
           <span class="menu-btn-bars">${drawerOpen ? '✕' : '☰'}</span>
           <span>${drawerOpen ? 'FECHAR' : 'MENU'}</span>
@@ -294,6 +250,9 @@
     scheduleChainDismiss();
   }
 
+  /* ============================================================
+     TELA INICIAL
+  ============================================================ */
   function menu() {
     screen = 'menu';
     drawerOpen = false;
@@ -317,7 +276,7 @@
         <div class="kicker">UNIVERSIDADE GODOLKIN • CALOUROS</div>
         <h1 class="menu-wordmark">${wordmark(true)}</h1>
         <div><span class="torn-strip">PODER, RANKING E SEGREDOS SOB O CAMPUS.</span></div>
-        <p class="menu-lead">Crie seu estudante, reviva o despertar dos seus poderes na infância e enfrente seu primeiro ano em Godolkin.</p>
+        <p class="menu-lead">Crie seu estudante, domine suas habilidades do Composto V e descubra até onde a Vought vai para proteger sua imagem.</p>
         <div class="torn-quote-box">
           <p>“No Campus Godolkin, ser o número um salva sua vida — ou coloca um alvo nas suas costas.”</p>
           <span class="torn-quote-watermark">V7</span>
@@ -326,7 +285,7 @@
           ${hasSave ? `<button class="primary" data-action="resume">CONTINUAR COMO ${safe(save.perfil.nome.toUpperCase())} <span>›</span></button>` : ''}
           <button class="${hasSave ? 'secondary' : 'primary'}" data-action="new">${hasSave ? 'NOVO ALUNO (RECOMEÇAR)' : 'CRIAR ALUNO E INICIAR'} <span>›</span></button>
           <button class="secondary" data-action="slots">PARTIDAS E SLOTS</button>
-          <button class="secondary" data-action="cast">ALUNOS DE GODOLKIN</button>
+          <button class="secondary" data-action="cast">ELENCO DO CAMPUS</button>
           <button class="secondary" data-action="chain">REAÇÃO EM CADEIA</button>
           <button class="quiet" data-action="import">IMPORTAR SAVE</button>
         </div>
@@ -334,6 +293,9 @@
     </main>`);
   }
 
+  /* ============================================================
+     CRIAÇÃO DE PERSONAGEM (4 PASSOS)
+  ============================================================ */
   function creator() {
     screen = 'creator';
     drawerOpen = false;
@@ -341,7 +303,7 @@
 
     const stepTitles = [
       'Etapa 1 de 4 • Identidade & Arquétipo',
-      'Etapa 2 de 4 • Mutação Exclusiva (Composto V)',
+      'Etapa 2 de 4 • Mutação Composto V',
       'Etapa 3 de 4 • 8 Características',
       'Etapa 4 de 4 • 5 Atributos (7 Pontos)'
     ];
@@ -356,15 +318,15 @@
       stepHtml = `
         <div class="field-group">
           <label for="inp-nome">Nome do Estudante *</label>
-          <input id="inp-nome" class="field-input" type="text" maxlength="28" placeholder="Ex: Gabriel Vance" value="${safe(draft.nome)}">
+          <input id="inp-nome" class="field-input" type="text" maxlength="28" placeholder="Ex: Lucas Vance" value="${safe(draft.nome)}">
         </div>
         <div class="form-grid-2">
           <div class="field-group">
-            <label for="sel-idade">Idade (Ingresso como Calouro · 1º Ano)</label>
+            <label for="sel-idade">Idade</label>
             <select id="sel-idade" class="field-input">
-              <option value="18" ${draft.idade === 18 ? 'selected' : ''}>18 anos (Calouro · 1º Ano)</option>
-              <option value="19" ${draft.idade === 19 ? 'selected' : ''}>19 anos (Calouro · 1º Ano)</option>
-              <option value="20" ${draft.idade === 20 ? 'selected' : ''}>20 anos (Calouro · 1º Ano)</option>
+              <option value="18" ${draft.idade === 18 ? 'selected' : ''}>18 anos (Calouro)</option>
+              <option value="19" ${draft.idade === 19 ? 'selected' : ''}>19 anos (2º Ano)</option>
+              <option value="20" ${draft.idade === 20 ? 'selected' : ''}>20 anos (Veterano)</option>
             </select>
           </div>
           <div class="field-group">
@@ -393,7 +355,7 @@
       canAdvance = !!draft.poder_id;
       nextLabel = 'Próximo: Características ›';
       stepHtml = `
-        <p class="fine">Escolha uma das 5 mutações exclusivas. Nenhum colega do seu grupo possui o mesmo poder que você — e cada habilidade tem sua própria cena de origem na infância.</p>
+        <p class="fine">Escolha sua habilidade principal. Cada poder desbloqueia opções únicas e cobra um preço físico ou social.</p>
         <div class="option-cards">
           ${PODERES.map(p => `
             <button type="button" class="opt-card ${draft.poder_id === p.id ? 'selected' : ''}" data-pick-pod="${p.id}">
@@ -428,7 +390,7 @@
       const used = Object.values(draft.atributos).reduce((a, b) => a + b, 0) - 5;
       const left = 7 - used;
       canAdvance = left === 0;
-      nextLabel = left === 0 ? 'INICIAR PRÓLOGO DE ORIGEM ›' : `Distribua ${left} ponto(s)`;
+      nextLabel = left === 0 ? 'CONCLUIR MATRÍCULA E JOGAR ›' : `Distribua ${left} ponto(s)`;
       stepHtml = `
         <div class="sticky-counter">
           <span>Pontos Livres Restantes</span>
@@ -474,13 +436,12 @@
   function finishCreation() {
     save = {
       game: 'genv-campus-godolkin',
-      version: '0.3.0',
+      version: '0.2.1',
       slot,
       node: DATA.meta.start,
       perfil: {
         nome: draft.nome.trim(),
         idade: draft.idade,
-        ano: '1º Ano (Calouro)',
         pronomes: draft.pronomes,
         arquetipo: draft.arquetipo,
         poder_id: draft.poder_id,
@@ -505,14 +466,14 @@
     render();
   }
 
+  /* ============================================================
+     MOTOR DE CENAS E ESCOLHAS
+  ============================================================ */
   function formatNarrative(raw) {
     const nome = save?.perfil?.nome || 'Calouro';
     const text = String(raw || '').replaceAll('{NOME}', nome);
-    return text.split(/
-\s*
-|
-/g).map(s => s.trim()).filter(Boolean).map(s => {
-      const m = s.match(/^([^:]{2,28}):\s*(—\s*.+)$/u);
+    return text.split(/\n\s*\n|\n/g).map(s => s.trim()).filter(Boolean).map(s => {
+      const m = s.match(/^([^:]{2,26}):\s*(—\s*.+)$/u);
       if (m) return `<div class="line spoken"><strong>${safe(m[1])}</strong><span>${safe(m[2])}</span></div>`;
       if (/^(PRIMEIRO DIA|FIM DO PRÓLOGO|\[COMUNICADO)/.test(s)) return `<p class="line big-emphasis">${safe(s)}</p>`;
       return `<p class="line narration">${safe(s)}</p>`;
@@ -520,33 +481,16 @@
   }
 
   function evaluateChoice(c) {
-    if (c.requirePower && save.perfil.poder_id !== c.requirePower) {
-      return { visible: false };
-    }
-    if (Array.isArray(c.notPowers) && c.notPowers.includes(save.perfil.poder_id)) {
-      return { visible: false };
-    }
-
-    // Sem spoiler: exibe apenas o requisito caso o jogador não possua a característica ou atributo
-    if (c.requireTrait && !save.perfil.caracteristicas.includes(c.requireTrait)) {
-      return {
-        visible: true,
-        enabled: false,
-        lockText: `Requer Característica: ${getTraitLabel(c.requireTrait)}`
-      };
-    }
+    if (c.requirePower && save.perfil.poder_id !== c.requirePower) return { visible: false };
+    if (Array.isArray(c.notPowers) && c.notPowers.includes(save.perfil.poder_id)) return { visible: false };
+    if (c.requireTrait && !save.perfil.caracteristicas.includes(c.requireTrait)) return { visible: false };
 
     if (c.requireAttr) {
       const current = save.atributos[c.requireAttr.attr] || 1;
       if (current < c.requireAttr.min) {
-        return {
-          visible: true,
-          enabled: false,
-          lockText: `Requer ${getAttrLabel(c.requireAttr.attr)}: ${c.requireAttr.min}`
-        };
+        return { visible: true, enabled: false };
       }
     }
-
     return { visible: true, enabled: true };
   }
 
@@ -572,7 +516,7 @@
           save.flags[k] = v;
         }
         for (const [id, delta] of Object.entries(choice.effects.bonds || {})) {
-          const from = save.bonds[id] ?? 30;
+          const from = save.bonds[id] ?? 50;
           const toVal = Math.max(0, Math.min(100, from + delta));
           save.bonds[id] = toVal;
           if (toVal !== from) {
@@ -629,28 +573,20 @@
 
     const choicesHtml = visibleChoices.length
       ? `<div class="choices">${visibleChoices.map(({ c, idx, evalRes }, i) => {
-          if (!evalRes.enabled) {
-            return `<button class="choice locked-spoiler-free" disabled>
-              <span class="choice-num">${String(i + 1).padStart(2, '0')}</span>
-              <span class="locked-req-label">[${safe(evalRes.lockText)}]</span>
-              <span class="choice-arrow">🔒</span>
-            </button>`;
-          }
-
           let badge = '';
-          if (c.requirePower) badge = '<span class="choice-tag power">PODER</span>';
-          else if (c.requireTrait) badge = '<span class="choice-tag trait">CARACTERÍSTICA</span>';
+          if (c.requirePower || c.notPowers) badge = '<span class="choice-tag power">PODER</span>';
+          else if (c.requireTrait) badge = '<span class="choice-tag trait">TRAÇO</span>';
           else if (c.requireAttr) badge = '<span class="choice-tag">ATRIBUTO</span>';
 
-          return `<button class="choice" data-choice-idx="${idx}">
+          return `<button class="choice ${evalRes.enabled ? '' : 'locked'}" data-choice-idx="${idx}" ${evalRes.enabled ? '' : 'disabled'}>
             <span class="choice-num">${String(i + 1).padStart(2, '0')}</span>
             <span>${badge}${safe(c.label)}</span>
-            <span class="choice-arrow">↗</span>
+            <span class="choice-arrow">${evalRes.enabled ? '↗' : '🔒'}</span>
           </button>`;
         }).join('')}</div>`
       : `<div class="button-row"><button class="primary" data-action="end">VER RESULTADO DO PRÓLOGO <span>›</span></button></div>`;
 
-    const pct = save.node === 'end' ? 100 : Math.min(95, Math.max(12, save.visited.length * 16));
+    const pct = save.node === 'end' ? 100 : Math.min(95, Math.max(12, save.visited.length * 22));
 
     layout(`<main class="play-view">
       <div class="play-content">
@@ -685,13 +621,16 @@
 
         <div class="progress-track"><i style="width:${pct}%"></i></div>
         <div class="progress-caption">
-          <span>CAMPUS GODOLKIN · CALOURO (1º ANO)</span>
+          <span>CAMPUS GODOLKIN · SEMESTRE DE OUTONO</span>
           <span>${save.visited.length} cenas visitadas</span>
         </div>
       </div>
     </main>`);
   }
 
+  /* ============================================================
+     TELAS SECUNDÁRIAS: FICHA, DIÁRIO, REAÇÃO EM CADEIA, ELENCO, SLOTS
+  ============================================================ */
   function dossier() {
     if (!save) { menu(); return; }
     screen = 'dossier';
@@ -702,14 +641,14 @@
 
     layout(`<main class="panel-view">
       <div class="panel">
-        <div class="kicker">ARQUIVO VOUGHT // CALOURO (1º ANO)</div>
+        <div class="kicker">ARQUIVO VOUGHT // ESTUDANTE</div>
         <h1>${safe(save.perfil.nome)} (${save.perfil.idade} anos)</h1>
-        <p class="fine">Ano Letivo: <strong>1º Ano (Calouro)</strong> • Pronomes: <strong>${safe(save.perfil.pronomes)}</strong> • Ranking Atual: <strong>#${save.perfil.ranking_campus}</strong> • Arquétipo: <strong>${safe(arq?.nome || '')}</strong></p>
+        <p class="fine">Pronomes: <strong>${safe(save.perfil.pronomes)}</strong> • Ranking Atual: <strong>#${save.perfil.ranking_campus}</strong> • Arquétipo: <strong>${safe(arq?.nome || '')}</strong></p>
         <h2>Mutação Registrada</h2>
         <p><strong>${safe(pod?.nome || '')}</strong> — ${safe(pod?.desc || '')}</p>
         <h2>Atributos</h2>
         <div class="button-row">
-          ${ATRIBUTOS_INFO.map(a => `<span class="opt-badge">${safe(a.nome.toUpperCase())}: ${save.atributos[a.id]}</span>`).join('')}
+          ${ATRIBUTOS_INFO.map(a => `<span class="vought-pill">${safe(a.nome.toUpperCase())}: ${save.atributos[a.id]}</span>`).join('')}
         </div>
         <h2>Características (8)</h2>
         <div class="button-row">
@@ -741,9 +680,9 @@
         <h1>Diário de Consequências</h1>
         <div class="dashboard">
           <section>
-            <h2>Intimidade &amp; Relações no Campus</h2>
+            <h2>Relações no Campus</h2>
             ${CAST.map(c => {
-              const val = save.bonds[c.id] ?? BASE_BONDS[c.id] ?? 28;
+              const val = save.bonds[c.id] ?? 50;
               return `<div class="bond">
                 <label>${safe(c.name)}</label>
                 <div class="meter"><i style="width:${val}%"></i></div>
@@ -758,7 +697,7 @@
         </div>
         <div class="button-row">
           <button class="primary" data-action="resume">VOLTAR À HISTÓRIA</button>
-          <button class="secondary" data-action="cast">VER PERFIL DOS ALUNOS</button>
+          <button class="secondary" data-action="chain">VER REAÇÃO EM CADEIA</button>
         </div>
       </div>
     </main>`);
@@ -811,71 +750,22 @@
     if (!save) enter();
     screen = 'cast';
     drawerOpen = false;
-    const sel = CAST.find(c => c.id === castSelected) || CAST[0];
-    const playerBond = save ? (save.bonds[sel.id] ?? BASE_BONDS[sel.id] ?? 28) : (BASE_BONDS[sel.id] ?? 28);
-    const relStatus = getRelationshipStatus(playerBond);
-    const playerName = save?.perfil?.nome || 'Você (Calouro)';
-
     layout(`<main class="panel-view">
       <div class="panel">
-        <div class="kicker">CORPO DISCENTE // TOQUE EM UM ALUNO PARA INSPECIONAR</div>
+        <div class="kicker">CORPO DISCENTE</div>
         <h1>Alunos de Godolkin</h1>
-        <p class="fine">Selecione o ícone de cada estudante para ver sua personalidade, poderes, o nível de intimidade com <strong>${safe(playerName)}</strong> e suas relações prévias no campus.</p>
-
+        <p class="fine">Os principais estudantes que cruzam o seu caminho durante o semestre.</p>
         <div class="cast-grid">
-          ${CAST.map(c => {
-            const isSel = c.id === sel.id;
-            const bVal = save ? (save.bonds[c.id] ?? BASE_BONDS[c.id] ?? 28) : (BASE_BONDS[c.id] ?? 28);
-            return `<button type="button" class="cast-card-btn ${isSel ? 'selected' : ''}" data-pick-cast="${c.id}">
-              <div class="cast-avatar">${safe(c.name[0])}</div>
-              <div class="cast-info">
-                <strong>${safe(c.name)}</strong>
-                <small>${safe(c.role)}</small>
-                <span>${safe(c.age)} • ${safe(c.archetype)}</span>
-                <em>Intimidade atual: ${bVal}/100</em>
-              </div>
-            </button>`;
-          }).join('')}
+          ${CAST.map(c => `<div class="cast-card">
+            <div class="cast-avatar">${safe(c.name[0])}</div>
+            <div class="cast-info">
+              <strong>${safe(c.name)}</strong>
+              <small>${safe(c.role)}</small>
+              <span>${safe(c.bio)}</span>
+              ${save ? `<em>Afinidade atual: ${save.bonds[c.id] ?? 50}/100</em>` : ''}
+            </div>
+          </div>`).join('')}
         </div>
-
-        <section class="cast-dossier" aria-live="polite">
-          <div class="cast-dossier-header">
-            <div>
-              <div class="kicker">DOSSIÊ INDIVIDUAL · ${safe(sel.age.toUpperCase())}</div>
-              <h2 style="font-family:'Anton',sans-serif;font-size:28px;color:#fff;margin:4px 0;">${safe(sel.name)} — ${safe(sel.role)}</h2>
-              <span class="opt-badge">${safe(sel.archetype)}</span>
-            </div>
-          </div>
-
-          <p><strong>Poder Exclusivo:</strong> ${safe(sel.powerDesc)}</p>
-          <p><strong>Personalidade:</strong> ${safe(sel.personality)}</p>
-          <p class="fine">${safe(sel.bio)}</p>
-
-          <h2>Relação com ${safe(playerName)}</h2>
-          <div class="cast-rel-list">
-            <div class="cast-rel-item player-rel">
-              <strong>${safe(playerName)} · Intimidade: ${playerBond}/100 (${safe(relStatus.label)})</strong>
-              <span>${save
-                ? (playerBond >= 55
-                    ? `${sel.name} já demonstra confiança real em você e compartilha informações sem rodeios.`
-                    : playerBond >= 36
-                    ? `${sel.name} começa a se aproximar e enxerga você como um colega promissor no campus.`
-                    : `${sel.name} ainda vê você como um calouro recém-chegado — a confiança precisa ser conquistada passo a passo.`)
-                : 'Inicie uma partida para construir laços e aumentar sua intimidade com este personagem.'}</span>
-            </div>
-          </div>
-
-          <h2>Relações com os Outros Alunos</h2>
-          <div class="cast-rel-list">
-            ${(sel.relations || []).map(r => `
-              <div class="cast-rel-item">
-                <strong>${safe(r.target)} • ${safe(r.label)}</strong>
-                <span>${safe(r.desc)}</span>
-              </div>
-            `).join('')}
-          </div>
-        </section>
-
         <div class="button-row">
           <button class="primary" data-action="${save ? 'resume' : 'menu'}">${save ? 'VOLTAR À HISTÓRIA' : 'VOLTAR AO MENU'}</button>
         </div>
@@ -897,7 +787,7 @@
             return `<div class="slot-card ${n === slot ? 'active' : ''}">
               <small>SLOT ${n} ${n === slot ? '· ATIVO' : ''}</small>
               <h2>${s ? safe(s.perfil.nome) : 'Vazio'}</h2>
-              <p>${s ? `Calouro • Rank #${s.perfil.ranking_campus} • ${safe(SCENES[s.node]?.title || '')}` : 'Nenhum aluno matriculado'}</p>
+              <p>${s ? `Rank #${s.perfil.ranking_campus} • ${safe(SCENES[s.node]?.title || '')}` : 'Nenhum aluno matriculado'}</p>
               <button class="${n === slot ? 'primary' : 'secondary'}" data-slot="${n}">${n === slot ? 'SLOT SELECIONADO' : 'USAR ESTE SLOT'}</button>
             </div>`;
           }).join('')}
@@ -916,19 +806,18 @@
     screen = 'ending';
     const f = save.flags || {};
     const pactText = f.pacto_investigacao
-      ? 'Você jurou ao lado de Maya, Luka e Clara investigar os desaparecimentos da Floresta.'
+      ? 'Você jurou ao lado de Maya e Clara investigar os desaparecimentos da Floresta.'
       : f.pacto_duplo
-      ? 'Você decidiu manter as aparências perto de Matteo e Zoe enquanto coleta provas contra a Vought.'
+      ? 'Você decidiu manter as aparências no Top 10 enquanto coleta provas contra a Vought.'
       : 'Você escolheu o silêncio e a autopreservação acima das conspirações do campus.';
 
     layout(`<main class="end-view">
       <section class="end-card">
         <div class="kicker">FIM DO PRÓLOGO</div>
         <h1>A VERDADE SOB GODOLKIN</h1>
-        <p>Da infância até o primeiro toque de recolher como calouro, a jornada de <strong>${safe(save.perfil.nome)}</strong> está apenas começando.</p>
+        <p>O primeiro dia terminou, mas o semestre está apenas começando para <strong>${safe(save.perfil.nome)}</strong>.</p>
         <div class="end-summary">
           <h2>RESUMO DO SEU DOSSIÊ</h2>
-          <p>• Situação Acadêmica: <strong>Calouro (1º Ano) · ${save.perfil.idade} anos</strong></p>
           <p>• Ranking Atual no Campus: <strong>#${save.perfil.ranking_campus}</strong></p>
           <p>• Vitalidade: <strong>${save.recursos.vitalidade}%</strong> | Estresse de Poder: <strong>${save.recursos.estresse}%</strong></p>
           <p>• Postura no Pacto: ${safe(pactText)}</p>
@@ -936,7 +825,7 @@
         <div class="torn-quote-box"><p>“Eles nos criaram para serem heróis na TV. Ninguém perguntou o que acontece quando desligam as câmeras.”</p><span class="torn-quote-watermark">V7</span></div>
         <div class="button-row">
           <button class="primary" data-action="export">EXPORTAR SAVE DO PRÓLOGO</button>
-          <button class="secondary" data-action="cast">VER RELAÇÕES COM ALUNOS</button>
+          <button class="secondary" data-action="journal">VER DIÁRIO</button>
           <button class="secondary" data-action="menu">MENU PRINCIPAL</button>
         </div>
       </section>
@@ -992,6 +881,7 @@
     else menu();
   }
 
+  /* EVENTOS GLOBAIS */
   root.addEventListener('input', (e) => {
     if (e.target.id === 'inp-nome' && draft) {
       draft.nome = e.target.value;
@@ -1051,11 +941,6 @@
       const n = SCENES[save?.node];
       const c = n?.choices?.[Number(btn.dataset.choiceIdx)];
       if (c) move(c.to, c);
-      return;
-    }
-    if (btn.hasAttribute('data-pick-cast')) {
-      castSelected = btn.dataset.pickCast;
-      castView();
       return;
     }
     if (btn.hasAttribute('data-chain')) {
