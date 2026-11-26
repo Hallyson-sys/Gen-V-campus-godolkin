@@ -1,7 +1,7 @@
 {
   "meta": {
     "game": "Gen V: Campus Godolkin",
-    "version": "0.13.0",
+    "version": "0.14.0",
     "chapter": "Prólogo — Despertar, Anos Ocultos, Reitoria e a Noite na Torre Norte",
     "start": "origem_roteador"
   },
@@ -1369,7 +1369,7 @@
     "calouros_1": {
       "id": "calouros_1",
       "title": "Os Novatos da Escadaria",
-      "time": "08:20",
+      "time": "INTERVALO DA MANHÃ",
       "stage": "ESCADARIAS DA BIBLIOTECA",
       "text": "Clara solta um assobio baixo quando você se aproxima, medindo você de cima a baixo antes de estender o punho para um cumprimento rápido.\n\nClara: — Mais um carneiro novo pro abate. Sou a Clara, e esse aqui calculando a velocidade dos drones como se fosse cair na prova é o Luka. Pelo menos você não parece um robô sorridente igual à turma do Matteo lá na frente.\n\nLuka fecha o caderno gasto e aperta sua mão em frações de segundo, com um sorriso cético.\n\nLuka: — Bem-vindo ao 1º ano, {NOME}. Dica grátis de quem leu o regulamento inteiro antes de assinar: o ranking aqui não mede quem é mais forte, mede quem dá mais audiência.",
       "choices": [
@@ -1442,7 +1442,7 @@
     "calouros_2": {
       "id": "calouros_2",
       "title": "Os Novatos da Escadaria",
-      "time": "08:28",
+      "time": "INTERVALO DA MANHÃ",
       "stage": "ESCADARIAS DA BIBLIOTECA",
       "text": "",
       "dynamic": [
@@ -1529,7 +1529,7 @@
     "calouros_3": {
       "id": "calouros_3",
       "title": "Os Novatos da Escadaria",
-      "time": "08:36",
+      "time": "INTERVALO DA MANHÃ",
       "stage": "ESCADARIAS DA BIBLIOTECA",
       "text": "",
       "dynamic": [
@@ -1623,8 +1623,8 @@
     "calouros_4": {
       "id": "calouros_4",
       "title": "Rumo ao Pavilhão B",
-      "time": "08:48",
-      "stage": "CORREDOR DE ACESSO À ARENA",
+      "time": "INTERVALO DA MANHÃ",
+      "stage": "ESCADARIAS DA BIBLIOTECA",
       "text": "",
       "dynamic": [
         {
@@ -1644,10 +1644,10 @@
           "text": "Clara relaxa os ombros por um segundo e olha para você com gratidão sincera: 'Valeu, {NOME}. Sério mesmo. É bom ter alguém que não tá aqui só pra competir.'"
         }
       ],
-      "textAfterDynamic": "O painel anuncia que a avaliação começará às nove. Ainda há tempo para voltar ao pátio ou seguir para o Pavilhão B.",
+      "textAfterDynamic": "Você confere o horário. Ainda há tempo antes da avaliação. O grupo se despede e você retorna ao pátio central.",
       "choices": [
         {
-          "label": "Seguir ao lado de Clara e Luka de volta ao pátio",
+          "label": "Vou dar mais uma volta. Vejo vocês depois.",
           "to": "explorar_manha",
           "effects": {
             "bonds": {
@@ -1657,14 +1657,14 @@
           }
         },
         {
-          "label": "Acelerar o passo para entrar na Arena com postura confiante diante dos veteranos",
+          "label": "Até mais, pessoal. Vou aproveitar o intervalo.",
           "to": "explorar_manha",
           "effects": {
             "rank": -2
           }
         },
         {
-          "label": "Respirar fundo no corredor para manter total controle emocional antes do teste",
+          "label": "Voltar ao pátio e organizar meus pensamentos.",
           "requireAttr": {
             "attr": "controle",
             "min": 3
@@ -1681,7 +1681,7 @@
     "elite_1": {
       "id": "elite_1",
       "title": "Sob a Luz dos Patrocinadores",
-      "time": "08:20",
+      "time": "INTERVALO DA MANHÃ",
       "stage": "ÁREA VIP · PÁTIO CENTRAL",
       "text": "Assim que você cruza a faixa reservada, um dos drones dá zoom no seu rosto, fazendo seu nome subir no painel digital acima da biblioteca.\n\nMatteo ajusta o casaco impecável e estende a mão com um sorriso de comercial de TV, enquanto Zoe Lee apoia o queixo na mão, analisando cada detalhe da sua postura com olhos elétricos.\n\nMatteo: — Coragem de vir direto falar com o Top 2 no primeiro dia, {NOME}. Sou Matteo. A maioria dos calouros fica tremendo perto da escadaria.\n\nZoe: — E eu sou Zoe Lee. Adoro quem sabe onde as câmeras estão apontadas, {NOME}. Mas diga: você veio para Godolkin para aparecer ou tem poder suficiente para sustentar essa entrada?",
       "choices": [
@@ -1912,7 +1912,7 @@
     "elite_2": {
       "id": "elite_2",
       "title": "Sob a Luz dos Patrocinadores",
-      "time": "08:28",
+      "time": "INTERVALO DA MANHÃ",
       "stage": "ÁREA VIP · PÁTIO CENTRAL",
       "text": "",
       "dynamic": [
@@ -2030,7 +2030,7 @@
     "elite_3": {
       "id": "elite_3",
       "title": "Sob a Luz dos Patrocinadores",
-      "time": "08:36",
+      "time": "INTERVALO DA MANHÃ",
       "stage": "ÁREA VIP · PÁTIO CENTRAL",
       "text": "",
       "dynamic": [
@@ -2089,8 +2089,8 @@
     "elite_4": {
       "id": "elite_4",
       "title": "Convite para o Pavilhão B",
-      "time": "08:48",
-      "stage": "CORREDOR DE ACESSO À ARENA",
+      "time": "INTERVALO DA MANHÃ",
+      "stage": "ÁREA VIP",
       "text": "",
       "dynamic": [
         {
@@ -2102,10 +2102,10 @@
           "text": "Zoe inclina levemente a cabeça com um sorriso divertido: 'Cauteloso. Justo, {NOME} — a Arena sempre revela quem é quem.'"
         }
       ],
-      "textAfterDynamic": "O painel anuncia que a avaliação começará às nove. Ainda há tempo para voltar ao pátio ou seguir para o Pavilhão B.",
+      "textAfterDynamic": "Você confere o horário. Ainda há tempo antes da avaliação. O grupo se despede e você retorna ao pátio central.",
       "choices": [
         {
-          "label": "Caminhar ao lado de Matteo e Zoe até o Pavilhão B",
+          "label": "Obrigado pela conversa. Vou continuar conhecendo o campus.",
           "to": "explorar_manha",
           "effects": {
             "bonds": {
@@ -2115,7 +2115,7 @@
           }
         },
         {
-          "label": "Acompanhar o ritmo deles mantendo distância estratégica para observar o ambiente",
+          "label": "Até mais. Ainda tenho alguns lugares para visitar.",
           "to": "explorar_manha",
           "effects": {
             "bonds": {
@@ -2128,7 +2128,7 @@
     "arcadas_1": {
       "id": "arcadas_1",
       "title": "Sombra das Pilastras",
-      "time": "08:20",
+      "time": "INTERVALO DA MANHÃ",
       "stage": "ARCADAS LATERAIS",
       "text": "Você se encosta na pilastra de pedra longe dos refletores. Otávio O'Connor vira-se com um sorriso tranquilo e oferece uma garrafa de água lacrada, enquanto Maya Dunlap observa você com as mãos protegidas por luvas pretas.\n\nOtávio: — Olha só, um calouro com instinto de autopreservação. Sou o Otávio, e essa é a Maya. Não se assuste com o jeito sério dela, ela só está contando quantas câmeras estão apontadas pra gente.\n\nMaya: — Sete. E três delas pertencem à segurança interna, não à transmissão pública da Vought+. Prazer, {NOME}.",
       "choices": [
@@ -2205,7 +2205,7 @@
     "arcadas_2": {
       "id": "arcadas_2",
       "title": "Sombra das Pilastras",
-      "time": "08:28",
+      "time": "INTERVALO DA MANHÃ",
       "stage": "ARCADAS LATERAIS",
       "text": "",
       "dynamic": [
@@ -2301,7 +2301,7 @@
     "arcadas_3": {
       "id": "arcadas_3",
       "title": "Sombra das Pilastras",
-      "time": "08:36",
+      "time": "INTERVALO DA MANHÃ",
       "stage": "ARCADAS LATERAIS",
       "text": "",
       "dynamic": [
@@ -2359,8 +2359,8 @@
     "arcadas_4": {
       "id": "arcadas_4",
       "title": "Chamada para a Arena",
-      "time": "08:48",
-      "stage": "CORREDOR DE ACESSO À ARENA",
+      "time": "INTERVALO DA MANHÃ",
+      "stage": "ARCADAS LATERAIS",
       "text": "",
       "dynamic": [
         {
@@ -2372,10 +2372,10 @@
           "text": "Maya assente levemente: 'Só não subestime os drones do Brinker, {NOME}. Eles não são brinquedos de treino.'"
         }
       ],
-      "textAfterDynamic": "O painel anuncia que a avaliação começará às nove. Ainda há tempo para voltar ao pátio ou seguir para o Pavilhão B.",
+      "textAfterDynamic": "Você confere o horário. Ainda há tempo antes da avaliação. O grupo se despede e você retorna ao pátio central.",
       "choices": [
         {
-          "label": "Seguir com Maya e Otávio para a Arena de Simulação",
+          "label": "Valeu pela conversa. Vou explorar um pouco mais.",
           "to": "explorar_manha",
           "effects": {
             "bonds": {
@@ -2385,7 +2385,7 @@
           }
         },
         {
-          "label": "Entrar na Arena atento a cada movimento de Matteo",
+          "label": "Nos vemos mais tarde. Vou voltar ao pátio.",
           "to": "explorar_manha",
           "effects": {
             "flags": {
@@ -4332,10 +4332,10 @@
       "title": "Explore Godolkin",
       "time": "08:30–09:00",
       "stage": "PÁTIO CENTRAL",
-      "text": "Você tem algum tempo antes da avaliação. Consulte o mapa para localizar o grupo. Cada encontro principal ocupa parte do intervalo.",
+      "text": "Você está no pátio central. Pode escolher outro encontro disponível ou seguir para a avaliação quando decidir. Cada visita ocupa parte do intervalo.",
       "choices": [
         {
-          "label": "Aproximar-se dos outros calouros (Clara e Luka) perto das escadarias",
+          "label": "Conversar com Clara e Luka nas escadarias",
           "to": "calouros_1",
           "effects": {
             "flags": {
@@ -4372,7 +4372,7 @@
           ]
         },
         {
-          "label": "Ficar sob as arcadas ao lado de Maya Dunlap e Otávio O'Connor observando o pátio",
+          "label": "Conversar com Maya e Otávio nas arcadas",
           "to": "arcadas_1",
           "effects": {
             "flags": {

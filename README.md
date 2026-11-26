@@ -38,3 +38,10 @@ Sintaxe JS, destinos de cenas e teste de lógica em Node com DOM simulado. Naveg
 - Afinidade e indicadores sociais recalibrados; ganhos normais de 1–3, excepcionais de 4. Respostas por mensagem dão no máximo 1 de confiança.
 - Escolhas de amizade independentes e equivalentes, sem penalidade por encerrar histórias pessoais. Interesse opcional apenas no final do prólogo, sem namoro automático ou reciprocidade presumida. Matteo e Zoe continuam comprometidos.
 - Saves anteriores preservam seus valores; comece em novo slot para avaliar o ritmo. Relacionamentos completos ficam para capítulos futuros.
+
+## 0.14.0 — Imersão e continuidade
+- Respostas específicas por mensagem, armazenadas como exibidas.
+- Interface de conversas e Vought+ renovada.
+- Apresentações condicionadas aos colegas de dormitório.
+- Encerramentos dos encontros matinais retornam ao pátio; a arena permanece uma escolha explícita.
+- Mantidos limites de exploração e progressão social da 0.13.0.
