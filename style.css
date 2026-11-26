@@ -1019,3 +1019,82 @@ p { line-height: 1.6; }
     grid-template-columns: 1fr;
   }
 }
+
+/* ============================================================
+   V0.3.0 — MODAL/PERFIL DETALHADO DOS ALUNOS & TAGS DE ATRIBUTO
+============================================================ */
+.cast-card-btn {
+  display: flex;
+  gap: 14px;
+  padding: 16px;
+  background: #111114;
+  border: 1.5px solid rgba(255, 255, 255, 0.16);
+  text-align: left;
+  transition: 0.15s;
+  width: 100%;
+  cursor: pointer;
+}
+.cast-card-btn:hover, .cast-card-btn.selected {
+  border-color: var(--yellow);
+  background: linear-gradient(145deg, rgba(234, 179, 8, 0.14), #15151a);
+}
+.cast-dossier {
+  background: #0b0b0e;
+  border: 2px solid var(--yellow);
+  padding: 20px;
+  margin-top: 16px;
+  animation: fadeInDossier 0.2s ease;
+}
+@keyframes fadeInDossier {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.cast-dossier-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.14);
+  padding-bottom: 12px;
+  margin-bottom: 14px;
+}
+.cast-rel-list {
+  display: grid;
+  gap: 8px;
+  margin-top: 10px;
+}
+.cast-rel-item {
+  background: #141418;
+  border-left: 3px solid var(--yellow);
+  padding: 9px 12px;
+  font-size: 13px;
+}
+.cast-rel-item strong {
+  color: var(--yellow);
+  display: block;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.cast-rel-item.player-rel {
+  border-left-color: var(--red);
+  background: rgba(217, 30, 42, 0.1);
+}
+.cast-rel-item.player-rel strong {
+  color: #fca5a5;
+}
+.choice.locked-spoiler-free {
+  opacity: 0.58;
+  border-style: dashed;
+  border-color: rgba(234, 179, 8, 0.35);
+  background: #121215;
+  cursor: not-allowed;
+}
+.locked-req-label {
+  font-family: 'Courier Prime', monospace;
+  font-weight: 700;
+  color: var(--yellow);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
