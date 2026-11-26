@@ -1338,14 +1338,14 @@ p { line-height: 1.6; }
 
 /* V0.8.1 — Campus editorial / home only */
 .layout--home { --yellow: #efbd16; --red: #c71925; background: #10100f; }
-.layout--home .app-header { position: sticky; padding: 12px clamp(15px,5vw,64px); min-height: 78px; background: #111110 url('assets/grain.webp'); background-blend-mode: multiply; border-bottom: 3px solid #c9a015; }
+.layout--home .app-header { position: sticky; padding: 12px clamp(15px,5vw,64px); min-height: 78px; background: #111110 url('grain.webp'); background-blend-mode: multiply; border-bottom: 3px solid #c9a015; }
 .layout--home .brand .gv-wordmark-top { max-width: 95px; font-size: 9px; line-height: 1.05; letter-spacing: .17em; }
 .layout--home .brand .gv-wordmark-bottom { font-size: 31px; }
 .layout--home .header-status { display: block; border: 2px solid #b18a13; border-radius: 5px; padding: 9px 12px; color: #e6b923; font-size: 11px; max-width: 125px; line-height: 1.15; text-align: left; box-shadow: inset 0 0 8px #000; }
 .layout--home .menu-btn { clip-path: none; border-radius: 5px; min-width: 67px; }
 .layout--home .menu-view { align-items: flex-start; overflow: hidden; }
-.layout--home .menu-art { background: linear-gradient(180deg,transparent 15%,rgba(10,10,9,.15) 32%,#10100f 85%), url('assets/campus.webp') center top / min(100%, 1000px) auto no-repeat, #10100f; }
-.layout--home .menu-art::before { content:''; position:absolute; inset:0; background: url('assets/grain.webp'); opacity:.13; mix-blend-mode: soft-light; }
+.layout--home .menu-art { background: linear-gradient(180deg,transparent 15%,rgba(10,10,9,.15) 32%,#10100f 85%), url('campus.webp') center top / min(100%, 1000px) auto no-repeat, #10100f; }
+.layout--home .menu-art::before { content:''; position:absolute; inset:0; background: url('grain.webp'); opacity:.13; mix-blend-mode: soft-light; }
 .layout--home .menu-art::after { content:''; position:absolute; inset: 0; background: linear-gradient(110deg,transparent 83%,#d0a20c 84%,#d0a20c 85%,transparent 86%) bottom right / 180px 260px no-repeat, linear-gradient(106deg,transparent 13%,#8d1420 14%,#8d1420 18%,transparent 19%) bottom left / 160px 260px no-repeat; opacity:.66; }
 .layout--home .menu-body { width:min(620px, 86vw); margin: clamp(155px, 37vw, 285px) auto 35px; }
 .layout--home .kicker { font-size: clamp(10px, 2.2vw, 14px); letter-spacing:.22em; text-shadow: 0 2px 5px #000, 0 0 9px #000; }
@@ -1354,17 +1354,17 @@ p { line-height: 1.6; }
 .layout--home .gv-wordmark--hero .gv-wordmark-bottom { font-size:clamp(78px,19vw,150px); filter:url(#grunge-rough); letter-spacing:-.025em; text-shadow: 3px 4px 0 #222,0 6px 18px #000; }
 .layout--home .gv-wordmark--hero .gv-wordmark-v { margin-left: 7px; text-shadow: 2px 4px 0 #310c0e; }
 .layout--home .menu-wordmark::after { content:''; display:block; width:47%; height:6px; margin-top:9px; background:#d1a418; clip-path:polygon(0 40%,95% 0,100% 55%, 5% 100%); }
-.layout--home .torn-strip { max-width:95%; font-size:clamp(17px,4vw,24px); padding:6px 10px; margin:10px 0 7px; background:#d5d1c5 url('assets/grain.webp'); background-blend-mode: soft-light; }
+.layout--home .torn-strip { max-width:95%; font-size:clamp(17px,4vw,24px); padding:6px 10px; margin:10px 0 7px; background:#d5d1c5 url('grain.webp'); background-blend-mode: soft-light; }
 .layout--home .menu-lead { font-size:clamp(13px,3.5vw,17px); font-weight:700; line-height:1.45; margin:15px 0 22px; max-width: 500px; border-left:3px solid #e9b81a; padding-left:12px; }
-.layout--home .torn-quote-box { padding: 19px 37px 19px 48px; margin:20px -5px 24px; background:#c4b9a7 url('assets/grain.webp'); background-blend-mode:soft-light; clip-path:polygon(0 12%,4% 5%,12% 8%,19% 1%,31% 5%,46% 0,59% 6%,72% 2%,88% 7%,96% 1%,98% 14%,100% 25%,98% 47%,100% 73%,97% 92%,82% 98%,69% 93%,56% 100%,41% 94%,28% 98%,15% 92%,3% 97%,1% 76%,3% 49%); }
+.layout--home .torn-quote-box { padding: 19px 37px 19px 48px; margin:20px -5px 24px; background:#c4b9a7 url('grain.webp'); background-blend-mode:soft-light; clip-path:polygon(0 12%,4% 5%,12% 8%,19% 1%,31% 5%,46% 0,59% 6%,72% 2%,88% 7%,96% 1%,98% 14%,100% 25%,98% 47%,100% 73%,97% 92%,82% 98%,69% 93%,56% 100%,41% 94%,28% 98%,15% 92%,3% 97%,1% 76%,3% 49%); }
 .layout--home .torn-quote-box p { font-family:'Courier Prime',monospace; font-size:clamp(12px,2.9vw,15px); line-height:1.35; }
 .layout--home .torn-quote-watermark { font-size:38px; right:12px; }
 .layout--home .menu-stack-buttons { gap:9px; }
 .layout--home .menu-stack-buttons button { min-height:45px; padding:12px 10px; border-radius:5px; letter-spacing:.17em; font-size:clamp(11px,2.8vw,14px); }
-.layout--home .menu-stack-buttons .primary { min-height:55px; background:#e8b615 url('assets/grain.webp'); background-blend-mode:soft-light; color:#111; border:1px solid #8e6d0d; }
+.layout--home .menu-stack-buttons .primary { min-height:55px; background:#e8b615 url('grain.webp'); background-blend-mode:soft-light; color:#111; border:1px solid #8e6d0d; }
 .layout--home .menu-stack-buttons .secondary { clip-path:none; background:linear-gradient(#242322,#151515); border:2px solid #66635f; box-shadow:inset 0 0 6px #000; }
 .layout--home .menu-stack-buttons .secondary:hover { border-color:#efbd16; }
-.layout--home .app-footer { position:relative; padding:22px clamp(15px,5vw,60px) 15px; background:#10100f url('assets/grain.webp'); background-blend-mode:multiply; border-top:0; color:#aaa59c; font-size:10px; }
+.layout--home .app-footer { position:relative; padding:22px clamp(15px,5vw,60px) 15px; background:#10100f url('grain.webp'); background-blend-mode:multiply; border-top:0; color:#aaa59c; font-size:10px; }
 .layout--home .app-footer::before { content:''; position:absolute; top:-12px; left:0; right:0; height:15px; background:#b8afa0; clip-path:polygon(0 0,8% 55%,15% 27%,24% 70%,32% 48%,44% 90%,53% 56%,64% 100%,73% 45%,81% 68%,92% 12%,100% 0,100% 28%,92% 38%,81% 92%,73% 65%,64% 100%,44% 100%,32% 72%,24% 90%,15% 55%,8% 76%,0 25%); }
-@media(min-width: 760px) { .layout--home .menu-art { background-size: auto, min(100%, 1100px) auto; background-position:center, right top; } .layout--home .menu-body { margin: 95px auto 55px clamp(55px,9vw,160px); } .layout--home .menu-art::before { background:linear-gradient(90deg,#10100f 0%,transparent 75%),url('assets/grain.webp'); opacity:.55; } }
+@media(min-width: 760px) { .layout--home .menu-art { background-size: auto, min(100%, 1100px) auto; background-position:center, right top; } .layout--home .menu-body { margin: 95px auto 55px clamp(55px,9vw,160px); } .layout--home .menu-art::before { background:linear-gradient(90deg,#10100f 0%,transparent 75%),url('grain.webp'); opacity:.55; } }
 @media(max-width:360px) { .layout--home .header-right { gap:8px; } .layout--home .header-status { padding:7px; font-size:9px; } .layout--home .app-header { gap:8px; } }
