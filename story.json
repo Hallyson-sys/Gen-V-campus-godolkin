@@ -1,14 +1,14 @@
 {
   "meta": {
     "game": "Gen V: Campus Godolkin",
-    "version": "0.9.0",
+    "version": "0.13.0",
     "chapter": "Prólogo — Despertar, Anos Ocultos, Reitoria e a Noite na Torre Norte",
     "start": "origem_roteador"
   },
   "cast": [
     {
       "id": "matteo",
-      "name": "Matteo",
+      "name": "Matteo Valença",
       "age": "20 anos · 3º Ano",
       "role": "Rank #2 · Pirocinese",
       "relationshipStatus": "Compromissado (com Zoe Lee)",
@@ -53,7 +53,20 @@
           "label": "Tensão Constante",
           "desc": "Otávio bate de frente com a postura arrogante de Matteo sempre que o veterano pressiona os novatos."
         }
-      ]
+      ],
+      "depth": {
+        "title": "Longe dos holofotes",
+        "fear": "Tornar-se irrelevante.",
+        "contradiction": "Tem reconhecimento, mas pouco espaço para decidir por si mesmo.",
+        "history": "As expectativas do entorno e os compromissos públicos passaram a ocupar grande parte de sua rotina.",
+        "secret": "Guarda um antigo convite que fez com Clara antes de os dois se afastarem.",
+        "routine": {
+          "morning": "vip",
+          "afternoon": "vip",
+          "night": "tower"
+        },
+        "location": "vip"
+      }
     },
     {
       "id": "maya",
@@ -102,7 +115,20 @@
           "label": "Desconfiança",
           "desc": "Considera Matteo um peão perigoso dos patrocinadores e evita qualquer contato físico ou político com ele."
         }
-      ]
+      ],
+      "depth": {
+        "title": "Por trás das luvas",
+        "fear": "Perder o controle das próprias habilidades.",
+        "contradiction": "Deseja vínculos genuínos, mas teme que seu poder coloque isso em dúvida.",
+        "history": "Aprendeu a estabelecer limites para se sentir segura nas relações. A convivência com Clara e a amizade com Luka ajudam.",
+        "secret": "Guarda cartas que nunca enviou; escrever é sua forma de organizar sentimentos.",
+        "routine": {
+          "morning": "arcade",
+          "afternoon": "library",
+          "night": "female"
+        },
+        "location": "library"
+      }
     },
     {
       "id": "clara",
@@ -151,7 +177,20 @@
           "label": "Antipatia Declarada",
           "desc": "Detesta a falsidade corporativa e os jogos psicológicos de Zoe."
         }
-      ]
+      ],
+      "depth": {
+        "title": "Promessas quebradas",
+        "fear": "Perder pessoas em quem confia.",
+        "contradiction": "Pede sinceridade, mas usa ironia para esconder o que sente.",
+        "history": "Cresceu perto de Luka e Otávio; as antigas amizades ainda significam muito para ela.",
+        "secret": "Guarda uma fotografia da época em que Matteo e ela eram amigos.",
+        "routine": {
+          "morning": "stairs",
+          "afternoon": "patio",
+          "night": "female"
+        },
+        "location": "patio"
+      }
     },
     {
       "id": "otavio",
@@ -200,7 +239,20 @@
           "label": "Desconfiança Profunda",
           "desc": "Por sentir emoções alheias, percebe que Zoe esconde intenções frias por trás da simpatia."
         }
-      ]
+      ],
+      "depth": {
+        "title": "O peso que ninguém vê",
+        "fear": "Falhar com alguém novamente.",
+        "contradiction": "Oferece ajuda com facilidade, mas raramente a aceita.",
+        "history": "Os amigos do bairro, especialmente Clara e Luka, lembram a vida que tinha antes do ranking.",
+        "secret": "Ainda carrega culpa pelo acidente do passado e evita falar sobre o assunto.",
+        "routine": {
+          "morning": "arcade",
+          "afternoon": "food",
+          "night": "male"
+        },
+        "location": "food"
+      }
     },
     {
       "id": "zoe",
@@ -249,7 +301,20 @@
           "label": "Desprezo Mútuo",
           "desc": "Enxerga Clara como uma caloura barulhenta e sem visão estratégica."
         }
-      ]
+      ],
+      "depth": {
+        "title": "O preço da perfeição",
+        "fear": "Perder sua autonomia.",
+        "contradiction": "Procura controlar situações, mas quer ser compreendida sem precisar calcular cada palavra.",
+        "history": "Aprendeu cedo a valorizar independência; a parceria com Matteo mistura objetivos e afeto.",
+        "secret": "Mantém uma lista particular de coisas que gostaria de fazer sem câmeras ou patrocinadores.",
+        "routine": {
+          "morning": "vip",
+          "afternoon": "vip",
+          "night": "tower"
+        },
+        "location": "vip"
+      }
     },
     {
       "id": "luka",
@@ -298,7 +363,20 @@
           "label": "Ex-Conhecido / Atrito",
           "desc": "Já foi próximo de Matteo em eventos juvenis antes de perceber o jogo político da Vought e cortar laços."
         }
-      ]
+      ],
+      "depth": {
+        "title": "Sempre um passo à frente",
+        "fear": "Decepcionar quem acredita nele.",
+        "contradiction": "Questiona todo mundo, mas quer pertencer a um grupo.",
+        "history": "A amizade de infância com Clara e a orientação de Otávio são referências importantes.",
+        "secret": "Mantém um caderno de perguntas sobre o campus, incluindo dúvidas que ainda não conseguiu responder.",
+        "routine": {
+          "morning": "stairs",
+          "afternoon": "food",
+          "night": "male"
+        },
+        "location": "food"
+      }
     }
   ],
   "scenes": {
@@ -333,9 +411,64 @@
           "label": "Reviver sua infância: O despertar da Troca de Corpo / Fluidez",
           "requirePower": "troca_corpo",
           "to": "infancia_troca_corpo_1"
+        },
+        {
+          "label": "Reviver sua infância: Eletrocinese",
+          "requirePower": "eletrocinese",
+          "to": "infancia_eletrocinese_1"
+        },
+        {
+          "label": "Reviver sua infância: Umbracinese",
+          "requirePower": "umbracinese",
+          "to": "infancia_umbracinese_1"
+        },
+        {
+          "label": "Reviver sua infância: Criocinese",
+          "requirePower": "criocinese",
+          "to": "infancia_criocinese_1"
+        },
+        {
+          "label": "Reviver sua infância: Campos de força",
+          "requirePower": "campos_forca",
+          "to": "infancia_campos_forca_1"
+        },
+        {
+          "label": "Reviver sua infância: Duplicação",
+          "requirePower": "duplicacao",
+          "to": "infancia_duplicacao_1"
+        },
+        {
+          "label": "Reviver sua infância: Ilusionismo",
+          "requirePower": "ilusionismo",
+          "to": "infancia_ilusionismo_1"
         }
       ],
-      "dynamic": []
+      "dynamic": [
+        {
+          "origin": "influente",
+          "text": "Em casa, o sobrenome abria portas, mas também trazia expectativas."
+        },
+        {
+          "origin": "comum",
+          "text": "Em casa, o cotidiano era simples e os holofotes pareciam distantes."
+        },
+        {
+          "origin": "legado",
+          "text": "As histórias de antigos heróis faziam parte das conversas de família."
+        },
+        {
+          "origin": "estrela",
+          "text": "Você conhecia os bastidores das câmeras antes mesmo de entender a fama."
+        },
+        {
+          "origin": "anti",
+          "text": "Em casa, as campanhas da Vought eram recebidas com perguntas, não aplausos."
+        },
+        {
+          "origin": "confidencial",
+          "text": "Havia lacunas nos registros da sua infância que ninguém explicava."
+        }
+      ]
     },
     "infancia_hemocinese_1": {
       "id": "infancia_hemocinese_1",
@@ -978,7 +1111,8 @@
               "motivacao_ambicao": true
             },
             "rank": -4
-          }
+          },
+          "personality": "prodigio"
         },
         {
           "label": "Aceitar apenas para descobrir quem autorizou o Composto V na sua infância",
@@ -987,7 +1121,8 @@
             "flags": {
               "motivacao_verdade": true
             }
-          }
+          },
+          "personality": "cetico"
         },
         {
           "label": "Entrar para aprender a controlar seus poderes antes que algo pior aconteça",
@@ -996,7 +1131,8 @@
             "flags": {
               "motivacao_controle": true
             }
-          }
+          },
+          "personality": "idealista"
         },
         {
           "label": "Negociar cláusulas extras de privacidade antes de assinar o termo",
@@ -1010,10 +1146,154 @@
               "motivacao_negociador": true
             },
             "bonds": {
-              "maya": 4,
-              "zoe": 3
+              "maya": 1,
+              "zoe": 1
             }
-          }
+          },
+          "personality": "estrategico"
+        },
+        {
+          "label": "Explicar como seu histórico influencia sua decisão: Família influente",
+          "requireOrigin": "influente",
+          "to": "chegada_campus",
+          "effects": {
+            "flags": {
+              "origem_declarada": true
+            }
+          },
+          "personality": "prodigio"
+        },
+        {
+          "label": "Explicar como seu histórico influencia sua decisão: Família comum",
+          "requireOrigin": "comum",
+          "to": "chegada_campus",
+          "effects": {
+            "flags": {
+              "origem_declarada": true
+            }
+          },
+          "personality": "cetico"
+        },
+        {
+          "label": "Explicar como seu histórico influencia sua decisão: Legado de super-heróis",
+          "requireOrigin": "legado",
+          "to": "chegada_campus",
+          "effects": {
+            "flags": {
+              "origem_declarada": true
+            }
+          },
+          "personality": "idealista"
+        },
+        {
+          "label": "Explicar como seu histórico influencia sua decisão: Ex-estrela juvenil",
+          "requireOrigin": "estrela",
+          "to": "chegada_campus",
+          "effects": {
+            "flags": {
+              "origem_declarada": true
+            }
+          },
+          "personality": "estrategico"
+        },
+        {
+          "label": "Explicar como seu histórico influencia sua decisão: Família anti-Vought",
+          "requireOrigin": "anti",
+          "to": "chegada_campus",
+          "effects": {
+            "flags": {
+              "origem_declarada": true
+            }
+          },
+          "personality": "prodigio"
+        },
+        {
+          "label": "Explicar como seu histórico influencia sua decisão: Passado confidencial",
+          "requireOrigin": "confidencial",
+          "to": "chegada_campus",
+          "effects": {
+            "flags": {
+              "origem_declarada": true
+            }
+          },
+          "personality": "cetico"
+        },
+        {
+          "label": "Responder sobre sua motivação: Integrar os Sete",
+          "requireMotive": "sete",
+          "to": "chegada_campus",
+          "effects": {
+            "flags": {
+              "motivacao_declarada": true
+            }
+          },
+          "personality": "idealista"
+        },
+        {
+          "label": "Responder sobre sua motivação: Descobrir os segredos da Vought",
+          "requireMotive": "segredos",
+          "to": "chegada_campus",
+          "effects": {
+            "flags": {
+              "motivacao_declarada": true
+            }
+          },
+          "personality": "estrategico"
+        },
+        {
+          "label": "Responder sobre sua motivação: Aprender a controlar os poderes",
+          "requireMotive": "controle",
+          "to": "chegada_campus",
+          "effects": {
+            "flags": {
+              "motivacao_declarada": true
+            }
+          },
+          "personality": "prodigio"
+        },
+        {
+          "label": "Responder sobre sua motivação: Conquistar independência",
+          "requireMotive": "independencia",
+          "to": "chegada_campus",
+          "effects": {
+            "flags": {
+              "motivacao_declarada": true
+            }
+          },
+          "personality": "cetico"
+        },
+        {
+          "label": "Responder sobre sua motivação: Ajudar outras pessoas",
+          "requireMotive": "ajudar",
+          "to": "chegada_campus",
+          "effects": {
+            "flags": {
+              "motivacao_declarada": true
+            }
+          },
+          "personality": "idealista"
+        },
+        {
+          "label": "Responder sobre sua motivação: Provar seu valor",
+          "requireMotive": "valor",
+          "to": "chegada_campus",
+          "effects": {
+            "flags": {
+              "motivacao_declarada": true
+            }
+          },
+          "personality": "estrategico"
+        },
+        {
+          "label": "Responder sobre sua motivação: Ainda não sabe o que deseja",
+          "requireMotive": "indefinida",
+          "to": "chegada_campus",
+          "effects": {
+            "flags": {
+              "motivacao_declarada": true
+            }
+          },
+          "personality": "prodigio"
         }
       ],
       "dynamic": [
@@ -1024,6 +1304,30 @@
         {
           "flag": "notou_vigilancia_infancia",
           "text": "Você reconheceu na hora o logotipo na pasta: era a mesma operação silenciosa que já vigiava você desde a adolescência."
+        },
+        {
+          "motive": "sete",
+          "text": "Ao pensar em Godolkin, sua motivação era clara: integrar os sete."
+        },
+        {
+          "motive": "segredos",
+          "text": "Ao pensar em Godolkin, sua motivação era clara: descobrir os segredos da vought."
+        },
+        {
+          "motive": "controle",
+          "text": "Ao pensar em Godolkin, sua motivação era clara: aprender a controlar os poderes."
+        },
+        {
+          "motive": "independencia",
+          "text": "Ao pensar em Godolkin, sua motivação era clara: conquistar independência."
+        },
+        {
+          "motive": "ajudar",
+          "text": "Ao pensar em Godolkin, sua motivação era clara: ajudar outras pessoas."
+        },
+        {
+          "motive": "valor",
+          "text": "Ao pensar em Godolkin, sua motivação era clara: provar seu valor."
         }
       ]
     },
@@ -1077,8 +1381,8 @@
               "c1_perguntou_luka": true
             },
             "bonds": {
-              "luka": 4,
-              "clara": 2
+              "luka": 1,
+              "clara": 1
             }
           }
         },
@@ -1090,8 +1394,8 @@
               "c1_brincou_clara": true
             },
             "bonds": {
-              "clara": 5,
-              "luka": 2
+              "clara": 2,
+              "luka": 1
             }
           },
           "memory": [
@@ -1106,8 +1410,8 @@
               "c1_perguntou_aula": true
             },
             "bonds": {
-              "clara": 3,
-              "luka": 3
+              "clara": 1,
+              "luka": 1
             }
           }
         },
@@ -1124,8 +1428,8 @@
               "mapeou_drones": true
             },
             "bonds": {
-              "luka": 7,
-              "clara": 4
+              "luka": 2,
+              "clara": 1
             }
           },
           "memory": [
@@ -1169,8 +1473,8 @@
               "c2_perguntou_confianca_mo": true
             },
             "bonds": {
-              "luka": 4,
-              "clara": 3
+              "luka": 1,
+              "clara": 1
             }
           }
         },
@@ -1182,7 +1486,7 @@
               "c2_perguntou_matteo": true
             },
             "bonds": {
-              "clara": 5
+              "clara": 2
             }
           },
           "memory": [
@@ -1197,8 +1501,8 @@
               "c2_ambicao_ranking": true
             },
             "bonds": {
-              "clara": 3,
-              "luka": 2
+              "clara": 1,
+              "luka": 1
             },
             "rank": -2
           }
@@ -1212,8 +1516,8 @@
               "c2_notou_luvas_maya": true
             },
             "bonds": {
-              "luka": 5,
-              "clara": 4
+              "luka": 2,
+              "clara": 1
             }
           },
           "memory": [
@@ -1257,8 +1561,8 @@
               "alianca_calouros": true
             },
             "bonds": {
-              "clara": 6,
-              "luka": 6
+              "clara": 2,
+              "luka": 2
             }
           },
           "memory": [
@@ -1274,8 +1578,8 @@
               "c3_cautela": true
             },
             "bonds": {
-              "clara": 3,
-              "luka": 4
+              "clara": 1,
+              "luka": 1
             }
           }
         },
@@ -1287,8 +1591,8 @@
               "c3_brincadeira": true
             },
             "bonds": {
-              "clara": 5,
-              "luka": 3
+              "clara": 2,
+              "luka": 1
             }
           },
           "memory": [
@@ -1305,8 +1609,8 @@
               "alianca_calouros": true
             },
             "bonds": {
-              "clara": 8,
-              "luka": 6
+              "clara": 3,
+              "luka": 2
             }
           },
           "memory": [
@@ -1347,8 +1651,8 @@
           "to": "explorar_manha",
           "effects": {
             "bonds": {
-              "clara": 2,
-              "luka": 2
+              "clara": 1,
+              "luka": 1
             }
           }
         },
@@ -1389,8 +1693,8 @@
               "e1_firme": true
             },
             "bonds": {
-              "matteo": 5,
-              "zoe": 4
+              "matteo": 2,
+              "zoe": 1
             },
             "rank": -2
           },
@@ -1406,13 +1710,14 @@
               "e1_ironia": true
             },
             "bonds": {
-              "zoe": 6,
-              "matteo": 2
+              "zoe": 2,
+              "matteo": 1
             }
           },
           "memory": [
             "zoe"
-          ]
+          ],
+          "personality": "prodigio"
         },
         {
           "label": "Como funcionam os patrocínios de vocês?",
@@ -1422,8 +1727,8 @@
               "e1_patrocinio": true
             },
             "bonds": {
-              "matteo": 6,
-              "zoe": 3
+              "matteo": 2,
+              "zoe": 1
             }
           },
           "memory": [
@@ -1443,8 +1748,8 @@
               "alianca_vip_inicial": true
             },
             "bonds": {
-              "matteo": 8,
-              "zoe": 7
+              "matteo": 3,
+              "zoe": 2
             },
             "rank": -2
           },
@@ -1452,6 +1757,154 @@
             "matteo",
             "zoe"
           ]
+        },
+        {
+          "label": "Quero deixar minha marca aqui.",
+          "requireArq": "prodigio",
+          "to": "elite_2",
+          "effects": {
+            "flags": {
+              "perfil_prodigio": true
+            },
+            "bonds": {
+              "matteo": 1
+            }
+          },
+          "personality": "prodigio"
+        },
+        {
+          "label": "Quem define o que é sucesso aqui?",
+          "requireArq": "cetico",
+          "to": "elite_2",
+          "effects": {
+            "flags": {
+              "perfil_cetico": true
+            },
+            "bonds": {
+              "matteo": 1
+            }
+          },
+          "personality": "cetico"
+        },
+        {
+          "label": "Prefiro entender as regras antes de jogar.",
+          "requireArq": "estrategico",
+          "to": "elite_2",
+          "effects": {
+            "flags": {
+              "perfil_estrategico": true
+            },
+            "bonds": {
+              "matteo": 1
+            }
+          },
+          "personality": "estrategico"
+        },
+        {
+          "label": "Não quero deixar ninguém para trás.",
+          "requireArq": "protetor",
+          "to": "elite_2",
+          "effects": {
+            "flags": {
+              "perfil_protetor": true
+            },
+            "bonds": {
+              "matteo": 1
+            }
+          },
+          "personality": "protetor"
+        },
+        {
+          "label": "Prefiro observar antes de me apresentar.",
+          "requireArq": "reservado",
+          "to": "elite_2",
+          "effects": {
+            "flags": {
+              "perfil_reservado": true
+            },
+            "bonds": {
+              "matteo": 1
+            }
+          },
+          "personality": "reservado"
+        },
+        {
+          "label": "Que tal a gente começar de novo, sem falar de ranking?",
+          "requireArq": "carismatico",
+          "to": "elite_2",
+          "effects": {
+            "flags": {
+              "perfil_carismatico": true
+            },
+            "bonds": {
+              "matteo": 1
+            }
+          },
+          "personality": "carismatico"
+        },
+        {
+          "label": "Espero que o que fazemos importe mais que nossa posição.",
+          "requireArq": "idealista",
+          "to": "elite_2",
+          "effects": {
+            "flags": {
+              "perfil_idealista": true
+            },
+            "bonds": {
+              "matteo": 1
+            }
+          },
+          "personality": "idealista"
+        },
+        {
+          "label": "Prefiro reconhecer o que fiz bem, sem comparações.",
+          "requireTrait": "orgulho",
+          "to": "elite_2",
+          "effects": {
+            "flags": {
+              "traco_orgulho": true
+            }
+          }
+        },
+        {
+          "label": "Preciso de tempo antes de confiar.",
+          "requireTrait": "desconfiado",
+          "to": "elite_2",
+          "effects": {
+            "flags": {
+              "traco_desconfiado": true
+            }
+          }
+        },
+        {
+          "label": "Quero saber como posso melhorar meu resultado.",
+          "requireTrait": "competitivo",
+          "to": "elite_2",
+          "effects": {
+            "flags": {
+              "traco_competitivo": true
+            }
+          }
+        },
+        {
+          "label": "Ainda tenho minha própria opinião.",
+          "requireTrait": "teimoso",
+          "to": "elite_2",
+          "effects": {
+            "flags": {
+              "traco_teimoso": true
+            }
+          }
+        },
+        {
+          "label": "Posso admitir que estou com receio?",
+          "requireTrait": "medo_fracasso",
+          "to": "elite_2",
+          "effects": {
+            "flags": {
+              "traco_medo_fracasso": true
+            }
+          }
         }
       ],
       "dynamic": []
@@ -1478,6 +1931,34 @@
         {
           "flag": "e1_carisma",
           "text": "Você vê os ombros tensos de Matteo relaxarem imediatamente diante da sua resposta calculada, enquanto Zoe observa você como quem acabou de encontrar um jogador à altura."
+        },
+        {
+          "flag": "perfil_prodigio",
+          "text": "Matteo parece reconsiderar sua primeira impressão. “Ambição não falta.”"
+        },
+        {
+          "flag": "perfil_cetico",
+          "text": "Matteo parece reconsiderar sua primeira impressão. “Você faz perguntas interessantes.”"
+        },
+        {
+          "flag": "perfil_estrategico",
+          "text": "Matteo parece reconsiderar sua primeira impressão. “Então você veio preparado.”"
+        },
+        {
+          "flag": "perfil_protetor",
+          "text": "Matteo parece reconsiderar sua primeira impressão. “Lealdade, hein?”"
+        },
+        {
+          "flag": "perfil_reservado",
+          "text": "Matteo parece reconsiderar sua primeira impressão. “Você não é fácil de ler.”"
+        },
+        {
+          "flag": "perfil_carismatico",
+          "text": "Matteo parece reconsiderar sua primeira impressão. “Tudo bem, vamos conversar.”"
+        },
+        {
+          "flag": "perfil_idealista",
+          "text": "Matteo parece reconsiderar sua primeira impressão. “Espero que mantenha essa ideia.”"
         }
       ],
       "textAfterDynamic": "Zoe dá um passo mais perto e acena discretamente para que o operador do drone afaste um pouco o áudio.\n\nZoe: — Aqui dentro existe uma regra simples que a reitoria não escreve no manual, {NOME}: os Sete têm vagas contadas, e ninguém sobe sem aliados estratégicos. Olhe em volta — você tem os calouros barulhentos na escadaria e os ratos de arquivo sob as arcadas.",
@@ -1490,8 +1971,8 @@
               "e2_perguntou_mo": true
             },
             "bonds": {
-              "zoe": 5,
-              "matteo": 2
+              "zoe": 2,
+              "matteo": 1
             }
           },
           "memory": [
@@ -1506,8 +1987,8 @@
               "e2_perguntou_clara": true
             },
             "bonds": {
-              "matteo": -3,
-              "zoe": 4
+              "matteo": -1,
+              "zoe": 1
             }
           }
         },
@@ -1519,8 +2000,8 @@
               "e2_concordou_topo": true
             },
             "bonds": {
-              "matteo": 6,
-              "zoe": 4
+              "matteo": 2,
+              "zoe": 1
             }
           },
           "memory": [
@@ -1536,8 +2017,8 @@
               "e2_notou_zoe": true
             },
             "bonds": {
-              "zoe": 6,
-              "matteo": 3
+              "zoe": 2,
+              "matteo": 1
             }
           },
           "memory": [
@@ -1580,8 +2061,8 @@
               "e3_compromisso": true
             },
             "bonds": {
-              "matteo": 5,
-              "zoe": 5
+              "matteo": 2,
+              "zoe": 2
             },
             "rank": -2
           },
@@ -1598,7 +2079,7 @@
               "e3_cautela": true
             },
             "bonds": {
-              "zoe": 4,
+              "zoe": 1,
               "matteo": 1
             }
           }
@@ -1628,8 +2109,8 @@
           "to": "explorar_manha",
           "effects": {
             "bonds": {
-              "matteo": 2,
-              "zoe": 2
+              "matteo": 1,
+              "zoe": 1
             }
           }
         },
@@ -1638,7 +2119,7 @@
           "to": "explorar_manha",
           "effects": {
             "bonds": {
-              "zoe": 3
+              "zoe": 1
             }
           }
         }
@@ -1660,8 +2141,8 @@
               "viu_cameras_internas": true
             },
             "bonds": {
-              "otavio": 5,
-              "maya": 5
+              "otavio": 2,
+              "maya": 2
             }
           },
           "memory": [
@@ -1677,8 +2158,8 @@
               "a1_brincou_drones": true
             },
             "bonds": {
-              "otavio": 7,
-              "maya": 3
+              "otavio": 2,
+              "maya": 1
             }
           },
           "memory": [
@@ -1693,8 +2174,8 @@
               "a1_perguntou_luvas": true
             },
             "bonds": {
-              "maya": 4,
-              "otavio": 3
+              "maya": 1,
+              "otavio": 1
             }
           }
         },
@@ -1709,8 +2190,8 @@
               "viu_elevador_subsolo": true
             },
             "bonds": {
-              "maya": 9,
-              "otavio": 5
+              "maya": 3,
+              "otavio": 2
             }
           },
           "memory": [
@@ -1755,10 +2236,10 @@
               "a2_perguntou_cl": true
             },
             "bonds": {
-              "otavio": 5,
-              "maya": 4,
-              "clara": 2,
-              "luka": 2
+              "otavio": 2,
+              "maya": 1,
+              "clara": 1,
+              "luka": 1
             }
           },
           "memory": [
@@ -1773,8 +2254,8 @@
               "a2_apoiou_maya": true
             },
             "bonds": {
-              "maya": 6,
-              "otavio": 2
+              "maya": 2,
+              "otavio": 1
             }
           },
           "memory": [
@@ -1789,8 +2270,8 @@
               "a2_apoiou_otavio": true
             },
             "bonds": {
-              "otavio": 6,
-              "maya": 3
+              "otavio": 2,
+              "maya": 1
             }
           },
           "memory": [
@@ -1806,8 +2287,8 @@
               "a2_empatia_otavio": true
             },
             "bonds": {
-              "otavio": 9,
-              "maya": 5
+              "otavio": 3,
+              "maya": 2
             }
           },
           "memory": [
@@ -1851,8 +2332,8 @@
               "a3_juntos_arena": true
             },
             "bonds": {
-              "maya": 5,
-              "otavio": 5
+              "maya": 2,
+              "otavio": 2
             }
           },
           "memory": [
@@ -1868,8 +2349,8 @@
               "a3_confiante": true
             },
             "bonds": {
-              "maya": 4,
-              "otavio": 3
+              "maya": 1,
+              "otavio": 1
             }
           }
         }
@@ -1898,8 +2379,8 @@
           "to": "explorar_manha",
           "effects": {
             "bonds": {
-              "maya": 2,
-              "otavio": 2
+              "maya": 1,
+              "otavio": 1
             }
           }
         },
@@ -1911,7 +2392,7 @@
               "alerta_matteo": true
             },
             "bonds": {
-              "maya": 3
+              "maya": 1
             }
           }
         }
@@ -1938,10 +2419,10 @@
               "usou_poder_arena": true
             },
             "bonds": {
-              "clara": 12,
-              "luka": 8,
-              "otavio": 6,
-              "matteo": -3
+              "clara": 4,
+              "luka": 3,
+              "otavio": 2,
+              "matteo": -1
             },
             "rank": -7
           },
@@ -1964,9 +2445,9 @@
               "usou_poder_arena": true
             },
             "bonds": {
-              "clara": 11,
-              "otavio": 8,
-              "luka": 6
+              "clara": 4,
+              "otavio": 3,
+              "luka": 2
             },
             "rank": -6
           },
@@ -1989,9 +2470,9 @@
               "usou_poder_arena": true
             },
             "bonds": {
-              "clara": 11,
-              "maya": 9,
-              "zoe": 5
+              "clara": 4,
+              "maya": 3,
+              "zoe": 2
             },
             "rank": -7
           },
@@ -2014,9 +2495,9 @@
               "usou_poder_arena": true
             },
             "bonds": {
-              "clara": 11,
-              "luka": 7,
-              "matteo": 3
+              "clara": 4,
+              "luka": 2,
+              "matteo": 1
             },
             "rank": -7
           },
@@ -2038,9 +2519,9 @@
               "usou_poder_arena": true
             },
             "bonds": {
-              "clara": 12,
-              "otavio": 7,
-              "zoe": 4
+              "clara": 4,
+              "otavio": 2,
+              "zoe": 1
             },
             "rank": -7
           },
@@ -2058,9 +2539,9 @@
               "escondeu_poder": true
             },
             "bonds": {
-              "clara": 9,
-              "luka": 6,
-              "maya": 5
+              "clara": 3,
+              "luka": 2,
+              "maya": 2
             },
             "rank": -3
           },
@@ -2078,9 +2559,9 @@
               "hesitou_arena": true
             },
             "bonds": {
-              "clara": -6,
-              "luka": -5,
-              "matteo": 3
+              "clara": -2,
+              "luka": -2,
+              "matteo": 1
             },
             "rank": 5
           },
@@ -2102,9 +2583,9 @@
               "escondeu_poder": true
             },
             "bonds": {
-              "clara": 10,
-              "maya": 8,
-              "otavio": 6
+              "clara": 3,
+              "maya": 3,
+              "otavio": 2
             },
             "rank": -5
           },
@@ -2113,6 +2594,90 @@
             "maya",
             "otavio"
           ]
+        },
+        {
+          "label": "Acender os indicadores do simulador e pedir que a equipe interrompa a avaliação",
+          "requirePower": "eletrocinese",
+          "to": "arena_2",
+          "effects": {
+            "flags": {
+              "avaliacao_eletrocinese": true
+            },
+            "bonds": {
+              "clara": 1
+            }
+          },
+          "personality": "protetor"
+        },
+        {
+          "label": "Projetar um sinal de sombra no painel e pedir que a equipe interrompa a avaliação",
+          "requirePower": "umbracinese",
+          "to": "arena_2",
+          "effects": {
+            "flags": {
+              "avaliacao_umbracinese": true
+            },
+            "bonds": {
+              "clara": 1
+            }
+          },
+          "personality": "protetor"
+        },
+        {
+          "label": "Criar um marcador de gelo no alvo de teste e pedir que a equipe interrompa a avaliação",
+          "requirePower": "criocinese",
+          "to": "arena_2",
+          "effects": {
+            "flags": {
+              "avaliacao_criocinese": true
+            },
+            "bonds": {
+              "clara": 1
+            }
+          },
+          "personality": "protetor"
+        },
+        {
+          "label": "Criar uma barreira de proteção no simulador e pedir que a equipe interrompa a avaliação",
+          "requirePower": "campos_forca",
+          "to": "arena_2",
+          "effects": {
+            "flags": {
+              "avaliacao_campos_forca": true
+            },
+            "bonds": {
+              "clara": 1
+            }
+          },
+          "personality": "protetor"
+        },
+        {
+          "label": "Usar uma cópia para sinalizar à equipe e pedir que a equipe interrompa a avaliação",
+          "requirePower": "duplicacao",
+          "to": "arena_2",
+          "effects": {
+            "flags": {
+              "avaliacao_duplicacao": true
+            },
+            "bonds": {
+              "clara": 1
+            }
+          },
+          "personality": "protetor"
+        },
+        {
+          "label": "Projetar um aviso visual para a equipe e pedir que a equipe interrompa a avaliação",
+          "requirePower": "ilusionismo",
+          "to": "arena_2",
+          "effects": {
+            "flags": {
+              "avaliacao_ilusionismo": true
+            },
+            "bonds": {
+              "clara": 1
+            }
+          },
+          "personality": "protetor"
         }
       ],
       "dynamic": []
@@ -2132,8 +2697,8 @@
               "ar2_confirmou_zoe": true
             },
             "bonds": {
-              "zoe": 4,
-              "matteo": 2
+              "zoe": 1,
+              "matteo": 1
             }
           }
         },
@@ -2145,8 +2710,8 @@
               "ar2_vago_zoe": true
             },
             "bonds": {
-              "zoe": 2,
-              "maya": 2
+              "zoe": 1,
+              "maya": 1
             }
           }
         },
@@ -2158,9 +2723,9 @@
               "ar2_criticou_matteo": true
             },
             "bonds": {
-              "zoe": -2,
-              "matteo": -3,
-              "clara": 3
+              "zoe": -1,
+              "matteo": -1,
+              "clara": 1
             }
           }
         }
@@ -2173,6 +2738,30 @@
         {
           "flag": "hesitou_arena",
           "text": "Otávio precisou absorver o impacto do drone no último segundo para proteger Clara. Ele acena para você de longe, sem julgamentos, mas Clara evita olhar na sua direção."
+        },
+        {
+          "flag": "avaliacao_eletrocinese",
+          "text": "Clara agradece por você ter sinalizado à equipe. A avaliação foi interrompida e os instrutores registraram sua iniciativa."
+        },
+        {
+          "flag": "avaliacao_umbracinese",
+          "text": "Clara agradece por você ter sinalizado à equipe. A avaliação foi interrompida e os instrutores registraram sua iniciativa."
+        },
+        {
+          "flag": "avaliacao_criocinese",
+          "text": "Clara agradece por você ter sinalizado à equipe. A avaliação foi interrompida e os instrutores registraram sua iniciativa."
+        },
+        {
+          "flag": "avaliacao_campos_forca",
+          "text": "Clara agradece por você ter sinalizado à equipe. A avaliação foi interrompida e os instrutores registraram sua iniciativa."
+        },
+        {
+          "flag": "avaliacao_duplicacao",
+          "text": "Clara agradece por você ter sinalizado à equipe. A avaliação foi interrompida e os instrutores registraram sua iniciativa."
+        },
+        {
+          "flag": "avaliacao_ilusionismo",
+          "text": "Clara agradece por você ter sinalizado à equipe. A avaliação foi interrompida e os instrutores registraram sua iniciativa."
         }
       ]
     },
@@ -2227,7 +2816,7 @@
               "viu_cameras_internas": true
             },
             "bonds": {
-              "maya": 3
+              "maya": 1
             }
           }
         }
@@ -2384,8 +2973,8 @@
               "t4_contou_tudo": true
             },
             "bonds": {
-              "maya": 6,
-              "otavio": 5
+              "maya": 2,
+              "otavio": 2
             }
           },
           "memory": [
@@ -2401,7 +2990,7 @@
               "t4_resumiu": true
             },
             "bonds": {
-              "otavio": 2
+              "otavio": 1
             }
           }
         },
@@ -2413,8 +3002,8 @@
               "t4_brincou": true
             },
             "bonds": {
-              "otavio": 5,
-              "maya": 2
+              "otavio": 2,
+              "maya": 1
             }
           },
           "memory": [
@@ -2446,78 +3035,6 @@
       "textAfterDynamic": "No Refeitório Central, a rotina cotidiana dos supers acontece sem filtros: Luka passa como um borrão pela fila e surge na mesa com três hambúrgueres extras para compensar o metabolismo acelerado; Clara encolhe a mão por um segundo para abrir uma lata emperrada e volta ao tamanho normal rindo.\n\nLuka: — Bem-vindo à mesa dos sobreviventes, {NOME}! Pega uma cadeira antes que o treino da tarde comece.\n\nA conversa flui leve por alguns minutos — entre piadas sobre o cardápio da Vought e dicas de como funciona o sistema de patrocinadores — dando a você a chance de puxar papo mais de perto com alguém da mesa.",
       "choices": [
         {
-          "label": "[Flerte] Elogiar o jeito observador de Maya e sentar-se bem próximo ao lado dela",
-          "to": "tarde_6",
-          "effects": {
-            "flags": {
-              "t5_flerte_maya": true
-            },
-            "bonds": {
-              "maya": 5
-            },
-            "romance": {
-              "maya": 12
-            }
-          },
-          "memory": [
-            "maya"
-          ]
-        },
-        {
-          "label": "[Flerte] Sorrir para Clara e dizer que ela fica ainda mais impressionante quando enfrenta veteranos",
-          "to": "tarde_6",
-          "effects": {
-            "flags": {
-              "t5_flerte_clara": true
-            },
-            "bonds": {
-              "clara": 5
-            },
-            "romance": {
-              "clara": 12
-            }
-          },
-          "memory": [
-            "clara"
-          ]
-        },
-        {
-          "label": "[Flerte] Agradecer a atenção de Otávio e dizer que a presença dele deixa qualquer lugar mais leve",
-          "to": "tarde_6",
-          "effects": {
-            "flags": {
-              "t5_flerte_otavio": true
-            },
-            "bonds": {
-              "otavio": 5
-            },
-            "romance": {
-              "otavio": 12
-            }
-          },
-          "memory": [
-            "otavio"
-          ]
-        },
-        {
-          "label": "[Flerte] Brincar com Luka dizendo que gostou do ritmo acelerado dele desde o pátio",
-          "to": "tarde_6",
-          "effects": {
-            "flags": {
-              "t5_flerte_luka": true
-            },
-            "bonds": {
-              "luka": 5
-            },
-            "romance": {
-              "luka": 12
-            }
-          },
-          "memory": [
-            "luka"
-          ]
-        },
-        {
           "label": "Perguntar ao grupo como funciona na prática o pagamento e os contratos dos patrocinadores",
           "to": "tarde_6",
           "effects": {
@@ -2525,11 +3042,99 @@
               "t5_perguntou_lore": true
             },
             "bonds": {
-              "luka": 4,
-              "clara": 3,
-              "otavio": 3
+              "luka": 1,
+              "clara": 1,
+              "otavio": 1
             }
           }
+        },
+        {
+          "label": "Conversar com Clara sobre como foi o dia.",
+          "to": "tarde_6",
+          "effects": {
+            "flags": {
+              "amizade_tarde_5_clara": true
+            },
+            "bonds": {
+              "clara": 2
+            }
+          },
+          "social": {
+            "clara": {
+              "trust": 2,
+              "respect": 1,
+              "closeness": 1
+            }
+          },
+          "memory": [
+            "clara"
+          ]
+        },
+        {
+          "label": "Ouvir a opinião de Maya sem pressioná-la.",
+          "to": "tarde_6",
+          "effects": {
+            "flags": {
+              "amizade_tarde_5_maya": true
+            },
+            "bonds": {
+              "maya": 2
+            }
+          },
+          "social": {
+            "maya": {
+              "trust": 2,
+              "respect": 1,
+              "closeness": 1
+            }
+          },
+          "memory": [
+            "maya"
+          ]
+        },
+        {
+          "label": "Agradecer a ajuda de Otávio.",
+          "to": "tarde_6",
+          "effects": {
+            "flags": {
+              "amizade_tarde_5_otavio": true
+            },
+            "bonds": {
+              "otavio": 2
+            }
+          },
+          "social": {
+            "otavio": {
+              "trust": 2,
+              "respect": 1,
+              "closeness": 1
+            }
+          },
+          "memory": [
+            "otavio"
+          ]
+        },
+        {
+          "label": "Conversar com Luka sobre as novidades do campus.",
+          "to": "tarde_6",
+          "effects": {
+            "flags": {
+              "amizade_tarde_5_luka": true
+            },
+            "bonds": {
+              "luka": 2
+            }
+          },
+          "social": {
+            "luka": {
+              "trust": 2,
+              "respect": 1,
+              "closeness": 1
+            }
+          },
+          "memory": [
+            "luka"
+          ]
         }
       ]
     },
@@ -2540,22 +3145,6 @@
       "stage": "REFEITÓRIO CENTRAL · CAMPUS GODOLKIN",
       "text": "",
       "dynamic": [
-        {
-          "flag": "t5_flerte_maya",
-          "text": "Maya congela por um instante com o copo na mão, pega de surpresa pela sua aproximação direta. Um leve rubor surge em seu rosto antes de ela ajeitar a luva preta com um sorriso contido: 'Você não tem muito instinto de autopreservação chegando tão perto assim, {NOME}... mas não vou dizer que achei ruim.'"
-        },
-        {
-          "flag": "t5_flerte_clara",
-          "text": "Clara engasga levemente com o refrigerante e dá um empurrãozinho no seu ombro, disfarçando o sorriso sem jeito: 'Para de graça no meio do refeitório, {NOME}! Vai acabar fazendo eu perder minha pose de rebelde.'"
-        },
-        {
-          "flag": "t5_flerte_otavio",
-          "text": "Otávio pisca surpreso, sentindo na hora a sinceridade e o calor da sua emoção através da empatia dele, e abre um sorriso genuíno: 'Caramba, {NOME}... fazia tempo que ninguém me falava algo assim sem querer pedir favor depois.'"
-        },
-        {
-          "flag": "t5_flerte_luka",
-          "text": "Luka quase derruba as batatas fritas ao tentar disfarçar o sorriso rápido: 'Olha só, o calouro sabe jogar rápido também, hein, {NOME}? Gostei de ver.'"
-        },
         {
           "flag": "t5_perguntou_lore",
           "text": "Luka apoia os cotovelos na mesa e explica: 'Funciona assim, {NOME}: quem entra no Top 15 ganha cotas de mídia e marcas esportivas. Quem fica no Top 5 já sai com pré-contrato de equipe regional. Mas se você cair abaixo do #60, a Vought corta sua bolsa e manda você pro limbo.'"
@@ -2571,8 +3160,8 @@
               "t6_plano_zoe": true
             },
             "bonds": {
-              "maya": 4,
-              "luka": 4
+              "maya": 1,
+              "luka": 1
             }
           }
         },
@@ -2584,8 +3173,8 @@
               "t6_plano_grupo": true
             },
             "bonds": {
-              "clara": 4,
-              "otavio": 4
+              "clara": 1,
+              "otavio": 1
             }
           }
         }
@@ -2596,7 +3185,7 @@
       "title": "Preparação para a Noite",
       "time": "18:45",
       "stage": "PÁTIO DOS DORMITÓRIOS",
-      "text": "",
+      "text": "\n\nNo corredor, Luka e Otávio discutem sobre as próximas aulas. Otávio aceita que Luka organize seus próprios horários; os dois acabam rindo da confusão.",
       "dynamic": [
         {
           "flag": "t6_plano_zoe",
@@ -2605,6 +3194,18 @@
         {
           "flag": "t6_plano_grupo",
           "text": "Clara bate os punhos no ar animada: 'É isso! Chegamos juntos, fazemos presença e ninguém fica sozinho lá em cima.'"
+        },
+        {
+          "flag": "grupo_escuta",
+          "text": "No corredor, Clara e Matteo retomam a conversa. Desta vez, os dois deixam o outro terminar."
+        },
+        {
+          "flag": "grupo_lado",
+          "text": "Clara parece satisfeita com seu apoio, mas Matteo encerra a discussão e vai embora."
+        },
+        {
+          "flag": "quarto_acordo",
+          "text": "Seus colegas lembram do acordo do quarto e deixam espaço para você se preparar com calma."
         }
       ],
       "textAfterDynamic": "Depois de uma tarde intensa de seminários de gestão de crise e treino técnico, o sol se põe atrás das estátuas douradas de Godolkin. Nos dormitórios dos calouros, você termina de se arrumar enquanto as primeiras batidas graves de música já ecoam do topo da Torre Norte.\n\nLuka bate na sua porta já pronto, enquanto Clara ajusta a jaqueta no corredor:\n\nLuka: — Tudo pronto, {NOME}? Lembra do combinado: curte a festa, conversa com quem precisar para não levantar suspeitas e, quando a Maya der o sinal perto do bar, a gente sai para a varanda externa.",
@@ -2617,8 +3218,8 @@
               "subiu_grupo": true
             },
             "bonds": {
-              "clara": 3,
-              "luka": 3
+              "clara": 1,
+              "luka": 1
             }
           }
         },
@@ -2630,8 +3231,8 @@
               "subiu_antes": true
             },
             "bonds": {
-              "maya": 3,
-              "zoe": 2
+              "maya": 1,
+              "zoe": 1
             }
           }
         }
@@ -2663,7 +3264,7 @@
               "f1_foi_bar": true
             },
             "bonds": {
-              "otavio": 3
+              "otavio": 1
             }
           }
         },
@@ -2675,8 +3276,8 @@
               "f1_centro_salao": true
             },
             "bonds": {
-              "matteo": 3,
-              "zoe": 3
+              "matteo": 1,
+              "zoe": 1
             },
             "rank": -2
           }
@@ -2689,8 +3290,8 @@
               "f1_pista_calouros": true
             },
             "bonds": {
-              "clara": 4,
-              "luka": 4
+              "clara": 1,
+              "luka": 1
             }
           }
         }
@@ -2726,7 +3327,7 @@
               "f2_matteo_honesto": true
             },
             "bonds": {
-              "matteo": 5
+              "matteo": 2
             }
           },
           "memory": [
@@ -2741,8 +3342,8 @@
               "f2_matteo_misterio": true
             },
             "bonds": {
-              "matteo": 4,
-              "zoe": 3
+              "matteo": 1,
+              "zoe": 1
             }
           }
         },
@@ -2754,7 +3355,7 @@
               "f2_matteo_desafiou": true
             },
             "bonds": {
-              "matteo": 6
+              "matteo": 2
             }
           },
           "memory": [
@@ -2793,7 +3394,7 @@
               "f3_matteo_autonomia": true
             },
             "bonds": {
-              "matteo": 5
+              "matteo": 2
             }
           },
           "memory": [
@@ -2808,7 +3409,7 @@
               "f3_matteo_cautela": true
             },
             "bonds": {
-              "matteo": 3
+              "matteo": 1
             }
           }
         },
@@ -2820,7 +3421,7 @@
               "f3_matteo_leve": true
             },
             "bonds": {
-              "matteo": 4
+              "matteo": 1
             }
           }
         }
@@ -2856,7 +3457,7 @@
               "f4_zoe_perspicaz": true
             },
             "bonds": {
-              "zoe": 6
+              "zoe": 2
             }
           },
           "memory": [
@@ -2871,7 +3472,7 @@
               "f4_zoe_inocente": true
             },
             "bonds": {
-              "zoe": 3
+              "zoe": 1
             }
           }
         },
@@ -2884,8 +3485,8 @@
               "f4_zoe_confronto": true
             },
             "bonds": {
-              "zoe": 7,
-              "maya": 3
+              "zoe": 2,
+              "maya": 1
             }
           },
           "memory": [
@@ -2925,8 +3526,8 @@
               "f5_usou_poder": true
             },
             "bonds": {
-              "otavio": 6,
-              "clara": 5
+              "otavio": 2,
+              "clara": 2
             },
             "rank": -3
           },
@@ -2944,8 +3545,8 @@
               "f5_usou_poder": true
             },
             "bonds": {
-              "matteo": 5,
-              "clara": 5
+              "matteo": 2,
+              "clara": 2
             },
             "rank": -4
           },
@@ -2963,8 +3564,8 @@
               "f5_usou_poder": true
             },
             "bonds": {
-              "maya": 6,
-              "luka": 5
+              "maya": 2,
+              "luka": 2
             },
             "rank": -2
           },
@@ -2982,8 +3583,8 @@
               "f5_usou_poder": true
             },
             "bonds": {
-              "zoe": 5,
-              "matteo": 4
+              "zoe": 2,
+              "matteo": 1
             },
             "rank": -4
           },
@@ -3000,8 +3601,8 @@
               "f5_usou_poder": true
             },
             "bonds": {
-              "otavio": 6,
-              "luka": 5
+              "otavio": 2,
+              "luka": 2
             },
             "rank": -3
           },
@@ -3018,12 +3619,102 @@
               "f5_discreto": true
             },
             "bonds": {
-              "maya": 5
+              "maya": 2
             }
           },
           "memory": [
             "maya"
           ]
+        },
+        {
+          "label": "Criar um sinal luminoso para chamar a equipe",
+          "requirePower": "eletrocinese",
+          "to": "festa_6",
+          "effects": {
+            "flags": {
+              "f5_usou_poder": true
+            },
+            "bonds": {
+              "clara": 1
+            },
+            "rank": -2
+          },
+          "personality": "protetor"
+        },
+        {
+          "label": "Projetar uma sombra em forma de seta indicando a saída",
+          "requirePower": "umbracinese",
+          "to": "festa_6",
+          "effects": {
+            "flags": {
+              "f5_usou_poder": true
+            },
+            "bonds": {
+              "clara": 1
+            },
+            "rank": -2
+          },
+          "personality": "protetor"
+        },
+        {
+          "label": "Criar um pequeno marcador de gelo na mesa",
+          "requirePower": "criocinese",
+          "to": "festa_6",
+          "effects": {
+            "flags": {
+              "f5_usou_poder": true
+            },
+            "bonds": {
+              "clara": 1
+            },
+            "rank": -2
+          },
+          "personality": "protetor"
+        },
+        {
+          "label": "Formar uma barreira em torno das taças",
+          "requirePower": "campos_forca",
+          "to": "festa_6",
+          "effects": {
+            "flags": {
+              "f5_usou_poder": true
+            },
+            "bonds": {
+              "clara": 1
+            },
+            "rank": -2
+          },
+          "personality": "protetor"
+        },
+        {
+          "label": "Enviar uma cópia para chamar a equipe",
+          "requirePower": "duplicacao",
+          "to": "festa_6",
+          "effects": {
+            "flags": {
+              "f5_usou_poder": true
+            },
+            "bonds": {
+              "clara": 1
+            },
+            "rank": -2
+          },
+          "personality": "protetor"
+        },
+        {
+          "label": "Projetar um aviso visual para orientar os convidados",
+          "requirePower": "ilusionismo",
+          "to": "festa_6",
+          "effects": {
+            "flags": {
+              "f5_usou_poder": true
+            },
+            "bonds": {
+              "clara": 1
+            },
+            "rank": -2
+          },
+          "personality": "protetor"
         }
       ]
     },
@@ -3046,76 +3737,96 @@
       "textAfterDynamic": "Perto da porta de vidro que dá acesso à varanda externa, Maya já está lá fora observando a noite, enquanto Otávio, Clara e Luka fazem a cobertura discreta na entrada. Antes de cruzar o vidro para a reunião séria, você tem um instante breve e próximo com quem está ali ao seu lado.",
       "choices": [
         {
-          "label": "[Flerte] Ficar um segundo a sós com Clara na entrada da varanda e elogiar o visual dela na festa",
+          "label": "[Interesse] Sinalizar interesse em Clara com discrição.",
           "to": "festa_7",
           "effects": {
             "flags": {
               "f6_flerte_clara": true
             },
             "bonds": {
-              "clara": 5
+              "clara": 2
             },
             "romance": {
-              "clara": 15
+              "clara": 1
             }
           },
           "memory": [
             "clara"
-          ]
+          ],
+          "romanceTarget": "clara",
+          "requireTrust": {
+            "id": "clara",
+            "min": 24
+          }
         },
         {
-          "label": "[Flerte] Aproximar-se de Maya no parapeito respeitando suas luvas e dizer que gosta da companhia dela",
+          "label": "[Interesse] Sinalizar interesse em Maya com discrição.",
           "to": "festa_7",
           "effects": {
             "flags": {
               "f6_flerte_maya": true
             },
             "bonds": {
-              "maya": 5
+              "maya": 2
             },
             "romance": {
-              "maya": 15
+              "maya": 1
             }
           },
           "memory": [
             "maya"
-          ]
+          ],
+          "romanceTarget": "maya",
+          "requireTrust": {
+            "id": "maya",
+            "min": 24
+          }
         },
         {
-          "label": "[Flerte] Brincar com Otávio dizendo que ele é a melhor companhia desta festa inteira",
+          "label": "[Interesse] Sinalizar interesse em Otávio com discrição.",
           "to": "festa_7",
           "effects": {
             "flags": {
               "f6_flerte_otavio": true
             },
             "bonds": {
-              "otavio": 5
+              "otavio": 2
             },
             "romance": {
-              "otavio": 15
+              "otavio": 1
             }
           },
           "memory": [
             "otavio"
-          ]
+          ],
+          "romanceTarget": "otavio",
+          "requireTrust": {
+            "id": "otavio",
+            "min": 24
+          }
         },
         {
-          "label": "[Flerte] Provocar Luka com um sorriso dizendo que ele não precisava correr tão rápido para te encontrar",
+          "label": "[Interesse] Sinalizar interesse em Luka com discrição.",
           "to": "festa_7",
           "effects": {
             "flags": {
               "f6_flerte_luka": true
             },
             "bonds": {
-              "luka": 5
+              "luka": 2
             },
             "romance": {
-              "luka": 15
+              "luka": 1
             }
           },
           "memory": [
             "luka"
-          ]
+          ],
+          "romanceTarget": "luka",
+          "requireTrust": {
+            "id": "luka",
+            "min": 24
+          }
         },
         {
           "label": "Focar direto na missão e perguntar a Maya o que ela descobriu sobre o aluno desaparecido",
@@ -3125,10 +3836,98 @@
               "f6_foco_missao": true
             },
             "bonds": {
-              "maya": 4,
-              "luka": 4
+              "maya": 1,
+              "luka": 1
             }
           }
+        },
+        {
+          "label": "Conversar com Clara sobre como foi o dia.",
+          "to": "festa_7",
+          "effects": {
+            "flags": {
+              "amizade_festa_6_clara": true
+            },
+            "bonds": {
+              "clara": 2
+            }
+          },
+          "social": {
+            "clara": {
+              "trust": 2,
+              "respect": 1,
+              "closeness": 1
+            }
+          },
+          "memory": [
+            "clara"
+          ]
+        },
+        {
+          "label": "Ouvir a opinião de Maya sem pressioná-la.",
+          "to": "festa_7",
+          "effects": {
+            "flags": {
+              "amizade_festa_6_maya": true
+            },
+            "bonds": {
+              "maya": 2
+            }
+          },
+          "social": {
+            "maya": {
+              "trust": 2,
+              "respect": 1,
+              "closeness": 1
+            }
+          },
+          "memory": [
+            "maya"
+          ]
+        },
+        {
+          "label": "Agradecer a ajuda de Otávio.",
+          "to": "festa_7",
+          "effects": {
+            "flags": {
+              "amizade_festa_6_otavio": true
+            },
+            "bonds": {
+              "otavio": 2
+            }
+          },
+          "social": {
+            "otavio": {
+              "trust": 2,
+              "respect": 1,
+              "closeness": 1
+            }
+          },
+          "memory": [
+            "otavio"
+          ]
+        },
+        {
+          "label": "Conversar com Luka sobre as novidades do campus.",
+          "to": "festa_7",
+          "effects": {
+            "flags": {
+              "amizade_festa_6_luka": true
+            },
+            "bonds": {
+              "luka": 2
+            }
+          },
+          "social": {
+            "luka": {
+              "trust": 2,
+              "respect": 1,
+              "closeness": 1
+            }
+          },
+          "memory": [
+            "luka"
+          ]
         }
       ]
     },
@@ -3140,24 +3939,72 @@
       "text": "",
       "dynamic": [
         {
+          "flag": "f6_foco_missao",
+          "text": "Maya assente aprovando sua objetividade e fecha o trinco da porta de vidro para abafar o som da pista."
+        },
+        {
+          "flag": "revelado_matteo",
+          "text": "Matteo reconhece você com um aceno discreto. A conversa da tarde parece ter feito diferença."
+        },
+        {
+          "flag": "pessoal_matteo_discorda",
+          "text": "Matteo comenta que ainda pensa na sua opinião da tarde, mesmo sem concordar totalmente."
+        },
+        {
+          "flag": "revelado_maya",
+          "text": "Maya reconhece você com um aceno discreto. A conversa da tarde parece ter feito diferença."
+        },
+        {
+          "flag": "pessoal_maya_discorda",
+          "text": "Maya comenta que ainda pensa na sua opinião da tarde, mesmo sem concordar totalmente."
+        },
+        {
+          "flag": "revelado_clara",
+          "text": "Clara reconhece você com um aceno discreto. A conversa da tarde parece ter feito diferença."
+        },
+        {
+          "flag": "pessoal_clara_discorda",
+          "text": "Clara comenta que ainda pensa na sua opinião da tarde, mesmo sem concordar totalmente."
+        },
+        {
+          "flag": "revelado_otavio",
+          "text": "Otávio reconhece você com um aceno discreto. A conversa da tarde parece ter feito diferença."
+        },
+        {
+          "flag": "pessoal_otavio_discorda",
+          "text": "Otávio comenta que ainda pensa na sua opinião da tarde, mesmo sem concordar totalmente."
+        },
+        {
+          "flag": "revelado_zoe",
+          "text": "Zoe reconhece você com um aceno discreto. A conversa da tarde parece ter feito diferença."
+        },
+        {
+          "flag": "pessoal_zoe_discorda",
+          "text": "Zoe comenta que ainda pensa na sua opinião da tarde, mesmo sem concordar totalmente."
+        },
+        {
+          "flag": "revelado_luka",
+          "text": "Luka reconhece você com um aceno discreto. A conversa da tarde parece ter feito diferença."
+        },
+        {
+          "flag": "pessoal_luka_discorda",
+          "text": "Luka comenta que ainda pensa na sua opinião da tarde, mesmo sem concordar totalmente."
+        },
+        {
           "flag": "f6_flerte_clara",
-          "text": "Clara sorri de canto, encostando o ombro no seu antes de abrir a porta de vidro: 'Para de me distrair antes da reunião séria, {NOME}... mas continua depois que a gente sair daqui.'"
+          "text": "Clara registra a demonstração de interesse, sem definir o que sente. A conversa do grupo segue normalmente."
         },
         {
           "flag": "f6_flerte_maya",
-          "text": "Maya olha para você sob as luzes da cidade com um brilho raro nos olhos escuros: 'Você realmente sabe como desarmar alguém sem precisar encostar um dedo, né, {NOME}?'"
+          "text": "Maya registra a demonstração de interesse, sem definir o que sente. A conversa do grupo segue normalmente."
         },
         {
           "flag": "f6_flerte_otavio",
-          "text": "Otávio ri baixo com as orelhas levemente vermelhas: 'Se continuar falando assim, {NOME}, vou acabar esquecendo por que a gente subiu aqui.'"
+          "text": "Otávio registra a demonstração de interesse, sem definir o que sente. A conversa do grupo segue normalmente."
         },
         {
           "flag": "f6_flerte_luka",
-          "text": "Luka dá um sorriso torto encostado no vidro: 'Por você eu até diminuo a velocidade, {NOME}. Mas agora bora ouvir a Maya antes que alguém saia.'"
-        },
-        {
-          "flag": "f6_foco_missao",
-          "text": "Maya assente aprovando sua objetividade e fecha o trinco da porta de vidro para abafar o som da pista."
+          "text": "Luka registra a demonstração de interesse, sem definir o que sente. A conversa do grupo segue normalmente."
         }
       ],
       "textAfterDynamic": "O vento frio da madrugada sopra na varanda externa da Torre Norte, bem longe dos microfones do salão. Maya abre o tablet criptografado e mostra uma planilha parcialmente bloqueada.\n\nMaya: — Prestem atenção. O aluno #6 do Ranking não foi transferido para agência nenhuma. Eu e o Luka cruzamos os logs de energia e acesso médico: às duas da manhã de ontem, o cartão executivo do Diretor Caldwell autorizou uma descida pelo elevador de serviço para um subnível sem planta oficial no sistema — marcado apenas pelo código 'F-01'.\n\nOtávio franze a testa olhando para a torre administrativa iluminada ao longe:\n\nOtávio: — Se a reitoria está escondendo alunos lá embaixo, qualquer passo errado coloca todos nós na mesma lista.",
@@ -3170,8 +4017,8 @@
               "f7_perguntou_codigo": true
             },
             "bonds": {
-              "maya": 4,
-              "luka": 4
+              "maya": 1,
+              "luka": 1
             }
           }
         },
@@ -3183,8 +4030,8 @@
               "f7_alertou_vip": true
             },
             "bonds": {
-              "clara": 4,
-              "otavio": 4
+              "clara": 1,
+              "otavio": 1
             }
           }
         },
@@ -3196,8 +4043,8 @@
               "f7_sugeriu_fachada": true
             },
             "bonds": {
-              "maya": 5,
-              "zoe": 2
+              "maya": 2,
+              "zoe": 1
             }
           },
           "memory": [
@@ -3236,10 +4083,10 @@
               "pacto_investigacao": true
             },
             "bonds": {
-              "maya": 9,
-              "luka": 8,
-              "clara": 7,
-              "otavio": 5
+              "maya": 3,
+              "luka": 3,
+              "clara": 2,
+              "otavio": 2
             }
           },
           "memory": [
@@ -3256,10 +4103,10 @@
               "pacto_duplo": true
             },
             "bonds": {
-              "zoe": 6,
-              "matteo": 5,
-              "maya": 5,
-              "otavio": 6
+              "zoe": 2,
+              "matteo": 2,
+              "maya": 2,
+              "otavio": 2
             }
           },
           "memory": [
@@ -3276,9 +4123,9 @@
               "pacto_silencio": true
             },
             "bonds": {
-              "matteo": 5,
-              "maya": -4,
-              "clara": -3
+              "matteo": 2,
+              "maya": -1,
+              "clara": -1
             },
             "rank": -2
           },
@@ -3296,9 +4143,9 @@
               "detectou_espiao": true
             },
             "bonds": {
-              "maya": 10,
-              "luka": 9,
-              "otavio": 8
+              "maya": 3,
+              "luka": 3,
+              "otavio": 3
             }
           },
           "memory": [
@@ -3374,8 +4221,8 @@
               "quarto_cooperativo": true
             },
             "bonds": {
-              "luka": 3,
-              "otavio": 3
+              "luka": 1,
+              "otavio": 1
             }
           },
           "memory": [
@@ -3405,7 +4252,7 @@
               "quarto_flexivel": true
             },
             "bonds": {
-              "otavio": 2
+              "otavio": 1
             }
           }
         }
@@ -3426,8 +4273,8 @@
               "quarto_cooperativo": true
             },
             "bonds": {
-              "clara": 3,
-              "maya": 3
+              "clara": 1,
+              "maya": 1
             }
           },
           "memory": [
@@ -3457,7 +4304,7 @@
               "quarto_flexivel": true
             },
             "bonds": {
-              "clara": 2
+              "clara": 1
             }
           }
         }
@@ -3495,8 +4342,8 @@
               "aproximou_calouros": true
             },
             "bonds": {
-              "clara": 5,
-              "luka": 5
+              "clara": 2,
+              "luka": 2
             }
           },
           "once": "calouros_1",
@@ -3513,8 +4360,8 @@
               "aproximou_elite": true
             },
             "bonds": {
-              "matteo": 5,
-              "zoe": 4
+              "matteo": 2,
+              "zoe": 1
             },
             "rank": -2
           },
@@ -3532,8 +4379,8 @@
               "aproximou_observadores": true
             },
             "bonds": {
-              "maya": 5,
-              "otavio": 5
+              "maya": 2,
+              "otavio": 2
             }
           },
           "once": "arcadas_1",
@@ -3552,9 +4399,9 @@
               "ironia_patio": true
             },
             "bonds": {
-              "clara": 8,
-              "luka": 7,
-              "matteo": -3
+              "clara": 3,
+              "luka": 2,
+              "matteo": -1
             }
           },
           "once": "calouros_1",
@@ -3607,12 +4454,13 @@
               "favor_aceito": true
             },
             "bonds": {
-              "clara": 4
+              "clara": 1
             }
           },
           "memory": [
             "clara"
-          ]
+          ],
+          "personality": "protetor"
         },
         {
           "label": "Desculpa, preciso manter meu horário livre.",
@@ -3627,7 +4475,8 @@
           },
           "memory": [
             "clara"
-          ]
+          ],
+          "personality": "reservado"
         },
         {
           "label": "Posso ajudar a encontrar outra pessoa.",
@@ -3637,12 +4486,13 @@
               "favor_alternativa": true
             },
             "bonds": {
-              "clara": 2
+              "clara": 1
             }
           },
           "memory": [
             "clara"
-          ]
+          ],
+          "personality": "estrategico"
         }
       ]
     },
@@ -3661,6 +4511,83 @@
               "mural_visto": true
             },
             "bonds": {}
+          }
+        },
+        {
+          "label": "Quero entender como melhorar meu desempenho.",
+          "requireArq": "prodigio",
+          "to": "explorar_manha",
+          "personality": "prodigio",
+          "effects": {
+            "flags": {
+              "biblioteca_perfil_prodigio": true
+            }
+          }
+        },
+        {
+          "label": "Quem verifica se essas regras são justas?",
+          "requireArq": "cetico",
+          "to": "explorar_manha",
+          "personality": "cetico",
+          "effects": {
+            "flags": {
+              "biblioteca_perfil_cetico": true
+            }
+          }
+        },
+        {
+          "label": "Vou comparar as informações antes de tirar conclusões.",
+          "requireArq": "estrategico",
+          "to": "explorar_manha",
+          "personality": "estrategico",
+          "effects": {
+            "flags": {
+              "biblioteca_perfil_estrategico": true
+            }
+          }
+        },
+        {
+          "label": "Quero compartilhar o que descobri com o grupo.",
+          "requireArq": "protetor",
+          "to": "explorar_manha",
+          "personality": "protetor",
+          "effects": {
+            "flags": {
+              "biblioteca_perfil_protetor": true
+            }
+          }
+        },
+        {
+          "label": "Prefiro guardar minhas impressões por enquanto.",
+          "requireArq": "reservado",
+          "to": "explorar_manha",
+          "personality": "reservado",
+          "effects": {
+            "flags": {
+              "biblioteca_perfil_reservado": true
+            }
+          }
+        },
+        {
+          "label": "Vou conversar com os estudantes para conhecer outras perspectivas.",
+          "requireArq": "carismatico",
+          "to": "explorar_manha",
+          "personality": "carismatico",
+          "effects": {
+            "flags": {
+              "biblioteca_perfil_carismatico": true
+            }
+          }
+        },
+        {
+          "label": "Espero que essas informações possam ajudar alguém.",
+          "requireArq": "idealista",
+          "to": "explorar_manha",
+          "personality": "idealista",
+          "effects": {
+            "flags": {
+              "biblioteca_perfil_idealista": true
+            }
           }
         }
       ]
@@ -3700,6 +4627,93 @@
           }
         },
         {
+          "label": "Conversar com Matteo — Longe dos holofotes",
+          "to": "pessoal_matteo",
+          "once": "pessoal_matteo",
+          "requireTrust": {
+            "id": "matteo",
+            "min": 24
+          },
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        },
+        {
+          "label": "Conversar com Maya — Por trás das luvas",
+          "to": "pessoal_maya",
+          "once": "pessoal_maya",
+          "requireTrust": {
+            "id": "maya",
+            "min": 24
+          },
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        },
+        {
+          "label": "Conversar com Clara — Promessas quebradas",
+          "to": "pessoal_clara",
+          "once": "pessoal_clara",
+          "requireTrust": {
+            "id": "clara",
+            "min": 24
+          },
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        },
+        {
+          "label": "Conversar com Otávio — O peso que ninguém vê (refeitório)",
+          "to": "pessoal_otavio",
+          "once": "pessoal_otavio",
+          "requireTrust": {
+            "id": "otavio",
+            "min": 24
+          },
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        },
+        {
+          "label": "Conversar com Zoe — O preço da perfeição",
+          "to": "pessoal_zoe",
+          "once": "pessoal_zoe",
+          "requireTrust": {
+            "id": "zoe",
+            "min": 24
+          },
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        },
+        {
+          "label": "Conversar com Luka — Sempre um passo à frente (refeitório)",
+          "to": "pessoal_luka",
+          "once": "pessoal_luka",
+          "requireTrust": {
+            "id": "luka",
+            "min": 24
+          },
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        },
+        {
+          "label": "Ir às escadarias — Clara e Matteo combinaram conversar ali",
+          "to": "grupo_conversa",
+          "once": "grupo_conversa",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        },
+        {
           "label": "Encerrar o intervalo e se preparar",
           "to": "tarde_7",
           "effects": {
@@ -3725,7 +4739,7 @@
               "conversa_clara": true
             },
             "bonds": {
-              "clara": 2
+              "clara": 1
             }
           }
         }
@@ -3760,7 +4774,7 @@
               "maya_conversa": true
             },
             "bonds": {
-              "maya": 3
+              "maya": 1
             }
           },
           "memory": [
@@ -3790,6 +4804,66 @@
       "text": "Você deixa a mochila e aproveita alguns minutos de descanso.",
       "choices": [
         {
+          "label": "Combinar um horário tranquilo e ouvir os colegas (Clara e Maya)",
+          "to": "explorar_tarde",
+          "requireFlag": "dorm_f",
+          "effects": {
+            "flags": {
+              "quarto_acordo": true
+            },
+            "bonds": {
+              "clara": 1,
+              "maya": 1
+            }
+          },
+          "social": {
+            "clara": {
+              "trust": 1,
+              "respect": 2,
+              "closeness": 1
+            },
+            "maya": {
+              "trust": 1,
+              "respect": 2,
+              "closeness": 1
+            }
+          },
+          "memory": [
+            "clara",
+            "maya"
+          ]
+        },
+        {
+          "label": "Combinar um horário tranquilo e ouvir os colegas (Luka e Otávio)",
+          "to": "explorar_tarde",
+          "requireFlag": "dorm_m",
+          "effects": {
+            "flags": {
+              "quarto_acordo": true
+            },
+            "bonds": {
+              "luka": 1,
+              "otavio": 1
+            }
+          },
+          "social": {
+            "luka": {
+              "trust": 1,
+              "respect": 2,
+              "closeness": 1
+            },
+            "otavio": {
+              "trust": 1,
+              "respect": 2,
+              "closeness": 1
+            }
+          },
+          "memory": [
+            "luka",
+            "otavio"
+          ]
+        },
+        {
           "label": "Conversar e depois voltar ao pátio",
           "to": "explorar_tarde",
           "effects": {
@@ -3816,6 +4890,1213 @@
         {
           "flag": "quarto_cooperativo",
           "text": "As regras que vocês combinaram pela manhã já deixaram o quarto mais organizado."
+        }
+      ]
+    },
+    "infancia_eletrocinese_1": {
+      "id": "infancia_eletrocinese_1",
+      "title": "O despertar · Eletrocinese",
+      "time": "10 ANOS DE IDADE",
+      "stage": "CASA",
+      "text": "As lâmpadas da sala piscaram no ritmo da sua concentração. Você ficou olhando, sem entender o que havia acontecido.",
+      "choices": [
+        {
+          "label": "Contar à família e pedir ajuda",
+          "to": "infancia_eletrocinese_2",
+          "effects": {
+            "flags": {
+              "infancia_maestria": true,
+              "origem_eletrocinese": true
+            }
+          },
+          "personality": "protetor"
+        },
+        {
+          "label": "Guardar a descoberta por enquanto",
+          "to": "infancia_eletrocinese_2",
+          "effects": {
+            "flags": {
+              "infancia_escondeu": true,
+              "origem_eletrocinese": true
+            }
+          },
+          "personality": "reservado"
+        }
+      ]
+    },
+    "infancia_eletrocinese_2": {
+      "id": "infancia_eletrocinese_2",
+      "title": "Aprender os limites · Eletrocinese",
+      "time": "15 ANOS DE IDADE",
+      "stage": "MEMÓRIAS DA ADOLESCÊNCIA",
+      "text": "Com o passar dos anos, você entendeu melhor sua habilidade. Concentração prolongada. A possibilidade de estudar em Godolkin começava a parecer real.",
+      "dynamic": [
+        {
+          "flag": "infancia_escondeu",
+          "text": "Você ainda não sabia em quem confiar."
+        },
+        {
+          "flag": "infancia_maestria",
+          "text": "Ter apoio mudou a forma como você via seu poder."
+        }
+      ],
+      "choices": [
+        {
+          "label": "Buscar orientação especializada",
+          "to": "recrutamento_vought",
+          "effects": {
+            "flags": {
+              "adolescencia_treino": true
+            }
+          },
+          "personality": "idealista"
+        },
+        {
+          "label": "Perguntar sobre a origem da mutação",
+          "to": "recrutamento_vought",
+          "effects": {
+            "flags": {
+              "adolescencia_investiga": true
+            }
+          },
+          "personality": "cetico"
+        }
+      ]
+    },
+    "infancia_umbracinese_1": {
+      "id": "infancia_umbracinese_1",
+      "title": "O despertar · Umbracinese",
+      "time": "10 ANOS DE IDADE",
+      "stage": "CASA",
+      "text": "A sombra na parede desenhou uma forma diferente da sua. Você ficou olhando, sem entender o que havia acontecido.",
+      "choices": [
+        {
+          "label": "Contar à família e pedir ajuda",
+          "to": "infancia_umbracinese_2",
+          "effects": {
+            "flags": {
+              "infancia_maestria": true,
+              "origem_umbracinese": true
+            }
+          },
+          "personality": "protetor"
+        },
+        {
+          "label": "Guardar a descoberta por enquanto",
+          "to": "infancia_umbracinese_2",
+          "effects": {
+            "flags": {
+              "infancia_escondeu": true,
+              "origem_umbracinese": true
+            }
+          },
+          "personality": "reservado"
+        }
+      ]
+    },
+    "infancia_umbracinese_2": {
+      "id": "infancia_umbracinese_2",
+      "title": "Aprender os limites · Umbracinese",
+      "time": "15 ANOS DE IDADE",
+      "stage": "MEMÓRIAS DA ADOLESCÊNCIA",
+      "text": "Com o passar dos anos, você entendeu melhor sua habilidade. Luz intensa limita o alcance. A possibilidade de estudar em Godolkin começava a parecer real.",
+      "dynamic": [
+        {
+          "flag": "infancia_escondeu",
+          "text": "Você ainda não sabia em quem confiar."
+        },
+        {
+          "flag": "infancia_maestria",
+          "text": "Ter apoio mudou a forma como você via seu poder."
+        }
+      ],
+      "choices": [
+        {
+          "label": "Buscar orientação especializada",
+          "to": "recrutamento_vought",
+          "effects": {
+            "flags": {
+              "adolescencia_treino": true
+            }
+          },
+          "personality": "idealista"
+        },
+        {
+          "label": "Perguntar sobre a origem da mutação",
+          "to": "recrutamento_vought",
+          "effects": {
+            "flags": {
+              "adolescencia_investiga": true
+            }
+          },
+          "personality": "cetico"
+        }
+      ]
+    },
+    "infancia_criocinese_1": {
+      "id": "infancia_criocinese_1",
+      "title": "O despertar · Criocinese",
+      "time": "10 ANOS DE IDADE",
+      "stage": "CASA",
+      "text": "Uma flor de gelo apareceu no copo de água. Você ficou olhando, sem entender o que havia acontecido.",
+      "choices": [
+        {
+          "label": "Contar à família e pedir ajuda",
+          "to": "infancia_criocinese_2",
+          "effects": {
+            "flags": {
+              "infancia_maestria": true,
+              "origem_criocinese": true
+            }
+          },
+          "personality": "protetor"
+        },
+        {
+          "label": "Guardar a descoberta por enquanto",
+          "to": "infancia_criocinese_2",
+          "effects": {
+            "flags": {
+              "infancia_escondeu": true,
+              "origem_criocinese": true
+            }
+          },
+          "personality": "reservado"
+        }
+      ]
+    },
+    "infancia_criocinese_2": {
+      "id": "infancia_criocinese_2",
+      "title": "Aprender os limites · Criocinese",
+      "time": "15 ANOS DE IDADE",
+      "stage": "MEMÓRIAS DA ADOLESCÊNCIA",
+      "text": "Com o passar dos anos, você entendeu melhor sua habilidade. Mudanças rápidas cansam. A possibilidade de estudar em Godolkin começava a parecer real.",
+      "dynamic": [
+        {
+          "flag": "infancia_escondeu",
+          "text": "Você ainda não sabia em quem confiar."
+        },
+        {
+          "flag": "infancia_maestria",
+          "text": "Ter apoio mudou a forma como você via seu poder."
+        }
+      ],
+      "choices": [
+        {
+          "label": "Buscar orientação especializada",
+          "to": "recrutamento_vought",
+          "effects": {
+            "flags": {
+              "adolescencia_treino": true
+            }
+          },
+          "personality": "idealista"
+        },
+        {
+          "label": "Perguntar sobre a origem da mutação",
+          "to": "recrutamento_vought",
+          "effects": {
+            "flags": {
+              "adolescencia_investiga": true
+            }
+          },
+          "personality": "cetico"
+        }
+      ]
+    },
+    "infancia_campos_forca_1": {
+      "id": "infancia_campos_forca_1",
+      "title": "O despertar · Campos de força",
+      "time": "10 ANOS DE IDADE",
+      "stage": "CASA",
+      "text": "Uma pequena esfera luminosa envolveu seu brinquedo. Você ficou olhando, sem entender o que havia acontecido.",
+      "choices": [
+        {
+          "label": "Contar à família e pedir ajuda",
+          "to": "infancia_campos_forca_2",
+          "effects": {
+            "flags": {
+              "infancia_maestria": true,
+              "origem_campos_forca": true
+            }
+          },
+          "personality": "protetor"
+        },
+        {
+          "label": "Guardar a descoberta por enquanto",
+          "to": "infancia_campos_forca_2",
+          "effects": {
+            "flags": {
+              "infancia_escondeu": true,
+              "origem_campos_forca": true
+            }
+          },
+          "personality": "reservado"
+        }
+      ]
+    },
+    "infancia_campos_forca_2": {
+      "id": "infancia_campos_forca_2",
+      "title": "Aprender os limites · Campos de força",
+      "time": "15 ANOS DE IDADE",
+      "stage": "MEMÓRIAS DA ADOLESCÊNCIA",
+      "text": "Com o passar dos anos, você entendeu melhor sua habilidade. Duração limitada. A possibilidade de estudar em Godolkin começava a parecer real.",
+      "dynamic": [
+        {
+          "flag": "infancia_escondeu",
+          "text": "Você ainda não sabia em quem confiar."
+        },
+        {
+          "flag": "infancia_maestria",
+          "text": "Ter apoio mudou a forma como você via seu poder."
+        }
+      ],
+      "choices": [
+        {
+          "label": "Buscar orientação especializada",
+          "to": "recrutamento_vought",
+          "effects": {
+            "flags": {
+              "adolescencia_treino": true
+            }
+          },
+          "personality": "idealista"
+        },
+        {
+          "label": "Perguntar sobre a origem da mutação",
+          "to": "recrutamento_vought",
+          "effects": {
+            "flags": {
+              "adolescencia_investiga": true
+            }
+          },
+          "personality": "cetico"
+        }
+      ]
+    },
+    "infancia_duplicacao_1": {
+      "id": "infancia_duplicacao_1",
+      "title": "O despertar · Duplicação",
+      "time": "10 ANOS DE IDADE",
+      "stage": "CASA",
+      "text": "Por um instante, havia duas versões suas diante do espelho. Você ficou olhando, sem entender o que havia acontecido.",
+      "choices": [
+        {
+          "label": "Contar à família e pedir ajuda",
+          "to": "infancia_duplicacao_2",
+          "effects": {
+            "flags": {
+              "infancia_maestria": true,
+              "origem_duplicacao": true
+            }
+          },
+          "personality": "protetor"
+        },
+        {
+          "label": "Guardar a descoberta por enquanto",
+          "to": "infancia_duplicacao_2",
+          "effects": {
+            "flags": {
+              "infancia_escondeu": true,
+              "origem_duplicacao": true
+            }
+          },
+          "personality": "reservado"
+        }
+      ]
+    },
+    "infancia_duplicacao_2": {
+      "id": "infancia_duplicacao_2",
+      "title": "Aprender os limites · Duplicação",
+      "time": "15 ANOS DE IDADE",
+      "stage": "MEMÓRIAS DA ADOLESCÊNCIA",
+      "text": "Com o passar dos anos, você entendeu melhor sua habilidade. Atenção dividida. A possibilidade de estudar em Godolkin começava a parecer real.",
+      "dynamic": [
+        {
+          "flag": "infancia_escondeu",
+          "text": "Você ainda não sabia em quem confiar."
+        },
+        {
+          "flag": "infancia_maestria",
+          "text": "Ter apoio mudou a forma como você via seu poder."
+        }
+      ],
+      "choices": [
+        {
+          "label": "Buscar orientação especializada",
+          "to": "recrutamento_vought",
+          "effects": {
+            "flags": {
+              "adolescencia_treino": true
+            }
+          },
+          "personality": "idealista"
+        },
+        {
+          "label": "Perguntar sobre a origem da mutação",
+          "to": "recrutamento_vought",
+          "effects": {
+            "flags": {
+              "adolescencia_investiga": true
+            }
+          },
+          "personality": "cetico"
+        }
+      ]
+    },
+    "infancia_ilusionismo_1": {
+      "id": "infancia_ilusionismo_1",
+      "title": "O despertar · Ilusionismo",
+      "time": "10 ANOS DE IDADE",
+      "stage": "CASA",
+      "text": "Uma constelação imaginária apareceu no teto do quarto. Você ficou olhando, sem entender o que havia acontecido.",
+      "choices": [
+        {
+          "label": "Contar à família e pedir ajuda",
+          "to": "infancia_ilusionismo_2",
+          "effects": {
+            "flags": {
+              "infancia_maestria": true,
+              "origem_ilusionismo": true
+            }
+          },
+          "personality": "protetor"
+        },
+        {
+          "label": "Guardar a descoberta por enquanto",
+          "to": "infancia_ilusionismo_2",
+          "effects": {
+            "flags": {
+              "infancia_escondeu": true,
+              "origem_ilusionismo": true
+            }
+          },
+          "personality": "reservado"
+        }
+      ]
+    },
+    "infancia_ilusionismo_2": {
+      "id": "infancia_ilusionismo_2",
+      "title": "Aprender os limites · Ilusionismo",
+      "time": "15 ANOS DE IDADE",
+      "stage": "MEMÓRIAS DA ADOLESCÊNCIA",
+      "text": "Com o passar dos anos, você entendeu melhor sua habilidade. Exige foco contínuo. A possibilidade de estudar em Godolkin começava a parecer real.",
+      "dynamic": [
+        {
+          "flag": "infancia_escondeu",
+          "text": "Você ainda não sabia em quem confiar."
+        },
+        {
+          "flag": "infancia_maestria",
+          "text": "Ter apoio mudou a forma como você via seu poder."
+        }
+      ],
+      "choices": [
+        {
+          "label": "Buscar orientação especializada",
+          "to": "recrutamento_vought",
+          "effects": {
+            "flags": {
+              "adolescencia_treino": true
+            }
+          },
+          "personality": "idealista"
+        },
+        {
+          "label": "Perguntar sobre a origem da mutação",
+          "to": "recrutamento_vought",
+          "effects": {
+            "flags": {
+              "adolescencia_investiga": true
+            }
+          },
+          "personality": "cetico"
+        }
+      ]
+    },
+    "pessoal_matteo": {
+      "id": "pessoal_matteo",
+      "title": "Longe dos holofotes",
+      "time": "Intervalo da tarde",
+      "stage": "ÁREA VIP",
+      "place": "vip",
+      "people": [
+        "matteo"
+      ],
+      "text": "Matteo dobra o roteiro de uma entrevista. — Sabe quantas vezes já me pediram pra repetir a mesma resposta? Às vezes eu nem lembro qual era minha opinião antes de ensaiar.",
+      "choices": [
+        {
+          "label": "Ouvir sem pressionar e respeitar o que prefere guardar.",
+          "to": "revelacao_matteo",
+          "effects": {
+            "flags": {
+              "pessoal_matteo_respeito": true,
+              "revelado_matteo": true
+            },
+            "bonds": {
+              "matteo": 1
+            }
+          },
+          "memory": [
+            "matteo"
+          ],
+          "social": {
+            "matteo": {
+              "trust": 2,
+              "respect": 1,
+              "closeness": 1
+            }
+          }
+        },
+        {
+          "label": "Compartilhar uma preocupação minha também.",
+          "to": "revelacao_matteo",
+          "effects": {
+            "flags": {
+              "pessoal_matteo_aberto": true,
+              "revelado_matteo": true
+            },
+            "bonds": {
+              "matteo": 2
+            }
+          },
+          "memory": [
+            "matteo"
+          ],
+          "social": {
+            "matteo": {
+              "trust": 2,
+              "closeness": 2
+            }
+          }
+        },
+        {
+          "label": "Discordar com sinceridade, sem desrespeitar.",
+          "to": "explorar_tarde",
+          "effects": {
+            "flags": {
+              "pessoal_matteo_discorda": true
+            },
+            "bonds": {
+              "matteo": 0
+            }
+          },
+          "memory": [
+            "matteo"
+          ],
+          "social": {
+            "matteo": {
+              "respect": 2,
+              "rivalry": 1
+            }
+          }
+        },
+        {
+          "label": "Encerrar a conversa por enquanto.",
+          "to": "explorar_tarde",
+          "effects": {
+            "flags": {
+              "pessoal_matteo_distante": true
+            },
+            "bonds": {}
+          },
+          "memory": [],
+          "social": {}
+        }
+      ]
+    },
+    "revelacao_matteo": {
+      "id": "revelacao_matteo",
+      "title": "Um pouco mais de confiança",
+      "time": "Intervalo da tarde",
+      "stage": "ÁREA VIP",
+      "place": "vip",
+      "people": [
+        "matteo"
+      ],
+      "text": "Guarda um antigo convite que fez com Clara antes de os dois se afastarem. A conversa termina sem pressa. Você entende um pouco melhor o que existe por trás da imagem pública.\n\nMatteo conta um pouco do próprio passado: As expectativas do entorno e os compromissos públicos passaram a ocupar grande parte de sua rotina. Também admite um receio: Tornar-se irrelevante.",
+      "choices": [
+        {
+          "label": "Agradecer pela confiança e voltar ao pátio",
+          "to": "explorar_tarde",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        }
+      ]
+    },
+    "pessoal_maya": {
+      "id": "pessoal_maya",
+      "title": "Por trás das luvas",
+      "time": "Intervalo da tarde",
+      "stage": "BIBLIOTECA",
+      "place": "library",
+      "people": [
+        "maya"
+      ],
+      "text": "Maya ajeita as luvas e fecha seu livro. — Às vezes é cansativo ter que explicar por que prefiro distância. Eu queria que as pessoas perguntassem antes de presumir coisas sobre mim.",
+      "choices": [
+        {
+          "label": "Ouvir sem pressionar e respeitar o que prefere guardar.",
+          "to": "revelacao_maya",
+          "effects": {
+            "flags": {
+              "pessoal_maya_respeito": true,
+              "revelado_maya": true
+            },
+            "bonds": {
+              "maya": 1
+            }
+          },
+          "memory": [
+            "maya"
+          ],
+          "social": {
+            "maya": {
+              "trust": 2,
+              "respect": 1,
+              "closeness": 1
+            }
+          }
+        },
+        {
+          "label": "Compartilhar uma preocupação minha também.",
+          "to": "revelacao_maya",
+          "effects": {
+            "flags": {
+              "pessoal_maya_aberto": true,
+              "revelado_maya": true
+            },
+            "bonds": {
+              "maya": 2
+            }
+          },
+          "memory": [
+            "maya"
+          ],
+          "social": {
+            "maya": {
+              "trust": 2,
+              "closeness": 2
+            }
+          }
+        },
+        {
+          "label": "Discordar com sinceridade, sem desrespeitar.",
+          "to": "explorar_tarde",
+          "effects": {
+            "flags": {
+              "pessoal_maya_discorda": true
+            },
+            "bonds": {
+              "maya": 0
+            }
+          },
+          "memory": [
+            "maya"
+          ],
+          "social": {
+            "maya": {
+              "respect": 2,
+              "rivalry": 1
+            }
+          }
+        },
+        {
+          "label": "Encerrar a conversa por enquanto.",
+          "to": "explorar_tarde",
+          "effects": {
+            "flags": {
+              "pessoal_maya_distante": true
+            },
+            "bonds": {}
+          },
+          "memory": [],
+          "social": {}
+        }
+      ]
+    },
+    "revelacao_maya": {
+      "id": "revelacao_maya",
+      "title": "Um pouco mais de confiança",
+      "time": "Intervalo da tarde",
+      "stage": "BIBLIOTECA",
+      "place": "library",
+      "people": [
+        "maya"
+      ],
+      "text": "Guarda cartas que nunca enviou; escrever é sua forma de organizar sentimentos. A conversa termina sem pressa. Você entende um pouco melhor o que existe por trás da imagem pública.\n\nMaya conta um pouco do próprio passado: Aprendeu a estabelecer limites para se sentir segura nas relações. A convivência com Clara e a amizade com Luka ajudam. Também admite um receio: Perder o controle das próprias habilidades.",
+      "choices": [
+        {
+          "label": "Agradecer pela confiança e voltar ao pátio",
+          "to": "explorar_tarde",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        }
+      ]
+    },
+    "pessoal_clara": {
+      "id": "pessoal_clara",
+      "title": "Promessas quebradas",
+      "time": "Intervalo da tarde",
+      "stage": "PÁTIO CENTRAL",
+      "place": "patio",
+      "people": [
+        "clara"
+      ],
+      "text": "Clara vira uma fotografia sobre a mesa. — Antes de todo mundo começar a falar de ranking, a gente era só um grupo de amigos. O Matteo também. Não sei se sinto falta dele ou daquela época.",
+      "choices": [
+        {
+          "label": "Ouvir sem pressionar e respeitar o que prefere guardar.",
+          "to": "revelacao_clara",
+          "effects": {
+            "flags": {
+              "pessoal_clara_respeito": true,
+              "revelado_clara": true
+            },
+            "bonds": {
+              "clara": 1
+            }
+          },
+          "memory": [
+            "clara"
+          ],
+          "social": {
+            "clara": {
+              "trust": 2,
+              "respect": 1,
+              "closeness": 1
+            }
+          }
+        },
+        {
+          "label": "Compartilhar uma preocupação minha também.",
+          "to": "revelacao_clara",
+          "effects": {
+            "flags": {
+              "pessoal_clara_aberto": true,
+              "revelado_clara": true
+            },
+            "bonds": {
+              "clara": 2
+            }
+          },
+          "memory": [
+            "clara"
+          ],
+          "social": {
+            "clara": {
+              "trust": 2,
+              "closeness": 2
+            }
+          }
+        },
+        {
+          "label": "Discordar com sinceridade, sem desrespeitar.",
+          "to": "explorar_tarde",
+          "effects": {
+            "flags": {
+              "pessoal_clara_discorda": true
+            },
+            "bonds": {
+              "clara": 0
+            }
+          },
+          "memory": [
+            "clara"
+          ],
+          "social": {
+            "clara": {
+              "respect": 2,
+              "rivalry": 1
+            }
+          }
+        },
+        {
+          "label": "Encerrar a conversa por enquanto.",
+          "to": "explorar_tarde",
+          "effects": {
+            "flags": {
+              "pessoal_clara_distante": true
+            },
+            "bonds": {}
+          },
+          "memory": [],
+          "social": {}
+        }
+      ]
+    },
+    "revelacao_clara": {
+      "id": "revelacao_clara",
+      "title": "Um pouco mais de confiança",
+      "time": "Intervalo da tarde",
+      "stage": "PÁTIO CENTRAL",
+      "place": "patio",
+      "people": [
+        "clara"
+      ],
+      "text": "Guarda uma fotografia da época em que Matteo e ela eram amigos. A conversa termina sem pressa. Você entende um pouco melhor o que existe por trás da imagem pública.\n\nClara conta um pouco do próprio passado: Cresceu perto de Luka e Otávio; as antigas amizades ainda significam muito para ela. Também admite um receio: Perder pessoas em quem confia.",
+      "choices": [
+        {
+          "label": "Agradecer pela confiança e voltar ao pátio",
+          "to": "explorar_tarde",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        }
+      ]
+    },
+    "pessoal_otavio": {
+      "id": "pessoal_otavio",
+      "title": "O peso que ninguém vê",
+      "time": "Intervalo da tarde",
+      "stage": "REFEITÓRIO · ÁREA COMUM",
+      "place": "food",
+      "people": [
+        "otavio"
+      ],
+      "text": "Otávio coloca dois copos de água na mesa. — Engraçado. Todo mundo vem me pedir conselho, mas quando eu preciso de um, fico sem saber pra quem ligar. Nem sempre tenho tudo sob controle.",
+      "choices": [
+        {
+          "label": "Ouvir sem pressionar e respeitar o que prefere guardar.",
+          "to": "revelacao_otavio",
+          "effects": {
+            "flags": {
+              "pessoal_otavio_respeito": true,
+              "revelado_otavio": true
+            },
+            "bonds": {
+              "otavio": 1
+            }
+          },
+          "memory": [
+            "otavio"
+          ],
+          "social": {
+            "otavio": {
+              "trust": 2,
+              "respect": 1,
+              "closeness": 1
+            }
+          }
+        },
+        {
+          "label": "Compartilhar uma preocupação minha também.",
+          "to": "revelacao_otavio",
+          "effects": {
+            "flags": {
+              "pessoal_otavio_aberto": true,
+              "revelado_otavio": true
+            },
+            "bonds": {
+              "otavio": 2
+            }
+          },
+          "memory": [
+            "otavio"
+          ],
+          "social": {
+            "otavio": {
+              "trust": 2,
+              "closeness": 2
+            }
+          }
+        },
+        {
+          "label": "Discordar com sinceridade, sem desrespeitar.",
+          "to": "explorar_tarde",
+          "effects": {
+            "flags": {
+              "pessoal_otavio_discorda": true
+            },
+            "bonds": {
+              "otavio": 0
+            }
+          },
+          "memory": [
+            "otavio"
+          ],
+          "social": {
+            "otavio": {
+              "respect": 2,
+              "rivalry": 1
+            }
+          }
+        },
+        {
+          "label": "Encerrar a conversa por enquanto.",
+          "to": "explorar_tarde",
+          "effects": {
+            "flags": {
+              "pessoal_otavio_distante": true
+            },
+            "bonds": {}
+          },
+          "memory": [],
+          "social": {}
+        }
+      ]
+    },
+    "revelacao_otavio": {
+      "id": "revelacao_otavio",
+      "title": "Um pouco mais de confiança",
+      "time": "Intervalo da tarde",
+      "stage": "REFEITÓRIO · ÁREA COMUM",
+      "place": "food",
+      "people": [
+        "otavio"
+      ],
+      "text": "Ainda carrega culpa pelo acidente do passado e evita falar sobre o assunto. A conversa termina sem pressa. Você entende um pouco melhor o que existe por trás da imagem pública.\n\nOtávio conta um pouco do próprio passado: Os amigos do bairro, especialmente Clara e Luka, lembram a vida que tinha antes do ranking. Também admite um receio: Falhar com alguém novamente.",
+      "choices": [
+        {
+          "label": "Agradecer pela confiança e voltar ao pátio",
+          "to": "explorar_tarde",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        }
+      ]
+    },
+    "pessoal_zoe": {
+      "id": "pessoal_zoe",
+      "title": "O preço da perfeição",
+      "time": "Intervalo da tarde",
+      "stage": "ÁREA VIP",
+      "place": "vip",
+      "people": [
+        "zoe"
+      ],
+      "text": "Zoe guarda o celular e olha para o jardim. — Todo mundo acha que estar perto do topo resolve tudo. Na prática, parece que cada escolha precisa passar por uma reunião. Às vezes eu só queria escolher por mim.",
+      "choices": [
+        {
+          "label": "Ouvir sem pressionar e respeitar o que prefere guardar.",
+          "to": "revelacao_zoe",
+          "effects": {
+            "flags": {
+              "pessoal_zoe_respeito": true,
+              "revelado_zoe": true
+            },
+            "bonds": {
+              "zoe": 1
+            }
+          },
+          "memory": [
+            "zoe"
+          ],
+          "social": {
+            "zoe": {
+              "trust": 2,
+              "respect": 1,
+              "closeness": 1
+            }
+          }
+        },
+        {
+          "label": "Compartilhar uma preocupação minha também.",
+          "to": "revelacao_zoe",
+          "effects": {
+            "flags": {
+              "pessoal_zoe_aberto": true,
+              "revelado_zoe": true
+            },
+            "bonds": {
+              "zoe": 2
+            }
+          },
+          "memory": [
+            "zoe"
+          ],
+          "social": {
+            "zoe": {
+              "trust": 2,
+              "closeness": 2
+            }
+          }
+        },
+        {
+          "label": "Discordar com sinceridade, sem desrespeitar.",
+          "to": "explorar_tarde",
+          "effects": {
+            "flags": {
+              "pessoal_zoe_discorda": true
+            },
+            "bonds": {
+              "zoe": 0
+            }
+          },
+          "memory": [
+            "zoe"
+          ],
+          "social": {
+            "zoe": {
+              "respect": 2,
+              "rivalry": 1
+            }
+          }
+        },
+        {
+          "label": "Encerrar a conversa por enquanto.",
+          "to": "explorar_tarde",
+          "effects": {
+            "flags": {
+              "pessoal_zoe_distante": true
+            },
+            "bonds": {}
+          },
+          "memory": [],
+          "social": {}
+        }
+      ]
+    },
+    "revelacao_zoe": {
+      "id": "revelacao_zoe",
+      "title": "Um pouco mais de confiança",
+      "time": "Intervalo da tarde",
+      "stage": "ÁREA VIP",
+      "place": "vip",
+      "people": [
+        "zoe"
+      ],
+      "text": "Mantém uma lista particular de coisas que gostaria de fazer sem câmeras ou patrocinadores. A conversa termina sem pressa. Você entende um pouco melhor o que existe por trás da imagem pública.\n\nZoe conta um pouco do próprio passado: Aprendeu cedo a valorizar independência; a parceria com Matteo mistura objetivos e afeto. Também admite um receio: Perder sua autonomia.",
+      "choices": [
+        {
+          "label": "Agradecer pela confiança e voltar ao pátio",
+          "to": "explorar_tarde",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        }
+      ]
+    },
+    "pessoal_luka": {
+      "id": "pessoal_luka",
+      "title": "Sempre um passo à frente",
+      "time": "Intervalo da tarde",
+      "stage": "REFEITÓRIO · ÁREA COMUM",
+      "place": "food",
+      "people": [
+        "luka"
+      ],
+      "text": "Luka fecha um caderno cheio de rabiscos. — Todo mundo acha que eu tenho respostas. Na verdade, eu tenho uma lista enorme de perguntas. Até a Clara acha que eu exagero às vezes.",
+      "choices": [
+        {
+          "label": "Ouvir sem pressionar e respeitar o que prefere guardar.",
+          "to": "revelacao_luka",
+          "effects": {
+            "flags": {
+              "pessoal_luka_respeito": true,
+              "revelado_luka": true
+            },
+            "bonds": {
+              "luka": 1
+            }
+          },
+          "memory": [
+            "luka"
+          ],
+          "social": {
+            "luka": {
+              "trust": 2,
+              "respect": 1,
+              "closeness": 1
+            }
+          }
+        },
+        {
+          "label": "Compartilhar uma preocupação minha também.",
+          "to": "revelacao_luka",
+          "effects": {
+            "flags": {
+              "pessoal_luka_aberto": true,
+              "revelado_luka": true
+            },
+            "bonds": {
+              "luka": 2
+            }
+          },
+          "memory": [
+            "luka"
+          ],
+          "social": {
+            "luka": {
+              "trust": 2,
+              "closeness": 2
+            }
+          }
+        },
+        {
+          "label": "Discordar com sinceridade, sem desrespeitar.",
+          "to": "explorar_tarde",
+          "effects": {
+            "flags": {
+              "pessoal_luka_discorda": true
+            },
+            "bonds": {
+              "luka": 0
+            }
+          },
+          "memory": [
+            "luka"
+          ],
+          "social": {
+            "luka": {
+              "respect": 2,
+              "rivalry": 1
+            }
+          }
+        },
+        {
+          "label": "Encerrar a conversa por enquanto.",
+          "to": "explorar_tarde",
+          "effects": {
+            "flags": {
+              "pessoal_luka_distante": true
+            },
+            "bonds": {}
+          },
+          "memory": [],
+          "social": {}
+        }
+      ]
+    },
+    "revelacao_luka": {
+      "id": "revelacao_luka",
+      "title": "Um pouco mais de confiança",
+      "time": "Intervalo da tarde",
+      "stage": "REFEITÓRIO · ÁREA COMUM",
+      "place": "food",
+      "people": [
+        "luka"
+      ],
+      "text": "Mantém um caderno de perguntas sobre o campus, incluindo dúvidas que ainda não conseguiu responder. A conversa termina sem pressa. Você entende um pouco melhor o que existe por trás da imagem pública.\n\nLuka conta um pouco do próprio passado: A amizade de infância com Clara e a orientação de Otávio são referências importantes. Também admite um receio: Decepcionar quem acredita nele.",
+      "choices": [
+        {
+          "label": "Agradecer pela confiança e voltar ao pátio",
+          "to": "explorar_tarde",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        }
+      ]
+    },
+    "grupo_conversa": {
+      "id": "grupo_conversa",
+      "title": "Uma história anterior a você",
+      "time": "Intervalo da tarde",
+      "stage": "ESCADARIAS",
+      "place": "stairs",
+      "people": [
+        "clara",
+        "matteo"
+      ],
+      "text": "Clara: — Você podia ter avisado que não vinha.\n\nMatteo: — Eu tinha uma entrevista. Não é desculpa, eu sei.\n\nClara: — Então para de falar como se fosse.\n\nOs dois percebem sua presença. A discussão já vinha de antes de você chegar.",
+      "choices": [
+        {
+          "label": "Sugerir que conversem em particular.",
+          "to": "explorar_tarde",
+          "effects": {
+            "flags": {
+              "grupo_espaco": true
+            },
+            "bonds": {}
+          },
+          "peerChanges": [
+            [
+              "clara",
+              "matteo",
+              2
+            ],
+            [
+              "matteo",
+              "clara",
+              2
+            ]
+          ],
+          "memory": [
+            "clara",
+            "matteo"
+          ]
+        },
+        {
+          "label": "Pedir que ouçam um ao outro.",
+          "to": "explorar_tarde",
+          "effects": {
+            "flags": {
+              "grupo_escuta": true
+            },
+            "bonds": {}
+          },
+          "peerChanges": [
+            [
+              "clara",
+              "matteo",
+              3
+            ],
+            [
+              "matteo",
+              "clara",
+              3
+            ]
+          ],
+          "memory": [
+            "clara",
+            "matteo"
+          ]
+        },
+        {
+          "label": "Não interferir.",
+          "to": "explorar_tarde",
+          "effects": {
+            "flags": {
+              "grupo_neutro": true
+            },
+            "bonds": {}
+          },
+          "peerChanges": [
+            [
+              "clara",
+              "matteo",
+              0
+            ],
+            [
+              "matteo",
+              "clara",
+              0
+            ]
+          ],
+          "memory": []
+        },
+        {
+          "label": "Dizer que Clara tem razão.",
+          "to": "explorar_tarde",
+          "effects": {
+            "flags": {
+              "grupo_lado": true
+            },
+            "bonds": {}
+          },
+          "peerChanges": [
+            [
+              "clara",
+              "matteo",
+              -1
+            ],
+            [
+              "matteo",
+              "clara",
+              -1
+            ]
+          ],
+          "memory": [
+            "clara",
+            "matteo"
+          ]
         }
       ]
     }

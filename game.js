@@ -1,4 +1,4 @@
-/* Gen V: Campus Godolkin — Motor Jogável V0.9.0
+/* Gen V: Campus Godolkin — Motor Jogável V0.13.0
  * Inclui:
  * - Ranking Oficial Completo (#1 ao #100) com Elenco Principal, 92 NPCs da Universidade e o Protagonista
  * - Aba "RANKING" no Menu Principal e no Drawer com filtros (Top 10, Perto de Você, Calouros, Todos #1–#100)
@@ -18,13 +18,7 @@
   const root = document.getElementById('app');
   const SAVE_KEY = 'genv_godolkin_v03_slot_';
 
-  const ARQUETIPOS = [
-    { id: 'prodigio', nome: 'O Prodígio Ambicioso', tag: 'TOP 10', desc: 'Focado no ranking, competitivo e obcecado por aprovação e patrocínios.' },
-    { id: 'cetico', nome: 'O Cético / Rebelde', tag: 'ANTI-VOUGHT', desc: 'Desconfia da diretoria, questiona regras e busca a verdade oculta.' },
-    { id: 'estrategico', nome: 'O Estratégico / Frio', tag: 'CALCULISTA', desc: 'Observador e discreto; prefere manipular nos bastidores.' },
-    { id: 'protetor', nome: 'O Impulsivo / Protetor', tag: 'ALIADO', desc: 'Age primeiro e pensa depois; coloca amigos acima da própria fama.' },
-    { id: 'reservado', nome: 'O Forasteiro / Reservado', tag: 'DISCRETO', desc: 'Evita holofotes e esconde a real extensão dos próprios poderes.' }
-  ];
+  const ARQUETIPOS = [{"id": "prodigio", "nome": "O Prodígio Ambicioso", "tag": "Reconhecimento", "desc": "Vantagem: Reconhecimento. Desafio: Pressão por resultados."}, {"id": "cetico", "nome": "O Rebelde", "tag": "Questionamento", "desc": "Vantagem: Questionamento. Desafio: Atritos com a diretoria."}, {"id": "estrategico", "nome": "O Estrategista", "tag": "Leitura de pistas", "desc": "Vantagem: Leitura de pistas. Desafio: Confiança conquistada aos poucos."}, {"id": "protetor", "nome": "O Protetor", "tag": "Cooperação", "desc": "Vantagem: Cooperação. Desafio: Dilemas de lealdade."}, {"id": "reservado", "nome": "O Forasteiro", "tag": "Observação", "desc": "Vantagem: Observação. Desafio: Integração gradual."}, {"id": "carismatico", "nome": "O Carismático", "tag": "Conexões sociais", "desc": "Vantagem: Conexões sociais. Desafio: Exposição pública."}, {"id": "idealista", "nome": "O Idealista", "tag": "Integridade", "desc": "Vantagem: Integridade. Desafio: Decepções institucionais."}];
 
   const PODERES = [
     {
@@ -59,6 +53,10 @@
     }
   ];
 
+  PODERES.push(...[{"id": "eletrocinese", "nome": "Eletrocinese", "desc": "Pequenos campos elétricos luminosos", "custo": "Limitação: Concentração prolongada"}, {"id": "umbracinese", "nome": "Umbracinese", "desc": "Formas feitas de sombra", "custo": "Limitação: Luz intensa limita o alcance"}, {"id": "criocinese", "nome": "Criocinese", "desc": "Formação de cristais de gelo", "custo": "Limitação: Mudanças rápidas cansam"}, {"id": "campos_forca", "nome": "Campos de força", "desc": "Barreiras luminosas", "custo": "Limitação: Duração limitada"}, {"id": "duplicacao", "nome": "Duplicação", "desc": "Cópias temporárias", "custo": "Limitação: Atenção dividida"}, {"id": "ilusionismo", "nome": "Ilusionismo", "desc": "Imagens sensoriais fictícias", "custo": "Limitação: Exige foco contínuo"}]);
+  const ORIGENS = [{"id": "influente", "nome": "Família influente", "desc": "Em casa, o sobrenome abria portas, mas também trazia expectativas."}, {"id": "comum", "nome": "Família comum", "desc": "Em casa, o cotidiano era simples e os holofotes pareciam distantes."}, {"id": "legado", "nome": "Legado de super-heróis", "desc": "As histórias de antigos heróis faziam parte das conversas de família."}, {"id": "estrela", "nome": "Ex-estrela juvenil", "desc": "Você conhecia os bastidores das câmeras antes mesmo de entender a fama."}, {"id": "anti", "nome": "Família anti-Vought", "desc": "Em casa, as campanhas da Vought eram recebidas com perguntas, não aplausos."}, {"id": "confidencial", "nome": "Passado confidencial", "desc": "Havia lacunas nos registros da sua infância que ninguém explicava."}];
+  const MOTIVOS = [{"id": "sete", "nome": "Integrar os Sete"}, {"id": "segredos", "nome": "Descobrir os segredos da Vought"}, {"id": "controle", "nome": "Aprender a controlar os poderes"}, {"id": "independencia", "nome": "Conquistar independência"}, {"id": "ajudar", "nome": "Ajudar outras pessoas"}, {"id": "valor", "nome": "Provar seu valor"}, {"id": "indefinida", "nome": "Ainda não sabe o que deseja"}];
+  const labelOf = (list,id) => list.find(x=>x.id===id)?.nome || "Não registrado";
   const CARACTERISTICAS = [
     { id: 'carismatico', nome: 'Carismático', sub: 'Atrai aliados e agrada câmeras', tipo: 'normal' },
     { id: 'manipulador', nome: 'Manipulador', sub: 'Explora inseguranças em diálogos', tipo: 'normal' },
@@ -92,6 +90,8 @@
     { id: 'lealdade_dividida', nome: 'Lealdade Dividida', sub: 'Contatos externos cobram favores', tipo: 'flaw' }
   ];
 
+  CARACTERISTICAS.push(...[{"id": "orgulho", "nome": "Orgulho", "sub": "Dificuldade em admitir erros", "tipo": "flaw"}, {"id": "desconfiado", "nome": "Desconfiança", "sub": "Demora a aceitar ajuda", "tipo": "flaw"}, {"id": "competitivo", "nome": "Competitividade excessiva", "sub": "Pressão por resultados", "tipo": "flaw"}, {"id": "teimoso", "nome": "Teimosia", "sub": "Dificuldade em mudar de ideia", "tipo": "flaw"}, {"id": "medo_fracasso", "nome": "Medo do fracasso", "sub": "Hesita diante de expectativas", "tipo": "flaw"}]);
+  const traitCount = (kind) => draft.caracteristicas.filter(id=>CARACTERISTICAS.find(t=>t.id===id)?.tipo===kind).length;
   const ATRIBUTOS_INFO = [
     { id: 'potencia', nome: 'Potência', desc: 'Força física bruta e impacto destrutivo do poder.' },
     { id: 'controle', nome: 'Controle', desc: 'Precisão técnica, furtividade e estabilidade emocional.' },
@@ -119,7 +119,7 @@
   // Banco completo de 100 alunos do Ranking Oficial de Godolkin (Top 1 ao #100)
   const CAMPUS_ROSTER_BASE = [
     { basePos: 1, name: 'Dante Mercer', year: '3º Ano', power: 'Fotocinese Solar', tag: 'ELITE VOUGHT', castId: null },
-    { basePos: 2, name: 'Matteo', year: '3º Ano', power: 'Pirocinese', tag: 'ELITE VOUGHT', castId: 'matteo' },
+    { basePos: 2, name: 'Matteo Valença', year: '3º Ano', power: 'Pirocinese', tag: 'ELITE VOUGHT', castId: 'matteo' },
     { basePos: 3, name: 'Valerie Cross', year: '3º Ano', power: 'Criocinese & Blindagem', tag: 'ELITE VOUGHT', castId: null },
     { basePos: 4, name: 'Zoe Lee', year: '2º Ano', power: 'Eletrocinese', tag: 'ELITE VOUGHT', castId: 'zoe' },
     { basePos: 5, name: 'Maya Dunlap', year: '2º Ano', power: 'Persuasão Tátil', tag: 'ELITE VOUGHT', castId: 'maya' },
@@ -298,6 +298,7 @@
       idade: 18,
       pronomes: 'ele/dele',
       arquetipo: 'prodigio',
+      origem: 'comum', motivacao: 'indefinida',
       poder_id: 'hemocinese',
       caracteristicas: [],
       atributos: { potencia: 1, controle: 1, intelecto: 1, carisma: 1, vigor: 1 }
@@ -404,8 +405,7 @@
   }
 
   function getRelationshipStatus(val, romVal = 0) {
-    if (romVal >= 20) return { label: 'Interesse Romântico & Química Evidente', cls: 'positive' };
-    if (romVal >= 10) return { label: 'Clima de Flerte / Aproximação Especial', cls: 'positive' };
+    // Interest is separate from friendship; it never establishes a relationship.
     if (val >= 75) return { label: 'Confiança Plena / Aliado Próximo', cls: 'positive' };
     if (val >= 55) return { label: 'Amigável / Boa Intimidade', cls: 'positive' };
     if (val >= 40) return { label: 'Colega de Campus / Aproximando-se', cls: '' };
@@ -424,7 +424,7 @@
     return `<header class="app-header">
       <button class="brand" data-action="menu" aria-label="Menu principal">${wordmark()}</button>
       <div class="header-right">
-        <span class="header-status">${screen === 'menu' ? 'VOUGHT // DOSSIÊ' : 'PRÓLOGO · V0.9.0'}</span>
+        <span class="header-status">${screen === 'menu' ? 'VOUGHT // DOSSIÊ' : 'PRÓLOGO · V0.13.0'}</span>
         <button class="menu-btn" data-action="drawer" aria-expanded="${drawerOpen}">
           <span class="menu-btn-bars">${drawerOpen ? '✕' : '☰'}</span>
           <span>${drawerOpen ? 'FECHAR' : 'MENU'}</span>
@@ -543,10 +543,12 @@
     if (!draft) resetDraft();
 
     const stepTitles = [
-      'Etapa 1 de 4 • Identidade & Arquétipo',
-      'Etapa 2 de 4 • Mutação Exclusiva (Composto V)',
-      'Etapa 3 de 4 • 8 Características',
-      'Etapa 4 de 4 • 5 Atributos (7 Pontos)'
+      'Etapa 1 de 6 • Identidade & Arquétipo',
+      'Etapa 2 de 6 • Mutação Exclusiva (Composto V)',
+      'Etapa 3 de 6 • 8 Características',
+      'Etapa 4 de 6 • 5 Atributos (7 Pontos)',
+      'Etapa 5 de 6 • Origem e motivação',
+      'Etapa 6 de 6 • Revisão da matrícula'
     ];
 
     let stepHtml = '';
@@ -597,7 +599,7 @@
       canAdvance = !!draft.poder_id;
       nextLabel = 'Próximo: Características ›';
       stepHtml = `
-        <p class="fine">Escolha uma das 5 mutações exclusivas. Nenhum colega do seu grupo possui o mesmo poder que você — e cada habilidade tem sua própria história na infância e adolescência.</p>
+        <p class="fine">Escolha uma das 11 mutações. Cada habilidade tem sua própria história na infância e adolescência.</p>
         <div class="option-cards">
           ${PODERES.map(p => `
             <button type="button" class="opt-card ${draft.poder_id === p.id ? 'selected' : ''}" data-pick-pod="${p.id}">
@@ -610,14 +612,14 @@
       `;
     } else if (creatorStep === 3) {
       const count = draft.caracteristicas.length;
-      canAdvance = count === 8;
+      canAdvance = traitCount("normal")===5 && traitCount("flaw")===3;
       nextLabel = count === 8 ? 'Próximo: Atributos ›' : `Escolha ${8 - count} restante(s)`;
       stepHtml = `
         <div class="sticky-counter">
           <span>Características do Personagem</span>
-          <b>${count} / 8</b>
+          <b>${traitCount("normal")} / 5 qualidades · ${traitCount("flaw")} / 3 defeitos</b>
         </div>
-        <p class="fine">Selecione exatamente 8 traços (entre talentos sociais, físicos e falhas dramáticas).</p>
+        <p class="fine">Selecione 5 qualidades e 3 defeitos.</p>
         <div class="traits-grid">
           ${CARACTERISTICAS.map(t => {
             const active = draft.caracteristicas.includes(t.id);
@@ -632,7 +634,7 @@
       const used = Object.values(draft.atributos).reduce((a, b) => a + b, 0) - 5;
       const left = 7 - used;
       canAdvance = left === 0;
-      nextLabel = left === 0 ? 'INICIAR PRÓLOGO DE ORIGEM ›' : `Distribua ${left} ponto(s)`;
+      nextLabel = left === 0 ? 'Próximo: Histórico ›' : `Distribua ${left} ponto(s)`;
       stepHtml = `
         <div class="sticky-counter">
           <span>Pontos Livres Restantes</span>
@@ -659,10 +661,17 @@
       `;
     }
 
+    if (creatorStep === 5) {
+      canAdvance = true; nextLabel = 'Revisar matrícula ›';
+      stepHtml = `<h2>Histórico familiar</h2><div class="option-cards">${ORIGENS.map(o=>`<button class="opt-card ${draft.origem===o.id?'selected':''}" data-origin="${o.id}"><strong>${safe(o.nome)}</strong><small>${safe(o.desc)}</small></button>`).join('')}</div><h2>Motivação pessoal</h2><div class="option-cards">${MOTIVOS.map(o=>`<button class="opt-card ${draft.motivacao===o.id?'selected':''}" data-motive="${o.id}">${safe(o.nome)}</button>`).join('')}</div>`;
+    } else if (creatorStep === 6) {
+      canAdvance = true; nextLabel = 'Confirmar matrícula e iniciar ›';
+      stepHtml = `<section class="admission-record"><div class="kicker">VOUGHT INTERNATIONAL // DOCUMENTO CONFIDENCIAL</div><h2>${safe(draft.nome)}</h2><p>${draft.idade} anos · ${safe(draft.pronomes)} · 1º ano · Ranking inicial #48</p><p><b>Arquétipo:</b> ${safe(labelOf(ARQUETIPOS,draft.arquetipo))}</p><p><b>Mutação:</b> ${safe(labelOf(PODERES,draft.poder_id))}</p><p><b>Origem:</b> ${safe(labelOf(ORIGENS,draft.origem))}</p><p><b>Motivação:</b> ${safe(labelOf(MOTIVOS,draft.motivacao))}</p>${ATRIBUTOS_INFO.map(a=>`<div class="admission-attr"><span>${safe(a.nome)}</span><meter min="0" max="4" value="${draft.atributos[a.id]}"></meter><b>${draft.atributos[a.id]}/4</b></div>`).join('')}<p><b>Características:</b> ${safe(draft.caracteristicas.map(getTraitLabel).join(' · '))}</p><div class="kicker">SITUAÇÃO: ADMITIDO</div></section>`;
+    }
     layout(`<main class="panel-view">
       <div class="panel">
         <div class="stepper">
-          ${[1, 2, 3, 4].map(i => `<div class="step-pill ${i < creatorStep ? 'done' : i === creatorStep ? 'active' : ''}"></div>`).join('')}
+          ${[1, 2, 3, 4, 5, 6].map(i => `<div class="step-pill ${i < creatorStep ? 'done' : i === creatorStep ? 'active' : ''}"></div>`).join('')}
         </div>
         <div class="kicker">${stepTitles[creatorStep - 1]}</div>
         <h1>Ficha de Matrícula</h1>
@@ -678,7 +687,7 @@
   function finishCreation() {
     save = {
       game: 'genv-campus-godolkin',
-      version: '0.9.0',
+      version: '0.13.0',
       slot,
       node: DATA.meta.start,
       perfil: {
@@ -687,6 +696,7 @@
         ano: '1º Ano (Calouro)',
         pronomes: draft.pronomes,
         arquetipo: draft.arquetipo,
+        origem: draft.origem, motivacao: draft.motivacao, personalidade: draft.arquetipo,
         poder_id: draft.poder_id,
         caracteristicas: [...draft.caracteristicas],
         ranking_campus: 48
@@ -700,6 +710,7 @@
         estresse_max: 100
       },
       flags: {},
+      personalidadePontos: {[draft.arquetipo]: 2},
       bonds: { ...BASE_BONDS },
       romance: { ...BASE_ROMANCE },
       history: [],
@@ -725,7 +736,28 @@
     }).join('');
   }
 
+  const clampSocial=v=>Math.max(0,Math.min(100,v));
+  function socialFor(id){
+    const base=BASE_BONDS[id]??28;
+    if(!save)return {trust:base,respect:30,rivalry:10,closeness:15};
+    save.social ||= {};
+    return save.social[id] ||= {trust:save.bonds?.[id]??base,respect:30,rivalry:10,closeness:15};
+  }
+  function peerScore(id,r){return clampSocial((r.affinity??50)+(save?.peerChanges?.[id+':'+r.targetId]||0));}
+  function advancePeers(to,choice){
+    save.peerChanges ||= {}; save.peerEvents ||= [];
+    const changes=[...(choice?.peerChanges||[])];
+    if(to==='tarde_7'&&!save.peerEvents.includes('luka_otavio')){changes.push(['luka','otavio',4],['otavio','luka',4]);save.peerEvents.push('luka_otavio');}
+    for(const [a,b,d] of changes){const k=a+':'+b;save.peerChanges[k]=(save.peerChanges[k]||0)+d;}
+  }
+  function romanceAvailable(id){const npc=CAST.find(x=>x.id===id);return !!(npc?.romanceable && /^Solteir[oa]/i.test(npc.relationshipStatus||''));}
   function evaluateChoice(c) {
+    if(c.romanceTarget && (!romanceAvailable(c.romanceTarget) || (save.romance?.[c.romanceTarget]||0)>0)) return {visible:false};
+    if(c.requireFlag&&!save.flags[c.requireFlag])return {visible:false};
+    if(c.requireTrust&&socialFor(c.requireTrust.id).trust<c.requireTrust.min)return {visible:true,enabled:false,lockText:'Requer confiança '+c.requireTrust.min};
+    if (c.requireArq && c.requireArq !== (save.perfil.personalidade || save.perfil.arquetipo)) return {visible:false};
+    if (c.requireOrigin && c.requireOrigin !== save.perfil.origem) return {visible:false};
+    if (c.requireMotive && c.requireMotive !== save.perfil.motivacao) return {visible:false};
     if (c.room && ((save.perfil.pronomes === "ele/dele" && c.room !== "m") || (save.perfil.pronomes === "ela/dela" && c.room !== "f"))) return {visible:false};
     if (c.once && save.visited.includes(c.once)) return {visible:false};
     if (SCENES[save.node]?.hub === "morning" && c.once && morningCount() >= 2) return {visible:false};
@@ -761,6 +793,12 @@
 
   function move(to, choice) {
     if (!SCENES[to]) return;
+    for(const c of CAST) socialFor(c.id);
+    const repeated=!!choice && (save.history||[]).some(h=>h.from===save.node && h.label===choice.label);
+    if(repeated) choice={...choice,social:{},peerChanges:[],memory:[],effects:{...choice.effects,bonds:{},romance:{}}};
+    advancePeers(to,choice);
+    for(const [id,stats] of Object.entries(choice?.social||{})){const a=socialFor(id);for(const [key,delta] of Object.entries(stats))if(key in a)a[key]=clampSocial(a[key]+delta);}
+    for(const [id,delta] of Object.entries(choice?.effects?.bonds||{})){if(choice?.social?.[id])continue;const a=socialFor(id);a.closeness=clampSocial(a.closeness+Math.sign(delta));if(choice?.memory?.includes(id))a.trust=clampSocial(a.trust+Math.sign(delta));}
     memoryFlash=[];
     save.memories ||= [];
     if(choice?.memory?.length){ memoryFlash=[...new Set(choice.memory)]; save.memories.push({people:memoryFlash,scene:save.node,label:choice.label}); }
@@ -769,6 +807,7 @@
     if (!save.romance) save.romance = { ...BASE_ROMANCE };
 
     if (choice) {
+      if (choice.personality) { const points = save.personalidadePontos ||= {[save.perfil.arquetipo]:2}; points[choice.personality]=(points[choice.personality]||0)+1; const current=save.perfil.personalidade||save.perfil.arquetipo; if(points[choice.personality] >= (points[current]||0)+2) save.perfil.personalidade=choice.personality; }
       const oldStages = CHAIN_REACTIONS.map(d => chainStage(d, save.flags));
       const changes = [];
 
@@ -795,12 +834,13 @@
           }
         }
         for (const [id, delta] of Object.entries(choice.effects.romance || {})) {
+          if(!romanceAvailable(id) || choice.romanceTarget!==id) continue;
           const from = save.romance[id] ?? 0;
-          const toVal = Math.max(0, Math.min(100, from + delta));
+          const toVal = Math.max(0, Math.min(1, from + Math.sign(delta)));
           save.romance[id] = toVal;
           if (toVal !== from) {
             const name = CAST.find(x => x.id === id)?.name || id;
-            changes.push({ name: `${name} (Atração)`, from, to: toVal, type: 'romance' });
+            changes.push({ name: `${name} (Interesse sinalizado)`, from, to: toVal, type: 'romance' });
           }
         }
         if (choice.effects.rank) {
@@ -862,7 +902,7 @@
 
     const baseTextHtml = n.text ? formatNarrative(n.text) : '';
     const extraTextHtml = (n.dynamic || [])
-      .filter(d => d.flag && save.flags[d.flag])
+      .filter(d => (d.flag && save.flags[d.flag]) || (d.origin && d.origin===save.perfil.origem) || (d.motive && d.motive===save.perfil.motivacao) || (d.arq && d.arq===(save.perfil.personalidade||save.perfil.arquetipo)))
       .map(d => formatNarrative(d.text))
       .join('');
     const afterDynamicHtml = n.textAfterDynamic ? formatNarrative(n.textAfterDynamic) : '';
@@ -879,9 +919,13 @@
 
           let labelText = c.label;
           let badge = '';
-          if (labelText.startsWith('[Flerte]')) {
-            labelText = labelText.replace(/^\[Flerte\]\s*/i, '');
-            badge = '<span class="choice-tag romance">♥ FLERTE</span>';
+          if (labelText.startsWith('[Interesse]')) {
+            labelText = labelText.replace(/^\[Interesse\]\s*/i, '');
+            badge = '<span class="choice-tag romance">♥ OPCIONAL</span>';
+          } else if (c.requireArq) {
+            badge = '<span class="choice-tag trait">ARQUÉTIPO</span>';
+          } else if (c.requireMotive || c.requireOrigin) {
+            badge = '<span class="choice-tag trait">HISTÓRICO</span>';
           } else if (c.requirePower) {
             badge = '<span class="choice-tag power">PODER</span>';
           } else if (c.requireTrait) {
@@ -909,7 +953,7 @@
             <button type="button" class="hud-rank-btn" data-action="ranking" title="Abrir Ranking Oficial (#1–#100)">RANK #${save.perfil.ranking_campus} ↗</button>
             <span class="fine">(${safe(podObj ? podObj.nome.split(' ')[0] : '')})</span>
           </div>
-          <button class="map-icon" data-action="map" aria-label="Mapa de Godolkin">▧ MAPA</button>
+          ${phoneReady()?`<button class="map-icon" data-action="phone">▣ CELULAR ${unreadPhone()||""}</button>`:""}<button class="map-icon" data-action="map" aria-label="Mapa de Godolkin">▧ MAPA</button>
           <div class="hud-meters">
             <span class="hud-hp">VITALIDADE: ${save.recursos.vitalidade}%</span>
             <span class="hud-stress">ESTRESSE: ${save.recursos.estresse}%</span>
@@ -944,9 +988,9 @@
 
 
   const morningCount=()=>['calouros_1','elite_1','arcadas_1','favor_clara','biblioteca_m'].filter(k=>save.visited.includes(k)).length;
-  const afternoonCount=()=>['clara_retorno','maya_tarde','dorm_tarde'].filter(k=>save.visited.includes(k)).length;
+  const afternoonCount=()=>['clara_retorno','maya_tarde','dorm_tarde','grupo_conversa',...CAST.map(c=>'pessoal_'+c.id)].filter(k=>save.visited.includes(k)).length;
   const MAP_PLACES=[['gate','Portões / recepção',50,91],['male','Dormitório masculino',16,70],['female','Dormitório feminino',83,70],['single','Alojamento individual',50,76],['patio','Pátio central',50,51],['stairs','Escadarias',17,48],['library','Biblioteca',16,25],['arcade','Arcadas',83,47],['vip','Área VIP',83,25],['arena','Pavilhão B / arena',50,27],['office','Reitoria',50,9],['food','Refeitório',16,9],['tower','Torre Norte',83,9]];
-  const scenePlace=k=>k==='chegada_campus'||k==='dorm_escolha'?'gate':k==='dorm_m'?'male':k==='dorm_f'?'female':k==='dorm_ind'?'single':k==='dorm_tarde'||k==='tarde_7'?(save.flags.dorm_m?'male':save.flags.dorm_f?'female':'single'):k.startsWith('calouros')||k==='favor_clara'?'stairs':k.startsWith('elite')?'vip':k.startsWith('arcadas')?'arcade':k.startsWith('arena')?'arena':k==='biblioteca_m'||k==='maya_tarde'?'library':/^tarde_[234]$/.test(k)?'office':/^tarde_[56]$/.test(k)?'food':k.startsWith('festa')||k==='end'?'tower':k.startsWith('explorar')||k==='clara_retorno'||k==='tarde_1'?'patio':null;
+  const scenePlace=k=>SCENES[k]?.place|| (k==='chegada_campus'||k==='dorm_escolha'?'gate':k==='dorm_m'?'male':k==='dorm_f'?'female':k==='dorm_ind'?'single':k==='dorm_tarde'||k==='tarde_7'?(save.flags.dorm_m?'male':save.flags.dorm_f?'female':'single'):k.startsWith('calouros')||k==='favor_clara'?'stairs':k.startsWith('elite')?'vip':k.startsWith('arcadas')?'arcade':k.startsWith('arena')?'arena':k==='biblioteca_m'||k==='maya_tarde'?'library':/^tarde_[234]$/.test(k)?'office':/^tarde_[56]$/.test(k)?'food':k.startsWith('festa')||k==='end'?'tower':k.startsWith('explorar')||k==='clara_retorno'||k==='tarde_1'?'patio':null);
   function campusPositions(){
     const k=save.node, here=scenePlace(k); if(!here)return {};
     let pos={clara:'stairs',luka:'stairs',maya:'arcade',otavio:'arcade',matteo:'vip',zoe:'vip'};
@@ -957,6 +1001,10 @@
     if(/^tarde_[56]$/.test(k))Object.assign(pos,{clara:'food',maya:'food',luka:'food',otavio:'food'});
     if(k==='dorm_tarde'||k==='tarde_7')Object.assign(pos,{clara:'female',maya:'female',luka:'male',otavio:'male'});
     if(here==='tower')Object.keys(pos).forEach(id=>pos[id]='tower');
+    if(k==='explorar_tarde')for(const c of CAST)pos[c.id]=c.depth.routine.afternoon;
+    if(k==='explorar_manha')for(const c of CAST)pos[c.id]=c.depth.routine.morning;
+    if(k==='grupo_conversa')Object.assign(pos,{clara:'stairs',matteo:'stairs'});
+    for(const id of SCENES[k]?.people||[])pos[id]=here;
     return {...pos,player:here};
   }
   function mapView(){
@@ -1066,7 +1114,7 @@
         <div class="kicker">ARQUIVO VOUGHT // CALOURO (1º ANO)</div>
         <h1>${safe(save.perfil.nome)} (${save.perfil.idade} anos)</h1>
         <p class="fine">Ano Letivo: <strong>1º Ano (Calouro)</strong> • Pronomes: <strong>${safe(save.perfil.pronomes)}</strong> • Ranking Atual: <strong>#${save.perfil.ranking_campus}/100 (${safe(getRankTier(save.perfil.ranking_campus))})</strong> • Arquétipo: <strong>${safe(arq?.nome || '')}</strong></p>
-        <h2>Mutação Registrada</h2>
+        <p>Origem: <b>${safe(labelOf(ORIGENS,save.perfil.origem))}</b> · Motivação: <b>${safe(labelOf(MOTIVOS,save.perfil.motivacao))}</b></p><p>Personalidade atual: <b>${safe(labelOf(ARQUETIPOS,save.perfil.personalidade||save.perfil.arquetipo))}</b></p><h2>Mutação Registrada</h2>
         <p><strong>${safe(pod?.nome || '')}</strong> — ${safe(pod?.desc || '')}</p>
         <h2>Atributos</h2>
         <div class="button-row">
@@ -1106,7 +1154,7 @@
         <h1>Diário de Consequências</h1>
         <div class="dashboard">
           <section>
-            <h2>Intimidade &amp; Atração no Campus</h2>
+            <h2>Afinidade e vínculos no campus</h2>
             ${CAST.map(c => {
               const val = save.bonds[c.id] ?? BASE_BONDS[c.id] ?? 28;
               const rom = c.romanceable ? (save.romance?.[c.id] ?? 0) : 0;
@@ -1117,9 +1165,7 @@
                   <b>${val}</b>
                 </div>
                 ${c.romanceable && rom > 0 ? `<div class="bond romance-sub">
-                  <label>♥ Atração</label>
-                  <div class="meter romance-meter"><i style="width:${rom}%"></i></div>
-                  <b>${rom}</b>
+                  <label>♥ Interesse sinalizado · reciprocidade não definida</label>
                 </div>` : ''}
               </div>`;
             }).join('')}
@@ -1208,7 +1254,7 @@
                 <strong>${safe(c.name)}</strong>
                 <small>${safe(c.role)}</small>
                 <span>${safe(c.age)} • ${safe(c.relationshipStatus || '')}</span>
-                <em>Intimidade: ${bVal}/100${c.romanceable && rVal > 0 ? ` · ♥ Atração: ${rVal}/100` : ''}</em>
+                <em>Afinidade: ${bVal}/100${c.romanceable && rVal > 0 ? ` · ♥ Interesse sinalizado` : ''}</em>
               </div>
             </button>`;
           }).join('')}
@@ -1230,7 +1276,14 @@
           <p><strong>Personalidade:</strong> ${safe(sel.personality)}</p>
           <p class="fine">${safe(sel.bio)}</p>
 
+          <section class="depth-panel"><h2>Arquivo em descoberta</h2>
+            <p><strong>História pessoal:</strong> ${safe(sel.depth.title)}</p>
+            <p><strong>Rotina habitual:</strong> ${Object.entries(sel.depth.routine).map(([t,l])=>safe(({morning:'Manhã',afternoon:'Tarde',night:'Noite'})[t])+': '+safe(MAP_PLACES.find(p=>p[0]===l)?.[1])).join(' · ')}</p>
+            ${[['Histórico',sel.depth.history],['Maior medo',sel.depth.fear],['Contradição',sel.depth.contradiction],['Confidência',sel.depth.secret]].map(([label,value])=>`<div class="depth-entry"><b>${safe(label)}</b><p>${save?.flags?.['revelado_'+sel.id]?safe(value):'🔒 Descubra durante a história pessoal.'}</p></div>`).join('')}
+            <h3>Memórias com você</h3>${(save?.memories||[]).filter(m=>m.people.includes(sel.id)).map(m=>`<p class="fine">${safe(m.label)}</p>`).join('')||'<p class="fine">Nenhuma memória registrada.</p>'}
+          </section>
           <h2>Relação com ${safe(playerFirstName)}</h2>
+          <div class="depth-panel">${[['Afinidade',playerBond],...Object.entries(socialFor(sel.id)).map(([k,v])=>[({trust:'Confiança',respect:'Respeito',rivalry:'Rivalidade',closeness:'Proximidade'})[k],v])].map(([label,v])=>`<div class="depth-entry"><b>${safe(label)} · ${v}/100</b><div class="meter"><i style="width:${v}%"></i></div></div>`).join('')}</div>
           <div class="cast-rel-list">
             <div class="cast-rel-item player-rel">
               <strong>${safe(playerFirstName)} • ${safe(relStatus.label)}</strong>
@@ -1238,17 +1291,13 @@
                 <div class="meter"><i style="width:${playerBond}%"></i></div>
                 <b>${playerBond}</b>
               </div>
-              ${sel.romanceable ? `
-                <div style="font-size:11px;color:#f9a8d4;font-weight:800;margin-top:6px;">♥ INTERESSE ROMÂNTICO / ATRAÇÃO</div>
-                <div class="rel-meter-row">
-                  <div class="meter romance-meter"><i style="width:${playerRom}%"></i></div>
-                  <b>${playerRom}</b>
-                </div>
+              ${romanceAvailable(sel.id) ? `
+                <div style="font-size:11px;color:#f9a8d4;font-weight:800;margin-top:6px;">${playerRom>0?'♥ Interesse sinalizado · reciprocidade não definida':'Vínculo de amizade · interesse opcional'}</div>
               ` : `<div style="font-size:11px;color:#a1a1aa;margin-top:4px;">Status: ${safe(sel.relationshipStatus || 'Compromissado(a)')}</div>`}
               <span>${save
-                ? (playerBond >= 55
+                ? (socialFor(sel.id).trust >= 55
                     ? `${sel.name} já demonstra confiança real em ${playerFirstName} e compartilha informações sem rodeios.`
-                    : playerBond >= 36
+                    : socialFor(sel.id).trust >= 36
                     ? `${sel.name} começa a se aproximar e enxerga ${playerFirstName} como um colega promissor no campus.`
                     : `${sel.name} ainda vê ${playerFirstName} como um calouro recém-chegado — a confiança precisa ser conquistada passo a passo.`)
                 : 'Inicie uma partida para construir laços e aumentar sua intimidade com este personagem.'}</span>
@@ -1258,9 +1307,9 @@
           <h2>Relações &amp; Afinidade com os Outros Alunos</h2>
           <div class="cast-rel-list">
             ${(sel.relations || []).map(r => {
-              const aff = typeof r.affinity === 'number' ? r.affinity : 50;
+              const aff = peerScore(sel.id,r);
               return `<div class="cast-rel-item">
-                <strong>${safe(r.target)} • ${safe(r.label)}</strong>
+                <strong>${safe(r.target)} • ${safe(r.label)}${aff!==(r.affinity??50)?` · ${aff>(r.affinity??50)?'aproximação':'atrito'}`:''}</strong>
                 <div class="rel-meter-row">
                   <div class="meter"><i style="width:${aff}%"></i></div>
                   <b>${aff}</b>
@@ -1307,9 +1356,46 @@
     </main>`);
   }
 
+  let phoneApp='home', phoneContact='';
+  const phoneApps=[['messages','✉','Mensagens'],['feed','V+','Vought+'],['contacts','☷','Contatos'],['map','▧','Mapa'],['agenda','◷','Agenda'],['ranking','★','Ranking'],['news','▤','Notícias'],['files','▣','Arquivos'],['profile','◉','Perfil']];
+  const phoneReady=()=>save?.visited?.includes('chegada_campus');
+  const reputation=()=>{const f=save.flags||{}, p=phoneData(); const rank=save.perfil.ranking_campus; const count=ks=>ks.filter(k=>f[k]).length; return {popularidade:clampSocial(22+Math.round((100-rank)/2)+p.posts.length*2+count(['salvou_clara','f5_usou_poder'])*5),aprovacao:clampSocial(35+count(['t2_dir_ambicioso','t2_dir_diplomatico','t3_dir_concordou','ar2_confirmou_zoe'])*12-count(['t2_dir_questionou','f4_zoe_confronto'])*9),credibilidade:clampSocial(40+count(['t4_contou_tudo','f2_matteo_honesto','salvou_clara'])*9+p.replies.filter(r=>r.kind===0).length*3),controversia:clampSocial(10+count(['t2_dir_questionou','ar2_criticou_matteo','f4_zoe_confronto','f2_matteo_desafiou'])*13+p.posts.filter(x=>x.kind===1).length*5)};};
+  function phoneData(){return save.phone ||= {read:[],replies:[],likes:[],following:[],posts:[],comments:{}};}
+  function phoneMessages(){const v=save.visited, f=save.flags; const m=[]; const add=(id,who,text)=>m.push({id,who,text});
+    if(v.includes('chegada_campus'))add('welcome','group','Godolkin: bem-vindos! Confiram a agenda da recepção.');
+    if(v.includes('calouros_1')||v.includes('dorm_f'))add('clara1','clara','E aí, já conseguiu se localizar?');
+    if(v.includes('calouros_1')||v.includes('dorm_m'))add('luka1','luka','A recepção parece um comercial interminável, né?');
+    if(v.includes('arcadas_1')||v.includes('dorm_f'))add('maya1','maya','Se precisar de um lugar tranquilo, a biblioteca costuma estar vazia.');
+    if(v.includes('arcadas_1')||v.includes('dorm_m'))add('otavio1','otavio','Se quiser companhia no almoço, me avisa.');
+    if(v.includes('elite_1')||v.includes('arena_2'))add('zoe1','zoe','Primeiras impressões contam. Nos vemos na Torre Norte.');
+    if(v.includes('elite_1')||v.includes('festa_2'))add('matteo1','matteo','Espero que esteja se adaptando. Godolkin não é só o ranking.');
+    if(f.salvou_clara)add('clara2','clara','Sobre a arena… obrigada por ter pensado em mim.');
+    if(f.favor_aceito||f.favor_recusado)add('clara3','clara',f.favor_aceito?'Obrigada por me ouvir mais cedo.':'Ainda estou pensando na nossa conversa.');
+    if(v.includes('tarde_6'))add('lunch','group','Otávio: alguém vai passar no dormitório antes da festa?');
+    if(v.includes('festa_7'))add('mystery','group','Maya: precisamos conversar sobre o que descobrimos hoje.');
+    return m;
+  }
+  const phoneName=id=>id==='group'?'Grupo Godolkin':CAST.find(c=>c.id===id)?.name||id;
+  const unreadPhone=()=>phoneReady()?phoneMessages().filter(m=>!phoneData().read.includes(m.id)).length:0;
+  function feedPosts(){const v=save.visited,f=save.flags;const posts=[{id:'welcome',name:'Godolkin Oficial',text:'Bem-vindos à nova turma! A avaliação acontece no Pavilhão B.',likes:2486},{id:'m0',name:'Matteo Valença',text:'Novo semestre. O trabalho continua, mesmo longe das câmeras.',likes:12800},{id:'z0',name:'Zoe Lee',text:'Boa sorte aos novos estudantes. Primeiras impressões importam.',likes:8294}];if(v.includes('arena_2'))posts.push({id:'arena',name:'Godolkin Oficial',text:f.salvou_clara?'A avaliação dos calouros chamou atenção pela cooperação entre estudantes.':'A avaliação dos calouros foi concluída. Acompanhem o ranking oficial.',likes:1300});if(v.includes('festa_1'))posts.push({id:'tower',name:'Clara Vance',text:'A Torre Norte está lotada. Será que alguém veio só pela conversa?',likes:482});return [...posts,...phoneData().posts.map((p,i)=>({id:'player'+i,name:save.perfil.nome,text:p.text,likes:12+i*3}))].reverse();}
+  function phoneView(){if(!phoneReady()){game();return;}screen='phone';drawerOpen=false;const p=phoneData(), msgs=phoneMessages(), rep=reputation();const btn=(label,attr)=>`<button class="phone-btn" ${attr}>${safe(label)}</button>`;let content='';
+    if(phoneApp==='home')content=`<h2>${safe(SCENES[save.node]?.time||'Godolkin')}</h2><p>Primeiro dia · Godolkin</p><div class="phone-grid">${phoneApps.map(([id,icon,name])=>`<button data-phone-app="${id}"><strong>${icon}</strong>${name}${id==='messages'&&unreadPhone()?` <small>${unreadPhone()}</small>`:''}</button>`).join('')}</div>`;
+    else if(phoneApp==='messages'){if(!phoneContact)content=msgs.map(m=>`<button class="phone-thread" data-phone-contact="${m.who}"><b>${safe(phoneName(m.who))}</b><span>${safe(m.text)}</span>${p.read.includes(m.id)?'':'<small>● Nova</small>'}</button>`).filter((x,i,a)=>a.findLastIndex(y=>y.includes(`data-phone-contact="${msgs[i].who}"`))===i).join('');else content=`<h3>${safe(phoneName(phoneContact))}</h3>`+msgs.filter(m=>m.who===phoneContact).map(m=>{const r=p.replies.find(x=>x.id===m.id);return `<div class="phone-message">${safe(m.text)}</div>${r?`<div class="phone-message outgoing">${safe(r.text)}</div>`:`<div class="phone-actions">${['Obrigad'+(save.perfil.pronomes==='ela'?'a':'o')+' por avisar.','Prefiro conversar pessoalmente.'].map((t,i)=>btn(t,`data-phone-reply="${m.id}:${i}"`)).join('')}</div>`}`;}).join('')+btn('Voltar às conversas','data-phone-app="messages"');}
+    else if(phoneApp==='feed')content=`<h3>VOUGHT+</h3><div class="phone-compose"><textarea id="phone-post" maxlength="240" placeholder="Compartilhe algo sobre seu dia"></textarea>${btn('Publicar','data-phone-publish="1"')}</div>`+feedPosts().map(x=>`<article class="phone-post"><b>${safe(x.name)}</b><p>${safe(x.text)}</p>${btn(`${p.likes.includes(x.id)?'♥':'♡'} ${x.likes+(p.likes.includes(x.id)?1:0)}`,`data-phone-like="${x.id}"`)}<div>${(p.comments[x.id]||[]).map(t=>`<p class="fine">${safe(save.perfil.nome)}: ${safe(t)}</p>`).join('')}</div><input id="comment-${x.id}" maxlength="120" placeholder="Comentar">${btn('Enviar',`data-phone-comment="${x.id}"`)}</article>`).join('');
+    else if(phoneApp==='contacts')content=CAST.filter(c=>msgs.some(m=>m.who===c.id)).map(c=>`<article class="phone-post"><b>${safe(c.name)}</b>${btn(p.following.includes(c.id)?'Seguindo':'Seguir',`data-phone-follow="${c.id}"`)}${btn('Mensagem',`data-phone-contact="${c.id}"`)}</article>`).join('')||'<p>Conheça alunos para desbloquear contatos.</p>';
+    else if(phoneApp==='agenda')content=['08:00 — Recepção','09:00 — Dormitórios e exploração','10:00 — Avaliação','12:00 — Almoço','20:00 — Torre Norte'].map(t=>`<p>${safe(t)}</p>`).join('');
+    else if(phoneApp==='news')content=feedPosts().filter(x=>x.name==='Godolkin Oficial').map(x=>`<article class="phone-post">${safe(x.text)}</article>`).join('');
+    else if(phoneApp==='files')content=`<p>F-01 · ${save.visited.includes('festa_7')?'Código registrado':'Acesso restrito'}</p>${btn('Abrir diário','data-action="journal"')}`;
+    else if(phoneApp==='profile')content=`<h3>${safe(save.perfil.nome)}</h3><p>${Math.max(0,Math.round(rep.popularidade*25))} seguidores · ${p.following.length} seguindo · #${save.perfil.ranking_campus}</p>${Object.entries(rep).map(([k,v])=>`<p>${safe(k)}: ${v}/100</p><progress max="100" value="${v}"></progress>`).join('')}`;
+    layout(`<main class="play-view"><section class="virtual-phone"><header>GODOLKIN MOBILE <span>◉ ▰</span></header>${phoneApp!=='home'?btn('‹ Início','data-phone-app="home"'):''}<div class="phone-content">${content}</div>${btn('Fechar celular','data-action="resume"')}</section></main>`);
+  }
+  function endingResult(){const f=save.flags||{},r=reputation(), trust=['clara','maya','luka','otavio'].reduce((a,id)=>a+socialFor(id).trust,0)/4;const clues=['mural_visto','viu_cameras_internas','t3_dir_perguntou_transf','f7_perguntou_codigo','detectou_espiao'].filter(k=>f[k]).length;const count=ks=>ks.filter(k=>f[k]).length;const scores=[['A Estrela da Vought',r.aprovacao/10+r.popularidade/10+count(['t2_dir_ambicioso','t3_dir_concordou','f1_centro_salao'])*3,'Uma mensagem da assessoria chega: seu nome entrou na lista de talentos para campanhas. O próximo semestre começa sob os holofotes.'],['O Inconformado',r.controversia/5+count(['t2_dir_questionou','ar2_criticou_matteo','f4_zoe_confronto'])*4,'A direção solicita uma nova reunião. Alguns estudantes começam a questionar as regras ao seu lado.'],['O Estrategista',count(['pacto_duplo','t2_dir_diplomatico','f7_sugeriu_fachada','f4_zoe_perspicaz'])*5+socialFor('zoe').respect/10+socialFor('matteo').trust/10,'Dois grupos enviam convites diferentes. Você terá de administrar alianças e expectativas.'],['O Fantasma',count(['pacto_silencio','f5_discreto','t3_dir_silencio','f2_matteo_misterio'])*5+(100-r.popularidade)/10,'Seu nome quase não aparece no feed. A discrição abre espaço para observar o que outros não percebem.'],['O Pacto',trust/5+count(['pacto_investigacao','t4_contou_tudo','t6_plano_grupo','f7_perguntou_codigo'])*3,'O grupo confirma que estará ao seu lado. A investigação do F-01 será uma responsabilidade compartilhada.']];if(clues>=4&&f.pacto_investigacao)return ['A Anomalia',0,'Um registro confidencial menciona uma inconsistência na sua matrícula. A origem do arquivo permanece desconhecida.',clues];return [...scores.sort((a,b)=>b[1]-a[1])[0],clues];}
+
   function ending() {
     if (!save) { menu(); return; }
     screen = 'ending';
+    if(save.node!=='end'){game();return;}
+    const result=save.prologueEnding ||= endingResult(); store();
     const f = save.flags || {};
     const firstName = getFirstName(save.perfil.nome);
     const pactText = f.pacto_investigacao
@@ -1321,10 +1407,10 @@
     layout(`<main class="end-view">
       <section class="end-card">
         <div class="kicker">FIM DO PRÓLOGO</div>
-        <h1>A VERDADE SOB GODOLKIN</h1>
+        <h1>${safe(result[0])}</h1><p>${safe(result[2])}</p>
         <p>Da infância até o primeiro toque de recolher como calouro, a jornada de <strong>${safe(firstName)}</strong> (${safe(save.perfil.nome)}) está apenas começando.</p>
         <div class="end-summary">
-          <h2>RESUMO DO SEU DOSSIÊ</h2>
+          <h2>RESUMO DO SEU DOSSIÊ</h2><p>Seguidores: ${Math.round(reputation().popularidade*25)} · Memórias: ${(save.memories||[]).length} · Histórias pessoais: ${CAST.filter(c=>save.visited.includes("pessoal_"+c.id)).length}/6 · Pistas: ${result[3]}/5</p><p>Personalidade: ${safe(labelOf(ARQUETIPOS,save.perfil.personalidade||save.perfil.arquetipo))}</p><p>Decisões recentes:</p>${save.history.slice(-4).map(h=>`<p>• ${safe(h.label)}</p>`).join("")}
           <p>• Aluno Matriculado: <strong>${safe(save.perfil.nome)}</strong></p>
           <p>• Situação Acadêmica: <strong>Calouro (1º Ano) · ${save.perfil.idade} anos</strong></p>
           <p>• Ranking Atual no Campus: <strong>#${save.perfil.ranking_campus} / 100 (${safe(getRankTier(save.perfil.ranking_campus))})</strong></p>
@@ -1384,6 +1470,7 @@
   function render() {
     if (screen === 'creator') creator();
     else if (screen === 'game') game();
+    else if (screen === 'phone') phoneView();
     else if (screen === 'map') mapView();
     else if (screen === 'ranking') rankingView();
     else if (screen === 'dossier') dossier();
@@ -1437,11 +1524,14 @@
     const btn = e.target.closest('button');
     if (!btn) return;
 
+    if(phoneReady() && Object.keys(btn.dataset).some(k=>k.startsWith('phone'))){const d=btn.dataset,p=phoneData();if(d.phoneApp){phoneContact='';if(d.phoneApp==='map'){mapSelected=null;mapView();return;}if(d.phoneApp==='ranking'){rankingView();return;}phoneApp=d.phoneApp;}if(d.phoneContact){phoneContact=d.phoneContact;phoneApp='messages';for(const m of phoneMessages().filter(m=>m.who===phoneContact))if(!p.read.includes(m.id))p.read.push(m.id);}if(d.phoneReply){const [id,k]=d.phoneReply.split(':'),m=phoneMessages().find(x=>x.id===id);if(m&&!p.replies.some(x=>x.id===id)){const kind=Number(k);p.replies.push({id,kind,text:kind===0?'Valeu por avisar.':'Prefiro conversar pessoalmente.'});if(m.who!=='group'){const a=socialFor(m.who);a.trust=clampSocial(a.trust+(kind===0?1:0));}}}if(d.phoneLike){p.likes=p.likes.includes(d.phoneLike)?p.likes.filter(x=>x!==d.phoneLike):[...p.likes,d.phoneLike];}if(d.phoneFollow){p.following=p.following.includes(d.phoneFollow)?p.following.filter(x=>x!==d.phoneFollow):[...p.following,d.phoneFollow];}if(d.phonePublish){const t=document.getElementById('phone-post')?.value.trim();if(t&&p.posts.length<20)p.posts.push({text:t.slice(0,240),kind:0});}if(d.phoneComment){const t=document.getElementById('comment-'+d.phoneComment)?.value.trim();const list=p.comments[d.phoneComment]||=[];if(t&&list.length<10)list.push(t.slice(0,120));}store();phoneView();return;}
     if (btn.hasAttribute('data-rank-filter')) {
       rankingFilter = btn.dataset.rankFilter;
       rankingView();
       return;
     }
+    if(btn.dataset.origin){draft.origem=btn.dataset.origin;creator();return;}
+    if(btn.dataset.motive){draft.motivacao=btn.dataset.motive;creator();return;}
     if (btn.hasAttribute('data-pick-arq')) {
       draft.arquetipo = btn.dataset.pickArq;
       creator();
@@ -1456,7 +1546,7 @@
       const id = btn.dataset.toggleTrait;
       const idx = draft.caracteristicas.indexOf(id);
       if (idx > -1) draft.caracteristicas.splice(idx, 1);
-      else if (draft.caracteristicas.length < 8) draft.caracteristicas.push(id);
+      else { const kind=CARACTERISTICAS.find(t=>t.id===id)?.tipo; if(kind && traitCount(kind)<(kind==='flaw'?3:5)) draft.caracteristicas.push(id); }
       creator();
       return;
     }
@@ -1508,10 +1598,11 @@
         else menu();
         break;
       case 'creator-next':
-        if (creatorStep < 4) { creatorStep++; creator(); }
+        if (creatorStep < 6) { creatorStep++; creator(); }
         else finishCreation();
         break;
       case 'resume': drawerOpen = false; if (!save) enter(); if (save) game(); else menu(); break;
+      case 'phone': phoneApp='home';phoneContact='';phoneView();break;
       case 'map': mapSelected=null; mapView(); break;
       case 'ranking': rankingView(); break;
       case 'dossier': dossier(); break;
