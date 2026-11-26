@@ -9,3 +9,7 @@
 ## Como rodar localmente ou no Render
 - **Localmente:** Abra `index.html` no navegador ou rode `php -S localhost:8000` na pasta do projeto.
 - **No Render / GitHub:** Envie os arquivos (`index.html`, `index.php`, `style.css`, `game.js`, `story.js`, `story.json`) para seu repositório GitHub.
+
+## Atualização visual da tela inicial
+- Inclui a pasta `assets/` com o fundo recortado da referência fornecida e textura local. Mantenha essa pasta ao publicar.
+- Estilos restritos à tela inicial; ranking, história e saves mantêm a estrutura original.

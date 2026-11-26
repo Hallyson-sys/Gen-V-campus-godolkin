@@ -423,7 +423,7 @@
     return `<header class="app-header">
       <button class="brand" data-action="menu" aria-label="Menu principal">${wordmark()}</button>
       <div class="header-right">
-        <span class="header-status">PRÓLOGO · V0.8.0</span>
+        <span class="header-status">${screen === 'menu' ? 'VOUGHT // DOSSIÊ' : 'PRÓLOGO · V0.8.0'}</span>
         <button class="menu-btn" data-action="drawer" aria-expanded="${drawerOpen}">
           <span class="menu-btn-bars">${drawerOpen ? '✕' : '☰'}</span>
           <span>${drawerOpen ? 'FECHAR' : 'MENU'}</span>
@@ -487,7 +487,7 @@
   }
 
   function layout(body) {
-    root.innerHTML = `<div class="layout">
+    root.innerHTML = `<div class="layout${screen === 'menu' ? ' layout--home' : ''}">
       ${header()}
       ${body}
       ${toastsHtml()}
@@ -499,32 +499,20 @@
     scheduleToastDismiss();
   }
 
-  function menu() {
+  function menu(keepDrawer = false) {
     screen = 'menu';
-    drawerOpen = false;
+    if (!keepDrawer) drawerOpen = false;
     chainFlash = null;
     rankFlash = null;
     const hasSave = !!enter();
     const firstName = hasSave ? getFirstName(save.perfil.nome) : '';
     layout(`<main class="menu-view">
-      <div class="menu-art" aria-hidden="true">
-        <svg class="menu-art-svg" viewBox="0 0 600 720" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M180 120L390 45L590 120V560H180V120Z" fill="#27272A"/>
-          <rect x="210" y="140" width="24" height="360" fill="#18181B"/>
-          <rect x="265" y="140" width="24" height="360" fill="#18181B"/>
-          <rect x="320" y="140" width="24" height="360" fill="#18181B"/>
-          <rect x="375" y="140" width="24" height="360" fill="#18181B"/>
-          <rect x="430" y="140" width="24" height="360" fill="#18181B"/>
-          <rect x="485" y="140" width="24" height="360" fill="#18181B"/>
-          <rect x="310" y="480" width="230" height="240" fill="#141417"/>
-          <path d="M385 245C385 225 402 210 422 210C442 210 458 225 458 245C458 262 446 276 430 279L475 330L515 480H335L365 330L412 279C396 276 385 262 385 245Z" fill="#09090B"/>
-        </svg>
-      </div>
+      <div class="menu-art" aria-hidden="true"></div>
       <div class="menu-body">
         <div class="kicker">UNIVERSIDADE GODOLKIN • CALOUROS</div>
         <h1 class="menu-wordmark">${wordmark(true)}</h1>
         <div><span class="torn-strip">PODER, RANKING E SEGREDOS SOB O CAMPUS.</span></div>
-        <p class="menu-lead">Crie seu estudante, reviva o despertar dos seus poderes na infância e dispute espaço no Ranking Oficial (#1 ao #100) de Godolkin.</p>
+        <p class="menu-lead">Crie seu estudante, descubra suas habilidades e explore os segredos da Vought enquanto disputa uma posição no Ranking Oficial de Godolkin.</p>
         <div class="torn-quote-box">
           <p>“No Campus Godolkin, ser o número um salva sua vida — ou coloca um alvo nas suas costas.”</p>
           <span class="torn-quote-watermark">V7</span>
@@ -532,10 +520,10 @@
         <div class="menu-stack-buttons">
           ${hasSave ? `<button class="primary" data-action="resume">CONTINUAR COMO ${safe(firstName.toUpperCase())} (RANK #${save.perfil.ranking_campus}) <span>›</span></button>` : ''}
           <button class="${hasSave ? 'secondary' : 'primary'}" data-action="new">${hasSave ? 'NOVO ALUNO (RECOMEÇAR)' : 'CRIAR ALUNO E INICIAR'} <span>›</span></button>
-          <button class="secondary" data-action="ranking">RANKING OFICIAL (#1–#100)</button>
-          <button class="secondary" data-action="cast">ALUNOS DE GODOLKIN</button>
-          <button class="secondary" data-action="chain">REAÇÃO EM CADEIA</button>
           <button class="secondary" data-action="slots">PARTIDAS E SLOTS</button>
+          <button class="secondary" data-action="cast">ELENCO DO CAMPUS</button>
+          <button class="secondary" data-action="chain">REAÇÃO EM CADEIA</button>
+          <button class="secondary" data-action="ranking">RANKING OFICIAL (#1–#100)</button>
           <button class="quiet" data-action="import">IMPORTAR SAVE</button>
         </div>
       </div>
@@ -1462,7 +1450,7 @@
     }
 
     switch (btn.dataset.action) {
-      case 'drawer': drawerOpen = !drawerOpen; render(); break;
+      case 'drawer': drawerOpen = !drawerOpen; if (screen === 'menu') menu(true); else render(); break;
       case 'menu': menu(); break;
       case 'new':
         if (enter() && !confirm('Substituir o aluno atual deste slot?')) return;
