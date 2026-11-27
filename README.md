@@ -45,3 +45,9 @@ Sintaxe JS, destinos de cenas e teste de lógica em Node com DOM simulado. Naveg
 - Apresentações condicionadas aos colegas de dormitório.
 - Encerramentos dos encontros matinais retornam ao pátio; a arena permanece uma escolha explícita.
 - Mantidos limites de exploração e progressão social da 0.13.0.
+
+## 0.15.0 — Convivência e continuidade
+- Três mesas/alternativas de almoço, conversa coletiva, até duas conversas individuais sem repetição, respostas narrativas próprias, despedida e retorno à exploração.
+- O aviso do tablet ocorre após o intervalo; mapa visual preservado.
+- Contexto de dormitório, encontros, arena e respostas de Otávio no celular.
+- Novos ganhos sociais de 0–1 por resposta. Saves que já passaram do almoço não são reiniciados.

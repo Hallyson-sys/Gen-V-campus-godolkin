@@ -1,4 +1,4 @@
-/* Gen V: Campus Godolkin — Motor Jogável V0.14.0
+/* Gen V: Campus Godolkin — Motor Jogável V0.15.0
  * Inclui:
  * - Ranking Oficial Completo (#1 ao #100) com Elenco Principal, 92 NPCs da Universidade e o Protagonista
  * - Aba "RANKING" no Menu Principal e no Drawer com filtros (Top 10, Perto de Você, Calouros, Todos #1–#100)
@@ -424,7 +424,7 @@
     return `<header class="app-header">
       <button class="brand" data-action="menu" aria-label="Menu principal">${wordmark()}</button>
       <div class="header-right">
-        <span class="header-status">${screen === 'menu' ? 'VOUGHT // DOSSIÊ' : 'PRÓLOGO · V0.14.0'}</span>
+        <span class="header-status">${screen === 'menu' ? 'VOUGHT // DOSSIÊ' : 'PRÓLOGO · V0.15.0'}</span>
         <button class="menu-btn" data-action="drawer" aria-expanded="${drawerOpen}">
           <span class="menu-btn-bars">${drawerOpen ? '✕' : '☰'}</span>
           <span>${drawerOpen ? 'FECHAR' : 'MENU'}</span>
@@ -687,7 +687,7 @@
   function finishCreation() {
     save = {
       game: 'genv-campus-godolkin',
-      version: '0.14.0',
+      version: '0.15.0',
       slot,
       node: DATA.meta.start,
       perfil: {
@@ -753,6 +753,7 @@
   function romanceAvailable(id){const npc=CAST.find(x=>x.id===id);return !!(npc?.romanceable && /^Solteir[oa]/i.test(npc.relationshipStatus||''));}
   function evaluateChoice(c) {
     if(c.romanceTarget && (!romanceAvailable(c.romanceTarget) || (save.romance?.[c.romanceTarget]||0)>0)) return {visible:false};
+    if(c.lunchPick && ["clara","luka","maya","otavio"].filter(id=>save.visited.includes("almoco_"+id)).length>=2)return {visible:false};
     if(c.requireFlag&&!save.flags[c.requireFlag])return {visible:false};
     if(c.requireTrust&&socialFor(c.requireTrust.id).trust<c.requireTrust.min)return {visible:true,enabled:false,lockText:'Requer confiança '+c.requireTrust.min};
     if (c.requireArq && c.requireArq !== (save.perfil.personalidade || save.perfil.arquetipo)) return {visible:false};
@@ -792,6 +793,7 @@
   }
 
   function move(to, choice) {
+    if(to==='tarde_6' && (save.flags.tablet_concluido || save.flags.t6_plano_zoe || save.flags.t6_plano_grupo)) to='tarde_7';
     if (!SCENES[to]) return;
     for(const c of CAST) socialFor(c.id);
     const repeated=!!choice && (save.history||[]).some(h=>h.from===save.node && h.label===choice.label);
@@ -888,8 +890,27 @@
     window.scrollTo?.(0, 0);
   }
 
+  const LUNCH_REPLIES={"clara": ["Clara: — Justo. Vamos descobrir juntos, então.", "Clara: — Pelo menos você não comprou o discurso de boas-vindas.", "Clara: — É, temos bastante tempo ainda."], "luka": ["Luka: — Finalmente alguém entende minhas prioridades.", "Luka: — Fechado. Biblioteca e café, nessa ordem.", "Luka: — Boa sorte. Se perder faz parte do pacote."], "maya": ["Maya: — Exatamente. Não precisamos ter pressa.", "Maya: — Pode ajudar, desde que a gente aceite mudar de ideia.", "Maya: — Claro. O que achou da comida?"], "otavio": ["Otávio: — Imagina. Almoço é para isso mesmo.", "Otávio: — Normal. Um dia de cada vez.", "Otávio: — Tranquilo. Vamos aproveitar o almoço."]};
   function encounterText(n){
-    const v=save.visited||[], known=id=>v.includes('dorm_m')&&['luka','otavio'].includes(id)||v.includes('dorm_f')&&['clara','maya'].includes(id);
+    const v=save.visited||[];
+    if(n.id==='almoco_amigos'){
+      let extra=[];
+      if(save.flags.dorm_m)extra.push('Luka: — Guardei um lugar para nosso colega de quarto.');
+      if(save.flags.dorm_f)extra.push('Clara: — Aqui, colega de quarto. A Maya guardou sua cadeira.');
+      if(save.phone?.replies?.some(r=>r.id==='otavio1'&&r.kind===0))extra.push('Otávio: — Que bom que você aceitou o convite pelo celular!');
+      if(save.phone?.replies?.some(r=>r.id==='otavio1'&&r.kind===2))extra.push('Otávio: — Mudou de ideia sobre almoçar sozinho? Fique à vontade.');
+      if(save.flags.salvou_clara)extra.push('Clara: — Ainda estou pensando no que aconteceu na arena. Obrigada pela ajuda.');
+      else if(save.flags.hesitou_arena)extra.push('Otávio: — A avaliação foi confusa. Pelo menos agora temos um intervalo.');
+      return n.text+'\n\n'+extra.join('\n\n');
+    }
+    if(n.id==='almoco_clara'&&v.includes('calouros_1'))return 'Clara: — Depois daquela conversa nas escadarias, fiquei curiosa. '+n.text.replace('Clara: — ','');
+    if(n.id==='almoco_luka'&&v.includes('dorm_m'))return 'Luka: — Quando voltarmos ao quarto, preciso organizar minhas coisas. '+n.text.replace('Luka: — ','');
+    if(n.id==='almoco_maya'&&v.includes('arcadas_1'))return 'Maya: — Lembra da conversa nas arcadas? '+n.text.replace('Maya: — ','');
+    if(n.id==='almoco_otavio'&&v.includes('dorm_m'))return 'Otávio: — Espero que tenha gostado do quarto. '+n.text.replace('Otávio: — ','');
+    if(n.id==='almoco_elite_fim')return ['Matteo: — Gosto de ouvir música quando ninguém está pedindo fotos.\n\nZoe: — E eu gosto de ter uma tarde livre.','Zoe: — É uma apresentação tanto quanto uma avaliação. Nem todo mundo gosta disso.','Matteo: — Pelo menos a comida não exige entrevista.'][save.flags.almoco_elite_resposta]||n.text;
+    if(n.id.startsWith('almoco_resposta_')){const id=n.id.replace('almoco_resposta_','');return LUNCH_REPLIES[id]?.[save.flags['almoco_'+id+'_resposta']]||n.text;}
+    if(n.id==='almoco_saida')return (save.flags.almoco_mesa_amigos?'Otávio: — A gente se vê mais tarde.\n\n':save.flags.almoco_mesa_elite?'Zoe: — Até mais. Aproveite o intervalo.\n\n':'')+n.text;
+    const known=id=>v.includes('dorm_m')&&['luka','otavio'].includes(id)||v.includes('dorm_f')&&['clara','maya'].includes(id);
     if(n.id==='calouros_1'&&(known('clara')||known('luka'))){return known('luka')?`Luka reconhece você e fecha o caderno. Clara olha de um para o outro.\n\nLuka: — Olha quem saiu do nosso quarto! Clara, esse é {NOME}, meu colega de dormitório.\n\nClara: — Prazer. Espero que ele não tenha te obrigado a ler o regulamento inteiro.\n\nLuka: — Ainda não. Mas o ranking aqui mede audiência, não só habilidade.`:`Clara acena ao reconhecer você do dormitório. Luka fecha o caderno.\n\nClara: — {NOME}! Esse é o Luka, meu amigo.\n\nLuka: — Prazer. Dica de quem leu o regulamento: o ranking aqui mede audiência, não só habilidade.`;}
     if(n.id==='arcadas_1'&&(known('maya')||known('otavio'))){return known('otavio')?`Otávio reconhece você do quarto e oferece uma garrafa de água.\n\nOtávio: — E aí, colega! Essa é a Maya. Ela está contando as câmeras.\n\nMaya: — Sete. Três são da segurança interna, não da Vought+. Prazer, {NOME}.`:`Maya reconhece você do dormitório e faz um aceno. Otávio oferece uma garrafa de água.\n\nMaya: — {NOME}, esse é o Otávio. Estamos observando o movimento.\n\nOtávio: — Prazer! Quer água?\n\nMaya: — Sete câmeras. Três são da segurança interna, não da Vought+.`;}
     return n.text;
@@ -948,7 +969,7 @@
         }).join('')}</div>`
       : `<div class="button-row"><button class="primary" data-action="end">VER RESULTADO DO PRÓLOGO <span>›</span></button></div>`;
 
-    const hub = n.hub ? `<div class="explore-status">${n.hub==='morning'?`Encontros disponíveis: ${Math.max(0,2-morningCount())}`:`Atividades disponíveis: ${Math.max(0,(save.flags.favor_aceito?2:3)-afternoonCount())}`} · <button data-action="map">Abrir mapa ↗</button></div>` : "";
+    const hub = n.id==='almoco_escolher' ? `<div class="explore-status">Conversas disponíveis: ${Math.max(0,2-['clara','luka','maya','otavio'].filter(id=>save.visited.includes('almoco_'+id)).length)}</div>` : n.hub ? `<div class="explore-status">${n.hub==='morning'?`Encontros disponíveis: ${Math.max(0,2-morningCount())}`:`Atividades disponíveis: ${Math.max(0,(save.flags.favor_aceito?2:3)-afternoonCount())}`} · <button data-action="map">Abrir mapa ↗</button></div>` : "";
     const pct = save.node === 'end' ? 100 : Math.min(97, Math.max(5, Math.round((save.visited.length / 26) * 100)));
 
     layout(`<main class="play-view">
@@ -1004,7 +1025,7 @@
     if(k==='dorm_f')Object.assign(pos,{clara:'female',maya:'female'});
     if(k.startsWith('arena'))Object.keys(pos).forEach(id=>pos[id]='arena');
     if(k.startsWith('tarde')||k==='explorar_tarde'||k==='maya_tarde'||k==='clara_retorno'||k==='dorm_tarde')pos={clara:'patio',maya:'library',luka:'male',otavio:'male',matteo:'vip',zoe:'vip'};
-    if(/^tarde_[56]$/.test(k))Object.assign(pos,{clara:'food',maya:'food',luka:'food',otavio:'food'});
+    if(k==='tarde_5'||k.startsWith('almoco_'))Object.keys(pos).forEach(id=>pos[id]='food');
     if(k==='dorm_tarde'||k==='tarde_7')Object.assign(pos,{clara:'female',maya:'female',luka:'male',otavio:'male'});
     if(here==='tower')Object.keys(pos).forEach(id=>pos[id]='tower');
     if(k==='explorar_tarde')for(const c of CAST)pos[c.id]=c.depth.routine.afternoon;
@@ -1377,7 +1398,7 @@
     if(v.includes('elite_1')||v.includes('festa_2'))add('matteo1','matteo','Espero que esteja se adaptando. Godolkin não é só o ranking.');
     if(f.salvou_clara)add('clara2','clara','Sobre a arena… obrigada por ter pensado em mim.');
     if(f.favor_aceito||f.favor_recusado)add('clara3','clara',f.favor_aceito?'Obrigada por me ouvir mais cedo.':'Ainda estou pensando na nossa conversa.');
-    if(v.includes('tarde_6'))add('lunch','group','Otávio: alguém vai passar no dormitório antes da festa?');
+    if(v.includes('almoco_saida')||v.includes('tarde_6'))add('lunch','group','Otávio: alguém vai passar no dormitório antes da festa?');
     if(v.includes('festa_7'))add('mystery','group','Maya: precisamos conversar sobre o que descobrimos hoje.');
     return m;
   }

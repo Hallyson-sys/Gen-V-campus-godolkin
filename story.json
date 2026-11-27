@@ -1,7 +1,7 @@
 {
   "meta": {
     "game": "Gen V: Campus Godolkin",
-    "version": "0.14.0",
+    "version": "0.15.0",
     "chapter": "Prólogo — Despertar, Anos Ocultos, Reitoria e a Noite na Torre Norte",
     "start": "origem_roteador"
   },
@@ -3015,7 +3015,7 @@
     "tarde_5": {
       "id": "tarde_5",
       "title": "Almoço no Refeitório",
-      "time": "13:05",
+      "time": "12:00",
       "stage": "REFEITÓRIO CENTRAL · CAMPUS GODOLKIN",
       "text": "",
       "dynamic": [
@@ -3032,132 +3032,64 @@
           "text": "Otávio solta uma risada alta: 'Menos, {NOME}, bem menos! O Matteo já tá com ciúmes só de ouvir que você subiu aquele elevador.'"
         }
       ],
-      "textAfterDynamic": "No Refeitório Central, a rotina cotidiana dos supers acontece sem filtros: Luka passa como um borrão pela fila e surge na mesa com três hambúrgueres extras para compensar o metabolismo acelerado; Clara encolhe a mão por um segundo para abrir uma lata emperrada e volta ao tamanho normal rindo.\n\nLuka: — Bem-vindo à mesa dos sobreviventes, {NOME}! Pega uma cadeira antes que o treino da tarde comece.\n\nA conversa flui leve por alguns minutos — entre piadas sobre o cardápio da Vought e dicas de como funciona o sistema de patrocinadores — dando a você a chance de puxar papo mais de perto com alguém da mesa.",
+      "textAfterDynamic": "No refeitório, Clara, Luka, Maya e Otávio ocupam uma mesa perto das janelas. Matteo e Zoe conversam numa mesa do outro lado do salão. Há também lugares livres junto à parede. Você pega sua bandeja e decide onde sentar.",
       "choices": [
         {
-          "label": "Perguntar ao grupo como funciona na prática o pagamento e os contratos dos patrocinadores",
-          "to": "tarde_6",
+          "label": "Sentar com Clara, Luka, Maya e Otávio",
+          "to": "almoco_amigos",
           "effects": {
             "flags": {
-              "t5_perguntou_lore": true
+              "almoco_mesa_amigos": true
             },
-            "bonds": {
-              "luka": 1,
-              "clara": 1,
-              "otavio": 1
-            }
+            "bonds": {}
           }
         },
         {
-          "label": "Conversar com Clara sobre como foi o dia.",
-          "to": "tarde_6",
+          "label": "Sentar com Matteo e Zoe",
+          "to": "almoco_elite",
           "effects": {
             "flags": {
-              "amizade_tarde_5_clara": true
+              "almoco_mesa_elite": true
             },
-            "bonds": {
-              "clara": 2
-            }
-          },
-          "social": {
-            "clara": {
-              "trust": 2,
-              "respect": 1,
-              "closeness": 1
-            }
-          },
-          "memory": [
-            "clara"
-          ]
+            "bonds": {}
+          }
         },
         {
-          "label": "Ouvir a opinião de Maya sem pressioná-la.",
-          "to": "tarde_6",
+          "label": "Almoçar por conta própria",
+          "to": "almoco_so",
           "effects": {
             "flags": {
-              "amizade_tarde_5_maya": true
+              "almoco_mesa_so": true
             },
-            "bonds": {
-              "maya": 2
-            }
-          },
-          "social": {
-            "maya": {
-              "trust": 2,
-              "respect": 1,
-              "closeness": 1
-            }
-          },
-          "memory": [
-            "maya"
-          ]
-        },
-        {
-          "label": "Agradecer a ajuda de Otávio.",
-          "to": "tarde_6",
-          "effects": {
-            "flags": {
-              "amizade_tarde_5_otavio": true
-            },
-            "bonds": {
-              "otavio": 2
-            }
-          },
-          "social": {
-            "otavio": {
-              "trust": 2,
-              "respect": 1,
-              "closeness": 1
-            }
-          },
-          "memory": [
-            "otavio"
-          ]
-        },
-        {
-          "label": "Conversar com Luka sobre as novidades do campus.",
-          "to": "tarde_6",
-          "effects": {
-            "flags": {
-              "amizade_tarde_5_luka": true
-            },
-            "bonds": {
-              "luka": 2
-            }
-          },
-          "social": {
-            "luka": {
-              "trust": 2,
-              "respect": 1,
-              "closeness": 1
-            }
-          },
-          "memory": [
-            "luka"
-          ]
+            "bonds": {}
+          }
         }
+      ],
+      "people": [
+        "clara",
+        "luka",
+        "maya",
+        "otavio",
+        "matteo",
+        "zoe"
       ]
     },
     "tarde_6": {
       "id": "tarde_6",
-      "title": "Laços à Mesa",
-      "time": "13:35",
-      "stage": "REFEITÓRIO CENTRAL · CAMPUS GODOLKIN",
-      "text": "",
-      "dynamic": [
-        {
-          "flag": "t5_perguntou_lore",
-          "text": "Luka apoia os cotovelos na mesa e explica: 'Funciona assim, {NOME}: quem entra no Top 15 ganha cotas de mídia e marcas esportivas. Quem fica no Top 5 já sai com pré-contrato de equipe regional. Mas se você cair abaixo do #60, a Vought corta sua bolsa e manda você pro limbo.'"
-        }
-      ],
-      "textAfterDynamic": "Antes de o sinal para as aulas teóricas da tarde tocar, Maya guarda o tablet na bolsa e olha para cada um na mesa com seriedade.\n\nMaya: — Escutem: hoje à noite vai acontecer a festa de abertura na cobertura da Torre Norte. O Matteo e a Zoe vão estar lá comandando o salão, e o som alto vai bloquear qualquer escuta direcional. Quero todo mundo lá às dez e meia — encontrei uma inconsistência grave nos arquivos do 6º colocado que sumiu ontem.",
+      "title": "O aviso de Maya",
+      "time": "18:40",
+      "stage": "PÁTIO CENTRAL",
+      "text": "Maya reúne o grupo no pátio, com o tablet nas mãos.",
+      "dynamic": [],
+      "textAfterDynamic": "Maya: — Hoje à noite vai acontecer a festa de abertura na Torre Norte. Quero conversar com vocês lá às dez e meia. Encontrei uma inconsistência nos arquivos do sexto colocado que sumiu ontem.\n\nOtávio: — Certo. Vamos combinar como chegar.",
       "choices": [
         {
           "label": "Confirmar presença e dizer que vai usar o convite da Zoe para circular pela festa",
-          "to": "explorar_tarde",
+          "to": "tarde_7",
           "effects": {
             "flags": {
-              "t6_plano_zoe": true
+              "t6_plano_zoe": true,
+              "tablet_concluido": true
             },
             "bonds": {
               "maya": 1,
@@ -3167,10 +3099,11 @@
         },
         {
           "label": "Confirmar presença e combinar de chegar junto com o grupo",
-          "to": "explorar_tarde",
+          "to": "tarde_7",
           "effects": {
             "flags": {
-              "t6_plano_grupo": true
+              "t6_plano_grupo": true,
+              "tablet_concluido": true
             },
             "bonds": {
               "clara": 1,
@@ -3178,6 +3111,13 @@
             }
           }
         }
+      ],
+      "place": "patio",
+      "people": [
+        "clara",
+        "luka",
+        "maya",
+        "otavio"
       ]
     },
     "tarde_7": {
@@ -4714,8 +4654,8 @@
           }
         },
         {
-          "label": "Encerrar o intervalo e se preparar",
-          "to": "tarde_7",
+          "label": "Encerrar o intervalo e encontrar Maya antes da festa",
+          "to": "tarde_6",
           "effects": {
             "flags": {},
             "bonds": {}
@@ -6097,6 +6037,631 @@
             "clara",
             "matteo"
           ]
+        }
+      ]
+    },
+    "almoco_amigos": {
+      "id": "almoco_amigos",
+      "title": "Uma mesa, quatro opiniões",
+      "time": "12:00–13:35",
+      "stage": "REFEITÓRIO CENTRAL · CAMPUS GODOLKIN",
+      "place": "food",
+      "people": [
+        "clara",
+        "luka",
+        "maya",
+        "otavio"
+      ],
+      "text": "Clara afasta uma cadeira com o pé. Luka encara a sobremesa como se fosse um desafio.\n\nClara: — Finalmente, comida que não vem com uma palestra.\n\nLuka: — Ainda. Aposto que o pudim tem patrocinador.\n\nMaya: — Se vocês terminarem de discutir o pudim, eu gostaria de comer em paz.\n\nOtávio: — Cinco minutos sem ranking. Será que conseguimos?",
+      "choices": [
+        {
+          "label": "Perguntar como funcionam os patrocínios",
+          "to": "almoco_escolher",
+          "effects": {
+            "flags": {
+              "t5_perguntou_lore": true
+            },
+            "bonds": {}
+          }
+        },
+        {
+          "label": "Entrar na brincadeira sobre o cardápio",
+          "to": "almoco_escolher",
+          "effects": {
+            "flags": {
+              "almoco_piadas": true
+            },
+            "bonds": {}
+          }
+        },
+        {
+          "label": "Ouvir o grupo e aproveitar a comida",
+          "to": "almoco_escolher",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        }
+      ]
+    },
+    "almoco_escolher": {
+      "id": "almoco_escolher",
+      "title": "Conversas à mesa",
+      "time": "12:00–13:35",
+      "stage": "REFEITÓRIO CENTRAL · CAMPUS GODOLKIN",
+      "place": "food",
+      "people": [
+        "clara",
+        "luka",
+        "maya",
+        "otavio"
+      ],
+      "text": "A conversa coletiva dá lugar a assuntos menores. Há tempo para conversar com até duas pessoas, sem precisar dar atenção especial a todos.",
+      "choices": [
+        {
+          "label": "Conversar com Clara",
+          "to": "almoco_clara",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          },
+          "once": "almoco_clara",
+          "lunchPick": true
+        },
+        {
+          "label": "Conversar com Luka",
+          "to": "almoco_luka",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          },
+          "once": "almoco_luka",
+          "lunchPick": true
+        },
+        {
+          "label": "Conversar com Maya",
+          "to": "almoco_maya",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          },
+          "once": "almoco_maya",
+          "lunchPick": true
+        },
+        {
+          "label": "Conversar com Otávio",
+          "to": "almoco_otavio",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          },
+          "once": "almoco_otavio",
+          "lunchPick": true
+        },
+        {
+          "label": "Encerrar o almoço e se despedir",
+          "to": "almoco_saida",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        }
+      ],
+      "dynamic": [
+        {
+          "flag": "t5_perguntou_lore",
+          "text": "Luka: — As marcas disputam os alunos mais bem colocados. Mas prefiro escolher meu próprio caminho."
+        },
+        {
+          "flag": "almoco_piadas",
+          "text": "Otávio aponta para o pudim. Clara começa a rir antes mesmo de ele terminar a piada."
+        }
+      ]
+    },
+    "almoco_clara": {
+      "id": "almoco_clara",
+      "title": "À mesa com Clara",
+      "time": "12:00–13:35",
+      "stage": "REFEITÓRIO CENTRAL · CAMPUS GODOLKIN",
+      "place": "food",
+      "people": [
+        "clara",
+        "luka",
+        "maya",
+        "otavio"
+      ],
+      "text": "Clara: — Fora as câmeras e os discursos, até que o dia foi interessante. O que você achou daqui?",
+      "choices": [
+        {
+          "label": "Tem gente interessante. O resto ainda estou descobrindo.",
+          "to": "almoco_resposta_clara",
+          "effects": {
+            "flags": {
+              "amizade_tarde_5_clara": true,
+              "almoco_clara_resposta": 0
+            },
+            "bonds": {
+              "clara": 1
+            }
+          },
+          "social": {
+            "clara": {
+              "trust": 1,
+              "respect": 0
+            }
+          },
+          "memory": [
+            "clara"
+          ]
+        },
+        {
+          "label": "Ainda não sei se gosto desse lugar.",
+          "to": "almoco_resposta_clara",
+          "effects": {
+            "flags": {
+              "amizade_tarde_5_clara": true,
+              "almoco_clara_resposta": 1
+            },
+            "bonds": {}
+          },
+          "social": {
+            "clara": {
+              "trust": 1,
+              "respect": 1
+            }
+          }
+        },
+        {
+          "label": "Prefiro não tirar conclusões no primeiro dia.",
+          "to": "almoco_resposta_clara",
+          "effects": {
+            "flags": {
+              "amizade_tarde_5_clara": true,
+              "almoco_clara_resposta": 2
+            },
+            "bonds": {}
+          },
+          "social": {
+            "clara": {
+              "trust": 0,
+              "respect": 0
+            }
+          }
+        }
+      ]
+    },
+    "almoco_resposta_clara": {
+      "id": "almoco_resposta_clara",
+      "title": "A conversa continua",
+      "time": "12:00–13:35",
+      "stage": "REFEITÓRIO CENTRAL · CAMPUS GODOLKIN",
+      "place": "food",
+      "people": [
+        "clara",
+        "luka",
+        "maya",
+        "otavio"
+      ],
+      "text": "A mesa segue animada.",
+      "choices": [
+        {
+          "label": "Voltar à conversa da mesa",
+          "to": "almoco_escolher",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        }
+      ]
+    },
+    "almoco_luka": {
+      "id": "almoco_luka",
+      "title": "À mesa com Luka",
+      "time": "12:00–13:35",
+      "stage": "REFEITÓRIO CENTRAL · CAMPUS GODOLKIN",
+      "place": "food",
+      "people": [
+        "clara",
+        "luka",
+        "maya",
+        "otavio"
+      ],
+      "text": "Luka: — Estou tentando decorar os prédios. Você acha que um mapa com rotas de cafeteria seria mais útil que o oficial?",
+      "choices": [
+        {
+          "label": "Com certeza. Prioridades certas.",
+          "to": "almoco_resposta_luka",
+          "effects": {
+            "flags": {
+              "amizade_tarde_5_luka": true,
+              "almoco_luka_resposta": 0
+            },
+            "bonds": {
+              "luka": 1
+            }
+          },
+          "social": {
+            "luka": {
+              "trust": 1,
+              "respect": 0
+            }
+          },
+          "memory": [
+            "luka"
+          ]
+        },
+        {
+          "label": "Só se tiver a biblioteca também.",
+          "to": "almoco_resposta_luka",
+          "effects": {
+            "flags": {
+              "amizade_tarde_5_luka": true,
+              "almoco_luka_resposta": 1
+            },
+            "bonds": {
+              "luka": 1
+            }
+          },
+          "social": {
+            "luka": {
+              "trust": 0,
+              "respect": 1
+            }
+          }
+        },
+        {
+          "label": "Vou tentar me localizar sozinho primeiro.",
+          "to": "almoco_resposta_luka",
+          "effects": {
+            "flags": {
+              "amizade_tarde_5_luka": true,
+              "almoco_luka_resposta": 2
+            },
+            "bonds": {}
+          },
+          "social": {
+            "luka": {
+              "trust": 0,
+              "respect": 0
+            }
+          }
+        }
+      ]
+    },
+    "almoco_resposta_luka": {
+      "id": "almoco_resposta_luka",
+      "title": "A conversa continua",
+      "time": "12:00–13:35",
+      "stage": "REFEITÓRIO CENTRAL · CAMPUS GODOLKIN",
+      "place": "food",
+      "people": [
+        "clara",
+        "luka",
+        "maya",
+        "otavio"
+      ],
+      "text": "A mesa segue animada.",
+      "choices": [
+        {
+          "label": "Voltar à conversa da mesa",
+          "to": "almoco_escolher",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        }
+      ]
+    },
+    "almoco_maya": {
+      "id": "almoco_maya",
+      "title": "À mesa com Maya",
+      "time": "12:00–13:35",
+      "stage": "REFEITÓRIO CENTRAL · CAMPUS GODOLKIN",
+      "place": "food",
+      "people": [
+        "clara",
+        "luka",
+        "maya",
+        "otavio"
+      ],
+      "text": "Maya: — Todo mundo parece ter uma opinião sobre os calouros. Prefiro conhecer as pessoas antes de tirar conclusões.",
+      "choices": [
+        {
+          "label": "Concordo. Cada um tem seu tempo.",
+          "to": "almoco_resposta_maya",
+          "effects": {
+            "flags": {
+              "amizade_tarde_5_maya": true,
+              "almoco_maya_resposta": 0
+            },
+            "bonds": {
+              "maya": 1
+            }
+          },
+          "social": {
+            "maya": {
+              "trust": 1,
+              "respect": 0
+            }
+          },
+          "memory": [
+            "maya"
+          ]
+        },
+        {
+          "label": "Às vezes a primeira impressão ajuda.",
+          "to": "almoco_resposta_maya",
+          "effects": {
+            "flags": {
+              "amizade_tarde_5_maya": true,
+              "almoco_maya_resposta": 1
+            },
+            "bonds": {}
+          },
+          "social": {
+            "maya": {
+              "trust": 1,
+              "respect": 1
+            }
+          }
+        },
+        {
+          "label": "Vamos falar de outra coisa?",
+          "to": "almoco_resposta_maya",
+          "effects": {
+            "flags": {
+              "amizade_tarde_5_maya": true,
+              "almoco_maya_resposta": 2
+            },
+            "bonds": {}
+          },
+          "social": {
+            "maya": {
+              "trust": 0,
+              "respect": 0
+            }
+          }
+        }
+      ]
+    },
+    "almoco_resposta_maya": {
+      "id": "almoco_resposta_maya",
+      "title": "A conversa continua",
+      "time": "12:00–13:35",
+      "stage": "REFEITÓRIO CENTRAL · CAMPUS GODOLKIN",
+      "place": "food",
+      "people": [
+        "clara",
+        "luka",
+        "maya",
+        "otavio"
+      ],
+      "text": "A mesa segue animada.",
+      "choices": [
+        {
+          "label": "Voltar à conversa da mesa",
+          "to": "almoco_escolher",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        }
+      ]
+    },
+    "almoco_otavio": {
+      "id": "almoco_otavio",
+      "title": "À mesa com Otávio",
+      "time": "12:00–13:35",
+      "stage": "REFEITÓRIO CENTRAL · CAMPUS GODOLKIN",
+      "place": "food",
+      "people": [
+        "clara",
+        "luka",
+        "maya",
+        "otavio"
+      ],
+      "text": "Otávio: — O primeiro dia já foi puxado. Você conseguiu parar um pouco para respirar?",
+      "choices": [
+        {
+          "label": "Agora sim. Valeu pela companhia.",
+          "to": "almoco_resposta_otavio",
+          "effects": {
+            "flags": {
+              "amizade_tarde_5_otavio": true,
+              "almoco_otavio_resposta": 0
+            },
+            "bonds": {
+              "otavio": 1
+            }
+          },
+          "social": {
+            "otavio": {
+              "trust": 1,
+              "respect": 0
+            }
+          },
+          "memory": [
+            "otavio"
+          ]
+        },
+        {
+          "label": "Ainda estou me acostumando com a rotina.",
+          "to": "almoco_resposta_otavio",
+          "effects": {
+            "flags": {
+              "amizade_tarde_5_otavio": true,
+              "almoco_otavio_resposta": 1
+            },
+            "bonds": {
+              "otavio": 1
+            }
+          },
+          "social": {
+            "otavio": {
+              "trust": 0,
+              "respect": 1
+            }
+          }
+        },
+        {
+          "label": "Estou bem, prefiro falar de outro assunto.",
+          "to": "almoco_resposta_otavio",
+          "effects": {
+            "flags": {
+              "amizade_tarde_5_otavio": true,
+              "almoco_otavio_resposta": 2
+            },
+            "bonds": {}
+          },
+          "social": {
+            "otavio": {
+              "trust": 0,
+              "respect": 0
+            }
+          }
+        }
+      ]
+    },
+    "almoco_resposta_otavio": {
+      "id": "almoco_resposta_otavio",
+      "title": "A conversa continua",
+      "time": "12:00–13:35",
+      "stage": "REFEITÓRIO CENTRAL · CAMPUS GODOLKIN",
+      "place": "food",
+      "people": [
+        "clara",
+        "luka",
+        "maya",
+        "otavio"
+      ],
+      "text": "A mesa segue animada.",
+      "choices": [
+        {
+          "label": "Voltar à conversa da mesa",
+          "to": "almoco_escolher",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        }
+      ]
+    },
+    "almoco_elite": {
+      "id": "almoco_elite",
+      "title": "Entre os destaques",
+      "time": "12:00–13:35",
+      "stage": "REFEITÓRIO CENTRAL · CAMPUS GODOLKIN",
+      "place": "food",
+      "people": [
+        "matteo",
+        "zoe"
+      ],
+      "text": "Zoe guarda o celular e indica a cadeira livre.\n\nZoe: — Achei que você fosse ficar com o outro grupo. Bem-vindo.\n\nMatteo: — Por favor, cinco minutos sem perguntas de entrevista.\n\nZoe: — Disse a pessoa que ensaiou a entrevista antes do café.\n\nMatteo: — Aquilo era preparação.",
+      "choices": [
+        {
+          "label": "Perguntar o que gostam de fazer fora das câmeras",
+          "to": "almoco_elite_fim",
+          "effects": {
+            "flags": {
+              "almoco_elite_resposta": 0
+            },
+            "bonds": {
+              "matteo": 1,
+              "zoe": 1
+            }
+          }
+        },
+        {
+          "label": "Comentar que a avaliação pareceu mais um espetáculo",
+          "to": "almoco_elite_fim",
+          "effects": {
+            "flags": {
+              "almoco_elite_resposta": 1
+            },
+            "bonds": {
+              "zoe": 1
+            }
+          }
+        },
+        {
+          "label": "Manter a conversa leve e perguntar sobre a comida",
+          "to": "almoco_elite_fim",
+          "effects": {
+            "flags": {
+              "almoco_elite_resposta": 2
+            },
+            "bonds": {}
+          }
+        }
+      ]
+    },
+    "almoco_elite_fim": {
+      "id": "almoco_elite_fim",
+      "title": "Longe das entrevistas",
+      "time": "12:00–13:35",
+      "stage": "REFEITÓRIO CENTRAL · CAMPUS GODOLKIN",
+      "place": "food",
+      "people": [
+        "matteo",
+        "zoe"
+      ],
+      "text": "Zoe dá uma risada discreta. Matteo empurra a bandeja para o lado.",
+      "choices": [
+        {
+          "label": "Agradecer a companhia e se despedir",
+          "to": "almoco_saida",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        }
+      ]
+    },
+    "almoco_so": {
+      "id": "almoco_so",
+      "title": "Uma pausa só sua",
+      "time": "12:00–13:35",
+      "stage": "REFEITÓRIO CENTRAL · CAMPUS GODOLKIN",
+      "place": "food",
+      "people": [],
+      "text": "Você encontra uma mesa livre. O ruído das conversas fica ao fundo. Pela primeira vez desde a chegada, pode comer sem precisar responder perguntas.",
+      "choices": [
+        {
+          "label": "Aproveitar a pausa e terminar o almoço",
+          "to": "almoco_saida",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        },
+        {
+          "label": "Conferir as novidades do campus depois do almoço",
+          "to": "almoco_saida",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        }
+      ]
+    },
+    "almoco_saida": {
+      "id": "almoco_saida",
+      "title": "Fim do almoço",
+      "time": "13:35",
+      "stage": "REFEITÓRIO CENTRAL · CAMPUS GODOLKIN",
+      "place": "food",
+      "people": [],
+      "text": "Você devolve a bandeja. O intervalo da tarde ainda oferece algumas possibilidades antes dos preparativos para a festa.",
+      "choices": [
+        {
+          "label": "Voltar ao pátio e explorar",
+          "to": "explorar_tarde",
+          "effects": {
+            "flags": {
+              "almoco_concluido": true
+            },
+            "bonds": {}
+          }
         }
       ]
     }
