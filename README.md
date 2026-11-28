@@ -51,3 +51,11 @@ Sintaxe JS, destinos de cenas e teste de lógica em Node com DOM simulado. Naveg
 - O aviso do tablet ocorre após o intervalo; mapa visual preservado.
 - Contexto de dormitório, encontros, arena e respostas de Otávio no celular.
 - Novos ganhos sociais de 0–1 por resposta. Saves que já passaram do almoço não são reiniciados.
+
+
+## 0.16.0 — Continuidade e diálogos
+- 114 cenas; seis histórias pessoais com respostas próprias, reações e uma segunda decisão; novos momentos no bar, no almoço e nos dormitórios.
+- Diálogos antigos com fala separada da narração; remoção de reações repetidas e correção das memórias na varanda.
+- Mapa e CSS mantidos; scripts com identificador 0.16.0. Saves anteriores continuam no mesmo slot; cenas já concluídas não são repetidas automaticamente.
+- Testes: sintaxe, grafo de destinos e consistência das novas condições. Não foi realizado teste integral em navegador.
+- Reação do grupo antes de voltar ao alojamento; o final permanece calculado pelas escolhas anteriores.

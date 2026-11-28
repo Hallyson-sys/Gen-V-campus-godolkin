@@ -1,4 +1,4 @@
-/* Gen V: Campus Godolkin — Motor Jogável V0.15.0
+/* Gen V: Campus Godolkin — Motor Jogável V0.16.0
  * Inclui:
  * - Ranking Oficial Completo (#1 ao #100) com Elenco Principal, 92 NPCs da Universidade e o Protagonista
  * - Aba "RANKING" no Menu Principal e no Drawer com filtros (Top 10, Perto de Você, Calouros, Todos #1–#100)
@@ -424,7 +424,7 @@
     return `<header class="app-header">
       <button class="brand" data-action="menu" aria-label="Menu principal">${wordmark()}</button>
       <div class="header-right">
-        <span class="header-status">${screen === 'menu' ? 'VOUGHT // DOSSIÊ' : 'PRÓLOGO · V0.15.0'}</span>
+        <span class="header-status">${screen === 'menu' ? 'VOUGHT // DOSSIÊ' : 'PRÓLOGO · V0.16.0'}</span>
         <button class="menu-btn" data-action="drawer" aria-expanded="${drawerOpen}">
           <span class="menu-btn-bars">${drawerOpen ? '✕' : '☰'}</span>
           <span>${drawerOpen ? 'FECHAR' : 'MENU'}</span>
@@ -687,7 +687,7 @@
   function finishCreation() {
     save = {
       game: 'genv-campus-godolkin',
-      version: '0.15.0',
+      version: '0.16.0',
       slot,
       node: DATA.meta.start,
       perfil: {
@@ -798,6 +798,10 @@
     for(const c of CAST) socialFor(c.id);
     const repeated=!!choice && (save.history||[]).some(h=>h.from===save.node && h.label===choice.label);
     if(repeated) choice={...choice,social:{},peerChanges:[],memory:[],effects:{...choice.effects,bonds:{},romance:{}}};
+    if(choice?.memory && Array.isArray(SCENES[save.node]?.people)) {
+      const present=SCENES[save.node].people;
+      choice={...choice,memory:choice.memory.filter(id=>present.includes(id))};
+    }
     advancePeers(to,choice);
     for(const [id,stats] of Object.entries(choice?.social||{})){const a=socialFor(id);for(const [key,delta] of Object.entries(stats))if(key in a)a[key]=clampSocial(a[key]+delta);}
     for(const [id,delta] of Object.entries(choice?.effects?.bonds||{})){if(choice?.social?.[id])continue;const a=socialFor(id);a.closeness=clampSocial(a.closeness+Math.sign(delta));if(choice?.memory?.includes(id))a.trust=clampSocial(a.trust+Math.sign(delta));}
@@ -929,7 +933,7 @@
 
     const baseTextHtml = n.text ? formatNarrative(encounterText(n)) : '';
     const extraTextHtml = (n.dynamic || [])
-      .filter(d => (d.flag && save.flags[d.flag]) || (d.origin && d.origin===save.perfil.origem) || (d.motive && d.motive===save.perfil.motivacao) || (d.arq && d.arq===(save.perfil.personalidade||save.perfil.arquetipo)))
+      .filter(d => (d.equals && save.flags[d.equals.key] === d.equals.value) || (d.flag && save.flags[d.flag]) || (d.origin && d.origin===save.perfil.origem) || (d.motive && d.motive===save.perfil.motivacao) || (d.arq && d.arq===(save.perfil.personalidade||save.perfil.arquetipo)))
       .map(d => formatNarrative(d.text))
       .join('');
     const afterDynamicHtml = n.textAfterDynamic ? formatNarrative(n.textAfterDynamic) : '';

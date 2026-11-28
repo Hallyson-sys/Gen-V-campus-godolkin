@@ -1,7 +1,7 @@
 {
   "meta": {
     "game": "Gen V: Campus Godolkin",
-    "version": "0.15.0",
+    "version": "0.16.0",
     "chapter": "Prólogo — Despertar, Anos Ocultos, Reitoria e a Noite na Torre Norte",
     "start": "origem_roteador"
   },
@@ -475,10 +475,10 @@
       "title": "Ato I (Parte 1) · Vermelho no Asfalto",
       "time": "10 ANOS DE IDADE",
       "stage": "QUADRA ESCOLAR · FIM DE TARDE",
-      "text": "Você tinha apenas dez anos quando caiu de bicicleta na descida íngreme atrás da escola. Dois garotos mais velhos haviam chutado sua roda dianteira por pura maldade, jogando você contra o meio-fio.\n\nO rasgo no antebraço foi fundo, mas antes mesmo de você chorar, o mundo pareceu desacelerar. O sangue que escorria pelo asfalto parou no ar, desafiou a gravidade e solidificou-se em lâminas finas e pulsantes como vidro rubro, orbitando seus dedos ao ritmo acelerado do seu coração.\n\nAo mesmo tempo, um som rítmico invadiu seus ouvidos: tum-tum, tum-tum — você conseguia ouvir o pulso cardíaco dos dois agressores disparando de pavor a metros de distância.",
+      "text": "Aos dez anos, uma queda de bicicleta revelou uma habilidade inesperada. Assustado, você viu pequenas formas rubras suspensas no ar e percebeu que conseguia sentir o ritmo cardíaco de quem estava por perto. Um adulto se aproximou para ajudar. Você tentou compreender o que estava acontecendo.",
       "choices": [
         {
-          "label": "Reabsorver o sangue às pressas e correr para casa antes que adultos aparecessem",
+          "label": "Procurar ajuda e conversar com sua família",
           "to": "infancia_hemocinese_2",
           "effects": {
             "flags": {
@@ -488,7 +488,7 @@
           }
         },
         {
-          "label": "Manter as lâminas flutuando para intimidar os valentões e fazê-los recuar",
+          "label": "Tentar manter as formas suspensas até se acalmar",
           "cost": {
             "estresse": 10
           },
@@ -501,7 +501,7 @@
           }
         },
         {
-          "label": "Entrar em pânico com a dor e perder o controle, estilhaçando os vidros da quadra",
+          "label": "Pedir ajuda quando perder a concentração",
           "cost": {
             "vitalidade": -10,
             "estresse": 15
@@ -515,7 +515,7 @@
           }
         },
         {
-          "label": "Moldar o sangue em um anel estável e acalmar a própria respiração",
+          "label": "Concentrar-se e estabilizar as formas rubras",
           "requireAttr": {
             "attr": "controle",
             "min": 3
@@ -540,11 +540,11 @@
       "dynamic": [
         {
           "flag": "infancia_escondeu",
-          "text": "Desde o dia em que você fugiu da quadra escondendo o braço ensanguentado, o sigilo virou sua única regra. Quatro anos depois, você passava madrugadas trancado no banheiro com gaze esterilizada sobre a pia."
+          "text": "Desde aquele dia, você passou a conversar com sua família sobre a habilidade e a aprender seus limites em segurança."
         },
         {
           "flag": "infancia_impos",
-          "text": "Desde o dia em que fez aqueles dois valentões recuarem diante das suas lâminas rubras, você nunca mais abaixou a cabeça — mas aprendeu a praticar escondido para não chamar atenção errada."
+          "text": "A descoberta da habilidade fez você perceber que precisava aprender a manter a calma."
         },
         {
           "flag": "infancia_descontrole",
@@ -552,7 +552,7 @@
         },
         {
           "flag": "infancia_maestria",
-          "text": "Aquele controle precoce aos dez anos permitiu que você evoluísse em silêncio absoluto. Aos quatorze, uma única gota retirada da palma da mão girava suspensa sobre seus dedos como uma agulha perfeita."
+          "text": "Com o passar dos anos, você ganhou mais controle sobre a sua habilidade."
         }
       ],
       "textAfterDynamic": "Sua mãe batia suavemente na porta sempre que ouvia a torneira aberta tarde da noite.\n\nMãe: — {NOME}, você ainda está acordado? Amanhã você tem aula cedo, querido.\n\nVocê havia aprendido a detectar mentiras apenas ouvindo a aceleração súbita do batimento cardíaco de quem falava com você — e percebia que seus próprios pais escondiam algo sempre que mencionavam os exames da sua infância.",
@@ -567,7 +567,7 @@
           }
         },
         {
-          "label": "Treinar até a exaustão para transformar cada gota em uma arma precisa",
+          "label": "Buscar orientação para entender melhor seus poderes",
           "cost": {
             "vitalidade": -5,
             "estresse": 5
@@ -1336,7 +1336,7 @@
       "title": "Ato III · Calouro em Godolkin",
       "time": "08:15 · PRIMEIRO DIA",
       "stage": "PÁTIO CENTRAL · UNIVERSIDADE GODOLKIN",
-      "text": "PRIMEIRO DIA COMO CALOURO.\n\nOs portões de ferro da Universidade Godolkin se abrem diante de você. Estátuas douradas dos antigos membros dos Sete vigiam o pátio central enquanto drones de transmissão da Vought+ sobrevoam os novatos.\n\nNo telão digital acima da biblioteca, o Ranking Oficial do Campus (#1 ao #100) pisca em tempo real. Como recém-chegado, você entra na lista entre centenas de estudantes ambiciosos e colegas tão perdidos quanto você.\n\nNa recepção, uma funcionária entrega seu cartão estudantil.\n\nFuncionária: — Antes de sair por aí, escolha seu alojamento. A avaliação começa às nove.",
+      "text": "PRIMEIRO DIA COMO CALOURO.\n\nOs portões de ferro da Universidade Godolkin se abrem diante de você. Estátuas douradas dos antigos membros dos Sete vigiam o pátio central enquanto drones de transmissão da Vought+ sobrevoam os novatos.\n\nNo telão digital acima da biblioteca, o Ranking Oficial do Campus (#1 ao #100) pisca em tempo real. Como recém-chegado, você entra na lista entre centenas de estudantes ambiciosos e colegas tão perdidos quanto você.\n\nNa recepção, uma funcionária entrega seu cartão estudantil.\n\nFuncionária: — Antes de sair por aí, escolha seu alojamento. A avaliação começa às dez.",
       "choices": [
         {
           "label": "Receber a chave e escolher o quarto",
@@ -1622,26 +1622,26 @@
     },
     "calouros_4": {
       "id": "calouros_4",
-      "title": "Rumo ao Pavilhão B",
+      "title": "Até a próxima",
       "time": "INTERVALO DA MANHÃ",
       "stage": "ESCADARIAS DA BIBLIOTECA",
       "text": "",
       "dynamic": [
         {
           "flag": "c3_fechou_alianca",
-          "text": "Clara bate o punho no seu ombro com um sorriso largo enquanto Luka assente satisfeito: 'Fechado então, {NOME}. Calouros unidos dão bem menos trabalho pra enterrar.'"
+          "text": "Clara bate o punho no seu ombro com um sorriso largo enquanto Luka assente satisfeito.\n\nClara: — Fechado então, {NOME}. Calouros unidos dão bem menos trabalho pra enterrar."
         },
         {
           "flag": "c3_cautela",
-          "text": "Luka dá de ombros com compreensão: 'Justo, {NOME}. Em Godolkin quem confia rápido demais dura pouco. A gente vai provando na prática.'"
+          "text": "Luka dá de ombros com compreensão.\n\nLuka: — Justo, {NOME}. Em Godolkin quem confia rápido demais dura pouco. A gente vai provando na prática."
         },
         {
           "flag": "c3_brincadeira",
-          "text": "Clara revira os olhos rindo: 'Olha a marra do novato! Quero só ver você bancar o guarda-costas quando a sirene tocar.'"
+          "text": "Clara revira os olhos rindo.\n\nClara: — Olha a marra do novato! Quero só ver você bancar o guarda-costas quando a sirene tocar."
         },
         {
           "flag": "c3_empatia_clara",
-          "text": "Clara relaxa os ombros por um segundo e olha para você com gratidão sincera: 'Valeu, {NOME}. Sério mesmo. É bom ter alguém que não tá aqui só pra competir.'"
+          "text": "Clara relaxa os ombros por um segundo e olha para você com gratidão sincera.\n\nClara: — Valeu, {NOME}. Sério mesmo. É bom ter alguém que não tá aqui só pra competir."
         }
       ],
       "textAfterDynamic": "Você confere o horário. Ainda há tempo antes da avaliação. O grupo se despede e você retorna ao pátio central.",
@@ -1918,15 +1918,15 @@
       "dynamic": [
         {
           "flag": "e1_firme",
-          "text": "Matteo solta uma risada satisfeita e bate de leve no próprio peito: 'É disso que eu tô falando, {NOME}! Gente sem ambição não dura duas semanas nesse campus.'"
+          "text": "Matteo solta uma risada satisfeita e bate de leve no próprio peito.\n\nMatteo: — É disso que eu tô falando, {NOME}! Gente sem ambição não dura duas semanas nesse campus."
         },
         {
           "flag": "e1_ironia",
-          "text": "Zoe arqueia uma sobrancelha com um sorriso intrigado, enquanto Matteo franze levemente a testa: 'Cuidado com a marra na Arena, novato. Câmera ao vivo não perdoa blefe.'"
+          "text": "Zoe arqueia uma sobrancelha com um sorriso intrigado, enquanto Matteo franze levemente a testa.\n\nMatteo: — Cuidado com a marra na Arena, novato. Câmera ao vivo não perdoa blefe."
         },
         {
           "flag": "e1_patrocinio",
-          "text": "Os olhos de Matteo brilham na hora ao ouvir você falar de patrocínios: 'Finalmente um calouro que entende que ser super-herói hoje é um negócio bilionário, {NOME}.'"
+          "text": "Os olhos de Matteo brilham na hora ao ouvir você falar de patrocínios.\n\nMatteo: — Finalmente um calouro que entende que ser super-herói hoje é um negócio bilionário, {NOME}."
         },
         {
           "flag": "e1_carisma",
@@ -1934,31 +1934,31 @@
         },
         {
           "flag": "perfil_prodigio",
-          "text": "Matteo parece reconsiderar sua primeira impressão. “Ambição não falta.”"
+          "text": "Matteo parece reconsiderar sua primeira impressão.\n\nMatteo: — Ambição não falta."
         },
         {
           "flag": "perfil_cetico",
-          "text": "Matteo parece reconsiderar sua primeira impressão. “Você faz perguntas interessantes.”"
+          "text": "Matteo parece reconsiderar sua primeira impressão.\n\nMatteo: — Você faz perguntas interessantes."
         },
         {
           "flag": "perfil_estrategico",
-          "text": "Matteo parece reconsiderar sua primeira impressão. “Então você veio preparado.”"
+          "text": "Matteo parece reconsiderar sua primeira impressão.\n\nMatteo: — Então você veio preparado."
         },
         {
           "flag": "perfil_protetor",
-          "text": "Matteo parece reconsiderar sua primeira impressão. “Lealdade, hein?”"
+          "text": "Matteo parece reconsiderar sua primeira impressão.\n\nMatteo: — Lealdade, hein?"
         },
         {
           "flag": "perfil_reservado",
-          "text": "Matteo parece reconsiderar sua primeira impressão. “Você não é fácil de ler.”"
+          "text": "Matteo parece reconsiderar sua primeira impressão.\n\nMatteo: — Você não é fácil de ler."
         },
         {
           "flag": "perfil_carismatico",
-          "text": "Matteo parece reconsiderar sua primeira impressão. “Tudo bem, vamos conversar.”"
+          "text": "Matteo parece reconsiderar sua primeira impressão.\n\nMatteo: — Tudo bem, vamos conversar."
         },
         {
           "flag": "perfil_idealista",
-          "text": "Matteo parece reconsiderar sua primeira impressão. “Espero que mantenha essa ideia.”"
+          "text": "Matteo parece reconsiderar sua primeira impressão.\n\nMatteo: — Espero que mantenha essa ideia."
         }
       ],
       "textAfterDynamic": "Zoe dá um passo mais perto e acena discretamente para que o operador do drone afaste um pouco o áudio.\n\nZoe: — Aqui dentro existe uma regra simples que a reitoria não escreve no manual, {NOME}: os Sete têm vagas contadas, e ninguém sobe sem aliados estratégicos. Olhe em volta — você tem os calouros barulhentos na escadaria e os ratos de arquivo sob as arcadas.",
@@ -2044,11 +2044,11 @@
         },
         {
           "flag": "e2_concordou_topo",
-          "text": "Matteo assente com entusiasmo: 'Exato. Quem fica no topo escreve as regras; quem fica embaixo só obedece.'"
+          "text": "Matteo assente com entusiasmo.\n\nMatteo: — Exato. Quem fica no topo escreve as regras; quem fica embaixo só obedece."
         },
         {
           "flag": "e2_notou_zoe",
-          "text": "Zoe percebe seu olhar descendo para as faíscas azuis na ponta dos dedos dela e sorri encantada: 'Observador você, {NOME}. Gosto de gente que repara nos detalhes antes de tomar choque.'"
+          "text": "Zoe percebe seu olhar descendo para as faíscas azuis na ponta dos dedos dela e sorri encantada.\n\nZoe: — Observador você, {NOME}. Gosto de gente que repara nos detalhes antes de tomar choque."
         }
       ],
       "textAfterDynamic": "Zoe troca um olhar rápido e cúmplice com Matteo.\n\nZoe: — Informação vale mais do que qualquer rajada de energia nesse campus, {NOME}. Queremos saber quem entre os calouros tem potencial real — e quem está tentando bancar o espertinho pelas costas da diretoria.",
@@ -2088,18 +2088,18 @@
     },
     "elite_4": {
       "id": "elite_4",
-      "title": "Convite para o Pavilhão B",
+      "title": "Até a avaliação",
       "time": "INTERVALO DA MANHÃ",
       "stage": "ÁREA VIP",
       "text": "",
       "dynamic": [
         {
           "flag": "e3_compromisso",
-          "text": "Matteo estende o punho para você com confiança: 'É assim que se fala, {NOME}. Vamos mostrar pra essa turma como se domina o placar.'"
+          "text": "Matteo estende o punho para você com confiança.\n\nMatteo: — É assim que se fala, {NOME}. Vamos mostrar pra essa turma como se domina o placar."
         },
         {
           "flag": "e3_cautela",
-          "text": "Zoe inclina levemente a cabeça com um sorriso divertido: 'Cauteloso. Justo, {NOME} — a Arena sempre revela quem é quem.'"
+          "text": "Zoe inclina levemente a cabeça com um sorriso divertido.\n\nZoe: — Cauteloso. Justo, {NOME} — a Arena sempre revela quem é quem."
         }
       ],
       "textAfterDynamic": "Você confere o horário. Ainda há tempo antes da avaliação. O grupo se despede e você retorna ao pátio central.",
@@ -2215,11 +2215,11 @@
         },
         {
           "flag": "a1_brincou_drones",
-          "text": "Otávio dá uma gargalhada sincera e bate no próprio ombro: 'Viu só, Maya? Finalmente alguém normal! Lá no meio o Matteo e a Zoe já estão ensaiando pose pra capa de revista antes mesmo da primeira aula.'"
+          "text": "Otávio dá uma gargalhada sincera e bate no próprio ombro.\n\nOtávio: — Viu só, Maya? Finalmente alguém normal! Lá no meio o Matteo e a Zoe já estão ensaiando pose pra capa de revista antes mesmo da primeira aula."
         },
         {
           "flag": "a1_perguntou_luvas",
-          "text": "Maya ergue as mãos enluvadas por um segundo com um sorriso sarcástico, porém verdadeiro.\n\nMaya: — Digamos que se eu encostar a pele em você e pedir para você pular daquela sacada, você não vai conseguir dizer não, {NOME}. Por isso uso luvas 24 horas por dia. É mais seguro para todo mundo."
+          "text": "Maya ajeita as luvas, sem perder a seriedade.\n\nMaya: — Meu poder influencia decisões por contato direto. É por isso que prefiro estabelecer limites claros."
         },
         {
           "flag": "a1_viu_quarta",
@@ -2311,15 +2311,15 @@
         },
         {
           "flag": "a2_apoiou_maya",
-          "text": "Maya esboça um sorriso discreto e verdadeiro: 'É raro encontrar alguém no 1º ano que não engole o discurso da diretoria, {NOME}. Fico feliz que você enxergue além dos cartazes.'"
+          "text": "Maya esboça um sorriso discreto e verdadeiro.\n\nMaya: — É raro encontrar alguém no 1º ano que não engole o discurso da diretoria, {NOME}. Fico feliz que você enxergue além dos cartazes."
         },
         {
           "flag": "a2_apoiou_otavio",
-          "text": "Otávio aponta para você com o dedo indicador: 'Exato! Um passo de cada vez. Primeiro a gente passa inteiro pelo treino do Brinker hoje.'"
+          "text": "Otávio aponta para você com o dedo indicador.\n\nOtávio: — Exato! Um passo de cada vez. Primeiro a gente passa inteiro pelo treino do Brinker hoje."
         },
         {
           "flag": "a2_empatia_otavio",
-          "text": "Otávio pisca surpreso, percebendo que você sentiu o peso que ele carrega, e abaixa a voz: 'Valeu por notar, {NOME}... eu só não quero ver mais nenhum calouro se machucando por erro meu ou de qualquer veterano.'"
+          "text": "Otávio pisca surpreso, percebendo que você sentiu o peso que ele carrega, e abaixa a voz.\n\nOtávio: — Valeu por notar, {NOME}... eu só não quero ver mais nenhum calouro se machucando por erro meu ou de qualquer veterano."
         }
       ],
       "textAfterDynamic": "Maya olha para o relógio no pulso quando os primeiros alunos começam a caminhar em direção às portas blindadas do ginásio.\n\nMaya: — Quando o Matteo entra na Arena, ele costuma atirar primeiro e olhar quem está na frente depois.",
@@ -2358,18 +2358,18 @@
     },
     "arcadas_4": {
       "id": "arcadas_4",
-      "title": "Chamada para a Arena",
+      "title": "Antes da avaliação",
       "time": "INTERVALO DA MANHÃ",
       "stage": "ARCADAS LATERAIS",
       "text": "",
       "dynamic": [
         {
           "flag": "a3_juntos_arena",
-          "text": "Otávio faz um joinha tranquilo: 'Fechado, {NOME}. A gente cobre os flancos um do outro lá dentro.'"
+          "text": "Otávio faz um joinha tranquilo.\n\nOtávio: — Fechado, {NOME}. A gente cobre os flancos um do outro lá dentro."
         },
         {
           "flag": "a3_confiante",
-          "text": "Maya assente levemente: 'Só não subestime os drones do Brinker, {NOME}. Eles não são brinquedos de treino.'"
+          "text": "Maya assente levemente.\n\nMaya: — Só não subestime os drones do Brinker, {NOME}. Eles não são brinquedos de treino."
         }
       ],
       "textAfterDynamic": "Você confere o horário. Ainda há tempo antes da avaliação. O grupo se despede e você retorna ao pátio central.",
@@ -2733,7 +2733,7 @@
       "dynamic": [
         {
           "flag": "salvou_clara",
-          "text": "Assim que Zoe se afasta, Clara encosta o ombro no seu com um sorriso sincero: 'Você salvou minha pele lá dentro, {NOME}. A partir de hoje você tá fechado com a gente.'"
+          "text": "Assim que Zoe se afasta, Clara encosta o ombro no seu com um sorriso sincero.\n\nClara: — Você salvou minha pele lá dentro, {NOME}. A partir de hoje você tá fechado com a gente."
         },
         {
           "flag": "hesitou_arena",
@@ -2774,15 +2774,15 @@
       "dynamic": [
         {
           "flag": "ar2_confirmou_zoe",
-          "text": "Zoe sorri satisfeita antes de seguir pelo corredor dos vestiários: 'Ótimo. Não se atrase, {NOME} — a vista lá de cima muda a perspectiva de qualquer calouro.'"
+          "text": "Zoe sorri satisfeita antes de seguir pelo corredor dos vestiários.\n\nZoe: — Ótimo. Não se atrase, {NOME} — a vista lá de cima muda a perspectiva de qualquer calouro."
         },
         {
           "flag": "ar2_vago_zoe",
-          "text": "Zoe solta uma risada baixa, sem parecer ofendida: 'Misterioso. Vamos ver se a curiosidade fala mais alto até as dez, {NOME}.'"
+          "text": "Zoe solta uma risada baixa, sem parecer ofendida.\n\nZoe: — Misterioso. Vamos ver se a curiosidade fala mais alto até as dez, {NOME}."
         },
         {
           "flag": "ar2_criticou_matteo",
-          "text": "O sorriso de Zoe esfria por um segundo antes de ela dar de ombros: 'Em campo real existe dano colateral, {NOME}. É bom você se acostumar rápido.'"
+          "text": "O sorriso de Zoe esfria por um segundo antes de ela dar de ombros.\n\nZoe: — Em campo real existe dano colateral, {NOME}. É bom você se acostumar rápido."
         }
       ],
       "textAfterDynamic": "Antes mesmo de você chegar aos armários para trocar de roupa, uma assistente de blazer cinza e tablet na mão intercepta seu caminho no corredor principal.\n\nAssistente da Reitoria: — {NOME_COMPLETO}? O Diretor Victor Caldwell acabou de assistir à transmissão da Arena e pediu para falar com você pessoalmente no gabinete dele antes do horário de almoço. Me acompanhe, por favor.\n\nDois veteranos que passavam pelo corredor param para olhar — ser chamado pelo Diretor logo na manhã do primeiro dia é algo que quase nunca acontece com um calouro.",
@@ -2835,7 +2835,7 @@
         },
         {
           "flag": "t1_perguntou",
-          "text": "A assistente responde com um sorriso ensaiado: 'Nada de errado, {NOME}. O Diretor Caldwell gosta de conhecer pessoalmente os calouros que fogem do padrão.'"
+          "text": "A assistente responde com um sorriso ensaiado.\n\nAssistente da Reitoria: — Nada de errado, {NOME}. O Diretor Caldwell gosta de conhecer pessoalmente os calouros que fogem do padrão."
         },
         {
           "flag": "t1_observou_ala",
@@ -2897,19 +2897,19 @@
       "dynamic": [
         {
           "flag": "t2_dir_ambicioso",
-          "text": "Caldwell abre um sorriso largo e apoia os cotovelos sobre a mesa: 'Ambição saudável é o combustível desta universidade, {NOME}. Os patrocinadores adoram um calouro que entra olhando para o topo.'"
+          "text": "Caldwell abre um sorriso largo e apoia os cotovelos sobre a mesa.\n\nDiretor Caldwell: — Ambição saudável é o combustível desta universidade, {NOME}. Os patrocinadores adoram um calouro que entra olhando para o topo."
         },
         {
           "flag": "t2_dir_controle",
-          "text": "Caldwell assente com gravidade paternal: 'Sábia escolha, {NOME}. Poder sem controle é apenas tragédia esperando manchete — e nossos laboratórios existem exatamente para evitar isso.'"
+          "text": "Caldwell assente com gravidade paternal.\n\nDiretor Caldwell: — Sábia escolha, {NOME}. Poder sem controle é apenas tragédia esperando manchete — e nossos laboratórios existem exatamente para evitar isso."
         },
         {
           "flag": "t2_dir_questionou",
-          "text": "O sorriso de Caldwell vacila por uma fração de segundo antes de ele soltar uma risada curta: 'Calibração de rotina, {NOME}. No mundo real, vilões não seguem roteiros — por isso testamos seus reflexos.'"
+          "text": "O sorriso de Caldwell vacila por uma fração de segundo antes de ele soltar uma risada curta.\n\nDiretor Caldwell: — Calibração de rotina, {NOME}. No mundo real, vilões não seguem roteiros — por isso testamos seus reflexos."
         },
         {
           "flag": "t2_dir_diplomatico",
-          "text": "Caldwell inclina a cabeça impressionado com sua postura: 'Você fala como alguém que já nasceu pronto para coletivas de imprensa, {NOME}. Muito bem.'"
+          "text": "Caldwell inclina a cabeça impressionado com sua postura.\n\nDiretor Caldwell: — Você fala como alguém que já nasceu pronto para coletivas de imprensa, {NOME}. Muito bem."
         }
       ],
       "textAfterDynamic": "O Diretor caminha até a janela, observando os alunos cruzando o pátio lá embaixo, e baixa levemente o tom de voz.\n\nDiretor Caldwell: — Vou lhe dar um conselho que não está no manual de boas-vindas, {NOME}. Aqui dentro existem dois tipos de estudantes: os que constroem legados ao lado da Vought, e os que se perdem em boatos de corredor e acabam... transferidos antes do fim do semestre. Escolha bem quem você ouve hoje à noite.",
@@ -2952,15 +2952,15 @@
       "dynamic": [
         {
           "flag": "t3_dir_concordou",
-          "text": "Caldwell dá um tapinha firme no seu ombro ao acompanhá-lo até a porta: 'Excelente. Aproveite o primeiro dia, {NOME}. Estaremos acompanhando sua evolução de perto.'"
+          "text": "Caldwell dá um tapinha firme no seu ombro ao acompanhá-lo até a porta.\n\nDiretor Caldwell: — Excelente. Aproveite o primeiro dia, {NOME}. Estaremos acompanhando sua evolução de perto."
         },
         {
           "flag": "t3_dir_perguntou_transf",
-          "text": "Caldwell apenas sorri de forma enigmática ao abrir a porta do gabinete: 'Nem todo aluno tem perfil para a pressão de Godolkin, {NOME}. Alguns precisam de ambientes mais... reservados. Tenha um bom almoço.'"
+          "text": "Caldwell apenas sorri de forma enigmática ao abrir a porta do gabinete.\n\nDiretor Caldwell: — Nem todo aluno tem perfil para a pressão de Godolkin, {NOME}. Alguns precisam de ambientes mais... reservados. Tenha um bom almoço."
         },
         {
           "flag": "t3_dir_silencio",
-          "text": "Caldwell observa seu rosto por um instante antes de abrir a porta: 'Discrição também é uma virtude rara entre calouros, {NOME}. Pode ir almoçar.'"
+          "text": "Caldwell observa seu rosto por um instante antes de abrir a porta.\n\nDiretor Caldwell: — Discrição também é uma virtude rara entre calouros, {NOME}. Pode ir almoçar."
         }
       ],
       "textAfterDynamic": "Assim que você sai da Ala Administrativa rumo ao Refeitório Central, Maya Dunlap e Otávio O'Connor aparecem dobrando o corredor — Maya segura um tablet sob o braço enluvado enquanto Otávio carrega duas bandejas.\n\nOtávio: — Olha quem sobreviveu à cova dos leões! O campus inteiro já tá comentando que o Caldwell te chamou lá em cima, {NOME}.\n\nMaya: — Ele não chama calouros no primeiro dia à toa. O que ele queria com você?",
@@ -3021,15 +3021,15 @@
       "dynamic": [
         {
           "flag": "t4_contou_tudo",
-          "text": "Maya troca um olhar rápido e significativo com Otávio ao ouvir a palavra 'transferidos': 'Sabia. É exatamente o mesmo termo que aparece nos registros apagados do sistema, {NOME}. Obrigada por não esconder isso da gente.'"
+          "text": "Maya troca um olhar rápido e significativo com Otávio ao ouvir a palavra 'transferidos'.\n\nOtávio: — Sabia. É exatamente o mesmo termo que aparece nos registros apagados do sistema, {NOME}. Obrigada por não esconder isso da gente."
         },
         {
           "flag": "t4_resumiu",
-          "text": "Maya estreita os olhos por um segundo, como se soubesse que há algo a mais, mas apenas assente: 'Se ele te chamou no primeiro dia, já colocou você no radar dele, {NOME}. Toma cuidado.'"
+          "text": "Maya estreita os olhos por um segundo, como se soubesse que há algo a mais, mas apenas assente.\n\nMaya: — Se ele te chamou no primeiro dia, já colocou você no radar dele, {NOME}. Toma cuidado."
         },
         {
           "flag": "t4_brincou",
-          "text": "Otávio solta uma risada alta: 'Menos, {NOME}, bem menos! O Matteo já tá com ciúmes só de ouvir que você subiu aquele elevador.'"
+          "text": "Otávio solta uma risada alta.\n\nOtávio: — Menos, {NOME}, bem menos! O Matteo já tá com ciúmes só de ouvir que você subiu aquele elevador."
         }
       ],
       "textAfterDynamic": "No refeitório, Clara, Luka, Maya e Otávio ocupam uma mesa perto das janelas. Matteo e Zoe conversam numa mesa do outro lado do salão. Há também lugares livres junto à parede. Você pega sua bandeja e decide onde sentar.",
@@ -3129,11 +3129,11 @@
       "dynamic": [
         {
           "flag": "t6_plano_zoe",
-          "text": "Maya assente aprovando sua ideia: 'Perfeito, {NOME}. Se você já tem passe livre pela Zoe, ninguém vai estranhar sua presença na cobertura.'"
+          "text": "Maya assente aprovando sua ideia.\n\nMaya: — Perfeito, {NOME}. Se você já tem passe livre pela Zoe, ninguém vai estranhar sua presença na cobertura."
         },
         {
           "flag": "t6_plano_grupo",
-          "text": "Clara bate os punhos no ar animada: 'É isso! Chegamos juntos, fazemos presença e ninguém fica sozinho lá em cima.'"
+          "text": "Clara bate os punhos no ar animada.\n\nClara: — É isso! Chegamos juntos, fazemos presença e ninguém fica sozinho lá em cima."
         },
         {
           "flag": "grupo_escuta",
@@ -3148,7 +3148,7 @@
           "text": "Seus colegas lembram do acordo do quarto e deixam espaço para você se preparar com calma."
         }
       ],
-      "textAfterDynamic": "Depois de uma tarde intensa de seminários de gestão de crise e treino técnico, o sol se põe atrás das estátuas douradas de Godolkin. Nos dormitórios dos calouros, você termina de se arrumar enquanto as primeiras batidas graves de música já ecoam do topo da Torre Norte.\n\nLuka bate na sua porta já pronto, enquanto Clara ajusta a jaqueta no corredor:\n\nLuka: — Tudo pronto, {NOME}? Lembra do combinado: curte a festa, conversa com quem precisar para não levantar suspeitas e, quando a Maya der o sinal perto do bar, a gente sai para a varanda externa.",
+      "textAfterDynamic": "Depois de uma tarde intensa de seminários de gestão de crise e treino técnico, o sol se põe atrás das estátuas douradas de Godolkin. Nos dormitórios dos calouros, você termina de se arrumar enquanto as primeiras batidas graves de música já ecoam do topo da Torre Norte.\n\nLuka encontra você no corredor, enquanto Clara ajusta a jaqueta:\n\nLuka: — Tudo pronto, {NOME}? Lembra do combinado: curte a festa, conversa com quem precisar para não levantar suspeitas e, quando a Maya der o sinal perto do bar, a gente sai para a varanda externa.",
       "choices": [
         {
           "label": "Subir para a cobertura da Torre Norte junto com Clara e Luka",
@@ -3255,6 +3255,10 @@
         {
           "flag": "f1_pista_calouros",
           "text": "Depois de alguns minutos rindo na pista com Clara e Luka, você vai buscar água no bar — e dá de cara com Matteo encostado no balcão esperando exatamente por você."
+        },
+        {
+          "flag": "revelado_matteo",
+          "text": "Matteo: — Pensei no que a gente conversou à tarde. Pelo menos aqui ninguém está pedindo para eu repetir uma entrevista."
         }
       ],
       "textAfterDynamic": "Sem as câmeras oficiais da Vought+ apontadas na cara dele, Matteo parece mais humano — mas ainda intensamente competitivo. Ele estende um copo gelado para você e apoia o antebraço no balcão.\n\nMatteo: — Achei que você não fosse aparecer, {NOME}. Todo mundo no campus ainda tá falando da sua entrada na Arena e daquela convocação no gabinete do Caldwell hoje cedo. Fala sério: de onde você surgiu? Você nunca apareceu nos torneios juvenis da Vought antes de entrar aqui.",
@@ -3282,8 +3286,7 @@
               "f2_matteo_misterio": true
             },
             "bonds": {
-              "matteo": 1,
-              "zoe": 1
+              "matteo": 1
             }
           }
         },
@@ -3313,22 +3316,22 @@
       "dynamic": [
         {
           "flag": "f2_matteo_honesto",
-          "text": "Matteo dá um meio sorriso quase nostálgico ao ouvir sua resposta: 'Sorte a sua, {NOME}. Eu tô diante de câmeras desde os doze anos. Às vezes a gente nem sabe mais o que é vontade própria e o que é roteiro da agência.'"
+          "text": "Matteo dá um meio sorriso quase nostálgico ao ouvir sua resposta.\n\nMatteo: — Sorte a sua, {NOME}. Eu tô diante de câmeras desde os doze anos. Às vezes a gente nem sabe mais o que é vontade própria e o que é roteiro da agência."
         },
         {
           "flag": "f2_matteo_misterio",
-          "text": "Matteo solta uma risada curta balançando o gelo no copo: 'Você fala igualzinho à Zoe quando quer esconder o jogo, {NOME}. Tô começando a entender por que o Caldwell quis conversar com você.'"
+          "text": "Matteo solta uma risada curta balançando o gelo no copo.\n\nMatteo: — Você fala igualzinho à Zoe quando quer esconder o jogo, {NOME}. Tô começando a entender por que o Caldwell quis conversar com você."
         },
         {
           "flag": "f2_matteo_desafiou",
-          "text": "Matteo sustenta seu olhar com um brilho competitivo intenso, mas sem hostilidade: 'Porque eu sei reconhecer quando alguém tem potencial pra bagunçar o tabuleiro lá em cima, {NOME}. E eu prefiro saber se você vai jogar comigo ou contra mim.'"
+          "text": "Matteo sustenta seu olhar com um brilho competitivo intenso, mas sem hostilidade.\n\nMatteo: — Porque eu sei reconhecer quando alguém tem potencial pra bagunçar o tabuleiro lá em cima, {NOME}. E eu prefiro saber se você vai jogar comigo ou contra mim."
         }
       ],
       "textAfterDynamic": "Ele toma um gole da bebida, olhando de relance para o sofá onde Zoe Lee conversa com outros veteranos, e depois volta a encarar você.\n\nMatteo: — Escuta, {NOME}: o topo aqui é solitário pra caramba. Se você continuar subindo no Ranking desse jeito, vai precisar de alguém que conheça os bastidores da Vought por dentro. O que você realmente busca em Godolkin?",
       "choices": [
         {
           "label": "Dizer que busca chegar ao topo sem virar fantoche de ninguém",
-          "to": "festa_4",
+          "to": "festa_matteo_bar",
           "effects": {
             "flags": {
               "f3_matteo_autonomia": true
@@ -3343,7 +3346,7 @@
         },
         {
           "label": "Dizer que está apenas observando quem merece confiança aqui dentro",
-          "to": "festa_4",
+          "to": "festa_matteo_bar",
           "effects": {
             "flags": {
               "f3_matteo_cautela": true
@@ -3355,7 +3358,7 @@
         },
         {
           "label": "Brincar dizendo que por enquanto só quer aproveitar a festa sem pensar no placar",
-          "to": "festa_4",
+          "to": "festa_matteo_bar",
           "effects": {
             "flags": {
               "f3_matteo_leve": true
@@ -3375,16 +3378,24 @@
       "text": "",
       "dynamic": [
         {
-          "flag": "f3_matteo_autonomia",
-          "text": "Matteo ergue o copo em um brinde silencioso: 'Aí sim, {NOME}. Quem não impõe respeito aqui vira degrau.'"
+          "flag": "matteo_bar_livre",
+          "text": "Matteo: — Música. Talvez uma tarde inteira ouvindo discos sem ninguém me dizendo qual música combina com minha marca.\n\nEle ri do próprio comentário."
         },
         {
-          "flag": "f3_matteo_cautela",
-          "text": "Matteo assente devagar: 'Faz sentido. Aqui todo mundo sorri enquanto esconde uma faca nas costas.'"
+          "flag": "matteo_bar_passado",
+          "text": "Matteo: — Tem gente de quem me afastei. Clara é uma delas. Não acho que seja uma conversa que eu consiga resolver hoje, mas eu não esqueci."
         },
         {
-          "flag": "f3_matteo_leve",
-          "text": "Matteo ri balançando a cabeça: 'Aproveita enquanto é calouro, {NOME}. No segundo ano a cobrança não dá trégua.'"
+          "flag": "matteo_bar_identidade",
+          "text": "Matteo: — Você está dizendo que eu tenho permissão pra ser ruim em alguma coisa? Interessante.\n\nEle sorri, menos ensaiado desta vez."
+        },
+        {
+          "flag": "matteo_bar_leve",
+          "text": "Matteo: — Finalmente. Uma conversa sem a palavra ranking. Essa música até que não é ruim."
+        },
+        {
+          "flag": "revelado_zoe",
+          "text": "Zoe: — Pelo menos consegui alguns minutos sem reunião depois da nossa conversa de hoje."
         }
       ],
       "textAfterDynamic": "Antes que Matteo diga mais alguma coisa, Zoe Lee desliza até o lado dele, apoiando a mão no ombro do namorado enquanto uma microfaísca azul salta entre seus dedos e a taça.\n\nZoe: — Ora, ora... finalmente consegui roubar a atenção do calouro mais comentado do dia, {NOME}. O Matteo já tentou te recrutar para a equipe dele ou ainda está só testando terreno? Diga-me: o que você achou do nosso querido Diretor Caldwell hoje cedo?",
@@ -3444,15 +3455,15 @@
       "dynamic": [
         {
           "flag": "f4_zoe_perspicaz",
-          "text": "Zoe sorri encantada, trocando um olhar cúmplice com Matteo: 'Você aprende rápido, {NOME}. Definitivamente não é um calouro comum.'"
+          "text": "Zoe sorri encantada, trocando um olhar cúmplice com Matteo.\n\nMatteo: — Você aprende rápido, {NOME}. Definitivamente não é um calouro comum."
         },
         {
           "flag": "f4_zoe_inocente",
-          "text": "Zoe inclina levemente a cabeça, estudando seu rosto com olhos divertidos: 'Ah, claro... o Diretor Caldwell adora dar boas-vindas individuais. Que fofo você achar que eu acredito nisso, {NOME}.'"
+          "text": "Zoe inclina levemente a cabeça, estudando seu rosto com olhos divertidos.\n\nZoe: — Ah, claro... o Diretor Caldwell adora dar boas-vindas individuais. Que fofo você achar que eu acredito nisso, {NOME}."
         },
         {
           "flag": "f4_zoe_confronto",
-          "text": "Zoe dá uma risada deliciosa, sem negar nada: 'Em Godolkin, paredes têm ouvidos e celulares têm câmeras, {NOME}. Adoro gente que faz as perguntas certas.'"
+          "text": "Zoe dá uma risada deliciosa, sem negar nada.\n\nZoe: — Em Godolkin, paredes têm ouvidos e celulares têm câmeras, {NOME}. Adoro gente que faz as perguntas certas."
         }
       ],
       "textAfterDynamic": "De repente, a música sobe ainda mais e uma roda barulhenta se forma no meio da pista: veteranos começam um desafio de exibição de poderes ao vivo para stories privados, e um calouro claramente tonto pelos drinks perde o equilíbrio prestes a derrubar uma mesa inteira de vidro.",
@@ -3660,7 +3671,7 @@
     },
     "festa_6": {
       "id": "festa_6",
-      "title": "Momento a Dois Antes da Varanda",
+      "title": "Antes da reunião",
       "time": "23:38",
       "stage": "CORREDOR LATERAL DA COBERTURA",
       "text": "",
@@ -3674,7 +3685,7 @@
           "text": "Enquanto todos olham para o tumulto na pista, você atravessa o salão sem despertar a menor suspeita de Matteo ou Zoe."
         }
       ],
-      "textAfterDynamic": "Perto da porta de vidro que dá acesso à varanda externa, Maya já está lá fora observando a noite, enquanto Otávio, Clara e Luka fazem a cobertura discreta na entrada. Antes de cruzar o vidro para a reunião séria, você tem um instante breve e próximo com quem está ali ao seu lado.",
+      "textAfterDynamic": "Perto da porta de vidro, Clara, Luka e Otávio esperam enquanto Maya confere as anotações do lado de fora. Ainda há alguns minutos antes da reunião.",
       "choices": [
         {
           "label": "[Interesse] Sinalizar interesse em Clara com discrição.",
@@ -3883,68 +3894,20 @@
           "text": "Maya assente aprovando sua objetividade e fecha o trinco da porta de vidro para abafar o som da pista."
         },
         {
-          "flag": "revelado_matteo",
-          "text": "Matteo reconhece você com um aceno discreto. A conversa da tarde parece ter feito diferença."
+          "flag": "amizade_festa_6_clara",
+          "text": "Clara: — Foi um dia estranho, mas pelo menos a gente conseguiu respirar um pouco."
         },
         {
-          "flag": "pessoal_matteo_discorda",
-          "text": "Matteo comenta que ainda pensa na sua opinião da tarde, mesmo sem concordar totalmente."
+          "flag": "amizade_festa_6_maya",
+          "text": "Maya: — Obrigada por ouvir. Vamos conversar com o resto do grupo."
         },
         {
-          "flag": "revelado_maya",
-          "text": "Maya reconhece você com um aceno discreto. A conversa da tarde parece ter feito diferença."
+          "flag": "amizade_festa_6_otavio",
+          "text": "Otávio: — Imagina. A gente vai se ajudando, sem pressa."
         },
         {
-          "flag": "pessoal_maya_discorda",
-          "text": "Maya comenta que ainda pensa na sua opinião da tarde, mesmo sem concordar totalmente."
-        },
-        {
-          "flag": "revelado_clara",
-          "text": "Clara reconhece você com um aceno discreto. A conversa da tarde parece ter feito diferença."
-        },
-        {
-          "flag": "pessoal_clara_discorda",
-          "text": "Clara comenta que ainda pensa na sua opinião da tarde, mesmo sem concordar totalmente."
-        },
-        {
-          "flag": "revelado_otavio",
-          "text": "Otávio reconhece você com um aceno discreto. A conversa da tarde parece ter feito diferença."
-        },
-        {
-          "flag": "pessoal_otavio_discorda",
-          "text": "Otávio comenta que ainda pensa na sua opinião da tarde, mesmo sem concordar totalmente."
-        },
-        {
-          "flag": "revelado_zoe",
-          "text": "Zoe reconhece você com um aceno discreto. A conversa da tarde parece ter feito diferença."
-        },
-        {
-          "flag": "pessoal_zoe_discorda",
-          "text": "Zoe comenta que ainda pensa na sua opinião da tarde, mesmo sem concordar totalmente."
-        },
-        {
-          "flag": "revelado_luka",
-          "text": "Luka reconhece você com um aceno discreto. A conversa da tarde parece ter feito diferença."
-        },
-        {
-          "flag": "pessoal_luka_discorda",
-          "text": "Luka comenta que ainda pensa na sua opinião da tarde, mesmo sem concordar totalmente."
-        },
-        {
-          "flag": "f6_flerte_clara",
-          "text": "Clara registra a demonstração de interesse, sem definir o que sente. A conversa do grupo segue normalmente."
-        },
-        {
-          "flag": "f6_flerte_maya",
-          "text": "Maya registra a demonstração de interesse, sem definir o que sente. A conversa do grupo segue normalmente."
-        },
-        {
-          "flag": "f6_flerte_otavio",
-          "text": "Otávio registra a demonstração de interesse, sem definir o que sente. A conversa do grupo segue normalmente."
-        },
-        {
-          "flag": "f6_flerte_luka",
-          "text": "Luka registra a demonstração de interesse, sem definir o que sente. A conversa do grupo segue normalmente."
+          "flag": "amizade_festa_6_luka",
+          "text": "Luka: — Tenho mais perguntas do que respostas. Amanhã a gente continua."
         }
       ],
       "textAfterDynamic": "O vento frio da madrugada sopra na varanda externa da Torre Norte, bem longe dos microfones do salão. Maya abre o tablet criptografado e mostra uma planilha parcialmente bloqueada.\n\nMaya: — Prestem atenção. O aluno #6 do Ranking não foi transferido para agência nenhuma. Eu e o Luka cruzamos os logs de energia e acesso médico: às duas da manhã de ontem, o cartão executivo do Diretor Caldwell autorizou uma descida pelo elevador de serviço para um subnível sem planta oficial no sistema — marcado apenas pelo código 'F-01'.\n\nOtávio franze a testa olhando para a torre administrativa iluminada ao longe:\n\nOtávio: — Se a reitoria está escondendo alunos lá embaixo, qualquer passo errado coloca todos nós na mesma lista.",
@@ -3983,15 +3946,21 @@
               "f7_sugeriu_fachada": true
             },
             "bonds": {
-              "maya": 2,
-              "zoe": 1
+              "maya": 2
             }
           },
           "memory": [
             "maya"
           ]
         }
-      ]
+      ],
+      "people": [
+        "clara",
+        "luka",
+        "maya",
+        "otavio"
+      ],
+      "place": "tower"
     },
     "festa_8": {
       "id": "festa_8",
@@ -4002,22 +3971,22 @@
       "dynamic": [
         {
           "flag": "f7_perguntou_codigo",
-          "text": "Maya bloqueia a tela do tablet: 'Ainda não temos a chave de descriptografia completa, {NOME}. Esse vai ser o nosso primeiro objetivo assim que as aulas avançarem amanhã.'"
+          "text": "Maya bloqueia a tela do tablet.\n\nMaya: — Ainda não temos a chave de descriptografia completa, {NOME}. Esse vai ser o nosso primeiro objetivo assim que as aulas avançarem amanhã."
         },
         {
           "flag": "f7_alertou_vip",
-          "text": "Clara cerra os punhos irritada: 'Sabia que a Zoe não tinha te chamado pra essa festa por bondade, {NOME}. Bom saber que você não caiu na conversa dela.'"
+          "text": "Clara cerra os punhos irritada.\n\nClara: — Sabia que a Zoe não tinha te chamado pra essa festa por bondade, {NOME}. Bom saber que você não caiu na conversa dela."
         },
         {
           "flag": "f7_sugeriu_fachada",
-          "text": "Otávio concorda devagar: 'Faz sentido, {NOME}. Enquanto eles acharem que você só quer subir no Ranking, ninguém vai desconfiar do que fazemos nos bastidores.'"
+          "text": "Otávio concorda devagar.\n\nOtávio: — Faz sentido, {NOME}. Enquanto eles acharem que você só quer subir no Ranking, ninguém vai desconfiar do que fazemos nos bastidores."
         }
       ],
       "textAfterDynamic": "Luka olha para o relógio no pulso quando as luzes do salão começam a piscar anunciando o encerramento da festa antes do toque de recolher.\n\nLuka: — A sirene vai tocar em dez minutos, {NOME}. A partir de amanhã, o semestre começa pra valer. Qual vai ser a nossa jogada?",
       "choices": [
         {
           "label": "Fechar o pacto com o grupo: investigar o subnível 'F-01' juntos em segredo",
-          "to": "end",
+          "to": "festa_despedida",
           "effects": {
             "flags": {
               "pacto_investigacao": true
@@ -4037,46 +4006,45 @@
         },
         {
           "label": "Propor um jogo duplo: manter proximidade com Matteo e Zoe enquanto coletam provas por dentro",
-          "to": "end",
+          "to": "festa_despedida",
           "effects": {
             "flags": {
               "pacto_duplo": true
             },
             "bonds": {
-              "zoe": 2,
-              "matteo": 2,
               "maya": 2,
               "otavio": 2
             }
           },
           "memory": [
-            "zoe",
-            "matteo",
-            "maya"
+            "maya",
+            "luka",
+            "clara",
+            "otavio"
           ]
         },
         {
           "label": "Pedir cautela e focar primeiro em subir no Ranking antes de enfrentar o Diretor Caldwell",
-          "to": "end",
+          "to": "festa_despedida",
           "effects": {
             "flags": {
               "pacto_silencio": true
             },
             "bonds": {
-              "matteo": 2,
               "maya": -1,
               "clara": -1
             },
             "rank": -2
           },
           "memory": [
-            "matteo"
+            "maya",
+            "clara"
           ]
         },
         {
           "label": "Perceber uma sombra observando atrás da cortina do salão e avisar o grupo em silêncio",
           "requireTrait": "paranoico",
-          "to": "end",
+          "to": "festa_despedida",
           "effects": {
             "flags": {
               "pacto_investigacao": true,
@@ -4094,7 +4062,14 @@
             "otavio"
           ]
         }
-      ]
+      ],
+      "people": [
+        "clara",
+        "luka",
+        "maya",
+        "otavio"
+      ],
+      "place": "tower"
     },
     "end": {
       "id": "end",
@@ -4148,107 +4123,47 @@
     },
     "dorm_m": {
       "id": "dorm_m",
-      "title": "Dividindo espaço",
+      "title": "Chegada ao dormitório",
       "time": "08:25",
       "stage": "DORMITÓRIO MASCULINO",
-      "text": "Luka está tentando organizar uma pilha de livros. Otávio aponta para a cama livre.\n\nOtávio: — Essa é sua. A tomada perto da janela funciona, por incrível que pareça.\n\nLuka: — Só não deixa a Vought instalar uma câmera aqui também.\n\nOtávio: — Ele fala isso de tudo. Enfim, como você prefere organizar o quarto?",
+      "text": "Você segue o número na chave até o corredor do alojamento. Bate à porta, com a mochila no ombro. Otávio abre e dá um passo para o lado.\n\nOtávio: — Opa! Sou o Otávio. Você deve ser {NOME}. Entra, a gente acabou de chegar também.\n\nLuka: — Luka. Se tiver uma mala enorme, a culpa da bagunça não é minha.\n\nOtávio: — A cama junto à janela está livre. Pode deixar suas coisas ali.",
       "choices": [
         {
-          "label": "Vamos combinar as regras juntos.",
-          "to": "explorar_manha",
+          "label": "Entrar, guardar a mochila e conversar sobre o quarto",
+          "to": "dorm_m_regras",
           "effects": {
-            "flags": {
-              "quarto_cooperativo": true
-            },
-            "bonds": {
-              "luka": 1,
-              "otavio": 1
-            }
-          },
-          "memory": [
-            "luka",
-            "otavio"
-          ]
-        },
-        {
-          "label": "Prefiro ter meu próprio espaço.",
-          "to": "explorar_manha",
-          "effects": {
-            "flags": {
-              "quarto_reservado": true
-            },
+            "flags": {},
             "bonds": {}
-          },
-          "memory": [
-            "luka",
-            "otavio"
-          ]
-        },
-        {
-          "label": "Podem escolher, sou tranquilo com isso.",
-          "to": "explorar_manha",
-          "effects": {
-            "flags": {
-              "quarto_flexivel": true
-            },
-            "bonds": {
-              "otavio": 1
-            }
           }
         }
-      ]
+      ],
+      "people": [
+        "luka",
+        "otavio"
+      ],
+      "place": "male"
     },
     "dorm_f": {
       "id": "dorm_f",
-      "title": "Dividindo espaço",
+      "title": "Chegada ao dormitório",
       "time": "08:25",
       "stage": "DORMITÓRIO FEMININO",
-      "text": "Clara tira a mochila da cama livre. Maya fecha um livro e olha para você.\n\nClara: — Finalmente! Achei que a terceira pessoa não vinha.\n\nMaya: — Ela está tentando descobrir quem fica com a melhor tomada.\n\nClara: — Questão de sobrevivência acadêmica. E aí, como vamos dividir o espaço?",
+      "text": "A chave indica um quarto no corredor do alojamento. Você bate à porta. Clara abre, segurando um pacote de cabides.\n\nClara: — Oi! Você é {NOME}, né? Sou a Clara. Entra, antes que o corredor inteiro resolva vir junto.\n\nMaya: — Maya. Prazer. A cama perto da janela está livre.\n\nClara: — E a gente ainda está negociando o espaço do armário. Bem-vinda à diplomacia universitária.",
       "choices": [
         {
-          "label": "Vamos combinar as regras juntas.",
-          "to": "explorar_manha",
+          "label": "Entrar, guardar a mochila e conversar sobre o quarto",
+          "to": "dorm_f_regras",
           "effects": {
-            "flags": {
-              "quarto_cooperativo": true
-            },
-            "bonds": {
-              "clara": 1,
-              "maya": 1
-            }
-          },
-          "memory": [
-            "clara",
-            "maya"
-          ]
-        },
-        {
-          "label": "Prefiro ter meu próprio espaço.",
-          "to": "explorar_manha",
-          "effects": {
-            "flags": {
-              "quarto_reservado": true
-            },
+            "flags": {},
             "bonds": {}
-          },
-          "memory": [
-            "clara",
-            "maya"
-          ]
-        },
-        {
-          "label": "Escolham vocês, não me importo.",
-          "to": "explorar_manha",
-          "effects": {
-            "flags": {
-              "quarto_flexivel": true
-            },
-            "bonds": {
-              "clara": 1
-            }
           }
         }
-      ]
+      ],
+      "people": [
+        "clara",
+        "maya"
+      ],
+      "place": "female"
     },
     "dorm_ind": {
       "id": "dorm_ind",
@@ -4281,16 +4196,9 @@
             "flags": {
               "aproximou_calouros": true
             },
-            "bonds": {
-              "clara": 2,
-              "luka": 2
-            }
+            "bonds": {}
           },
-          "once": "calouros_1",
-          "memory": [
-            "clara",
-            "luka"
-          ]
+          "once": "calouros_1"
         },
         {
           "label": "Caminhar até a área VIP para se apresentar a Matteo e Zoe Lee",
@@ -4299,17 +4207,10 @@
             "flags": {
               "aproximou_elite": true
             },
-            "bonds": {
-              "matteo": 2,
-              "zoe": 1
-            },
+            "bonds": {},
             "rank": -2
           },
-          "once": "elite_1",
-          "memory": [
-            "matteo",
-            "zoe"
-          ]
+          "once": "elite_1"
         },
         {
           "label": "Conversar com Maya e Otávio nas arcadas",
@@ -4318,16 +4219,9 @@
             "flags": {
               "aproximou_observadores": true
             },
-            "bonds": {
-              "maya": 2,
-              "otavio": 2
-            }
+            "bonds": {}
           },
-          "once": "arcadas_1",
-          "memory": [
-            "maya",
-            "otavio"
-          ]
+          "once": "arcadas_1"
         },
         {
           "label": "Soltar um comentário sarcástico sobre o show dos drones perto da escadaria",
@@ -4338,17 +4232,9 @@
               "aproximou_calouros": true,
               "ironia_patio": true
             },
-            "bonds": {
-              "clara": 3,
-              "luka": 2,
-              "matteo": -1
-            }
+            "bonds": {}
           },
-          "once": "calouros_1",
-          "memory": [
-            "clara",
-            "luka"
-          ]
+          "once": "calouros_1"
         },
         {
           "label": "Conversar com Clara sobre um favor",
@@ -4388,10 +4274,11 @@
       "choices": [
         {
           "label": "Pode colocar meu nome.",
-          "to": "explorar_manha",
+          "to": "favor_clara_fim",
           "effects": {
             "flags": {
-              "favor_aceito": true
+              "favor_aceito": true,
+              "favor_clara_resposta": 1
             },
             "bonds": {
               "clara": 1
@@ -4404,10 +4291,11 @@
         },
         {
           "label": "Desculpa, preciso manter meu horário livre.",
-          "to": "explorar_manha",
+          "to": "favor_clara_fim",
           "effects": {
             "flags": {
-              "favor_recusado": true
+              "favor_recusado": true,
+              "favor_clara_resposta": 2
             },
             "bonds": {
               "clara": -1
@@ -4420,10 +4308,11 @@
         },
         {
           "label": "Posso ajudar a encontrar outra pessoa.",
-          "to": "explorar_manha",
+          "to": "favor_clara_fim",
           "effects": {
             "flags": {
-              "favor_alternativa": true
+              "favor_alternativa": true,
+              "favor_clara_resposta": 3
             },
             "bonds": {
               "clara": 1
@@ -4673,10 +4562,11 @@
       "choices": [
         {
           "label": "Conversar sobre o resto do dia",
-          "to": "explorar_tarde",
+          "to": "clara_retorno_fim",
           "effects": {
             "flags": {
-              "conversa_clara": true
+              "conversa_clara": true,
+              "clara_retorno_resposta": 1
             },
             "bonds": {
               "clara": 1
@@ -4708,10 +4598,11 @@
       "choices": [
         {
           "label": "Ainda estou tentando entender as regras.",
-          "to": "explorar_tarde",
+          "to": "maya_tarde_fim",
           "effects": {
             "flags": {
-              "maya_conversa": true
+              "maya_conversa": true,
+              "maya_tarde_resposta": 1
             },
             "bonds": {
               "maya": 1
@@ -4723,10 +4614,11 @@
         },
         {
           "label": "Prefiro focar nas aulas por enquanto.",
-          "to": "explorar_tarde",
+          "to": "maya_tarde_fim",
           "effects": {
             "flags": {
-              "maya_foco": true
+              "maya_foco": true,
+              "maya_tarde_resposta": 2
             },
             "bonds": {}
           },
@@ -4745,11 +4637,12 @@
       "choices": [
         {
           "label": "Combinar um horário tranquilo e ouvir os colegas (Clara e Maya)",
-          "to": "explorar_tarde",
+          "to": "dorm_tarde_fim",
           "requireFlag": "dorm_f",
           "effects": {
             "flags": {
-              "quarto_acordo": true
+              "quarto_acordo": true,
+              "dorm_tarde_resposta": 1
             },
             "bonds": {
               "clara": 1,
@@ -4775,11 +4668,12 @@
         },
         {
           "label": "Combinar um horário tranquilo e ouvir os colegas (Luka e Otávio)",
-          "to": "explorar_tarde",
+          "to": "dorm_tarde_fim",
           "requireFlag": "dorm_m",
           "effects": {
             "flags": {
-              "quarto_acordo": true
+              "quarto_acordo": true,
+              "dorm_tarde_resposta": 2
             },
             "bonds": {
               "luka": 1,
@@ -4805,10 +4699,11 @@
         },
         {
           "label": "Conversar e depois voltar ao pátio",
-          "to": "explorar_tarde",
+          "to": "dorm_tarde_fim",
           "effects": {
             "flags": {
-              "descanso_quarto": true
+              "descanso_quarto": true,
+              "dorm_tarde_resposta": 3
             },
             "bonds": {}
           }
@@ -5262,15 +5157,15 @@
       "people": [
         "matteo"
       ],
-      "text": "Matteo dobra o roteiro de uma entrevista. — Sabe quantas vezes já me pediram pra repetir a mesma resposta? Às vezes eu nem lembro qual era minha opinião antes de ensaiar.",
+      "text": "Matteo dobra o roteiro de uma entrevista, olhando para o relógio.\n\nMatteo: — Sabe quantas vezes já me pediram pra repetir a mesma resposta? Oito. Aparentemente meu sorriso na sétima não convenceu.\n\nMatteo: — E você? Já decidiu que tipo de imagem quer vender aqui?",
       "choices": [
         {
-          "label": "Ouvir sem pressionar e respeitar o que prefere guardar.",
+          "label": "Prefiro descobrir quem sou antes de pensar em imagem.",
           "to": "revelacao_matteo",
           "effects": {
             "flags": {
               "pessoal_matteo_respeito": true,
-              "revelado_matteo": true
+              "pessoal_matteo_escolha": 1
             },
             "bonds": {
               "matteo": 1
@@ -5281,22 +5176,21 @@
           ],
           "social": {
             "matteo": {
-              "trust": 2,
-              "respect": 1,
-              "closeness": 1
+              "trust": 1,
+              "respect": 1
             }
           }
         },
         {
-          "label": "Compartilhar uma preocupação minha também.",
+          "label": "Imagino que seja cansativo ter de ensaiar até uma opinião.",
           "to": "revelacao_matteo",
           "effects": {
             "flags": {
               "pessoal_matteo_aberto": true,
-              "revelado_matteo": true
+              "pessoal_matteo_escolha": 2
             },
             "bonds": {
-              "matteo": 2
+              "matteo": 1
             }
           },
           "memory": [
@@ -5304,38 +5198,38 @@
           ],
           "social": {
             "matteo": {
-              "trust": 2,
-              "closeness": 2
+              "trust": 1,
+              "respect": 1
             }
           }
         },
         {
-          "label": "Discordar com sinceridade, sem desrespeitar.",
-          "to": "explorar_tarde",
+          "label": "A imagem pode abrir portas, mas também tem um preço.",
+          "to": "revelacao_matteo",
           "effects": {
             "flags": {
-              "pessoal_matteo_discorda": true
+              "pessoal_matteo_discorda": true,
+              "pessoal_matteo_escolha": 3
             },
-            "bonds": {
-              "matteo": 0
-            }
+            "bonds": {}
           },
           "memory": [
             "matteo"
           ],
           "social": {
             "matteo": {
-              "respect": 2,
-              "rivalry": 1
+              "respect": 1
             }
           }
         },
         {
-          "label": "Encerrar a conversa por enquanto.",
-          "to": "explorar_tarde",
+          "label": "Não quero interromper sua pausa.",
+          "to": "pessoal_fim_matteo",
           "effects": {
             "flags": {
-              "pessoal_matteo_distante": true
+              "pessoal_matteo_distante": true,
+              "pessoal_matteo_escolha": 4,
+              "pessoal_matteo_fim": true
             },
             "bonds": {}
           },
@@ -5353,17 +5247,96 @@
       "people": [
         "matteo"
       ],
-      "text": "Guarda um antigo convite que fez com Clara antes de os dois se afastarem. A conversa termina sem pressa. Você entende um pouco melhor o que existe por trás da imagem pública.\n\nMatteo conta um pouco do próprio passado: As expectativas do entorno e os compromissos públicos passaram a ocupar grande parte de sua rotina. Também admite um receio: Tornar-se irrelevante.",
+      "text": "",
       "choices": [
         {
-          "label": "Agradecer pela confiança e voltar ao pátio",
-          "to": "explorar_tarde",
+          "label": "Você pode admitir que sente falta daquela amizade sem abrir mão dos seus objetivos.",
+          "to": "pessoal_fim_matteo",
           "effects": {
-            "flags": {},
+            "flags": {
+              "pessoal_matteo_resposta2": 1,
+              "revelado_matteo": true
+            },
+            "bonds": {
+              "matteo": 1
+            }
+          },
+          "social": {
+            "matteo": {
+              "trust": 1,
+              "respect": 0
+            }
+          }
+        },
+        {
+          "label": "O ranking não precisa decidir tudo por você.",
+          "to": "pessoal_fim_matteo",
+          "effects": {
+            "flags": {
+              "pessoal_matteo_resposta2": 2,
+              "revelado_matteo": true
+            },
+            "bonds": {}
+          },
+          "social": {
+            "matteo": {
+              "trust": 0,
+              "respect": 1
+            }
+          }
+        },
+        {
+          "label": "Talvez um dia vocês consigam conversar sem plateia.",
+          "to": "pessoal_fim_matteo",
+          "effects": {
+            "flags": {
+              "pessoal_matteo_resposta2": 3,
+              "revelado_matteo": true
+            },
+            "bonds": {}
+          },
+          "social": {
+            "matteo": {
+              "trust": 0,
+              "respect": 0
+            }
+          }
+        },
+        {
+          "label": "Deixar o assunto descansar e se despedir.",
+          "to": "pessoal_fim_matteo",
+          "effects": {
+            "flags": {
+              "pessoal_matteo_resposta2": 4
+            },
             "bonds": {}
           }
         }
-      ]
+      ],
+      "dynamic": [
+        {
+          "equals": {
+            "key": "pessoal_matteo_escolha",
+            "value": 1
+          },
+          "text": "Matteo: — Aproveita enquanto ainda pode fazer essa escolha."
+        },
+        {
+          "equals": {
+            "key": "pessoal_matteo_escolha",
+            "value": 2
+          },
+          "text": "Matteo: — Cansativo é pouco. Às vezes sinto falta de falar uma besteira sem virar manchete."
+        },
+        {
+          "equals": {
+            "key": "pessoal_matteo_escolha",
+            "value": 3
+          },
+          "text": "Matteo: — Pelo menos você entende que não existe almoço grátis."
+        }
+      ],
+      "textAfterDynamic": "Matteo coloca o papel sobre a mesa, deixando à mostra um convite antigo entre as folhas.\n\nMatteo: — Eu e a Clara tínhamos combinado de ir a um evento antes de eu começar a receber propostas. Depois vieram as entrevistas, as reuniões... e eu parei de aparecer.\n\nMatteo: — Não vou fingir que o ranking não importa pra mim. Mas às vezes penso no que deixei de fazer por ele."
     },
     "pessoal_maya": {
       "id": "pessoal_maya",
@@ -5374,15 +5347,15 @@
       "people": [
         "maya"
       ],
-      "text": "Maya ajeita as luvas e fecha seu livro. — Às vezes é cansativo ter que explicar por que prefiro distância. Eu queria que as pessoas perguntassem antes de presumir coisas sobre mim.",
+      "text": "Maya afasta o livro e ajeita uma das luvas.\n\nMaya: — Engraçado como as pessoas acham que me conhecem depois de ler uma ficha sobre meus poderes. Nem perguntam por que prefiro distância.\n\nMaya: — Eu prefiro quando alguém conversa comigo sem tentar me decifrar.",
       "choices": [
         {
-          "label": "Ouvir sem pressionar e respeitar o que prefere guardar.",
+          "label": "O que você gostaria que os outros entendessem?",
           "to": "revelacao_maya",
           "effects": {
             "flags": {
               "pessoal_maya_respeito": true,
-              "revelado_maya": true
+              "pessoal_maya_escolha": 1
             },
             "bonds": {
               "maya": 1
@@ -5393,22 +5366,21 @@
           ],
           "social": {
             "maya": {
-              "trust": 2,
-              "respect": 1,
-              "closeness": 1
+              "trust": 1,
+              "respect": 1
             }
           }
         },
         {
-          "label": "Compartilhar uma preocupação minha também.",
+          "label": "Também não gosto de ser definido só pelo meu poder.",
           "to": "revelacao_maya",
           "effects": {
             "flags": {
               "pessoal_maya_aberto": true,
-              "revelado_maya": true
+              "pessoal_maya_escolha": 2
             },
             "bonds": {
-              "maya": 2
+              "maya": 1
             }
           },
           "memory": [
@@ -5416,38 +5388,38 @@
           ],
           "social": {
             "maya": {
-              "trust": 2,
-              "closeness": 2
+              "trust": 1,
+              "respect": 1
             }
           }
         },
         {
-          "label": "Discordar com sinceridade, sem desrespeitar.",
-          "to": "explorar_tarde",
+          "label": "Talvez algumas pessoas não saibam como perguntar.",
+          "to": "revelacao_maya",
           "effects": {
             "flags": {
-              "pessoal_maya_discorda": true
+              "pessoal_maya_discorda": true,
+              "pessoal_maya_escolha": 3
             },
-            "bonds": {
-              "maya": 0
-            }
+            "bonds": {}
           },
           "memory": [
             "maya"
           ],
           "social": {
             "maya": {
-              "respect": 2,
-              "rivalry": 1
+              "respect": 1
             }
           }
         },
         {
-          "label": "Encerrar a conversa por enquanto.",
-          "to": "explorar_tarde",
+          "label": "Posso deixar você voltar à leitura.",
+          "to": "pessoal_fim_maya",
           "effects": {
             "flags": {
-              "pessoal_maya_distante": true
+              "pessoal_maya_distante": true,
+              "pessoal_maya_escolha": 4,
+              "pessoal_maya_fim": true
             },
             "bonds": {}
           },
@@ -5465,17 +5437,96 @@
       "people": [
         "maya"
       ],
-      "text": "Guarda cartas que nunca enviou; escrever é sua forma de organizar sentimentos. A conversa termina sem pressa. Você entende um pouco melhor o que existe por trás da imagem pública.\n\nMaya conta um pouco do próprio passado: Aprendeu a estabelecer limites para se sentir segura nas relações. A convivência com Clara e a amizade com Luka ajudam. Também admite um receio: Perder o controle das próprias habilidades.",
+      "text": "",
       "choices": [
         {
-          "label": "Agradecer pela confiança e voltar ao pátio",
-          "to": "explorar_tarde",
+          "label": "Faz sentido. Nem tudo precisa ser compartilhado.",
+          "to": "pessoal_fim_maya",
           "effects": {
-            "flags": {},
+            "flags": {
+              "pessoal_maya_resposta2": 1,
+              "revelado_maya": true
+            },
+            "bonds": {
+              "maya": 1
+            }
+          },
+          "social": {
+            "maya": {
+              "trust": 1,
+              "respect": 0
+            }
+          }
+        },
+        {
+          "label": "Você escreve sobre outras coisas além da universidade?",
+          "to": "pessoal_fim_maya",
+          "effects": {
+            "flags": {
+              "pessoal_maya_resposta2": 2,
+              "revelado_maya": true
+            },
+            "bonds": {}
+          },
+          "social": {
+            "maya": {
+              "trust": 0,
+              "respect": 1
+            }
+          }
+        },
+        {
+          "label": "Parece um jeito de colocar as ideias em ordem.",
+          "to": "pessoal_fim_maya",
+          "effects": {
+            "flags": {
+              "pessoal_maya_resposta2": 3,
+              "revelado_maya": true
+            },
+            "bonds": {}
+          },
+          "social": {
+            "maya": {
+              "trust": 0,
+              "respect": 0
+            }
+          }
+        },
+        {
+          "label": "Deixar o assunto descansar e se despedir.",
+          "to": "pessoal_fim_maya",
+          "effects": {
+            "flags": {
+              "pessoal_maya_resposta2": 4
+            },
             "bonds": {}
           }
         }
-      ]
+      ],
+      "dynamic": [
+        {
+          "equals": {
+            "key": "pessoal_maya_escolha",
+            "value": 1
+          },
+          "text": "Maya: — Que silêncio não é um convite para tirar conclusões."
+        },
+        {
+          "equals": {
+            "key": "pessoal_maya_escolha",
+            "value": 2
+          },
+          "text": "Maya: — Exato. Uma habilidade não é uma personalidade."
+        },
+        {
+          "equals": {
+            "key": "pessoal_maya_escolha",
+            "value": 3
+          },
+          "text": "Maya: — Pode ser. Perguntar com respeito já seria um começo."
+        }
+      ],
+      "textAfterDynamic": "Maya marca a página de um livro com um papel dobrado.\n\nMaya: — Eu escrevo quando não consigo organizar uma ideia falando. Às vezes são cartas que nunca envio. Clara costuma dizer que eu devia escrever coisas mais alegres.\n\nMaya: — Mas não é para agradar ninguém. É só um jeito de pensar."
     },
     "pessoal_clara": {
       "id": "pessoal_clara",
@@ -5486,15 +5537,15 @@
       "people": [
         "clara"
       ],
-      "text": "Clara vira uma fotografia sobre a mesa. — Antes de todo mundo começar a falar de ranking, a gente era só um grupo de amigos. O Matteo também. Não sei se sinto falta dele ou daquela época.",
+      "text": "Clara encontra uma fotografia dobrada dentro de um livro e a deixa sobre a mesa.\n\nClara: — Olha isso. Antes dos rankings a gente era só um bando de gente com péssimo gosto musical. Até o Matteo.\n\nClara: — Às vezes sinto falta daquela época. Não sei se sinto falta dele.",
       "choices": [
         {
-          "label": "Ouvir sem pressionar e respeitar o que prefere guardar.",
+          "label": "O que mudou entre vocês?",
           "to": "revelacao_clara",
           "effects": {
             "flags": {
               "pessoal_clara_respeito": true,
-              "revelado_clara": true
+              "pessoal_clara_escolha": 1
             },
             "bonds": {
               "clara": 1
@@ -5505,22 +5556,21 @@
           ],
           "social": {
             "clara": {
-              "trust": 2,
-              "respect": 1,
-              "closeness": 1
+              "trust": 1,
+              "respect": 1
             }
           }
         },
         {
-          "label": "Compartilhar uma preocupação minha também.",
+          "label": "É estranho quando uma amizade muda e ninguém sabe como falar sobre isso.",
           "to": "revelacao_clara",
           "effects": {
             "flags": {
               "pessoal_clara_aberto": true,
-              "revelado_clara": true
+              "pessoal_clara_escolha": 2
             },
             "bonds": {
-              "clara": 2
+              "clara": 1
             }
           },
           "memory": [
@@ -5528,38 +5578,38 @@
           ],
           "social": {
             "clara": {
-              "trust": 2,
-              "closeness": 2
+              "trust": 1,
+              "respect": 1
             }
           }
         },
         {
-          "label": "Discordar com sinceridade, sem desrespeitar.",
-          "to": "explorar_tarde",
+          "label": "Talvez vocês lembrem daquele tempo de maneiras diferentes.",
+          "to": "revelacao_clara",
           "effects": {
             "flags": {
-              "pessoal_clara_discorda": true
+              "pessoal_clara_discorda": true,
+              "pessoal_clara_escolha": 3
             },
-            "bonds": {
-              "clara": 0
-            }
+            "bonds": {}
           },
           "memory": [
             "clara"
           ],
           "social": {
             "clara": {
-              "respect": 2,
-              "rivalry": 1
+              "respect": 1
             }
           }
         },
         {
-          "label": "Encerrar a conversa por enquanto.",
-          "to": "explorar_tarde",
+          "label": "Se preferir guardar a foto, tudo bem.",
+          "to": "pessoal_fim_clara",
           "effects": {
             "flags": {
-              "pessoal_clara_distante": true
+              "pessoal_clara_distante": true,
+              "pessoal_clara_escolha": 4,
+              "pessoal_clara_fim": true
             },
             "bonds": {}
           },
@@ -5577,17 +5627,96 @@
       "people": [
         "clara"
       ],
-      "text": "Guarda uma fotografia da época em que Matteo e ela eram amigos. A conversa termina sem pressa. Você entende um pouco melhor o que existe por trás da imagem pública.\n\nClara conta um pouco do próprio passado: Cresceu perto de Luka e Otávio; as antigas amizades ainda significam muito para ela. Também admite um receio: Perder pessoas em quem confia.",
+      "text": "",
       "choices": [
         {
-          "label": "Agradecer pela confiança e voltar ao pátio",
-          "to": "explorar_tarde",
+          "label": "Amizade não deveria depender do ranking.",
+          "to": "pessoal_fim_clara",
           "effects": {
-            "flags": {},
+            "flags": {
+              "pessoal_clara_resposta2": 1,
+              "revelado_clara": true
+            },
+            "bonds": {
+              "clara": 1
+            }
+          },
+          "social": {
+            "clara": {
+              "trust": 1,
+              "respect": 0
+            }
+          }
+        },
+        {
+          "label": "Você não precisa resolver a história com Matteo agora.",
+          "to": "pessoal_fim_clara",
+          "effects": {
+            "flags": {
+              "pessoal_clara_resposta2": 2,
+              "revelado_clara": true
+            },
+            "bonds": {}
+          },
+          "social": {
+            "clara": {
+              "trust": 0,
+              "respect": 1
+            }
+          }
+        },
+        {
+          "label": "O que importa é continuar sendo sincera com seus amigos.",
+          "to": "pessoal_fim_clara",
+          "effects": {
+            "flags": {
+              "pessoal_clara_resposta2": 3,
+              "revelado_clara": true
+            },
+            "bonds": {}
+          },
+          "social": {
+            "clara": {
+              "trust": 0,
+              "respect": 0
+            }
+          }
+        },
+        {
+          "label": "Deixar o assunto descansar e se despedir.",
+          "to": "pessoal_fim_clara",
+          "effects": {
+            "flags": {
+              "pessoal_clara_resposta2": 4
+            },
             "bonds": {}
           }
         }
-      ]
+      ],
+      "dynamic": [
+        {
+          "equals": {
+            "key": "pessoal_clara_escolha",
+            "value": 1
+          },
+          "text": "Clara: — As prioridades mudaram. E ninguém teve coragem de dizer isso direito."
+        },
+        {
+          "equals": {
+            "key": "pessoal_clara_escolha",
+            "value": 2
+          },
+          "text": "Clara: — É exatamente isso. Odeio quando alguém acerta sem eu precisar explicar."
+        },
+        {
+          "equals": {
+            "key": "pessoal_clara_escolha",
+            "value": 3
+          },
+          "text": "Clara: — Talvez. Não significa que eu precise fingir que nada aconteceu."
+        }
+      ],
+      "textAfterDynamic": "Clara alisa a dobra da fotografia antes de guardá-la.\n\nClara: — Luka e Otávio estavam lá quando tudo começou a mudar. Não quero perder mais amigos só porque este lugar transforma tudo em competição."
     },
     "pessoal_otavio": {
       "id": "pessoal_otavio",
@@ -5598,15 +5727,15 @@
       "people": [
         "otavio"
       ],
-      "text": "Otávio coloca dois copos de água na mesa. — Engraçado. Todo mundo vem me pedir conselho, mas quando eu preciso de um, fico sem saber pra quem ligar. Nem sempre tenho tudo sob controle.",
+      "text": "Otávio empurra um copo de água na sua direção e se senta.\n\nOtávio: — Passei a manhã respondendo perguntas dos calouros. A maior parte era sobre onde ficava o banheiro.\n\nOtávio: — Mas quando eu preciso de um conselho, fico sem saber pra quem ligar. Engraçado, né?",
       "choices": [
         {
-          "label": "Ouvir sem pressionar e respeitar o que prefere guardar.",
+          "label": "Você também pode pedir ajuda aos seus amigos.",
           "to": "revelacao_otavio",
           "effects": {
             "flags": {
               "pessoal_otavio_respeito": true,
-              "revelado_otavio": true
+              "pessoal_otavio_escolha": 1
             },
             "bonds": {
               "otavio": 1
@@ -5617,22 +5746,21 @@
           ],
           "social": {
             "otavio": {
-              "trust": 2,
-              "respect": 1,
-              "closeness": 1
+              "trust": 1,
+              "respect": 1
             }
           }
         },
         {
-          "label": "Compartilhar uma preocupação minha também.",
+          "label": "Já senti que precisava parecer bem mesmo sem saber o que fazer.",
           "to": "revelacao_otavio",
           "effects": {
             "flags": {
               "pessoal_otavio_aberto": true,
-              "revelado_otavio": true
+              "pessoal_otavio_escolha": 2
             },
             "bonds": {
-              "otavio": 2
+              "otavio": 1
             }
           },
           "memory": [
@@ -5640,38 +5768,38 @@
           ],
           "social": {
             "otavio": {
-              "trust": 2,
-              "closeness": 2
+              "trust": 1,
+              "respect": 1
             }
           }
         },
         {
-          "label": "Discordar com sinceridade, sem desrespeitar.",
-          "to": "explorar_tarde",
+          "label": "Será que você assume responsabilidades demais?",
+          "to": "revelacao_otavio",
           "effects": {
             "flags": {
-              "pessoal_otavio_discorda": true
+              "pessoal_otavio_discorda": true,
+              "pessoal_otavio_escolha": 3
             },
-            "bonds": {
-              "otavio": 0
-            }
+            "bonds": {}
           },
           "memory": [
             "otavio"
           ],
           "social": {
             "otavio": {
-              "respect": 2,
-              "rivalry": 1
+              "respect": 1
             }
           }
         },
         {
-          "label": "Encerrar a conversa por enquanto.",
-          "to": "explorar_tarde",
+          "label": "Não vou te prender aqui se precisar descansar.",
+          "to": "pessoal_fim_otavio",
           "effects": {
             "flags": {
-              "pessoal_otavio_distante": true
+              "pessoal_otavio_distante": true,
+              "pessoal_otavio_escolha": 4,
+              "pessoal_otavio_fim": true
             },
             "bonds": {}
           },
@@ -5689,17 +5817,96 @@
       "people": [
         "otavio"
       ],
-      "text": "Ainda carrega culpa pelo acidente do passado e evita falar sobre o assunto. A conversa termina sem pressa. Você entende um pouco melhor o que existe por trás da imagem pública.\n\nOtávio conta um pouco do próprio passado: Os amigos do bairro, especialmente Clara e Luka, lembram a vida que tinha antes do ranking. Também admite um receio: Falhar com alguém novamente.",
+      "text": "",
       "choices": [
         {
-          "label": "Agradecer pela confiança e voltar ao pátio",
-          "to": "explorar_tarde",
+          "label": "Seus amigos podem cuidar de si e também de você.",
+          "to": "pessoal_fim_otavio",
           "effects": {
-            "flags": {},
+            "flags": {
+              "pessoal_otavio_resposta2": 1,
+              "revelado_otavio": true
+            },
+            "bonds": {
+              "otavio": 1
+            }
+          },
+          "social": {
+            "otavio": {
+              "trust": 1,
+              "respect": 0
+            }
+          }
+        },
+        {
+          "label": "Não é preciso acertar tudo para ser um bom amigo.",
+          "to": "pessoal_fim_otavio",
+          "effects": {
+            "flags": {
+              "pessoal_otavio_resposta2": 2,
+              "revelado_otavio": true
+            },
+            "bonds": {}
+          },
+          "social": {
+            "otavio": {
+              "trust": 0,
+              "respect": 1
+            }
+          }
+        },
+        {
+          "label": "Que tal reservar um tempo para fazer algo de que gosta?",
+          "to": "pessoal_fim_otavio",
+          "effects": {
+            "flags": {
+              "pessoal_otavio_resposta2": 3,
+              "revelado_otavio": true
+            },
+            "bonds": {}
+          },
+          "social": {
+            "otavio": {
+              "trust": 0,
+              "respect": 0
+            }
+          }
+        },
+        {
+          "label": "Deixar o assunto descansar e se despedir.",
+          "to": "pessoal_fim_otavio",
+          "effects": {
+            "flags": {
+              "pessoal_otavio_resposta2": 4
+            },
             "bonds": {}
           }
         }
-      ]
+      ],
+      "dynamic": [
+        {
+          "equals": {
+            "key": "pessoal_otavio_escolha",
+            "value": 1
+          },
+          "text": "Otávio: — Sei disso na teoria. Na prática, tenho que lembrar."
+        },
+        {
+          "equals": {
+            "key": "pessoal_otavio_escolha",
+            "value": 2
+          },
+          "text": "Otávio: — É um alívio poder admitir isso de vez em quando."
+        },
+        {
+          "equals": {
+            "key": "pessoal_otavio_escolha",
+            "value": 3
+          },
+          "text": "Otávio: — Talvez. O Luka já me falou algo parecido."
+        }
+      ],
+      "textAfterDynamic": "Otávio observa os estudantes deixando o refeitório.\n\nOtávio: — Quando alguma coisa dá errado, eu fico pensando no que poderia ter feito diferente. A Clara me conhece há tempo suficiente pra perceber quando eu estou assim.\n\nOtávio: — Estou aprendendo que nem toda responsabilidade é minha."
     },
     "pessoal_zoe": {
       "id": "pessoal_zoe",
@@ -5710,15 +5917,15 @@
       "people": [
         "zoe"
       ],
-      "text": "Zoe guarda o celular e olha para o jardim. — Todo mundo acha que estar perto do topo resolve tudo. Na prática, parece que cada escolha precisa passar por uma reunião. Às vezes eu só queria escolher por mim.",
+      "text": "Zoe desliga a tela do celular e o coloca virado para baixo.\n\nZoe: — Três reuniões, duas fotos e uma pessoa tentando escolher até a cor da minha roupa. Não é nem fim da tarde.\n\nZoe: — Todo mundo acha que estar perto do topo resolve tudo. Você também acha?",
       "choices": [
         {
-          "label": "Ouvir sem pressionar e respeitar o que prefere guardar.",
+          "label": "Acho que reconhecimento e liberdade são coisas diferentes.",
           "to": "revelacao_zoe",
           "effects": {
             "flags": {
               "pessoal_zoe_respeito": true,
-              "revelado_zoe": true
+              "pessoal_zoe_escolha": 1
             },
             "bonds": {
               "zoe": 1
@@ -5729,22 +5936,21 @@
           ],
           "social": {
             "zoe": {
-              "trust": 2,
-              "respect": 1,
-              "closeness": 1
+              "trust": 1,
+              "respect": 1
             }
           }
         },
         {
-          "label": "Compartilhar uma preocupação minha também.",
+          "label": "Você consegue dizer não quando não concorda com eles?",
           "to": "revelacao_zoe",
           "effects": {
             "flags": {
               "pessoal_zoe_aberto": true,
-              "revelado_zoe": true
+              "pessoal_zoe_escolha": 2
             },
             "bonds": {
-              "zoe": 2
+              "zoe": 1
             }
           },
           "memory": [
@@ -5752,38 +5958,38 @@
           ],
           "social": {
             "zoe": {
-              "trust": 2,
-              "closeness": 2
+              "trust": 1,
+              "respect": 1
             }
           }
         },
         {
-          "label": "Discordar com sinceridade, sem desrespeitar.",
-          "to": "explorar_tarde",
+          "label": "Imagino que algumas oportunidades ainda valham o esforço.",
+          "to": "revelacao_zoe",
           "effects": {
             "flags": {
-              "pessoal_zoe_discorda": true
+              "pessoal_zoe_discorda": true,
+              "pessoal_zoe_escolha": 3
             },
-            "bonds": {
-              "zoe": 0
-            }
+            "bonds": {}
           },
           "memory": [
             "zoe"
           ],
           "social": {
             "zoe": {
-              "respect": 2,
-              "rivalry": 1
+              "respect": 1
             }
           }
         },
         {
-          "label": "Encerrar a conversa por enquanto.",
-          "to": "explorar_tarde",
+          "label": "Vou deixar você aproveitar o intervalo.",
+          "to": "pessoal_fim_zoe",
           "effects": {
             "flags": {
-              "pessoal_zoe_distante": true
+              "pessoal_zoe_distante": true,
+              "pessoal_zoe_escolha": 4,
+              "pessoal_zoe_fim": true
             },
             "bonds": {}
           },
@@ -5801,17 +6007,96 @@
       "people": [
         "zoe"
       ],
-      "text": "Mantém uma lista particular de coisas que gostaria de fazer sem câmeras ou patrocinadores. A conversa termina sem pressa. Você entende um pouco melhor o que existe por trás da imagem pública.\n\nZoe conta um pouco do próprio passado: Aprendeu cedo a valorizar independência; a parceria com Matteo mistura objetivos e afeto. Também admite um receio: Perder sua autonomia.",
+      "text": "",
       "choices": [
         {
-          "label": "Agradecer pela confiança e voltar ao pátio",
-          "to": "explorar_tarde",
+          "label": "Faz sentido ter objetivos que não sejam públicos.",
+          "to": "pessoal_fim_zoe",
           "effects": {
-            "flags": {},
+            "flags": {
+              "pessoal_zoe_resposta2": 1,
+              "revelado_zoe": true
+            },
+            "bonds": {
+              "zoe": 1
+            }
+          },
+          "social": {
+            "zoe": {
+              "trust": 1,
+              "respect": 0
+            }
+          }
+        },
+        {
+          "label": "Você não precisa justificar tudo que escolhe fazer.",
+          "to": "pessoal_fim_zoe",
+          "effects": {
+            "flags": {
+              "pessoal_zoe_resposta2": 2,
+              "revelado_zoe": true
+            },
+            "bonds": {}
+          },
+          "social": {
+            "zoe": {
+              "trust": 0,
+              "respect": 1
+            }
+          }
+        },
+        {
+          "label": "Espero que consiga reservar tempo para essas coisas.",
+          "to": "pessoal_fim_zoe",
+          "effects": {
+            "flags": {
+              "pessoal_zoe_resposta2": 3,
+              "revelado_zoe": true
+            },
+            "bonds": {}
+          },
+          "social": {
+            "zoe": {
+              "trust": 0,
+              "respect": 0
+            }
+          }
+        },
+        {
+          "label": "Deixar o assunto descansar e se despedir.",
+          "to": "pessoal_fim_zoe",
+          "effects": {
+            "flags": {
+              "pessoal_zoe_resposta2": 4
+            },
             "bonds": {}
           }
         }
-      ]
+      ],
+      "dynamic": [
+        {
+          "equals": {
+            "key": "pessoal_zoe_escolha",
+            "value": 1
+          },
+          "text": "Zoe: — Uma distinção inteligente. Nem todo mundo percebe."
+        },
+        {
+          "equals": {
+            "key": "pessoal_zoe_escolha",
+            "value": 2
+          },
+          "text": "Zoe: — Consigo. Só preciso escolher quais discussões valem o meu tempo."
+        },
+        {
+          "equals": {
+            "key": "pessoal_zoe_escolha",
+            "value": 3
+          },
+          "text": "Zoe: — Algumas valem. O problema é quando outras pessoas escolhem por mim."
+        }
+      ],
+      "textAfterDynamic": "Zoe abre uma nota pessoal no celular, sem mostrar a tela.\n\nZoe: — Tenho uma lista de coisas que quero fazer sem patrocinadores. Algumas são pequenas. Visitar uma exposição, escolher um restaurante sem aprovação de ninguém.\n\nZoe: — Não confunda isso com desistir da minha carreira. Eu só quero que certas decisões continuem sendo minhas."
     },
     "pessoal_luka": {
       "id": "pessoal_luka",
@@ -5822,15 +6107,15 @@
       "people": [
         "luka"
       ],
-      "text": "Luka fecha um caderno cheio de rabiscos. — Todo mundo acha que eu tenho respostas. Na verdade, eu tenho uma lista enorme de perguntas. Até a Clara acha que eu exagero às vezes.",
+      "text": "Luka abre o caderno, mas deixa a caneta sobre a mesa.\n\nLuka: — Todo mundo acha que tenho respostas. Na verdade tenho umas quarenta perguntas e duas teorias ruins. A Clara diz que eu devia arrumar um hobby.\n\nLuka: — O problema é que, quando eu não sei uma coisa, fico pensando nela o dia inteiro. Você também é assim?",
       "choices": [
         {
-          "label": "Ouvir sem pressionar e respeitar o que prefere guardar.",
+          "label": "Eu gosto de entender as coisas, mas não preciso resolver tudo hoje.",
           "to": "revelacao_luka",
           "effects": {
             "flags": {
               "pessoal_luka_respeito": true,
-              "revelado_luka": true
+              "pessoal_luka_escolha": 1
             },
             "bonds": {
               "luka": 1
@@ -5841,22 +6126,21 @@
           ],
           "social": {
             "luka": {
-              "trust": 2,
-              "respect": 1,
-              "closeness": 1
+              "trust": 1,
+              "respect": 1
             }
           }
         },
         {
-          "label": "Compartilhar uma preocupação minha também.",
+          "label": "Às vezes também sinto que tenho de provar que sei o que estou fazendo.",
           "to": "revelacao_luka",
           "effects": {
             "flags": {
               "pessoal_luka_aberto": true,
-              "revelado_luka": true
+              "pessoal_luka_escolha": 2
             },
             "bonds": {
-              "luka": 2
+              "luka": 1
             }
           },
           "memory": [
@@ -5864,38 +6148,38 @@
           ],
           "social": {
             "luka": {
-              "trust": 2,
-              "closeness": 2
+              "trust": 1,
+              "respect": 1
             }
           }
         },
         {
-          "label": "Discordar com sinceridade, sem desrespeitar.",
-          "to": "explorar_tarde",
+          "label": "A Clara tem um ponto. Até um caderno merece folga.",
+          "to": "revelacao_luka",
           "effects": {
             "flags": {
-              "pessoal_luka_discorda": true
+              "pessoal_luka_discorda": true,
+              "pessoal_luka_escolha": 3
             },
-            "bonds": {
-              "luka": 0
-            }
+            "bonds": {}
           },
           "memory": [
             "luka"
           ],
           "social": {
             "luka": {
-              "respect": 2,
-              "rivalry": 1
+              "respect": 1
             }
           }
         },
         {
-          "label": "Encerrar a conversa por enquanto.",
-          "to": "explorar_tarde",
+          "label": "Vou deixar você terminar suas anotações.",
+          "to": "pessoal_fim_luka",
           "effects": {
             "flags": {
-              "pessoal_luka_distante": true
+              "pessoal_luka_distante": true,
+              "pessoal_luka_escolha": 4,
+              "pessoal_luka_fim": true
             },
             "bonds": {}
           },
@@ -5913,17 +6197,96 @@
       "people": [
         "luka"
       ],
-      "text": "Mantém um caderno de perguntas sobre o campus, incluindo dúvidas que ainda não conseguiu responder. A conversa termina sem pressa. Você entende um pouco melhor o que existe por trás da imagem pública.\n\nLuka conta um pouco do próprio passado: A amizade de infância com Clara e a orientação de Otávio são referências importantes. Também admite um receio: Decepcionar quem acredita nele.",
+      "text": "",
       "choices": [
         {
-          "label": "Agradecer pela confiança e voltar ao pátio",
-          "to": "explorar_tarde",
+          "label": "Você pode falar isso com ele sem deixar de aceitar ajuda.",
+          "to": "pessoal_fim_luka",
           "effects": {
-            "flags": {},
+            "flags": {
+              "pessoal_luka_resposta2": 1,
+              "revelado_luka": true
+            },
+            "bonds": {
+              "luka": 1
+            }
+          },
+          "social": {
+            "luka": {
+              "trust": 1,
+              "respect": 0
+            }
+          }
+        },
+        {
+          "label": "Mostre a ele o que você consegue fazer, no seu ritmo.",
+          "to": "pessoal_fim_luka",
+          "effects": {
+            "flags": {
+              "pessoal_luka_resposta2": 2,
+              "revelado_luka": true
+            },
+            "bonds": {}
+          },
+          "social": {
+            "luka": {
+              "trust": 0,
+              "respect": 1
+            }
+          }
+        },
+        {
+          "label": "Às vezes é mais fácil começar com uma conversa sobre as aulas.",
+          "to": "pessoal_fim_luka",
+          "effects": {
+            "flags": {
+              "pessoal_luka_resposta2": 3,
+              "revelado_luka": true
+            },
+            "bonds": {}
+          },
+          "social": {
+            "luka": {
+              "trust": 0,
+              "respect": 0
+            }
+          }
+        },
+        {
+          "label": "Deixar o assunto descansar e se despedir.",
+          "to": "pessoal_fim_luka",
+          "effects": {
+            "flags": {
+              "pessoal_luka_resposta2": 4
+            },
             "bonds": {}
           }
         }
-      ]
+      ],
+      "dynamic": [
+        {
+          "equals": {
+            "key": "pessoal_luka_escolha",
+            "value": 1
+          },
+          "text": "Luka: — Uma pergunta de cada vez. Devia escrever isso na capa."
+        },
+        {
+          "equals": {
+            "key": "pessoal_luka_escolha",
+            "value": 2
+          },
+          "text": "Luka: — Finalmente alguém que entende. Ser calouro não ajuda, né?"
+        },
+        {
+          "equals": {
+            "key": "pessoal_luka_escolha",
+            "value": 3
+          },
+          "text": "Luka: — Traição. Vou ter que contar pra Clara que você está do lado dela."
+        }
+      ],
+      "textAfterDynamic": "Luka vira uma página com uma lista de perguntas sobre as aulas.\n\nLuka: — O Otávio me ajuda desde antes de eu entrar aqui. Só queria que ele percebesse que consigo resolver algumas coisas sozinho. Não quero deixar de ser amigo dele, só quero ter meu espaço."
     },
     "grupo_conversa": {
       "id": "grupo_conversa",
@@ -5939,10 +6302,11 @@
       "choices": [
         {
           "label": "Sugerir que conversem em particular.",
-          "to": "explorar_tarde",
+          "to": "grupo_conversa_fim",
           "effects": {
             "flags": {
-              "grupo_espaco": true
+              "grupo_espaco": true,
+              "grupo_conversa_resposta": 1
             },
             "bonds": {}
           },
@@ -5965,10 +6329,11 @@
         },
         {
           "label": "Pedir que ouçam um ao outro.",
-          "to": "explorar_tarde",
+          "to": "grupo_conversa_fim",
           "effects": {
             "flags": {
-              "grupo_escuta": true
+              "grupo_escuta": true,
+              "grupo_conversa_resposta": 2
             },
             "bonds": {}
           },
@@ -5991,10 +6356,11 @@
         },
         {
           "label": "Não interferir.",
-          "to": "explorar_tarde",
+          "to": "grupo_conversa_fim",
           "effects": {
             "flags": {
-              "grupo_neutro": true
+              "grupo_neutro": true,
+              "grupo_conversa_resposta": 3
             },
             "bonds": {}
           },
@@ -6014,10 +6380,11 @@
         },
         {
           "label": "Dizer que Clara tem razão.",
-          "to": "explorar_tarde",
+          "to": "grupo_conversa_fim",
           "effects": {
             "flags": {
-              "grupo_lado": true
+              "grupo_lado": true,
+              "grupo_conversa_resposta": 4
             },
             "bonds": {}
           },
@@ -6245,14 +6612,37 @@
       "text": "A mesa segue animada.",
       "choices": [
         {
-          "label": "Voltar à conversa da mesa",
-          "to": "almoco_escolher",
+          "label": "As pessoas. Já conheci gente interessante.",
+          "to": "almoco_fim_clara",
           "effects": {
-            "flags": {},
+            "flags": {
+              "almoco_clara_segundo": 1
+            },
+            "bonds": {}
+          }
+        },
+        {
+          "label": "A chance de estudar e aprender coisas novas.",
+          "to": "almoco_fim_clara",
+          "effects": {
+            "flags": {
+              "almoco_clara_segundo": 2
+            },
+            "bonds": {}
+          }
+        },
+        {
+          "label": "Ainda estou procurando. Pergunta amanhã.",
+          "to": "almoco_fim_clara",
+          "effects": {
+            "flags": {
+              "almoco_clara_segundo": 3
+            },
             "bonds": {}
           }
         }
-      ]
+      ],
+      "textAfterDynamic": "Clara: — Se tivesse que escolher uma coisa boa daqui, o que seria?"
     },
     "almoco_luka": {
       "id": "almoco_luka",
@@ -6343,14 +6733,37 @@
       "text": "A mesa segue animada.",
       "choices": [
         {
-          "label": "Voltar à conversa da mesa",
-          "to": "almoco_escolher",
+          "label": "Me avisa quando tiver um horário.",
+          "to": "almoco_fim_luka",
           "effects": {
-            "flags": {},
+            "flags": {
+              "almoco_luka_segundo": 1
+            },
+            "bonds": {}
+          }
+        },
+        {
+          "label": "Posso ajudar a organizar os materiais.",
+          "to": "almoco_fim_luka",
+          "effects": {
+            "flags": {
+              "almoco_luka_segundo": 2
+            },
+            "bonds": {}
+          }
+        },
+        {
+          "label": "Por enquanto preciso me adaptar à rotina.",
+          "to": "almoco_fim_luka",
+          "effects": {
+            "flags": {
+              "almoco_luka_segundo": 3
+            },
             "bonds": {}
           }
         }
-      ]
+      ],
+      "textAfterDynamic": "Luka: — Estou pensando em montar um grupo de estudos. Sem propaganda no meio, de preferência."
     },
     "almoco_maya": {
       "id": "almoco_maya",
@@ -6439,14 +6852,37 @@
       "text": "A mesa segue animada.",
       "choices": [
         {
-          "label": "Voltar à conversa da mesa",
-          "to": "almoco_escolher",
+          "label": "Valeu pela dica, vou conhecer.",
+          "to": "almoco_fim_maya",
           "effects": {
-            "flags": {},
+            "flags": {
+              "almoco_maya_segundo": 1
+            },
+            "bonds": {}
+          }
+        },
+        {
+          "label": "Você costuma estudar lá?",
+          "to": "almoco_fim_maya",
+          "effects": {
+            "flags": {
+              "almoco_maya_segundo": 2
+            },
+            "bonds": {}
+          }
+        },
+        {
+          "label": "Acho que vou explorar outros lugares primeiro.",
+          "to": "almoco_fim_maya",
+          "effects": {
+            "flags": {
+              "almoco_maya_segundo": 3
+            },
             "bonds": {}
           }
         }
-      ]
+      ],
+      "textAfterDynamic": "Maya: — Se quiser um lugar menos barulhento, a biblioteca tem uma sala de leitura no segundo andar."
     },
     "almoco_otavio": {
       "id": "almoco_otavio",
@@ -6537,14 +6973,37 @@
       "text": "A mesa segue animada.",
       "choices": [
         {
-          "label": "Voltar à conversa da mesa",
-          "to": "almoco_escolher",
+          "label": "Obrigado. Podemos trocar ideias sobre as aulas.",
+          "to": "almoco_fim_otavio",
           "effects": {
-            "flags": {},
+            "flags": {
+              "almoco_otavio_segundo": 1
+            },
+            "bonds": {}
+          }
+        },
+        {
+          "label": "Eu ainda estou formando minha opinião.",
+          "to": "almoco_fim_otavio",
+          "effects": {
+            "flags": {
+              "almoco_otavio_segundo": 2
+            },
+            "bonds": {}
+          }
+        },
+        {
+          "label": "Por enquanto quero só aproveitar o intervalo.",
+          "to": "almoco_fim_otavio",
+          "effects": {
+            "flags": {
+              "almoco_otavio_segundo": 3
+            },
             "bonds": {}
           }
         }
-      ]
+      ],
+      "textAfterDynamic": "Otávio: — Se precisar de ajuda para se acostumar com as aulas, pode perguntar. Mas também quero saber como os calouros estão vendo tudo isso."
     },
     "almoco_elite": {
       "id": "almoco_elite",
@@ -6660,6 +7119,1031 @@
             "flags": {
               "almoco_concluido": true
             },
+            "bonds": {}
+          }
+        }
+      ]
+    },
+    "pessoal_fim_luka": {
+      "time": "Intervalo da tarde",
+      "stage": "REFEITÓRIO · ÁREA COMUM",
+      "place": "food",
+      "people": [
+        "luka"
+      ],
+      "id": "pessoal_fim_luka",
+      "title": "Até mais tarde",
+      "text": "",
+      "choices": [
+        {
+          "label": "Voltar à exploração da tarde",
+          "to": "explorar_tarde",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        }
+      ],
+      "dynamic": [
+        {
+          "equals": {
+            "key": "pessoal_luka_resposta2",
+            "value": 1
+          },
+          "text": "Luka: — É. Ele provavelmente vai entender melhor do que eu imagino."
+        },
+        {
+          "equals": {
+            "key": "pessoal_luka_resposta2",
+            "value": 2
+          },
+          "text": "Luka: — No meu ritmo. Engraçado ouvir isso quando todo mundo só fala da minha velocidade."
+        },
+        {
+          "equals": {
+            "key": "pessoal_luka_resposta2",
+            "value": 3
+          },
+          "text": "Luka: — Começar pelo simples. Gostei."
+        },
+        {
+          "equals": {
+            "key": "pessoal_luka_resposta2",
+            "value": 4
+          },
+          "text": "Luka: — Tudo bem. A gente conversa outra hora."
+        },
+        {
+          "flag": "pessoal_luka_fim",
+          "text": "Luka: — Beleza. Depois eu te mostro as minhas anotações, se quiser."
+        }
+      ],
+      "textAfterDynamic": "O intervalo continua. Vocês se despedem e cada um segue com seus compromissos."
+    },
+    "pessoal_fim_clara": {
+      "time": "Intervalo da tarde",
+      "stage": "PÁTIO CENTRAL",
+      "place": "patio",
+      "people": [
+        "clara"
+      ],
+      "id": "pessoal_fim_clara",
+      "title": "Até mais tarde",
+      "text": "",
+      "choices": [
+        {
+          "label": "Voltar à exploração da tarde",
+          "to": "explorar_tarde",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        }
+      ],
+      "dynamic": [
+        {
+          "equals": {
+            "key": "pessoal_clara_resposta2",
+            "value": 1
+          },
+          "text": "Clara: — Finalmente uma regra que faz sentido."
+        },
+        {
+          "equals": {
+            "key": "pessoal_clara_resposta2",
+            "value": 2
+          },
+          "text": "Clara: — Ainda bem. Já tenho tarefas demais pra hoje."
+        },
+        {
+          "equals": {
+            "key": "pessoal_clara_resposta2",
+            "value": 3
+          },
+          "text": "Clara: — Vou tentar. Mesmo quando for mais fácil fazer piada."
+        },
+        {
+          "equals": {
+            "key": "pessoal_clara_resposta2",
+            "value": 4
+          },
+          "text": "Clara: — Tudo bem. A gente conversa outra hora."
+        },
+        {
+          "flag": "pessoal_clara_fim",
+          "text": "Clara: — Valeu. Tem dias em que eu só quero guardar a foto."
+        }
+      ],
+      "textAfterDynamic": "O intervalo continua. Vocês se despedem e cada um segue com seus compromissos."
+    },
+    "pessoal_fim_maya": {
+      "time": "Intervalo da tarde",
+      "stage": "BIBLIOTECA",
+      "place": "library",
+      "people": [
+        "maya"
+      ],
+      "id": "pessoal_fim_maya",
+      "title": "Até mais tarde",
+      "text": "",
+      "choices": [
+        {
+          "label": "Voltar à exploração da tarde",
+          "to": "explorar_tarde",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        }
+      ],
+      "dynamic": [
+        {
+          "equals": {
+            "key": "pessoal_maya_resposta2",
+            "value": 1
+          },
+          "text": "Maya: — Sim. Gosto de poder escolher o que fica comigo."
+        },
+        {
+          "equals": {
+            "key": "pessoal_maya_resposta2",
+            "value": 2
+          },
+          "text": "Maya: — Às vezes sobre livros. Sobre a cidade. Coisas normais."
+        },
+        {
+          "equals": {
+            "key": "pessoal_maya_resposta2",
+            "value": 3
+          },
+          "text": "Maya: — É. Principalmente quando o dia parece uma confusão."
+        },
+        {
+          "equals": {
+            "key": "pessoal_maya_resposta2",
+            "value": 4
+          },
+          "text": "Maya: — Tudo bem. A gente conversa outra hora."
+        },
+        {
+          "flag": "pessoal_maya_fim",
+          "text": "Maya: — Obrigada. Foi bom conversar sem pressa."
+        }
+      ],
+      "textAfterDynamic": "O intervalo continua. Vocês se despedem e cada um segue com seus compromissos."
+    },
+    "pessoal_fim_otavio": {
+      "time": "Intervalo da tarde",
+      "stage": "REFEITÓRIO · ÁREA COMUM",
+      "place": "food",
+      "people": [
+        "otavio"
+      ],
+      "id": "pessoal_fim_otavio",
+      "title": "Até mais tarde",
+      "text": "",
+      "choices": [
+        {
+          "label": "Voltar à exploração da tarde",
+          "to": "explorar_tarde",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        }
+      ],
+      "dynamic": [
+        {
+          "equals": {
+            "key": "pessoal_otavio_resposta2",
+            "value": 1
+          },
+          "text": "Otávio: — Vou tentar lembrar disso quando o Luka pedir mais um favor."
+        },
+        {
+          "equals": {
+            "key": "pessoal_otavio_resposta2",
+            "value": 2
+          },
+          "text": "Otávio: — É uma coisa simples de dizer e difícil de aprender."
+        },
+        {
+          "equals": {
+            "key": "pessoal_otavio_resposta2",
+            "value": 3
+          },
+          "text": "Otávio: — Boa. Talvez eu finalmente consiga terminar aquele livro."
+        },
+        {
+          "equals": {
+            "key": "pessoal_otavio_resposta2",
+            "value": 4
+          },
+          "text": "Otávio: — Tudo bem. A gente conversa outra hora."
+        },
+        {
+          "flag": "pessoal_otavio_fim",
+          "text": "Otávio: — Valeu. Vou aproveitar um pouco do intervalo."
+        }
+      ],
+      "textAfterDynamic": "O intervalo continua. Vocês se despedem e cada um segue com seus compromissos."
+    },
+    "pessoal_fim_matteo": {
+      "time": "Intervalo da tarde",
+      "stage": "ÁREA VIP",
+      "place": "vip",
+      "people": [
+        "matteo"
+      ],
+      "id": "pessoal_fim_matteo",
+      "title": "Até mais tarde",
+      "text": "",
+      "choices": [
+        {
+          "label": "Voltar à exploração da tarde",
+          "to": "explorar_tarde",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        }
+      ],
+      "dynamic": [
+        {
+          "equals": {
+            "key": "pessoal_matteo_resposta2",
+            "value": 1
+          },
+          "text": "Matteo: — É uma distinção que eu devia ter feito antes."
+        },
+        {
+          "equals": {
+            "key": "pessoal_matteo_resposta2",
+            "value": 2
+          },
+          "text": "Matteo: — Fácil falar. Mas eu gostaria de testar essa teoria."
+        },
+        {
+          "equals": {
+            "key": "pessoal_matteo_resposta2",
+            "value": 3
+          },
+          "text": "Matteo: — Sem plateia seria um bom começo."
+        },
+        {
+          "equals": {
+            "key": "pessoal_matteo_resposta2",
+            "value": 4
+          },
+          "text": "Matteo: — Tudo bem. A gente conversa outra hora."
+        },
+        {
+          "flag": "pessoal_matteo_fim",
+          "text": "Matteo: — Justo. Tenho uma reunião daqui a pouco."
+        }
+      ],
+      "textAfterDynamic": "O intervalo continua. Vocês se despedem e cada um segue com seus compromissos."
+    },
+    "pessoal_fim_zoe": {
+      "time": "Intervalo da tarde",
+      "stage": "ÁREA VIP",
+      "place": "vip",
+      "people": [
+        "zoe"
+      ],
+      "id": "pessoal_fim_zoe",
+      "title": "Até mais tarde",
+      "text": "",
+      "choices": [
+        {
+          "label": "Voltar à exploração da tarde",
+          "to": "explorar_tarde",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        }
+      ],
+      "dynamic": [
+        {
+          "equals": {
+            "key": "pessoal_zoe_resposta2",
+            "value": 1
+          },
+          "text": "Zoe: — Exatamente. Algumas conquistas não precisam de uma foto."
+        },
+        {
+          "equals": {
+            "key": "pessoal_zoe_resposta2",
+            "value": 2
+          },
+          "text": "Zoe: — Gostaria que mais gente entendesse isso."
+        },
+        {
+          "equals": {
+            "key": "pessoal_zoe_resposta2",
+            "value": 3
+          },
+          "text": "Zoe: — Vou colocar isso na minha agenda. Sem reunião para aprovar."
+        },
+        {
+          "equals": {
+            "key": "pessoal_zoe_resposta2",
+            "value": 4
+          },
+          "text": "Zoe: — Tudo bem. A gente conversa outra hora."
+        },
+        {
+          "flag": "pessoal_zoe_fim",
+          "text": "Zoe: — Agradeço. É raro conseguir cinco minutos de silêncio."
+        }
+      ],
+      "textAfterDynamic": "O intervalo continua. Vocês se despedem e cada um segue com seus compromissos."
+    },
+    "dorm_m_regras": {
+      "id": "dorm_m_regras",
+      "title": "Dividindo espaço",
+      "time": "08:25",
+      "stage": "DORMITÓRIO MASCULINO",
+      "text": "Luka está tentando organizar uma pilha de livros. Otávio aponta para a cama livre.\n\nOtávio: — Essa é sua. A tomada perto da janela funciona, por incrível que pareça.\n\nLuka: — Só não deixa a Vought instalar uma câmera aqui também.\n\nOtávio: — Ele fala isso de tudo. Enfim, como você prefere organizar o quarto?",
+      "choices": [
+        {
+          "label": "Vamos combinar as regras juntos.",
+          "to": "dorm_m_saida",
+          "effects": {
+            "flags": {
+              "quarto_cooperativo": true
+            },
+            "bonds": {
+              "luka": 1,
+              "otavio": 1
+            }
+          },
+          "memory": [
+            "luka",
+            "otavio"
+          ]
+        },
+        {
+          "label": "Prefiro ter meu próprio espaço.",
+          "to": "dorm_m_saida",
+          "effects": {
+            "flags": {
+              "quarto_reservado": true
+            },
+            "bonds": {}
+          },
+          "memory": [
+            "luka",
+            "otavio"
+          ]
+        },
+        {
+          "label": "Podem escolher, sou tranquilo com isso.",
+          "to": "dorm_m_saida",
+          "effects": {
+            "flags": {
+              "quarto_flexivel": true
+            },
+            "bonds": {
+              "otavio": 1
+            }
+          }
+        }
+      ],
+      "people": [
+        "luka",
+        "otavio"
+      ],
+      "place": "male"
+    },
+    "dorm_m_saida": {
+      "time": "08:25",
+      "stage": "DORMITÓRIO MASCULINO",
+      "place": "male",
+      "people": [
+        "luka",
+        "otavio"
+      ],
+      "id": "dorm_m_saida",
+      "title": "O primeiro combinado",
+      "text": "",
+      "choices": [
+        {
+          "label": "Sair do dormitório e explorar Godolkin",
+          "to": "explorar_manha",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        }
+      ],
+      "dynamic": [
+        {
+          "flag": "quarto_cooperativo",
+          "text": "Luka: — Fechado. Vamos fazer uma lista que caiba numa folha, por favor.\n\nOtávio: — E qualquer coisa a gente conversa."
+        },
+        {
+          "flag": "quarto_reservado",
+          "text": "Otávio: — Claro. Cada um precisa do seu espaço.\n\nLuka: — Justo. Minha pilha de livros também tem fronteiras."
+        },
+        {
+          "flag": "quarto_flexivel",
+          "text": "Luka: — Então fica combinado: nada de deixar a mochila na passagem.\n\nOtávio: — Se mudar de ideia, fala com a gente."
+        }
+      ],
+      "textAfterDynamic": "Com as malas guardadas, vocês conferem o horário. Ainda dá tempo de conhecer o campus antes da avaliação."
+    },
+    "dorm_f_regras": {
+      "id": "dorm_f_regras",
+      "title": "Dividindo espaço",
+      "time": "08:25",
+      "stage": "DORMITÓRIO FEMININO",
+      "text": "Clara tira a mochila da cama livre. Maya fecha um livro e olha para você.\n\nClara: — Finalmente! Achei que a terceira pessoa não vinha.\n\nMaya: — Ela está tentando descobrir quem fica com a melhor tomada.\n\nClara: — Questão de sobrevivência acadêmica. E aí, como vamos dividir o espaço?",
+      "choices": [
+        {
+          "label": "Vamos combinar as regras juntas.",
+          "to": "dorm_f_saida",
+          "effects": {
+            "flags": {
+              "quarto_cooperativo": true
+            },
+            "bonds": {
+              "clara": 1,
+              "maya": 1
+            }
+          },
+          "memory": [
+            "clara",
+            "maya"
+          ]
+        },
+        {
+          "label": "Prefiro ter meu próprio espaço.",
+          "to": "dorm_f_saida",
+          "effects": {
+            "flags": {
+              "quarto_reservado": true
+            },
+            "bonds": {}
+          },
+          "memory": [
+            "clara",
+            "maya"
+          ]
+        },
+        {
+          "label": "Escolham vocês, não me importo.",
+          "to": "dorm_f_saida",
+          "effects": {
+            "flags": {
+              "quarto_flexivel": true
+            },
+            "bonds": {
+              "clara": 1
+            }
+          }
+        }
+      ],
+      "people": [
+        "clara",
+        "maya"
+      ],
+      "place": "female"
+    },
+    "dorm_f_saida": {
+      "time": "08:25",
+      "stage": "DORMITÓRIO FEMININO",
+      "place": "female",
+      "people": [
+        "clara",
+        "maya"
+      ],
+      "id": "dorm_f_saida",
+      "title": "O primeiro combinado",
+      "text": "",
+      "choices": [
+        {
+          "label": "Sair do dormitório e explorar Godolkin",
+          "to": "explorar_manha",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        }
+      ],
+      "dynamic": [
+        {
+          "flag": "quarto_cooperativo",
+          "text": "Maya: — Ótimo. Prefiro combinar antes que apareçam problemas.\n\nClara: — Desde que ninguém crie uma planilha para as meias."
+        },
+        {
+          "flag": "quarto_reservado",
+          "text": "Maya: — Tudo bem. Seu espaço é seu.\n\nClara: — Pode deixar. A gente bate antes de mexer nas coisas."
+        },
+        {
+          "flag": "quarto_flexivel",
+          "text": "Clara: — Beleza, vamos dividir o armário por partes iguais.\n\nMaya: — E podemos rever o combinado se precisar."
+        }
+      ],
+      "textAfterDynamic": "Com as malas guardadas, vocês conferem o horário. Ainda dá tempo de conhecer o campus antes da avaliação."
+    },
+    "festa_matteo_bar": {
+      "id": "festa_matteo_bar",
+      "title": "Uma pausa no bar",
+      "time": "23:12",
+      "stage": "LOUNGE VIP · TORRE NORTE",
+      "text": "",
+      "dynamic": [
+        {
+          "flag": "f3_matteo_autonomia",
+          "text": "Matteo ergue o copo em um brinde silencioso.\n\nMatteo: — Aí sim, {NOME}. Quem não impõe respeito aqui vira degrau."
+        },
+        {
+          "flag": "f3_matteo_cautela",
+          "text": "Matteo assente devagar.\n\nMatteo: — Faz sentido. Aqui todo mundo sorri enquanto esconde uma faca nas costas."
+        },
+        {
+          "flag": "f3_matteo_leve",
+          "text": "Matteo ri balançando a cabeça.\n\nMatteo: — Aproveita enquanto é calouro, {NOME}. No segundo ano a cobrança não dá trégua."
+        }
+      ],
+      "textAfterDynamic": "Matteo pede um copo de água e olha para o salão. Uma música termina; por alguns segundos, ninguém parece prestar atenção nele.\n\nMatteo: — Quando entrei aqui, achava que ser o segundo colocado significava ter liberdade pra fazer o que quisesse. Hoje tenho uma agenda que nem fui eu que montei.\n\nMatteo: — Não me entenda mal, eu gosto de competir. Só queria que, de vez em quando, alguém perguntasse o que eu gosto além disso.",
+      "choices": [
+        {
+          "label": "O que você faria em uma tarde sem entrevistas?",
+          "to": "festa_4",
+          "effects": {
+            "flags": {
+              "matteo_bar_livre": true
+            },
+            "bonds": {
+              "matteo": 1
+            }
+          }
+        },
+        {
+          "label": "Você sente falta de alguém daquela época?",
+          "to": "festa_4",
+          "effects": {
+            "flags": {
+              "matteo_bar_passado": true
+            },
+            "bonds": {
+              "matteo": 1
+            }
+          }
+        },
+        {
+          "label": "Competir não precisa ser a única coisa que define você.",
+          "to": "festa_4",
+          "effects": {
+            "flags": {
+              "matteo_bar_identidade": true
+            },
+            "bonds": {
+              "matteo": 1
+            }
+          }
+        },
+        {
+          "label": "Deixar o assunto de lado e comentar a música.",
+          "to": "festa_4",
+          "effects": {
+            "flags": {
+              "matteo_bar_leve": true
+            },
+            "bonds": {}
+          }
+        }
+      ],
+      "people": [
+        "matteo"
+      ],
+      "place": "tower"
+    },
+    "favor_clara_fim": {
+      "time": "MANHÃ",
+      "stage": "ESCADARIAS",
+      "id": "favor_clara_fim",
+      "title": "Fim da conversa",
+      "text": "",
+      "choices": [
+        {
+          "label": "Retornar ao intervalo",
+          "to": "explorar_manha",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        }
+      ],
+      "dynamic": [
+        {
+          "equals": {
+            "key": "favor_clara_resposta",
+            "value": 1
+          },
+          "text": "Clara: — Valeu. Vou te avisar quando confirmarem o horário."
+        },
+        {
+          "equals": {
+            "key": "favor_clara_resposta",
+            "value": 2
+          },
+          "text": "Clara: — Poxa. Mas tudo bem, prefiro que seja sincero."
+        },
+        {
+          "equals": {
+            "key": "favor_clara_resposta",
+            "value": 3
+          },
+          "text": "Clara: — Boa ideia. Vou perguntar ao pessoal também."
+        }
+      ],
+      "textAfterDynamic": "Você se despede e retoma seu caminho pelo campus."
+    },
+    "maya_tarde_fim": {
+      "time": "17:20",
+      "stage": "BIBLIOTECA",
+      "id": "maya_tarde_fim",
+      "title": "Fim da conversa",
+      "text": "",
+      "choices": [
+        {
+          "label": "Retornar ao intervalo",
+          "to": "explorar_tarde",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        }
+      ],
+      "dynamic": [
+        {
+          "equals": {
+            "key": "maya_tarde_resposta",
+            "value": 1
+          },
+          "text": "Maya: — Eu também demorei. Não precisa entender tudo no primeiro dia."
+        },
+        {
+          "equals": {
+            "key": "maya_tarde_resposta",
+            "value": 2
+          },
+          "text": "Maya: — Uma boa escolha. O resto pode esperar."
+        }
+      ],
+      "textAfterDynamic": "Você se despede e retoma seu caminho pelo campus."
+    },
+    "grupo_conversa_fim": {
+      "time": "Intervalo da tarde",
+      "stage": "ESCADARIAS",
+      "place": "stairs",
+      "people": [
+        "clara",
+        "matteo"
+      ],
+      "id": "grupo_conversa_fim",
+      "title": "Fim da conversa",
+      "text": "",
+      "choices": [
+        {
+          "label": "Retornar ao intervalo",
+          "to": "explorar_tarde",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        }
+      ],
+      "dynamic": [
+        {
+          "equals": {
+            "key": "grupo_conversa_resposta",
+            "value": 1
+          },
+          "text": "Clara: — É melhor mesmo. Depois a gente termina isso."
+        },
+        {
+          "equals": {
+            "key": "grupo_conversa_resposta",
+            "value": 2
+          },
+          "text": "Matteo: — Certo. Eu posso ouvir primeiro.\n\nClara: — Só não transforma isso numa entrevista."
+        },
+        {
+          "equals": {
+            "key": "grupo_conversa_resposta",
+            "value": 3
+          },
+          "text": "Os dois retomam a conversa sem pedir sua opinião."
+        },
+        {
+          "equals": {
+            "key": "grupo_conversa_resposta",
+            "value": 4
+          },
+          "text": "Matteo: — Entendi. Não vou discutir isso aqui.\n\nClara: — Depois a gente fala."
+        }
+      ],
+      "textAfterDynamic": "Você se despede e retoma seu caminho pelo campus."
+    },
+    "clara_retorno_fim": {
+      "time": "17:00",
+      "stage": "PÁTIO CENTRAL",
+      "id": "clara_retorno_fim",
+      "title": "Fim da conversa",
+      "text": "",
+      "choices": [
+        {
+          "label": "Retornar ao intervalo",
+          "to": "explorar_tarde",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        }
+      ],
+      "dynamic": [
+        {
+          "equals": {
+            "key": "clara_retorno_resposta",
+            "value": 1
+          },
+          "text": "Clara: — Fora as palestras intermináveis? Até que não foi tão ruim. A gente se vê mais tarde."
+        }
+      ],
+      "textAfterDynamic": "Você se despede e retoma seu caminho pelo campus."
+    },
+    "dorm_tarde_fim": {
+      "time": "18:00",
+      "stage": "DORMITÓRIOS",
+      "id": "dorm_tarde_fim",
+      "title": "Fim da conversa",
+      "text": "",
+      "choices": [
+        {
+          "label": "Retornar ao intervalo",
+          "to": "explorar_tarde",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        }
+      ],
+      "dynamic": [
+        {
+          "equals": {
+            "key": "dorm_tarde_resposta",
+            "value": 1
+          },
+          "text": "Maya: — Combinado. Vamos deixar o quarto tranquilo no fim do dia."
+        },
+        {
+          "equals": {
+            "key": "dorm_tarde_resposta",
+            "value": 2
+          },
+          "text": "Otávio: — Fechado. Se alguém precisar mudar o combinado, é só falar."
+        },
+        {
+          "equals": {
+            "key": "dorm_tarde_resposta",
+            "value": 3
+          },
+          "text": "Você aproveita a pausa, confere o horário e sai."
+        }
+      ],
+      "textAfterDynamic": "Você se despede e retoma seu caminho pelo campus."
+    },
+    "almoco_fim_clara": {
+      "time": "12:00–13:35",
+      "stage": "REFEITÓRIO CENTRAL · CAMPUS GODOLKIN",
+      "place": "food",
+      "people": [
+        "clara",
+        "luka",
+        "maya",
+        "otavio"
+      ],
+      "id": "almoco_fim_clara",
+      "title": "De volta à mesa",
+      "text": "",
+      "choices": [
+        {
+          "label": "Voltar à conversa da mesa",
+          "to": "almoco_escolher",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        }
+      ],
+      "dynamic": [
+        {
+          "equals": {
+            "key": "almoco_clara_segundo",
+            "value": 1
+          },
+          "text": "Clara: — Pelo menos nossa mesa passou no teste."
+        },
+        {
+          "equals": {
+            "key": "almoco_clara_segundo",
+            "value": 2
+          },
+          "text": "Clara: — Tá, admito que algumas aulas parecem interessantes."
+        },
+        {
+          "equals": {
+            "key": "almoco_clara_segundo",
+            "value": 3
+          },
+          "text": "Clara: — Fechado. Vou cobrar essa resposta amanhã."
+        }
+      ],
+      "textAfterDynamic": "A conversa se mistura novamente ao assunto dos outros colegas."
+    },
+    "almoco_fim_luka": {
+      "time": "12:00–13:35",
+      "stage": "REFEITÓRIO CENTRAL · CAMPUS GODOLKIN",
+      "place": "food",
+      "people": [
+        "clara",
+        "luka",
+        "maya",
+        "otavio"
+      ],
+      "id": "almoco_fim_luka",
+      "title": "De volta à mesa",
+      "text": "",
+      "choices": [
+        {
+          "label": "Voltar à conversa da mesa",
+          "to": "almoco_escolher",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        }
+      ],
+      "dynamic": [
+        {
+          "equals": {
+            "key": "almoco_luka_segundo",
+            "value": 1
+          },
+          "text": "Luka: — Combinado. Nada de reunião às seis da manhã."
+        },
+        {
+          "equals": {
+            "key": "almoco_luka_segundo",
+            "value": 2
+          },
+          "text": "Luka: — Boa! Eu tenho anotações demais e nenhuma organização."
+        },
+        {
+          "equals": {
+            "key": "almoco_luka_segundo",
+            "value": 3
+          },
+          "text": "Luka: — Justo. Eu também devia ir com calma."
+        }
+      ],
+      "textAfterDynamic": "A conversa se mistura novamente ao assunto dos outros colegas."
+    },
+    "almoco_fim_maya": {
+      "time": "12:00–13:35",
+      "stage": "REFEITÓRIO CENTRAL · CAMPUS GODOLKIN",
+      "place": "food",
+      "people": [
+        "clara",
+        "luka",
+        "maya",
+        "otavio"
+      ],
+      "id": "almoco_fim_maya",
+      "title": "De volta à mesa",
+      "text": "",
+      "choices": [
+        {
+          "label": "Voltar à conversa da mesa",
+          "to": "almoco_escolher",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        }
+      ],
+      "dynamic": [
+        {
+          "equals": {
+            "key": "almoco_maya_segundo",
+            "value": 1
+          },
+          "text": "Maya: — Espero que goste. É um bom lugar para pensar."
+        },
+        {
+          "equals": {
+            "key": "almoco_maya_segundo",
+            "value": 2
+          },
+          "text": "Maya: — Sim. Costuma ser mais tranquilo depois do almoço."
+        },
+        {
+          "equals": {
+            "key": "almoco_maya_segundo",
+            "value": 3
+          },
+          "text": "Maya: — Faz sentido. O campus tem bastante coisa."
+        }
+      ],
+      "textAfterDynamic": "A conversa se mistura novamente ao assunto dos outros colegas."
+    },
+    "almoco_fim_otavio": {
+      "time": "12:00–13:35",
+      "stage": "REFEITÓRIO CENTRAL · CAMPUS GODOLKIN",
+      "place": "food",
+      "people": [
+        "clara",
+        "luka",
+        "maya",
+        "otavio"
+      ],
+      "id": "almoco_fim_otavio",
+      "title": "De volta à mesa",
+      "text": "",
+      "choices": [
+        {
+          "label": "Voltar à conversa da mesa",
+          "to": "almoco_escolher",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          }
+        }
+      ],
+      "dynamic": [
+        {
+          "equals": {
+            "key": "almoco_otavio_segundo",
+            "value": 1
+          },
+          "text": "Otávio: — Fechado. Eu também aprendo com vocês."
+        },
+        {
+          "equals": {
+            "key": "almoco_otavio_segundo",
+            "value": 2
+          },
+          "text": "Otávio: — Sem pressa. Tem muito semestre pela frente."
+        },
+        {
+          "equals": {
+            "key": "almoco_otavio_segundo",
+            "value": 3
+          },
+          "text": "Otávio: — Justíssimo. Até esqueci de terminar meu almoço."
+        }
+      ],
+      "textAfterDynamic": "A conversa se mistura novamente ao assunto dos outros colegas."
+    },
+    "festa_despedida": {
+      "id": "festa_despedida",
+      "title": "Antes de voltar",
+      "time": "00:10",
+      "stage": "VARANDA EXTERNA · TORRE NORTE",
+      "place": "tower",
+      "people": [
+        "clara",
+        "luka",
+        "maya",
+        "otavio"
+      ],
+      "text": "O grupo fica em silêncio por um instante, assimilando a decisão. A música do salão já diminuiu.",
+      "dynamic": [
+        {
+          "flag": "pacto_investigacao",
+          "text": "Maya: — Certo. Vamos conversar amanhã, depois das aulas.\n\nLuka: — Por hoje, acho que já tivemos perguntas suficientes."
+        },
+        {
+          "flag": "pacto_duplo",
+          "text": "Clara: — Só não quero que a gente comece a esconder coisas uns dos outros.\n\nMaya: — Concordo. A decisão é nossa, não deles."
+        },
+        {
+          "flag": "pacto_silencio",
+          "text": "Otávio: — Entendo. Não precisamos decidir tudo nesta noite.\n\nMaya: — Ainda quero esclarecer o que aconteceu. Mas podemos conversar com calma amanhã."
+        }
+      ],
+      "textAfterDynamic": "Otávio: — Bora descansar? Amanhã ainda tem aula.\n\nOs quatro se despedem no corredor e você segue para o alojamento escolhido.",
+      "choices": [
+        {
+          "label": "Voltar ao alojamento e encerrar o primeiro dia",
+          "to": "end",
+          "effects": {
+            "flags": {},
             "bonds": {}
           }
         }
