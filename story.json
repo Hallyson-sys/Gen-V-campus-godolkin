@@ -1,7 +1,7 @@
 {
   "meta": {
     "game": "Gen V: Campus Godolkin",
-    "version": "0.16.0",
+    "version": "0.17.0",
     "chapter": "Prólogo — Despertar, Anos Ocultos, Reitoria e a Noite na Torre Norte",
     "start": "origem_roteador"
   },
@@ -65,7 +65,19 @@
           "afternoon": "vip",
           "night": "tower"
         },
-        "location": "vip"
+        "location": "vip",
+        "hobbies": [
+          "Culinária",
+          "Esportes recreativos",
+          "Encontros entre amigos"
+        ],
+        "conviction": "Influência traz oportunidades, mas também responsabilidades.",
+        "dilemma": "Aceitar uma concessão injusta para preservar influência ou abrir mão dela?",
+        "unlock": {
+          "affinity": 27,
+          "trust": 27,
+          "respect": 33
+        }
       }
     },
     {
@@ -127,7 +139,21 @@
           "afternoon": "library",
           "night": "female"
         },
-        "location": "library"
+        "location": "library",
+        "hobbies": [
+          "Literatura",
+          "Livros de romance",
+          "Animes",
+          "Escrita",
+          "Lugares tranquilos"
+        ],
+        "conviction": "A liberdade de escolha importa mesmo quando discordamos.",
+        "dilemma": "É justo decidir por outra pessoa quando se acredita estar ajudando?",
+        "unlock": {
+          "affinity": 30,
+          "trust": 30,
+          "respect": 32
+        }
       }
     },
     {
@@ -189,7 +215,19 @@
           "afternoon": "patio",
           "night": "female"
         },
-        "location": "patio"
+        "location": "patio",
+        "hobbies": [
+          "Música alternativa",
+          "Fotografias antigas",
+          "Humor irônico"
+        ],
+        "conviction": "Lealdade não é obediência.",
+        "dilemma": "Defender um amigo quando ele erra ou contrariá-lo para ser sincera?",
+        "unlock": {
+          "affinity": 34,
+          "trust": 34,
+          "respect": 32
+        }
       }
     },
     {
@@ -251,7 +289,19 @@
           "afternoon": "food",
           "night": "male"
         },
-        "location": "food"
+        "location": "food",
+        "hobbies": [
+          "Cinema",
+          "Músicas",
+          "Produção audiovisual"
+        ],
+        "conviction": "Apoiar alguém também significa respeitar sua autonomia.",
+        "dilemma": "Intervir em uma escolha de um amigo ou respeitar sua decisão?",
+        "unlock": {
+          "affinity": 32,
+          "trust": 32,
+          "respect": 31
+        }
       }
     },
     {
@@ -313,7 +363,19 @@
           "afternoon": "vip",
           "night": "tower"
         },
-        "location": "vip"
+        "location": "vip",
+        "hobbies": [
+          "Moda",
+          "Fotografia",
+          "Planejamento de projetos pessoais"
+        ],
+        "conviction": "Autonomia não exige controlar todas as pessoas.",
+        "dilemma": "Preservar uma oportunidade ou defender alguém que pode contrariar seus interesses?",
+        "unlock": {
+          "affinity": 27,
+          "trust": 27,
+          "respect": 33
+        }
       }
     },
     {
@@ -375,7 +437,21 @@
           "afternoon": "food",
           "night": "male"
         },
-        "location": "food"
+        "location": "food",
+        "hobbies": [
+          "Jogos de estratégia",
+          "Cadernos de anotações",
+          "Filmes de terror",
+          "Vôlei",
+          "Curiosidades científicas"
+        ],
+        "conviction": "Conhecimento não substitui escutar os outros.",
+        "dilemma": "Compartilhar uma descoberta incerta ou esperar para confirmar, mesmo sob pressão?",
+        "unlock": {
+          "affinity": 32,
+          "trust": 32,
+          "respect": 32
+        }
       }
     }
   ],
@@ -390,57 +466,68 @@
         {
           "label": "Reviver sua infância: O despertar da Hemocinese",
           "requirePower": "hemocinese",
-          "to": "infancia_hemocinese_1"
+          "to": "infancia_hemocinese_1",
+          "kind": "action"
         },
         {
           "label": "Reviver sua infância: O despertar da Superforça & Invulnerabilidade",
           "requirePower": "superforca",
-          "to": "infancia_superforca_1"
+          "to": "infancia_superforca_1",
+          "kind": "action"
         },
         {
           "label": "Reviver sua infância: O despertar da Tecnopatia",
           "requirePower": "tecnopatia",
-          "to": "infancia_tecnopatia_1"
+          "to": "infancia_tecnopatia_1",
+          "kind": "action"
         },
         {
           "label": "Reviver sua infância: O despertar da Telecinese",
           "requirePower": "telecinese",
-          "to": "infancia_telecinese_1"
+          "to": "infancia_telecinese_1",
+          "kind": "action"
         },
         {
           "label": "Reviver sua infância: O despertar da Troca de Corpo / Fluidez",
           "requirePower": "troca_corpo",
-          "to": "infancia_troca_corpo_1"
+          "to": "infancia_troca_corpo_1",
+          "kind": "action"
         },
         {
           "label": "Reviver sua infância: Eletrocinese",
           "requirePower": "eletrocinese",
-          "to": "infancia_eletrocinese_1"
+          "to": "infancia_eletrocinese_1",
+          "kind": "action"
         },
         {
           "label": "Reviver sua infância: Umbracinese",
           "requirePower": "umbracinese",
-          "to": "infancia_umbracinese_1"
+          "to": "infancia_umbracinese_1",
+          "kind": "action"
         },
         {
           "label": "Reviver sua infância: Criocinese",
           "requirePower": "criocinese",
-          "to": "infancia_criocinese_1"
+          "to": "infancia_criocinese_1",
+          "kind": "action"
         },
         {
           "label": "Reviver sua infância: Campos de força",
           "requirePower": "campos_forca",
-          "to": "infancia_campos_forca_1"
+          "to": "infancia_campos_forca_1",
+          "kind": "action"
         },
         {
           "label": "Reviver sua infância: Duplicação",
           "requirePower": "duplicacao",
-          "to": "infancia_duplicacao_1"
+          "to": "infancia_duplicacao_1",
+          "kind": "action"
         },
         {
           "label": "Reviver sua infância: Ilusionismo",
           "requirePower": "ilusionismo",
-          "to": "infancia_ilusionismo_1"
+          "to": "infancia_ilusionismo_1",
+          "kind": "action"
         }
       ],
       "dynamic": [
@@ -485,7 +572,8 @@
               "infancia_escondeu": true,
               "origem_hemocinese": true
             }
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "Tentar manter as formas suspensas até se acalmar",
@@ -498,7 +586,8 @@
               "infancia_impos": true,
               "origem_hemocinese": true
             }
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "Pedir ajuda quando perder a concentração",
@@ -512,7 +601,8 @@
               "infancia_descontrole": true,
               "origem_hemocinese": true
             }
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "Concentrar-se e estabilizar as formas rubras",
@@ -526,7 +616,8 @@
               "infancia_maestria": true,
               "origem_hemocinese": true
             }
-          }
+          },
+          "kind": "action"
         }
       ],
       "dynamic": []
@@ -564,7 +655,8 @@
             "flags": {
               "adolescencia_cautela": true
             }
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "Buscar orientação para entender melhor seus poderes",
@@ -577,7 +669,8 @@
             "flags": {
               "adolescencia_treino": true
             }
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "Vasculhar escondido a gaveta trancada dos seus pais em busca de exames antigos",
@@ -586,7 +679,8 @@
             "flags": {
               "adolescencia_investigou": true
             }
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "Ouvir o batimento cardíaco irregular de um carro parado na esquina vigiando sua casa",
@@ -597,7 +691,8 @@
               "adolescencia_investigou": true,
               "notou_vigilancia_infancia": true
             }
-          }
+          },
+          "kind": "action"
         }
       ]
     },
@@ -616,7 +711,8 @@
               "infancia_escondeu": true,
               "origem_superforca": true
             }
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "Sentir orgulho por ter salvado seu pai e testar até onde sua força chegava",
@@ -626,7 +722,8 @@
               "infancia_impos": true,
               "origem_superforca": true
             }
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "Assustar-se com a reação dele e sair correndo, derrubando o portão de ferro no caminho",
@@ -639,7 +736,8 @@
               "infancia_descontrole": true,
               "origem_superforca": true
             }
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "Apoiar o carro suavemente no cavalete sem causar mais nenhum dano",
@@ -653,7 +751,8 @@
               "infancia_maestria": true,
               "origem_superforca": true
             }
-          }
+          },
+          "kind": "action"
         }
       ],
       "dynamic": []
@@ -691,7 +790,8 @@
             "flags": {
               "adolescencia_cautela": true
             }
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "Treinar impacto e resistência em um ferro-velho abandonado fora da cidade",
@@ -700,7 +800,8 @@
             "flags": {
               "adolescencia_treino": true
             }
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "Perguntar diretamente ao seu pai de onde vieram os seus poderes",
@@ -709,7 +810,8 @@
             "flags": {
               "adolescencia_investigou": true
             }
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "Perceber que o homem fotografando o treino na arquibancada não era pai de nenhum aluno",
@@ -720,7 +822,8 @@
               "adolescencia_investigou": true,
               "notou_vigilancia_infancia": true
             }
-          }
+          },
+          "kind": "action"
         }
       ]
     },
@@ -739,7 +842,8 @@
               "infancia_escondeu": true,
               "origem_tecnopatia": true
             }
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "Explorar ainda mais fundo os arquivos sigilosos do servidor da escola",
@@ -752,7 +856,8 @@
               "infancia_impos": true,
               "origem_tecnopatia": true
             }
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "Sobrecarregar os transformadores da rua ao tentar desconectar sua mente às pressas",
@@ -765,7 +870,8 @@
               "infancia_descontrole": true,
               "origem_tecnopatia": true
             }
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "Isolar o sinal neural e sair do sistema sem deixar rastro digital",
@@ -779,7 +885,8 @@
               "infancia_maestria": true,
               "origem_tecnopatia": true
             }
-          }
+          },
+          "kind": "action"
         }
       ],
       "dynamic": []
@@ -817,7 +924,8 @@
             "flags": {
               "adolescencia_cautela": true
             }
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "Criar rotinas neurais para invadir sistemas criptografados em segundos",
@@ -826,7 +934,8 @@
             "flags": {
               "adolescencia_treino": true
             }
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "Rastrear a origem da transmissão da Vought que monitorava sua casa",
@@ -835,7 +944,8 @@
             "flags": {
               "adolescencia_investigou": true
             }
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "Clonar silenciosamente a credencial de acesso do servidor antes de desconectar",
@@ -846,7 +956,8 @@
               "adolescencia_investigou": true,
               "notou_vigilancia_infancia": true
             }
-          }
+          },
+          "kind": "action"
         }
       ]
     },
@@ -865,7 +976,8 @@
               "infancia_escondeu": true,
               "origem_telecinese": true
             }
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "Exigir explicações dos seus pais sobre por que sempre esconderam a verdade de você",
@@ -875,7 +987,8 @@
               "infancia_impos": true,
               "origem_telecinese": true
             }
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "Perder o equilíbrio emocional e causar um segundo tremor que rachou as paredes",
@@ -888,7 +1001,8 @@
               "infancia_descontrole": true,
               "origem_telecinese": true
             }
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "Pousar cada objeto suavemente no chão antes que qualquer vidro quebrasse",
@@ -902,7 +1016,8 @@
               "infancia_maestria": true,
               "origem_telecinese": true
             }
-          }
+          },
+          "kind": "action"
         }
       ],
       "dynamic": []
@@ -940,7 +1055,8 @@
             "flags": {
               "adolescencia_cautela": true
             }
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "Praticar o lançamento e o desvio simultâneo de múltiplos objetos no ar",
@@ -949,7 +1065,8 @@
             "flags": {
               "adolescencia_treino": true
             }
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "Confrontar seus pais sobre os pagamentos mensais anônimos que sustentavam a casa",
@@ -958,7 +1075,8 @@
             "flags": {
               "adolescencia_investigou": true
             }
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "Notar marcas de pneus pretos na estrada de terra perto da sua clareira de treino",
@@ -969,7 +1087,8 @@
               "adolescencia_investigou": true,
               "notou_vigilancia_infancia": true
             }
-          }
+          },
+          "kind": "action"
         }
       ]
     },
@@ -988,7 +1107,8 @@
               "infancia_escondeu": true,
               "origem_troca_corpo": true
             }
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "Treinar escondido à noite para dominar cada transição entre suas formas",
@@ -998,7 +1118,8 @@
               "infancia_impos": true,
               "origem_troca_corpo": true
             }
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "Ficar preso entre as duas formas por horas, causando pânico no pronto-socorro local",
@@ -1011,7 +1132,8 @@
               "infancia_descontrole": true,
               "origem_troca_corpo": true
             }
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "Estabilizar o metabolismo e alternar de volta com precisão absoluta",
@@ -1025,7 +1147,8 @@
               "infancia_maestria": true,
               "origem_troca_corpo": true
             }
-          }
+          },
+          "kind": "action"
         }
       ],
       "dynamic": []
@@ -1063,7 +1186,8 @@
             "flags": {
               "adolescencia_cautela": true
             }
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "Praticar transições rápidas em combate combinando defesa pesada e agilidade",
@@ -1072,7 +1196,8 @@
             "flags": {
               "adolescencia_treino": true
             }
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "Investigar os registros médicos do pronto-socorro sobre o seu metabolismo",
@@ -1081,7 +1206,8 @@
             "flags": {
               "adolescencia_investigou": true
             }
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "Perceber um drone de reconhecimento pairando acima das antenas do prédio vizinho",
@@ -1092,7 +1218,8 @@
               "adolescencia_investigou": true,
               "notou_vigilancia_infancia": true
             }
-          }
+          },
+          "kind": "action"
         }
       ]
     },
@@ -1112,7 +1239,9 @@
             },
             "rank": -4
           },
-          "personality": "prodigio"
+          "personality": "prodigio",
+          "speech": "Quero chegar longe e ajudar minha família.",
+          "kind": "speech"
         },
         {
           "label": "Aceitar apenas para descobrir quem autorizou o Composto V na sua infância",
@@ -1122,7 +1251,9 @@
               "motivacao_verdade": true
             }
           },
-          "personality": "cetico"
+          "personality": "cetico",
+          "speech": "Quero entender o que aconteceu na minha infância.",
+          "kind": "speech"
         },
         {
           "label": "Entrar para aprender a controlar seus poderes antes que algo pior aconteça",
@@ -1132,7 +1263,9 @@
               "motivacao_controle": true
             }
           },
-          "personality": "idealista"
+          "personality": "idealista",
+          "speech": "Quero aprender a controlar meu poder.",
+          "kind": "speech"
         },
         {
           "label": "Negociar cláusulas extras de privacidade antes de assinar o termo",
@@ -1150,7 +1283,9 @@
               "zoe": 1
             }
           },
-          "personality": "estrategico"
+          "personality": "estrategico",
+          "speech": "Gostaria de negociar as cláusulas de privacidade.",
+          "kind": "speech"
         },
         {
           "label": "Explicar como seu histórico influencia sua decisão: Família influente",
@@ -1161,7 +1296,8 @@
               "origem_declarada": true
             }
           },
-          "personality": "prodigio"
+          "personality": "prodigio",
+          "kind": "action"
         },
         {
           "label": "Explicar como seu histórico influencia sua decisão: Família comum",
@@ -1172,7 +1308,8 @@
               "origem_declarada": true
             }
           },
-          "personality": "cetico"
+          "personality": "cetico",
+          "kind": "action"
         },
         {
           "label": "Explicar como seu histórico influencia sua decisão: Legado de super-heróis",
@@ -1183,7 +1320,8 @@
               "origem_declarada": true
             }
           },
-          "personality": "idealista"
+          "personality": "idealista",
+          "kind": "action"
         },
         {
           "label": "Explicar como seu histórico influencia sua decisão: Ex-estrela juvenil",
@@ -1194,7 +1332,8 @@
               "origem_declarada": true
             }
           },
-          "personality": "estrategico"
+          "personality": "estrategico",
+          "kind": "action"
         },
         {
           "label": "Explicar como seu histórico influencia sua decisão: Família anti-Vought",
@@ -1205,7 +1344,8 @@
               "origem_declarada": true
             }
           },
-          "personality": "prodigio"
+          "personality": "prodigio",
+          "kind": "action"
         },
         {
           "label": "Explicar como seu histórico influencia sua decisão: Passado confidencial",
@@ -1216,7 +1356,8 @@
               "origem_declarada": true
             }
           },
-          "personality": "cetico"
+          "personality": "cetico",
+          "kind": "action"
         },
         {
           "label": "Responder sobre sua motivação: Integrar os Sete",
@@ -1227,7 +1368,8 @@
               "motivacao_declarada": true
             }
           },
-          "personality": "idealista"
+          "personality": "idealista",
+          "kind": "action"
         },
         {
           "label": "Responder sobre sua motivação: Descobrir os segredos da Vought",
@@ -1238,7 +1380,8 @@
               "motivacao_declarada": true
             }
           },
-          "personality": "estrategico"
+          "personality": "estrategico",
+          "kind": "action"
         },
         {
           "label": "Responder sobre sua motivação: Aprender a controlar os poderes",
@@ -1249,7 +1392,8 @@
               "motivacao_declarada": true
             }
           },
-          "personality": "prodigio"
+          "personality": "prodigio",
+          "kind": "action"
         },
         {
           "label": "Responder sobre sua motivação: Conquistar independência",
@@ -1260,7 +1404,8 @@
               "motivacao_declarada": true
             }
           },
-          "personality": "cetico"
+          "personality": "cetico",
+          "kind": "action"
         },
         {
           "label": "Responder sobre sua motivação: Ajudar outras pessoas",
@@ -1271,7 +1416,8 @@
               "motivacao_declarada": true
             }
           },
-          "personality": "idealista"
+          "personality": "idealista",
+          "kind": "action"
         },
         {
           "label": "Responder sobre sua motivação: Provar seu valor",
@@ -1282,7 +1428,8 @@
               "motivacao_declarada": true
             }
           },
-          "personality": "estrategico"
+          "personality": "estrategico",
+          "kind": "action"
         },
         {
           "label": "Responder sobre sua motivação: Ainda não sabe o que deseja",
@@ -1293,7 +1440,8 @@
               "motivacao_declarada": true
             }
           },
-          "personality": "prodigio"
+          "personality": "prodigio",
+          "kind": "action"
         }
       ],
       "dynamic": [
@@ -1344,7 +1492,8 @@
           "effects": {
             "flags": {},
             "bonds": {}
-          }
+          },
+          "kind": "action"
         }
       ],
       "dynamic": [
@@ -1384,6 +1533,20 @@
               "luka": 1,
               "clara": 1
             }
+          },
+          "speech": "Como você sabe tanto sobre isso, Luka?",
+          "kind": "speech",
+          "social": {
+            "clara": {
+              "trust": 0,
+              "respect": 1,
+              "closeness": 1
+            },
+            "luka": {
+              "trust": 0,
+              "respect": 1,
+              "closeness": 1
+            }
           }
         },
         {
@@ -1400,7 +1563,9 @@
           },
           "memory": [
             "clara"
-          ]
+          ],
+          "speech": "Parece que o pessoal ensaiou para as câmeras, né?",
+          "kind": "speech"
         },
         {
           "label": "Vocês sabem como vai ser a primeira aula?",
@@ -1412,6 +1577,20 @@
             "bonds": {
               "clara": 1,
               "luka": 1
+            }
+          },
+          "speech": "Vocês sabem como vai ser a primeira aula?",
+          "kind": "speech",
+          "social": {
+            "clara": {
+              "trust": 0,
+              "respect": 1,
+              "closeness": 1
+            },
+            "luka": {
+              "trust": 0,
+              "respect": 1,
+              "closeness": 1
             }
           }
         },
@@ -1434,7 +1613,9 @@
           },
           "memory": [
             "luka"
-          ]
+          ],
+          "speech": "Tem algo estranho na rota dos drones.",
+          "kind": "speech"
         }
       ],
       "dynamic": []
@@ -1476,7 +1657,9 @@
               "luka": 1,
               "clara": 1
             }
-          }
+          },
+          "speech": "Vocês acham que Maya e Otávio são confiáveis?",
+          "kind": "speech"
         },
         {
           "label": "Perguntar a Clara o que aconteceu entre ela e Matteo no passado",
@@ -1491,7 +1674,9 @@
           },
           "memory": [
             "clara"
-          ]
+          ],
+          "speech": "Clara, o que aconteceu entre você e Matteo?",
+          "kind": "speech"
         },
         {
           "label": "Dizer que não tem medo de veteranos e pretende subir no Ranking do seu jeito",
@@ -1505,7 +1690,9 @@
               "luka": 1
             },
             "rank": -2
-          }
+          },
+          "speech": "Não tenho medo dos veteranos. Quero subir no ranking do meu jeito.",
+          "kind": "speech"
         },
         {
           "label": "Perguntar por que Maya usa luvas pretas e observa tudo tão de longe",
@@ -1522,7 +1709,9 @@
           },
           "memory": [
             "luka"
-          ]
+          ],
+          "speech": "Por que Maya sempre usa luvas?",
+          "kind": "speech"
         }
       ]
     },
@@ -1568,7 +1757,9 @@
           "memory": [
             "clara",
             "luka"
-          ]
+          ],
+          "speech": "Podem contar comigo lá dentro.",
+          "kind": "speech"
         },
         {
           "label": "Aceitar caminhar junto, mas avisar que prefere ir com calma antes de confiar totalmente",
@@ -1580,6 +1771,20 @@
             "bonds": {
               "clara": 1,
               "luka": 1
+            }
+          },
+          "speech": "Podemos andar juntos, mas prefiro conhecer vocês melhor primeiro.",
+          "kind": "speech",
+          "social": {
+            "clara": {
+              "trust": 0,
+              "respect": 1,
+              "closeness": 1
+            },
+            "luka": {
+              "trust": 0,
+              "respect": 1,
+              "closeness": 1
             }
           }
         },
@@ -1597,7 +1802,9 @@
           },
           "memory": [
             "clara"
-          ]
+          ],
+          "speech": "Se vocês não atrapalharem, eu dou conta.",
+          "kind": "speech"
         },
         {
           "label": "Ler a tensão nos ombros de Clara e garantir que ela não vai enfrentar o treino sozinha",
@@ -1616,7 +1823,9 @@
           "memory": [
             "clara",
             "luka"
-          ]
+          ],
+          "speech": "Clara, não precisa enfrentar a avaliação sozinha.",
+          "kind": "speech"
         }
       ]
     },
@@ -1654,14 +1863,18 @@
               "clara": 1,
               "luka": 1
             }
-          }
+          },
+          "speech": "Vou dar mais uma volta. Vejo vocês depois.",
+          "kind": "speech"
         },
         {
           "label": "Até mais, pessoal. Vou aproveitar o intervalo.",
           "to": "explorar_manha",
           "effects": {
             "rank": -2
-          }
+          },
+          "speech": "Até mais, pessoal. Vou aproveitar o intervalo.",
+          "kind": "speech"
         },
         {
           "label": "Voltar ao pátio e organizar meus pensamentos.",
@@ -1674,7 +1887,8 @@
             "flags": {
               "foco_pre_arena": true
             }
-          }
+          },
+          "kind": "action"
         }
       ]
     },
@@ -1700,7 +1914,9 @@
           },
           "memory": [
             "matteo"
-          ]
+          ],
+          "speech": "Não vim até aqui para ser figurante.",
+          "kind": "speech"
         },
         {
           "label": "Prefiro deixar os resultados falarem por mim.",
@@ -1717,7 +1933,21 @@
           "memory": [
             "zoe"
           ],
-          "personality": "prodigio"
+          "personality": "prodigio",
+          "speech": "Prefiro deixar os resultados falarem por mim.",
+          "kind": "speech",
+          "social": {
+            "matteo": {
+              "trust": 0,
+              "respect": 1,
+              "closeness": 1
+            },
+            "zoe": {
+              "trust": 1,
+              "respect": 1,
+              "closeness": 1
+            }
+          }
         },
         {
           "label": "Como funcionam os patrocínios de vocês?",
@@ -1733,7 +1963,9 @@
           },
           "memory": [
             "matteo"
-          ]
+          ],
+          "speech": "Como funcionam os patrocínios de vocês?",
+          "kind": "speech"
         },
         {
           "label": "Imagino que sustentar essa imagem não seja fácil.",
@@ -1756,7 +1988,21 @@
           "memory": [
             "matteo",
             "zoe"
-          ]
+          ],
+          "speech": "Imagino que sustentar essa imagem não seja fácil.",
+          "kind": "speech",
+          "social": {
+            "matteo": {
+              "trust": 1,
+              "respect": 1,
+              "closeness": 1
+            },
+            "zoe": {
+              "trust": 1,
+              "respect": 1,
+              "closeness": 1
+            }
+          }
         },
         {
           "label": "Quero deixar minha marca aqui.",
@@ -1770,7 +2016,9 @@
               "matteo": 1
             }
           },
-          "personality": "prodigio"
+          "personality": "prodigio",
+          "speech": "Quero deixar minha marca aqui.",
+          "kind": "speech"
         },
         {
           "label": "Quem define o que é sucesso aqui?",
@@ -1784,7 +2032,9 @@
               "matteo": 1
             }
           },
-          "personality": "cetico"
+          "personality": "cetico",
+          "speech": "Quem define o que é sucesso aqui?",
+          "kind": "speech"
         },
         {
           "label": "Prefiro entender as regras antes de jogar.",
@@ -1798,7 +2048,9 @@
               "matteo": 1
             }
           },
-          "personality": "estrategico"
+          "personality": "estrategico",
+          "speech": "Prefiro entender as regras antes de jogar.",
+          "kind": "speech"
         },
         {
           "label": "Não quero deixar ninguém para trás.",
@@ -1812,7 +2064,9 @@
               "matteo": 1
             }
           },
-          "personality": "protetor"
+          "personality": "protetor",
+          "speech": "Não quero deixar ninguém para trás.",
+          "kind": "speech"
         },
         {
           "label": "Prefiro observar antes de me apresentar.",
@@ -1826,7 +2080,9 @@
               "matteo": 1
             }
           },
-          "personality": "reservado"
+          "personality": "reservado",
+          "speech": "Prefiro observar antes de me apresentar.",
+          "kind": "speech"
         },
         {
           "label": "Que tal a gente começar de novo, sem falar de ranking?",
@@ -1840,7 +2096,9 @@
               "matteo": 1
             }
           },
-          "personality": "carismatico"
+          "personality": "carismatico",
+          "speech": "Que tal a gente começar de novo, sem falar de ranking?",
+          "kind": "speech"
         },
         {
           "label": "Espero que o que fazemos importe mais que nossa posição.",
@@ -1854,7 +2112,9 @@
               "matteo": 1
             }
           },
-          "personality": "idealista"
+          "personality": "idealista",
+          "speech": "Espero que o que fazemos importe mais que nossa posição.",
+          "kind": "speech"
         },
         {
           "label": "Prefiro reconhecer o que fiz bem, sem comparações.",
@@ -1864,7 +2124,9 @@
             "flags": {
               "traco_orgulho": true
             }
-          }
+          },
+          "speech": "Prefiro reconhecer o que fiz bem, sem comparações.",
+          "kind": "speech"
         },
         {
           "label": "Preciso de tempo antes de confiar.",
@@ -1874,7 +2136,9 @@
             "flags": {
               "traco_desconfiado": true
             }
-          }
+          },
+          "speech": "Preciso de tempo antes de confiar.",
+          "kind": "speech"
         },
         {
           "label": "Quero saber como posso melhorar meu resultado.",
@@ -1884,7 +2148,9 @@
             "flags": {
               "traco_competitivo": true
             }
-          }
+          },
+          "speech": "Quero saber como posso melhorar meu resultado.",
+          "kind": "speech"
         },
         {
           "label": "Ainda tenho minha própria opinião.",
@@ -1894,7 +2160,9 @@
             "flags": {
               "traco_teimoso": true
             }
-          }
+          },
+          "speech": "Ainda tenho minha própria opinião.",
+          "kind": "speech"
         },
         {
           "label": "Posso admitir que estou com receio?",
@@ -1904,7 +2172,9 @@
             "flags": {
               "traco_medo_fracasso": true
             }
-          }
+          },
+          "speech": "Posso admitir que estou com receio?",
+          "kind": "speech"
         }
       ],
       "dynamic": []
@@ -1977,7 +2247,21 @@
           },
           "memory": [
             "zoe"
-          ]
+          ],
+          "speech": "Zoe, o que você acha de Maya e Otávio?",
+          "kind": "speech",
+          "social": {
+            "matteo": {
+              "trust": 0,
+              "respect": 1,
+              "closeness": 1
+            },
+            "zoe": {
+              "trust": 1,
+              "respect": 1,
+              "closeness": 1
+            }
+          }
         },
         {
           "label": "Perguntar por que Matteo parece evitar olhar para Clara Vance na escadaria",
@@ -1989,6 +2273,20 @@
             "bonds": {
               "matteo": -1,
               "zoe": 1
+            }
+          },
+          "speech": "Matteo, por que você parece evitar Clara?",
+          "kind": "speech",
+          "social": {
+            "matteo": {
+              "trust": 0,
+              "respect": 1,
+              "closeness": 0
+            },
+            "zoe": {
+              "trust": 0,
+              "respect": 1,
+              "closeness": 1
             }
           }
         },
@@ -2006,7 +2304,9 @@
           },
           "memory": [
             "matteo"
-          ]
+          ],
+          "speech": "Parece que o topo é tudo por aqui.",
+          "kind": "speech"
         },
         {
           "label": "Perceber pequenas faíscas estáticas nos dedos de Zoe sempre que ela testa alguém",
@@ -2023,7 +2323,8 @@
           },
           "memory": [
             "zoe"
-          ]
+          ],
+          "kind": "action"
         }
       ]
     },
@@ -2069,7 +2370,9 @@
           "memory": [
             "matteo",
             "zoe"
-          ]
+          ],
+          "speech": "Vou mostrar o que sei na avaliação.",
+          "kind": "speech"
         },
         {
           "label": "Dizer que prefere observar como as coisas funcionam na prática antes de fechar acordos",
@@ -2082,7 +2385,9 @@
               "zoe": 1,
               "matteo": 1
             }
-          }
+          },
+          "speech": "Prefiro ver como as coisas funcionam antes de fechar acordos.",
+          "kind": "speech"
         }
       ]
     },
@@ -2112,7 +2417,9 @@
               "matteo": 1,
               "zoe": 1
             }
-          }
+          },
+          "speech": "Obrigado pela conversa. Vou continuar conhecendo o campus.",
+          "kind": "speech"
         },
         {
           "label": "Até mais. Ainda tenho alguns lugares para visitar.",
@@ -2121,7 +2428,9 @@
             "bonds": {
               "zoe": 1
             }
-          }
+          },
+          "speech": "Até mais. Ainda tenho alguns lugares para visitar.",
+          "kind": "speech"
         }
       ]
     },
@@ -2148,7 +2457,21 @@
           "memory": [
             "otavio",
             "maya"
-          ]
+          ],
+          "speech": "Valeu pela água. Por que tanta segurança?",
+          "kind": "speech",
+          "social": {
+            "maya": {
+              "trust": 1,
+              "respect": 1,
+              "closeness": 1
+            },
+            "otavio": {
+              "trust": 1,
+              "respect": 1,
+              "closeness": 1
+            }
+          }
         },
         {
           "label": "Já estava cansado daquele desfile de câmeras.",
@@ -2164,7 +2487,9 @@
           },
           "memory": [
             "otavio"
-          ]
+          ],
+          "speech": "Já estava cansado daquele desfile de câmeras.",
+          "kind": "speech"
         },
         {
           "label": "Maya, você sempre usa essas luvas?",
@@ -2176,6 +2501,20 @@
             "bonds": {
               "maya": 1,
               "otavio": 1
+            }
+          },
+          "speech": "Maya, você sempre usa essas luvas?",
+          "kind": "speech",
+          "social": {
+            "maya": {
+              "trust": 0,
+              "respect": 1,
+              "closeness": 1
+            },
+            "otavio": {
+              "trust": 0,
+              "respect": 1,
+              "closeness": 1
             }
           }
         },
@@ -2197,7 +2536,9 @@
           "memory": [
             "maya",
             "otavio"
-          ]
+          ],
+          "speech": "Acho que tem mais uma câmera ali.",
+          "kind": "speech"
         }
       ],
       "dynamic": []
@@ -2244,7 +2585,9 @@
           },
           "memory": [
             "otavio"
-          ]
+          ],
+          "speech": "Vocês confiam na Clara e no Luka?",
+          "kind": "speech"
         },
         {
           "label": "Dizer a Maya que ela tem razão em investigar o que a Vought esconde",
@@ -2260,7 +2603,21 @@
           },
           "memory": [
             "maya"
-          ]
+          ],
+          "speech": "Maya, acho que faz sentido fazer perguntas sobre a Vought.",
+          "kind": "speech",
+          "social": {
+            "maya": {
+              "trust": 1,
+              "respect": 1,
+              "closeness": 1
+            },
+            "otavio": {
+              "trust": 0,
+              "respect": 1,
+              "closeness": 1
+            }
+          }
         },
         {
           "label": "Apoiar a cautela de Otávio e dizer que primeiro é preciso sobreviver ao primeiro dia",
@@ -2276,7 +2633,21 @@
           },
           "memory": [
             "otavio"
-          ]
+          ],
+          "speech": "Otávio tem razão. Vamos com calma hoje.",
+          "kind": "speech",
+          "social": {
+            "maya": {
+              "trust": 0,
+              "respect": 1,
+              "closeness": 1
+            },
+            "otavio": {
+              "trust": 1,
+              "respect": 1,
+              "closeness": 1
+            }
+          }
         },
         {
           "label": "Demonstrar empatia pela carga emocional que Otávio esconde por trás do bom humor",
@@ -2294,7 +2665,9 @@
           "memory": [
             "otavio",
             "maya"
-          ]
+          ],
+          "speech": "Otávio, você também pode contar com os outros.",
+          "kind": "speech"
         }
       ]
     },
@@ -2339,7 +2712,9 @@
           "memory": [
             "maya",
             "otavio"
-          ]
+          ],
+          "speech": "Podemos ficar juntos durante a avaliação.",
+          "kind": "speech"
         },
         {
           "label": "Agradecer o aviso e dizer que sabe se cuidar quando o caos começa",
@@ -2352,7 +2727,9 @@
               "maya": 1,
               "otavio": 1
             }
-          }
+          },
+          "speech": "Valeu pelo aviso. Vou tomar cuidado.",
+          "kind": "speech"
         }
       ]
     },
@@ -2382,7 +2759,9 @@
               "maya": 1,
               "otavio": 1
             }
-          }
+          },
+          "speech": "Valeu pela conversa. Vou explorar um pouco mais.",
+          "kind": "speech"
         },
         {
           "label": "Nos vemos mais tarde. Vou voltar ao pátio.",
@@ -2394,7 +2773,9 @@
             "bonds": {
               "maya": 1
             }
-          }
+          },
+          "speech": "Nos vemos mais tarde. Vou voltar ao pátio.",
+          "kind": "speech"
         }
       ]
     },
@@ -2430,7 +2811,8 @@
             "clara",
             "luka",
             "otavio"
-          ]
+          ],
+          "kind": "action"
         },
         {
           "label": "Avançar como um projétil e estilhaçar o drone no impacto frontal",
@@ -2455,7 +2837,8 @@
             "clara",
             "otavio",
             "luka"
-          ]
+          ],
+          "kind": "action"
         },
         {
           "label": "Invadir o sinal do drone pelo ar e desligar seus rotores a centímetros de Clara",
@@ -2480,7 +2863,8 @@
             "clara",
             "maya",
             "zoe"
-          ]
+          ],
+          "kind": "action"
         },
         {
           "label": "Arremessar o drone contra a parede blindada com um gesto seco",
@@ -2504,7 +2888,8 @@
           "memory": [
             "clara",
             "luka"
-          ]
+          ],
+          "kind": "action"
         },
         {
           "label": "Assumir sua forma blindada e absorver o impacto no lugar de Clara",
@@ -2528,7 +2913,8 @@
           "memory": [
             "clara",
             "otavio"
-          ]
+          ],
+          "kind": "action"
         },
         {
           "label": "Empurrar Clara para fora da trajetória usando apenas velocidade física sem expor seu poder",
@@ -2549,7 +2935,8 @@
             "clara",
             "luka",
             "maya"
-          ]
+          ],
+          "kind": "action"
         },
         {
           "label": "Recuar para a zona segura e deixar os veteranos resolverem o problema",
@@ -2568,7 +2955,8 @@
           "memory": [
             "clara",
             "luka"
-          ]
+          ],
+          "kind": "action"
         },
         {
           "label": "Derrubar o drone no corpo a corpo com precisão sem revelar o alcance do seu poder",
@@ -2593,7 +2981,8 @@
             "clara",
             "maya",
             "otavio"
-          ]
+          ],
+          "kind": "action"
         },
         {
           "label": "Acender os indicadores do simulador e pedir que a equipe interrompa a avaliação",
@@ -2607,7 +2996,8 @@
               "clara": 1
             }
           },
-          "personality": "protetor"
+          "personality": "protetor",
+          "kind": "action"
         },
         {
           "label": "Projetar um sinal de sombra no painel e pedir que a equipe interrompa a avaliação",
@@ -2621,7 +3011,8 @@
               "clara": 1
             }
           },
-          "personality": "protetor"
+          "personality": "protetor",
+          "kind": "action"
         },
         {
           "label": "Criar um marcador de gelo no alvo de teste e pedir que a equipe interrompa a avaliação",
@@ -2635,7 +3026,8 @@
               "clara": 1
             }
           },
-          "personality": "protetor"
+          "personality": "protetor",
+          "kind": "action"
         },
         {
           "label": "Criar uma barreira de proteção no simulador e pedir que a equipe interrompa a avaliação",
@@ -2649,7 +3041,8 @@
               "clara": 1
             }
           },
-          "personality": "protetor"
+          "personality": "protetor",
+          "kind": "action"
         },
         {
           "label": "Usar uma cópia para sinalizar à equipe e pedir que a equipe interrompa a avaliação",
@@ -2663,7 +3056,8 @@
               "clara": 1
             }
           },
-          "personality": "protetor"
+          "personality": "protetor",
+          "kind": "action"
         },
         {
           "label": "Projetar um aviso visual para a equipe e pedir que a equipe interrompa a avaliação",
@@ -2677,7 +3071,8 @@
               "clara": 1
             }
           },
-          "personality": "protetor"
+          "personality": "protetor",
+          "kind": "action"
         }
       ],
       "dynamic": []
@@ -2700,7 +3095,9 @@
               "zoe": 1,
               "matteo": 1
             }
-          }
+          },
+          "speech": "Estarei lá. Quero conhecer a Torre Norte.",
+          "kind": "speech"
         },
         {
           "label": "Dar uma resposta vaga sem prometer nada diretamente a Zoe",
@@ -2713,7 +3110,9 @@
               "zoe": 1,
               "maya": 1
             }
-          }
+          },
+          "speech": "Vou ver como fica meu horário.",
+          "kind": "speech"
         },
         {
           "label": "Perguntar por que Matteo quase acertou uma colega durante a simulação",
@@ -2727,7 +3126,9 @@
               "matteo": -1,
               "clara": 1
             }
-          }
+          },
+          "speech": "Por que Matteo quase acertou uma colega durante a avaliação?",
+          "kind": "speech"
         }
       ],
       "dynamic": [
@@ -2795,7 +3196,8 @@
               "t1_calmo": true
             },
             "rank": -2
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "Perguntar à assistente se houve algum problema com o equipamento da Arena",
@@ -2804,7 +3206,9 @@
             "flags": {
               "t1_perguntou": true
             }
-          }
+          },
+          "kind": "speech",
+          "speech": "Aconteceu algum problema com o equipamento da arena?"
         },
         {
           "label": "Observar os crachás e o esquema de segurança da Ala Administrativa durante o trajeto",
@@ -2818,7 +3222,8 @@
             "bonds": {
               "maya": 1
             }
-          }
+          },
+          "kind": "action"
         }
       ]
     },
@@ -2852,7 +3257,9 @@
               "t2_dir_ambicioso": true
             },
             "rank": -2
-          }
+          },
+          "speech": "Obrigado. Quero mostrar bons resultados.",
+          "kind": "speech"
         },
         {
           "label": "Dizer que sua prioridade é aprender a dominar seus poderes com segurança",
@@ -2861,7 +3268,9 @@
             "flags": {
               "t2_dir_controle": true
             }
-          }
+          },
+          "speech": "Minha prioridade é aprender a controlar meu poder com segurança.",
+          "kind": "speech"
         },
         {
           "label": "Perguntar diretamente por que o drone de treino saiu da rota na Arena",
@@ -2870,7 +3279,9 @@
             "flags": {
               "t2_dir_questionou": true
             }
-          }
+          },
+          "speech": "Por que o equipamento saiu da rota durante a avaliação?",
+          "kind": "speech"
         },
         {
           "label": "Manter o discurso diplomático perfeito para causar ótima impressão institucional",
@@ -2884,7 +3295,9 @@
               "t2_dir_diplomatico": true
             },
             "rank": -3
-          }
+          },
+          "speech": "Agradeço a oportunidade. Quero aprender e contribuir com a universidade.",
+          "kind": "speech"
         }
       ]
     },
@@ -2921,7 +3334,9 @@
             "flags": {
               "t3_dir_concordou": true
             }
-          }
+          },
+          "speech": "Entendi. Não pretendo causar problemas.",
+          "kind": "speech"
         },
         {
           "label": "Perguntar o que ele quis dizer exatamente com alunos 'transferidos'",
@@ -2930,7 +3345,9 @@
             "flags": {
               "t3_dir_perguntou_transf": true
             }
-          }
+          },
+          "speech": "O que exatamente quer dizer com transferidos?",
+          "kind": "speech"
         },
         {
           "label": "Assentir em silêncio mantendo suas verdadeiras intenções ocultas",
@@ -2939,7 +3356,8 @@
             "flags": {
               "t3_dir_silencio": true
             }
-          }
+          },
+          "kind": "action"
         }
       ]
     },
@@ -2980,7 +3398,9 @@
           "memory": [
             "maya",
             "otavio"
-          ]
+          ],
+          "speech": "Caldwell falou de transferências. Achei o aviso estranho.",
+          "kind": "speech"
         },
         {
           "label": "Dizer apenas que foi uma conversa padrão sobre comportamento e o Ranking",
@@ -2992,7 +3412,9 @@
             "bonds": {
               "otavio": 1
             }
-          }
+          },
+          "speech": "Foi uma conversa sobre comportamento e ranking.",
+          "kind": "speech"
         },
         {
           "label": "Brincar com Otávio dizendo que já está quase virando o novo queridinho da diretoria",
@@ -3008,7 +3430,9 @@
           },
           "memory": [
             "otavio"
-          ]
+          ],
+          "speech": "Acho que já estou virando o favorito da diretoria.",
+          "kind": "speech"
         }
       ]
     },
@@ -3042,7 +3466,8 @@
               "almoco_mesa_amigos": true
             },
             "bonds": {}
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "Sentar com Matteo e Zoe",
@@ -3052,7 +3477,8 @@
               "almoco_mesa_elite": true
             },
             "bonds": {}
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "Almoçar por conta própria",
@@ -3062,7 +3488,8 @@
               "almoco_mesa_so": true
             },
             "bonds": {}
-          }
+          },
+          "kind": "action"
         }
       ],
       "people": [
@@ -3095,7 +3522,9 @@
               "maya": 1,
               "luka": 1
             }
-          }
+          },
+          "speech": "Vou à festa. Posso usar o convite da Zoe para circular.",
+          "kind": "speech"
         },
         {
           "label": "Confirmar presença e combinar de chegar junto com o grupo",
@@ -3109,7 +3538,9 @@
               "clara": 1,
               "otavio": 1
             }
-          }
+          },
+          "speech": "Combinado. Vamos chegar juntos.",
+          "kind": "speech"
         }
       ],
       "place": "patio",
@@ -3161,7 +3592,8 @@
               "clara": 1,
               "luka": 1
             }
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "Subir alguns minutos antes para sentir o clima da festa e observar o salão",
@@ -3174,7 +3606,8 @@
               "maya": 1,
               "zoe": 1
             }
-          }
+          },
+          "kind": "action"
         }
       ]
     },
@@ -3206,7 +3639,8 @@
             "bonds": {
               "otavio": 1
             }
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "Caminhar direto até o centro do salão mostrando presença diante dos veteranos",
@@ -3220,7 +3654,8 @@
               "zoe": 1
             },
             "rank": -2
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "Ficar perto da pista com Clara e Luka entrando no clima da música",
@@ -3233,7 +3668,8 @@
               "clara": 1,
               "luka": 1
             }
-          }
+          },
+          "kind": "action"
         }
       ]
     },
@@ -3276,7 +3712,9 @@
           },
           "memory": [
             "matteo"
-          ]
+          ],
+          "speech": "Cresci longe dos holofotes. Aprendi a me virar.",
+          "kind": "speech"
         },
         {
           "label": "Responder com mistério que nem todo poder precisa de propaganda antes da hora",
@@ -3288,7 +3726,9 @@
             "bonds": {
               "matteo": 1
             }
-          }
+          },
+          "speech": "Nem todo poder precisa de propaganda antes da hora.",
+          "kind": "speech"
         },
         {
           "label": "Devolver a pergunta e questionar por que o Rank #2 se importa tanto com um calouro",
@@ -3303,7 +3743,9 @@
           },
           "memory": [
             "matteo"
-          ]
+          ],
+          "speech": "Por que o segundo colocado está tão interessado num calouro?",
+          "kind": "speech"
         }
       ]
     },
@@ -3342,7 +3784,9 @@
           },
           "memory": [
             "matteo"
-          ]
+          ],
+          "speech": "Quero chegar ao topo sem virar fantoche.",
+          "kind": "speech"
         },
         {
           "label": "Dizer que está apenas observando quem merece confiança aqui dentro",
@@ -3354,7 +3798,9 @@
             "bonds": {
               "matteo": 1
             }
-          }
+          },
+          "speech": "Ainda estou descobrindo em quem posso confiar.",
+          "kind": "speech"
         },
         {
           "label": "Brincar dizendo que por enquanto só quer aproveitar a festa sem pensar no placar",
@@ -3366,7 +3812,9 @@
             "bonds": {
               "matteo": 1
             }
-          }
+          },
+          "speech": "Hoje só quero aproveitar a festa sem pensar no placar.",
+          "kind": "speech"
         }
       ]
     },
@@ -3413,7 +3861,9 @@
           },
           "memory": [
             "zoe"
-          ]
+          ],
+          "speech": "Caldwell sabe jogar com as expectativas dos alunos.",
+          "kind": "speech"
         },
         {
           "label": "Fingir inocência e dizer que ele apenas desejou boas-vindas ao campus",
@@ -3425,7 +3875,9 @@
             "bonds": {
               "zoe": 1
             }
-          }
+          },
+          "speech": "Ele só me deu boas-vindas.",
+          "kind": "speech"
         },
         {
           "label": "Perguntar a Zoe como ela já sabe da reunião se ela não estava no corredor",
@@ -3442,7 +3894,9 @@
           },
           "memory": [
             "zoe"
-          ]
+          ],
+          "speech": "Como você soube da reunião, Zoe?",
+          "kind": "speech"
         }
       ]
     },
@@ -3485,7 +3939,8 @@
           "memory": [
             "otavio",
             "clara"
-          ]
+          ],
+          "kind": "action"
         },
         {
           "label": "Segurar a mesa pesada de mármore com uma só mão sem derramar um único copo",
@@ -3504,7 +3959,8 @@
           "memory": [
             "matteo",
             "clara"
-          ]
+          ],
+          "kind": "action"
         },
         {
           "label": "Hackear o sistema de som da pista para baixar o volume e dispersar o tumulto",
@@ -3523,7 +3979,8 @@
           "memory": [
             "maya",
             "luka"
-          ]
+          ],
+          "kind": "action"
         },
         {
           "label": "Suspender todas as taças no ar com telecinese antes que toquem o chão",
@@ -3541,7 +3998,8 @@
           },
           "memory": [
             "zoe"
-          ]
+          ],
+          "kind": "action"
         },
         {
           "label": "Alternar para sua forma ágil e amparar o calouro antes da queda",
@@ -3560,7 +4018,8 @@
           "memory": [
             "otavio",
             "luka"
-          ]
+          ],
+          "kind": "action"
         },
         {
           "label": "Aproveitar a distração da pista para deslizar silenciosamente rumo à porta da varanda",
@@ -3575,7 +4034,8 @@
           },
           "memory": [
             "maya"
-          ]
+          ],
+          "kind": "action"
         },
         {
           "label": "Criar um sinal luminoso para chamar a equipe",
@@ -3590,7 +4050,8 @@
             },
             "rank": -2
           },
-          "personality": "protetor"
+          "personality": "protetor",
+          "kind": "action"
         },
         {
           "label": "Projetar uma sombra em forma de seta indicando a saída",
@@ -3605,7 +4066,8 @@
             },
             "rank": -2
           },
-          "personality": "protetor"
+          "personality": "protetor",
+          "kind": "action"
         },
         {
           "label": "Criar um pequeno marcador de gelo na mesa",
@@ -3620,7 +4082,8 @@
             },
             "rank": -2
           },
-          "personality": "protetor"
+          "personality": "protetor",
+          "kind": "action"
         },
         {
           "label": "Formar uma barreira em torno das taças",
@@ -3635,7 +4098,8 @@
             },
             "rank": -2
           },
-          "personality": "protetor"
+          "personality": "protetor",
+          "kind": "action"
         },
         {
           "label": "Enviar uma cópia para chamar a equipe",
@@ -3650,7 +4114,8 @@
             },
             "rank": -2
           },
-          "personality": "protetor"
+          "personality": "protetor",
+          "kind": "action"
         },
         {
           "label": "Projetar um aviso visual para orientar os convidados",
@@ -3665,7 +4130,8 @@
             },
             "rank": -2
           },
-          "personality": "protetor"
+          "personality": "protetor",
+          "kind": "action"
         }
       ]
     },
@@ -3708,7 +4174,8 @@
           "requireTrust": {
             "id": "clara",
             "min": 24
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "[Interesse] Sinalizar interesse em Maya com discrição.",
@@ -3731,7 +4198,8 @@
           "requireTrust": {
             "id": "maya",
             "min": 24
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "[Interesse] Sinalizar interesse em Otávio com discrição.",
@@ -3754,7 +4222,8 @@
           "requireTrust": {
             "id": "otavio",
             "min": 24
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "[Interesse] Sinalizar interesse em Luka com discrição.",
@@ -3777,7 +4246,8 @@
           "requireTrust": {
             "id": "luka",
             "min": 24
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "Focar direto na missão e perguntar a Maya o que ela descobriu sobre o aluno desaparecido",
@@ -3790,7 +4260,9 @@
               "maya": 1,
               "luka": 1
             }
-          }
+          },
+          "speech": "Focar direto na missão e perguntar a Maya o que ela descobriu sobre o aluno desaparecido",
+          "kind": "speech"
         },
         {
           "label": "Conversar com Clara sobre como foi o dia.",
@@ -3812,7 +4284,8 @@
           },
           "memory": [
             "clara"
-          ]
+          ],
+          "kind": "action"
         },
         {
           "label": "Ouvir a opinião de Maya sem pressioná-la.",
@@ -3834,7 +4307,8 @@
           },
           "memory": [
             "maya"
-          ]
+          ],
+          "kind": "action"
         },
         {
           "label": "Agradecer a ajuda de Otávio.",
@@ -3856,7 +4330,8 @@
           },
           "memory": [
             "otavio"
-          ]
+          ],
+          "kind": "action"
         },
         {
           "label": "Conversar com Luka sobre as novidades do campus.",
@@ -3878,7 +4353,8 @@
           },
           "memory": [
             "luka"
-          ]
+          ],
+          "kind": "action"
         }
       ]
     },
@@ -3923,7 +4399,9 @@
               "maya": 1,
               "luka": 1
             }
-          }
+          },
+          "speech": "O que significa F-01?",
+          "kind": "speech"
         },
         {
           "label": "Alertar o grupo de que Matteo e Zoe estão de olho nos calouros esta noite",
@@ -3936,7 +4414,9 @@
               "clara": 1,
               "otavio": 1
             }
-          }
+          },
+          "speech": "Acho que Matteo e Zoe estão prestando atenção nos calouros.",
+          "kind": "speech"
         },
         {
           "label": "Sugerir usar a boa impressão que você causou em Caldwell e na elite como fachada",
@@ -3951,7 +4431,9 @@
           },
           "memory": [
             "maya"
-          ]
+          ],
+          "speech": "Podemos usar a boa impressão que causamos para evitar mal-entendidos.",
+          "kind": "speech"
         }
       ],
       "people": [
@@ -4002,7 +4484,9 @@
             "maya",
             "luka",
             "clara"
-          ]
+          ],
+          "speech": "Podem contar comigo. Vamos procurar respostas juntos.",
+          "kind": "speech"
         },
         {
           "label": "Propor um jogo duplo: manter proximidade com Matteo e Zoe enquanto coletam provas por dentro",
@@ -4021,7 +4505,9 @@
             "luka",
             "clara",
             "otavio"
-          ]
+          ],
+          "speech": "Quero manter o contato com Matteo e Zoe, sem abandonar o grupo.",
+          "kind": "speech"
         },
         {
           "label": "Pedir cautela e focar primeiro em subir no Ranking antes de enfrentar o Diretor Caldwell",
@@ -4039,7 +4525,9 @@
           "memory": [
             "maya",
             "clara"
-          ]
+          ],
+          "speech": "Prefiro ir com calma e focar nas aulas por enquanto.",
+          "kind": "speech"
         },
         {
           "label": "Perceber uma sombra observando atrás da cortina do salão e avisar o grupo em silêncio",
@@ -4060,7 +4548,8 @@
             "maya",
             "luka",
             "otavio"
-          ]
+          ],
+          "kind": "action"
         }
       ],
       "people": [
@@ -4096,7 +4585,8 @@
               "dorm_m": true
             },
             "bonds": {}
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "Quarto com Maya e Clara",
@@ -4107,7 +4597,8 @@
               "dorm_f": true
             },
             "bonds": {}
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "Solicitar quarto individual",
@@ -4117,7 +4608,8 @@
               "dorm_ind": true
             },
             "bonds": {}
-          }
+          },
+          "kind": "action"
         }
       ]
     },
@@ -4134,7 +4626,8 @@
           "effects": {
             "flags": {},
             "bonds": {}
-          }
+          },
+          "kind": "action"
         }
       ],
       "people": [
@@ -4156,7 +4649,8 @@
           "effects": {
             "flags": {},
             "bonds": {}
-          }
+          },
+          "kind": "action"
         }
       ],
       "people": [
@@ -4178,7 +4672,8 @@
           "effects": {
             "flags": {},
             "bonds": {}
-          }
+          },
+          "kind": "action"
         }
       ]
     },
@@ -4198,7 +4693,8 @@
             },
             "bonds": {}
           },
-          "once": "calouros_1"
+          "once": "calouros_1",
+          "kind": "action"
         },
         {
           "label": "Caminhar até a área VIP para se apresentar a Matteo e Zoe Lee",
@@ -4210,7 +4706,8 @@
             "bonds": {},
             "rank": -2
           },
-          "once": "elite_1"
+          "once": "elite_1",
+          "kind": "action"
         },
         {
           "label": "Conversar com Maya e Otávio nas arcadas",
@@ -4221,7 +4718,8 @@
             },
             "bonds": {}
           },
-          "once": "arcadas_1"
+          "once": "arcadas_1",
+          "kind": "action"
         },
         {
           "label": "Soltar um comentário sarcástico sobre o show dos drones perto da escadaria",
@@ -4234,7 +4732,9 @@
             },
             "bonds": {}
           },
-          "once": "calouros_1"
+          "once": "calouros_1",
+          "speech": "Soltar um comentário sarcástico sobre o show dos drones perto da escadaria",
+          "kind": "speech"
         },
         {
           "label": "Conversar com Clara sobre um favor",
@@ -4243,7 +4743,8 @@
           "effects": {
             "flags": {},
             "bonds": {}
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "Consultar o mural da biblioteca",
@@ -4252,7 +4753,8 @@
           "effects": {
             "flags": {},
             "bonds": {}
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "Ir para a avaliação na arena",
@@ -4260,7 +4762,8 @@
           "effects": {
             "flags": {},
             "bonds": {}
-          }
+          },
+          "kind": "action"
         }
       ],
       "hub": "morning"
@@ -4287,7 +4790,9 @@
           "memory": [
             "clara"
           ],
-          "personality": "protetor"
+          "personality": "protetor",
+          "speech": "Pode colocar meu nome.",
+          "kind": "speech"
         },
         {
           "label": "Desculpa, preciso manter meu horário livre.",
@@ -4304,7 +4809,9 @@
           "memory": [
             "clara"
           ],
-          "personality": "reservado"
+          "personality": "reservado",
+          "speech": "Desculpa, preciso manter meu horário livre.",
+          "kind": "speech"
         },
         {
           "label": "Posso ajudar a encontrar outra pessoa.",
@@ -4321,7 +4828,9 @@
           "memory": [
             "clara"
           ],
-          "personality": "estrategico"
+          "personality": "estrategico",
+          "speech": "Posso ajudar a encontrar outra pessoa.",
+          "kind": "speech"
         }
       ]
     },
@@ -4340,7 +4849,8 @@
               "mural_visto": true
             },
             "bonds": {}
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "Quero entender como melhorar meu desempenho.",
@@ -4351,7 +4861,9 @@
             "flags": {
               "biblioteca_perfil_prodigio": true
             }
-          }
+          },
+          "speech": "Quero entender como melhorar meu desempenho.",
+          "kind": "speech"
         },
         {
           "label": "Quem verifica se essas regras são justas?",
@@ -4362,7 +4874,9 @@
             "flags": {
               "biblioteca_perfil_cetico": true
             }
-          }
+          },
+          "speech": "Quem verifica se essas regras são justas?",
+          "kind": "speech"
         },
         {
           "label": "Vou comparar as informações antes de tirar conclusões.",
@@ -4373,7 +4887,9 @@
             "flags": {
               "biblioteca_perfil_estrategico": true
             }
-          }
+          },
+          "speech": "Vou comparar as informações antes de tirar conclusões.",
+          "kind": "speech"
         },
         {
           "label": "Quero compartilhar o que descobri com o grupo.",
@@ -4384,7 +4900,9 @@
             "flags": {
               "biblioteca_perfil_protetor": true
             }
-          }
+          },
+          "speech": "Quero compartilhar o que descobri com o grupo.",
+          "kind": "speech"
         },
         {
           "label": "Prefiro guardar minhas impressões por enquanto.",
@@ -4395,7 +4913,9 @@
             "flags": {
               "biblioteca_perfil_reservado": true
             }
-          }
+          },
+          "speech": "Prefiro guardar minhas impressões por enquanto.",
+          "kind": "speech"
         },
         {
           "label": "Vou conversar com os estudantes para conhecer outras perspectivas.",
@@ -4406,7 +4926,9 @@
             "flags": {
               "biblioteca_perfil_carismatico": true
             }
-          }
+          },
+          "speech": "Vou conversar com os estudantes para conhecer outras perspectivas.",
+          "kind": "speech"
         },
         {
           "label": "Espero que essas informações possam ajudar alguém.",
@@ -4417,7 +4939,9 @@
             "flags": {
               "biblioteca_perfil_idealista": true
             }
-          }
+          },
+          "speech": "Espero que essas informações possam ajudar alguém.",
+          "kind": "speech"
         }
       ]
     },
@@ -4435,7 +4959,8 @@
           "effects": {
             "flags": {},
             "bonds": {}
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "Visitar Maya na biblioteca",
@@ -4444,7 +4969,8 @@
           "effects": {
             "flags": {},
             "bonds": {}
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "Voltar ao seu quarto",
@@ -4453,85 +4979,176 @@
           "effects": {
             "flags": {},
             "bonds": {}
-          }
+          },
+          "kind": "action"
         },
         {
-          "label": "Conversar com Matteo — Longe dos holofotes",
+          "label": "Conversar com Matteo — Um intervalo sem câmeras",
+          "to": "cotidiano_matteo",
+          "once": "cotidiano_matteo",
+          "requireKnown": "matteo",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          },
+          "kind": "action"
+        },
+        {
+          "label": "Conversa pessoal — Matteo · Longe dos holofotes",
           "to": "pessoal_matteo",
           "once": "pessoal_matteo",
-          "requireTrust": {
-            "id": "matteo",
-            "min": 24
-          },
           "effects": {
             "flags": {},
             "bonds": {}
-          }
+          },
+          "requireBond": {
+            "id": "matteo",
+            "affinity": 27,
+            "trust": 27,
+            "respect": 33
+          },
+          "speech": "Conversa pessoal — Matteo · Longe dos holofotes",
+          "kind": "speech"
         },
         {
-          "label": "Conversar com Maya — Por trás das luvas",
+          "label": "Conversar com Maya — Entre páginas",
+          "to": "cotidiano_maya",
+          "once": "cotidiano_maya",
+          "requireKnown": "maya",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          },
+          "kind": "action"
+        },
+        {
+          "label": "Conversa pessoal — Maya · Por trás das luvas",
           "to": "pessoal_maya",
           "once": "pessoal_maya",
-          "requireTrust": {
-            "id": "maya",
-            "min": 24
-          },
           "effects": {
             "flags": {},
             "bonds": {}
-          }
+          },
+          "requireBond": {
+            "id": "maya",
+            "affinity": 30,
+            "trust": 30,
+            "respect": 32
+          },
+          "speech": "Conversa pessoal — Maya · Por trás das luvas",
+          "kind": "speech"
         },
         {
-          "label": "Conversar com Clara — Promessas quebradas",
+          "label": "Conversar com Clara — Uma playlist sem ranking",
+          "to": "cotidiano_clara",
+          "once": "cotidiano_clara",
+          "requireKnown": "clara",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          },
+          "kind": "action"
+        },
+        {
+          "label": "Conversa pessoal — Clara · Promessas quebradas",
           "to": "pessoal_clara",
           "once": "pessoal_clara",
-          "requireTrust": {
-            "id": "clara",
-            "min": 24
-          },
           "effects": {
             "flags": {},
             "bonds": {}
-          }
+          },
+          "requireBond": {
+            "id": "clara",
+            "affinity": 34,
+            "trust": 34,
+            "respect": 32
+          },
+          "speech": "Conversa pessoal — Clara · Promessas quebradas",
+          "kind": "speech"
         },
         {
-          "label": "Conversar com Otávio — O peso que ninguém vê (refeitório)",
+          "label": "Conversar com Otávio — Fora de quadro",
+          "to": "cotidiano_otavio",
+          "once": "cotidiano_otavio",
+          "requireKnown": "otavio",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          },
+          "kind": "action"
+        },
+        {
+          "label": "Conversa pessoal — Otávio · O peso que ninguém vê",
           "to": "pessoal_otavio",
           "once": "pessoal_otavio",
-          "requireTrust": {
-            "id": "otavio",
-            "min": 24
-          },
           "effects": {
             "flags": {},
             "bonds": {}
-          }
+          },
+          "requireBond": {
+            "id": "otavio",
+            "affinity": 32,
+            "trust": 32,
+            "respect": 31
+          },
+          "speech": "Conversa pessoal — Otávio · O peso que ninguém vê",
+          "kind": "speech"
         },
         {
-          "label": "Conversar com Zoe — O preço da perfeição",
+          "label": "Conversar com Zoe — Um projeto só dela",
+          "to": "cotidiano_zoe",
+          "once": "cotidiano_zoe",
+          "requireKnown": "zoe",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          },
+          "kind": "action"
+        },
+        {
+          "label": "Conversa pessoal — Zoe · O preço da perfeição",
           "to": "pessoal_zoe",
           "once": "pessoal_zoe",
-          "requireTrust": {
-            "id": "zoe",
-            "min": 24
-          },
           "effects": {
             "flags": {},
             "bonds": {}
-          }
+          },
+          "requireBond": {
+            "id": "zoe",
+            "affinity": 27,
+            "trust": 27,
+            "respect": 33
+          },
+          "speech": "Conversa pessoal — Zoe · O preço da perfeição",
+          "kind": "speech"
         },
         {
-          "label": "Conversar com Luka — Sempre um passo à frente (refeitório)",
-          "to": "pessoal_luka",
-          "once": "pessoal_luka",
-          "requireTrust": {
-            "id": "luka",
-            "min": 24
-          },
+          "label": "Conversar com Luka — Uma teoria e um filme ruim",
+          "to": "cotidiano_luka",
+          "once": "cotidiano_luka",
+          "requireKnown": "luka",
           "effects": {
             "flags": {},
             "bonds": {}
-          }
+          },
+          "kind": "action"
+        },
+        {
+          "label": "Conversa pessoal — Luka · Sempre um passo à frente",
+          "to": "pessoal_luka",
+          "once": "pessoal_luka",
+          "effects": {
+            "flags": {},
+            "bonds": {}
+          },
+          "requireBond": {
+            "id": "luka",
+            "affinity": 32,
+            "trust": 32,
+            "respect": 32
+          },
+          "speech": "Conversa pessoal — Luka · Sempre um passo à frente",
+          "kind": "speech"
         },
         {
           "label": "Ir às escadarias — Clara e Matteo combinaram conversar ali",
@@ -4540,7 +5157,8 @@
           "effects": {
             "flags": {},
             "bonds": {}
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "Encerrar o intervalo e encontrar Maya antes da festa",
@@ -4548,7 +5166,8 @@
           "effects": {
             "flags": {},
             "bonds": {}
-          }
+          },
+          "kind": "action"
         }
       ],
       "hub": "afternoon"
@@ -4571,7 +5190,9 @@
             "bonds": {
               "clara": 1
             }
-          }
+          },
+          "kind": "speech",
+          "speech": "Como está indo o seu dia?"
         }
       ],
       "dynamic": [
@@ -4610,7 +5231,9 @@
           },
           "memory": [
             "maya"
-          ]
+          ],
+          "speech": "Ainda estou tentando entender as regras.",
+          "kind": "speech"
         },
         {
           "label": "Prefiro focar nas aulas por enquanto.",
@@ -4624,7 +5247,9 @@
           },
           "memory": [
             "maya"
-          ]
+          ],
+          "speech": "Prefiro focar nas aulas por enquanto.",
+          "kind": "speech"
         }
       ]
     },
@@ -4664,7 +5289,9 @@
           "memory": [
             "clara",
             "maya"
-          ]
+          ],
+          "kind": "speech",
+          "speech": "Vamos combinar um horário tranquilo para todo mundo."
         },
         {
           "label": "Combinar um horário tranquilo e ouvir os colegas (Luka e Otávio)",
@@ -4695,7 +5322,9 @@
           "memory": [
             "luka",
             "otavio"
-          ]
+          ],
+          "kind": "speech",
+          "speech": "Vamos combinar um horário tranquilo para todo mundo."
         },
         {
           "label": "Conversar e depois voltar ao pátio",
@@ -4706,7 +5335,9 @@
               "dorm_tarde_resposta": 3
             },
             "bonds": {}
-          }
+          },
+          "kind": "speech",
+          "speech": "Foi bom conversar. Vou voltar ao pátio."
         }
       ],
       "dynamic": [
@@ -4744,7 +5375,8 @@
               "origem_eletrocinese": true
             }
           },
-          "personality": "protetor"
+          "personality": "protetor",
+          "kind": "action"
         },
         {
           "label": "Guardar a descoberta por enquanto",
@@ -4755,7 +5387,8 @@
               "origem_eletrocinese": true
             }
           },
-          "personality": "reservado"
+          "personality": "reservado",
+          "kind": "action"
         }
       ]
     },
@@ -4784,7 +5417,8 @@
               "adolescencia_treino": true
             }
           },
-          "personality": "idealista"
+          "personality": "idealista",
+          "kind": "action"
         },
         {
           "label": "Perguntar sobre a origem da mutação",
@@ -4794,7 +5428,8 @@
               "adolescencia_investiga": true
             }
           },
-          "personality": "cetico"
+          "personality": "cetico",
+          "kind": "action"
         }
       ]
     },
@@ -4814,7 +5449,8 @@
               "origem_umbracinese": true
             }
           },
-          "personality": "protetor"
+          "personality": "protetor",
+          "kind": "action"
         },
         {
           "label": "Guardar a descoberta por enquanto",
@@ -4825,7 +5461,8 @@
               "origem_umbracinese": true
             }
           },
-          "personality": "reservado"
+          "personality": "reservado",
+          "kind": "action"
         }
       ]
     },
@@ -4854,7 +5491,8 @@
               "adolescencia_treino": true
             }
           },
-          "personality": "idealista"
+          "personality": "idealista",
+          "kind": "action"
         },
         {
           "label": "Perguntar sobre a origem da mutação",
@@ -4864,7 +5502,8 @@
               "adolescencia_investiga": true
             }
           },
-          "personality": "cetico"
+          "personality": "cetico",
+          "kind": "action"
         }
       ]
     },
@@ -4884,7 +5523,8 @@
               "origem_criocinese": true
             }
           },
-          "personality": "protetor"
+          "personality": "protetor",
+          "kind": "action"
         },
         {
           "label": "Guardar a descoberta por enquanto",
@@ -4895,7 +5535,8 @@
               "origem_criocinese": true
             }
           },
-          "personality": "reservado"
+          "personality": "reservado",
+          "kind": "action"
         }
       ]
     },
@@ -4924,7 +5565,8 @@
               "adolescencia_treino": true
             }
           },
-          "personality": "idealista"
+          "personality": "idealista",
+          "kind": "action"
         },
         {
           "label": "Perguntar sobre a origem da mutação",
@@ -4934,7 +5576,8 @@
               "adolescencia_investiga": true
             }
           },
-          "personality": "cetico"
+          "personality": "cetico",
+          "kind": "action"
         }
       ]
     },
@@ -4954,7 +5597,8 @@
               "origem_campos_forca": true
             }
           },
-          "personality": "protetor"
+          "personality": "protetor",
+          "kind": "action"
         },
         {
           "label": "Guardar a descoberta por enquanto",
@@ -4965,7 +5609,8 @@
               "origem_campos_forca": true
             }
           },
-          "personality": "reservado"
+          "personality": "reservado",
+          "kind": "action"
         }
       ]
     },
@@ -4994,7 +5639,8 @@
               "adolescencia_treino": true
             }
           },
-          "personality": "idealista"
+          "personality": "idealista",
+          "kind": "action"
         },
         {
           "label": "Perguntar sobre a origem da mutação",
@@ -5004,7 +5650,8 @@
               "adolescencia_investiga": true
             }
           },
-          "personality": "cetico"
+          "personality": "cetico",
+          "kind": "action"
         }
       ]
     },
@@ -5024,7 +5671,8 @@
               "origem_duplicacao": true
             }
           },
-          "personality": "protetor"
+          "personality": "protetor",
+          "kind": "action"
         },
         {
           "label": "Guardar a descoberta por enquanto",
@@ -5035,7 +5683,8 @@
               "origem_duplicacao": true
             }
           },
-          "personality": "reservado"
+          "personality": "reservado",
+          "kind": "action"
         }
       ]
     },
@@ -5064,7 +5713,8 @@
               "adolescencia_treino": true
             }
           },
-          "personality": "idealista"
+          "personality": "idealista",
+          "kind": "action"
         },
         {
           "label": "Perguntar sobre a origem da mutação",
@@ -5074,7 +5724,8 @@
               "adolescencia_investiga": true
             }
           },
-          "personality": "cetico"
+          "personality": "cetico",
+          "kind": "action"
         }
       ]
     },
@@ -5094,7 +5745,8 @@
               "origem_ilusionismo": true
             }
           },
-          "personality": "protetor"
+          "personality": "protetor",
+          "kind": "action"
         },
         {
           "label": "Guardar a descoberta por enquanto",
@@ -5105,7 +5757,8 @@
               "origem_ilusionismo": true
             }
           },
-          "personality": "reservado"
+          "personality": "reservado",
+          "kind": "action"
         }
       ]
     },
@@ -5134,7 +5787,8 @@
               "adolescencia_treino": true
             }
           },
-          "personality": "idealista"
+          "personality": "idealista",
+          "kind": "action"
         },
         {
           "label": "Perguntar sobre a origem da mutação",
@@ -5144,7 +5798,8 @@
               "adolescencia_investiga": true
             }
           },
-          "personality": "cetico"
+          "personality": "cetico",
+          "kind": "action"
         }
       ]
     },
@@ -5179,7 +5834,9 @@
               "trust": 1,
               "respect": 1
             }
-          }
+          },
+          "speech": "Prefiro descobrir quem sou antes de pensar em imagem.",
+          "kind": "speech"
         },
         {
           "label": "Imagino que seja cansativo ter de ensaiar até uma opinião.",
@@ -5201,7 +5858,9 @@
               "trust": 1,
               "respect": 1
             }
-          }
+          },
+          "speech": "Imagino que seja cansativo ter de ensaiar até uma opinião.",
+          "kind": "speech"
         },
         {
           "label": "A imagem pode abrir portas, mas também tem um preço.",
@@ -5220,7 +5879,9 @@
             "matteo": {
               "respect": 1
             }
-          }
+          },
+          "speech": "A imagem pode abrir portas, mas também tem um preço.",
+          "kind": "speech"
         },
         {
           "label": "Não quero interromper sua pausa.",
@@ -5234,7 +5895,9 @@
             "bonds": {}
           },
           "memory": [],
-          "social": {}
+          "social": {},
+          "speech": "Não quero interromper sua pausa.",
+          "kind": "speech"
         }
       ]
     },
@@ -5255,7 +5918,8 @@
           "effects": {
             "flags": {
               "pessoal_matteo_resposta2": 1,
-              "revelado_matteo": true
+              "gostos_matteo": true,
+              "valores_matteo": true
             },
             "bonds": {
               "matteo": 1
@@ -5266,7 +5930,9 @@
               "trust": 1,
               "respect": 0
             }
-          }
+          },
+          "speech": "Você pode admitir que sente falta daquela amizade sem abrir mão dos seus objetivos.",
+          "kind": "speech"
         },
         {
           "label": "O ranking não precisa decidir tudo por você.",
@@ -5274,7 +5940,8 @@
           "effects": {
             "flags": {
               "pessoal_matteo_resposta2": 2,
-              "revelado_matteo": true
+              "gostos_matteo": true,
+              "valores_matteo": true
             },
             "bonds": {}
           },
@@ -5283,7 +5950,9 @@
               "trust": 0,
               "respect": 1
             }
-          }
+          },
+          "speech": "O ranking não precisa decidir tudo por você.",
+          "kind": "speech"
         },
         {
           "label": "Talvez um dia vocês consigam conversar sem plateia.",
@@ -5291,7 +5960,8 @@
           "effects": {
             "flags": {
               "pessoal_matteo_resposta2": 3,
-              "revelado_matteo": true
+              "gostos_matteo": true,
+              "valores_matteo": true
             },
             "bonds": {}
           },
@@ -5300,7 +5970,9 @@
               "trust": 0,
               "respect": 0
             }
-          }
+          },
+          "speech": "Talvez um dia vocês consigam conversar sem plateia.",
+          "kind": "speech"
         },
         {
           "label": "Deixar o assunto descansar e se despedir.",
@@ -5310,7 +5982,8 @@
               "pessoal_matteo_resposta2": 4
             },
             "bonds": {}
-          }
+          },
+          "kind": "action"
         }
       ],
       "dynamic": [
@@ -5336,7 +6009,7 @@
           "text": "Matteo: — Pelo menos você entende que não existe almoço grátis."
         }
       ],
-      "textAfterDynamic": "Matteo coloca o papel sobre a mesa, deixando à mostra um convite antigo entre as folhas.\n\nMatteo: — Eu e a Clara tínhamos combinado de ir a um evento antes de eu começar a receber propostas. Depois vieram as entrevistas, as reuniões... e eu parei de aparecer.\n\nMatteo: — Não vou fingir que o ranking não importa pra mim. Mas às vezes penso no que deixei de fazer por ele."
+      "textAfterDynamic": "Matteo coloca o papel sobre a mesa, deixando à mostra um convite antigo entre as folhas.\n\nMatteo: — Eu e a Clara tínhamos combinado de ir a um evento antes de eu começar a receber propostas. Depois vieram as entrevistas, as reuniões... e eu parei de aparecer.\n\nMatteo: — Não vou fingir que o ranking não importa pra mim. Mas às vezes penso no que deixei de fazer por ele.\n\nMatteo: — Queria dizer que sim sem hesitar. Mas às vezes penso no que poderia mudar se continuasse tendo influência. Não é uma resposta bonita, eu sei."
     },
     "pessoal_maya": {
       "id": "pessoal_maya",
@@ -5347,7 +6020,7 @@
       "people": [
         "maya"
       ],
-      "text": "Maya afasta o livro e ajeita uma das luvas.\n\nMaya: — Engraçado como as pessoas acham que me conhecem depois de ler uma ficha sobre meus poderes. Nem perguntam por que prefiro distância.\n\nMaya: — Eu prefiro quando alguém conversa comigo sem tentar me decifrar.",
+      "text": "Maya afasta um livro de romance e ajeita uma das luvas.\n\nMaya: — Esse livro é ótimo. Gosto de romances que deixam os personagens escolherem por si mesmos. Nos animes também.\n\nMaya: — Engraçado como as pessoas acham que me conhecem depois de ler uma ficha sobre meus poderes.",
       "choices": [
         {
           "label": "O que você gostaria que os outros entendessem?",
@@ -5369,7 +6042,9 @@
               "trust": 1,
               "respect": 1
             }
-          }
+          },
+          "speech": "O que você gostaria que os outros entendessem?",
+          "kind": "speech"
         },
         {
           "label": "Também não gosto de ser definido só pelo meu poder.",
@@ -5391,7 +6066,9 @@
               "trust": 1,
               "respect": 1
             }
-          }
+          },
+          "speech": "Também não gosto de ser definido só pelo meu poder.",
+          "kind": "speech"
         },
         {
           "label": "Talvez algumas pessoas não saibam como perguntar.",
@@ -5410,7 +6087,9 @@
             "maya": {
               "respect": 1
             }
-          }
+          },
+          "speech": "Talvez algumas pessoas não saibam como perguntar.",
+          "kind": "speech"
         },
         {
           "label": "Posso deixar você voltar à leitura.",
@@ -5424,7 +6103,9 @@
             "bonds": {}
           },
           "memory": [],
-          "social": {}
+          "social": {},
+          "speech": "Posso deixar você voltar à leitura.",
+          "kind": "speech"
         }
       ]
     },
@@ -5445,7 +6126,8 @@
           "effects": {
             "flags": {
               "pessoal_maya_resposta2": 1,
-              "revelado_maya": true
+              "gostos_maya": true,
+              "valores_maya": true
             },
             "bonds": {
               "maya": 1
@@ -5456,7 +6138,9 @@
               "trust": 1,
               "respect": 0
             }
-          }
+          },
+          "speech": "Faz sentido. Nem tudo precisa ser compartilhado.",
+          "kind": "speech"
         },
         {
           "label": "Você escreve sobre outras coisas além da universidade?",
@@ -5464,7 +6148,8 @@
           "effects": {
             "flags": {
               "pessoal_maya_resposta2": 2,
-              "revelado_maya": true
+              "gostos_maya": true,
+              "valores_maya": true
             },
             "bonds": {}
           },
@@ -5473,7 +6158,9 @@
               "trust": 0,
               "respect": 1
             }
-          }
+          },
+          "speech": "Você escreve sobre outras coisas além da universidade?",
+          "kind": "speech"
         },
         {
           "label": "Parece um jeito de colocar as ideias em ordem.",
@@ -5481,7 +6168,8 @@
           "effects": {
             "flags": {
               "pessoal_maya_resposta2": 3,
-              "revelado_maya": true
+              "gostos_maya": true,
+              "valores_maya": true
             },
             "bonds": {}
           },
@@ -5490,7 +6178,9 @@
               "trust": 0,
               "respect": 0
             }
-          }
+          },
+          "speech": "Parece um jeito de colocar as ideias em ordem.",
+          "kind": "speech"
         },
         {
           "label": "Deixar o assunto descansar e se despedir.",
@@ -5500,7 +6190,8 @@
               "pessoal_maya_resposta2": 4
             },
             "bonds": {}
-          }
+          },
+          "kind": "action"
         }
       ],
       "dynamic": [
@@ -5526,7 +6217,7 @@
           "text": "Maya: — Pode ser. Perguntar com respeito já seria um começo."
         }
       ],
-      "textAfterDynamic": "Maya marca a página de um livro com um papel dobrado.\n\nMaya: — Eu escrevo quando não consigo organizar uma ideia falando. Às vezes são cartas que nunca envio. Clara costuma dizer que eu devia escrever coisas mais alegres.\n\nMaya: — Mas não é para agradar ninguém. É só um jeito de pensar."
+      "textAfterDynamic": "Maya marca a página com um papel dobrado.\n\nMaya: — Escrevo sobre livros e histórias que invento. Gosto de escrever sem precisar mostrar a ninguém.\n\nMaya: — Não. Mesmo quando tenho certeza de que sei o que seria melhor, a escolha não me pertence. É uma regra que tento seguir."
     },
     "pessoal_clara": {
       "id": "pessoal_clara",
@@ -5559,7 +6250,9 @@
               "trust": 1,
               "respect": 1
             }
-          }
+          },
+          "speech": "O que mudou entre vocês?",
+          "kind": "speech"
         },
         {
           "label": "É estranho quando uma amizade muda e ninguém sabe como falar sobre isso.",
@@ -5581,7 +6274,9 @@
               "trust": 1,
               "respect": 1
             }
-          }
+          },
+          "speech": "É estranho quando uma amizade muda e ninguém sabe como falar sobre isso.",
+          "kind": "speech"
         },
         {
           "label": "Talvez vocês lembrem daquele tempo de maneiras diferentes.",
@@ -5600,7 +6295,9 @@
             "clara": {
               "respect": 1
             }
-          }
+          },
+          "speech": "Talvez vocês lembrem daquele tempo de maneiras diferentes.",
+          "kind": "speech"
         },
         {
           "label": "Se preferir guardar a foto, tudo bem.",
@@ -5614,7 +6311,9 @@
             "bonds": {}
           },
           "memory": [],
-          "social": {}
+          "social": {},
+          "speech": "Se preferir guardar a foto, tudo bem.",
+          "kind": "speech"
         }
       ]
     },
@@ -5635,7 +6334,8 @@
           "effects": {
             "flags": {
               "pessoal_clara_resposta2": 1,
-              "revelado_clara": true
+              "gostos_clara": true,
+              "valores_clara": true
             },
             "bonds": {
               "clara": 1
@@ -5646,7 +6346,9 @@
               "trust": 1,
               "respect": 0
             }
-          }
+          },
+          "speech": "Amizade não deveria depender do ranking.",
+          "kind": "speech"
         },
         {
           "label": "Você não precisa resolver a história com Matteo agora.",
@@ -5654,7 +6356,8 @@
           "effects": {
             "flags": {
               "pessoal_clara_resposta2": 2,
-              "revelado_clara": true
+              "gostos_clara": true,
+              "valores_clara": true
             },
             "bonds": {}
           },
@@ -5663,7 +6366,9 @@
               "trust": 0,
               "respect": 1
             }
-          }
+          },
+          "speech": "Você não precisa resolver a história com Matteo agora.",
+          "kind": "speech"
         },
         {
           "label": "O que importa é continuar sendo sincera com seus amigos.",
@@ -5671,7 +6376,8 @@
           "effects": {
             "flags": {
               "pessoal_clara_resposta2": 3,
-              "revelado_clara": true
+              "gostos_clara": true,
+              "valores_clara": true
             },
             "bonds": {}
           },
@@ -5680,7 +6386,9 @@
               "trust": 0,
               "respect": 0
             }
-          }
+          },
+          "speech": "O que importa é continuar sendo sincera com seus amigos.",
+          "kind": "speech"
         },
         {
           "label": "Deixar o assunto descansar e se despedir.",
@@ -5690,7 +6398,8 @@
               "pessoal_clara_resposta2": 4
             },
             "bonds": {}
-          }
+          },
+          "kind": "action"
         }
       ],
       "dynamic": [
@@ -5716,7 +6425,7 @@
           "text": "Clara: — Talvez. Não significa que eu precise fingir que nada aconteceu."
         }
       ],
-      "textAfterDynamic": "Clara alisa a dobra da fotografia antes de guardá-la.\n\nClara: — Luka e Otávio estavam lá quando tudo começou a mudar. Não quero perder mais amigos só porque este lugar transforma tudo em competição."
+      "textAfterDynamic": "Clara alisa a dobra da fotografia antes de guardá-la.\n\nClara: — Luka e Otávio estavam lá quando tudo começou a mudar. Não quero perder mais amigos só porque este lugar transforma tudo em competição.\n\nClara: — Eu defenderia a pessoa, não necessariamente a decisão. Pelo menos é o que eu gostaria de conseguir fazer."
     },
     "pessoal_otavio": {
       "id": "pessoal_otavio",
@@ -5749,7 +6458,9 @@
               "trust": 1,
               "respect": 1
             }
-          }
+          },
+          "speech": "Você também pode pedir ajuda aos seus amigos.",
+          "kind": "speech"
         },
         {
           "label": "Já senti que precisava parecer bem mesmo sem saber o que fazer.",
@@ -5771,7 +6482,9 @@
               "trust": 1,
               "respect": 1
             }
-          }
+          },
+          "speech": "Já senti que precisava parecer bem mesmo sem saber o que fazer.",
+          "kind": "speech"
         },
         {
           "label": "Será que você assume responsabilidades demais?",
@@ -5790,7 +6503,9 @@
             "otavio": {
               "respect": 1
             }
-          }
+          },
+          "speech": "Será que você assume responsabilidades demais?",
+          "kind": "speech"
         },
         {
           "label": "Não vou te prender aqui se precisar descansar.",
@@ -5804,7 +6519,9 @@
             "bonds": {}
           },
           "memory": [],
-          "social": {}
+          "social": {},
+          "speech": "Não vou te prender aqui se precisar descansar.",
+          "kind": "speech"
         }
       ]
     },
@@ -5825,7 +6542,8 @@
           "effects": {
             "flags": {
               "pessoal_otavio_resposta2": 1,
-              "revelado_otavio": true
+              "gostos_otavio": true,
+              "valores_otavio": true
             },
             "bonds": {
               "otavio": 1
@@ -5836,7 +6554,9 @@
               "trust": 1,
               "respect": 0
             }
-          }
+          },
+          "speech": "Seus amigos podem cuidar de si e também de você.",
+          "kind": "speech"
         },
         {
           "label": "Não é preciso acertar tudo para ser um bom amigo.",
@@ -5844,7 +6564,8 @@
           "effects": {
             "flags": {
               "pessoal_otavio_resposta2": 2,
-              "revelado_otavio": true
+              "gostos_otavio": true,
+              "valores_otavio": true
             },
             "bonds": {}
           },
@@ -5853,7 +6574,9 @@
               "trust": 0,
               "respect": 1
             }
-          }
+          },
+          "speech": "Não é preciso acertar tudo para ser um bom amigo.",
+          "kind": "speech"
         },
         {
           "label": "Que tal reservar um tempo para fazer algo de que gosta?",
@@ -5861,7 +6584,8 @@
           "effects": {
             "flags": {
               "pessoal_otavio_resposta2": 3,
-              "revelado_otavio": true
+              "gostos_otavio": true,
+              "valores_otavio": true
             },
             "bonds": {}
           },
@@ -5870,7 +6594,9 @@
               "trust": 0,
               "respect": 0
             }
-          }
+          },
+          "speech": "Que tal reservar um tempo para fazer algo de que gosta?",
+          "kind": "speech"
         },
         {
           "label": "Deixar o assunto descansar e se despedir.",
@@ -5880,7 +6606,8 @@
               "pessoal_otavio_resposta2": 4
             },
             "bonds": {}
-          }
+          },
+          "kind": "action"
         }
       ],
       "dynamic": [
@@ -5906,7 +6633,7 @@
           "text": "Otávio: — Talvez. O Luka já me falou algo parecido."
         }
       ],
-      "textAfterDynamic": "Otávio observa os estudantes deixando o refeitório.\n\nOtávio: — Quando alguma coisa dá errado, eu fico pensando no que poderia ter feito diferente. A Clara me conhece há tempo suficiente pra perceber quando eu estou assim.\n\nOtávio: — Estou aprendendo que nem toda responsabilidade é minha."
+      "textAfterDynamic": "Otávio observa os estudantes deixando o refeitório.\n\nOtávio: — Quando alguma coisa dá errado, eu fico pensando no que poderia ter feito diferente. A Clara me conhece há tempo suficiente pra perceber quando eu estou assim.\n\nOtávio: — Estou aprendendo que nem toda responsabilidade é minha.\n\nOtávio: — Às vezes. Quero ajudar, mas tenho que lembrar que não sou o diretor da vida de ninguém."
     },
     "pessoal_zoe": {
       "id": "pessoal_zoe",
@@ -5939,7 +6666,9 @@
               "trust": 1,
               "respect": 1
             }
-          }
+          },
+          "speech": "Acho que reconhecimento e liberdade são coisas diferentes.",
+          "kind": "speech"
         },
         {
           "label": "Você consegue dizer não quando não concorda com eles?",
@@ -5961,7 +6690,9 @@
               "trust": 1,
               "respect": 1
             }
-          }
+          },
+          "speech": "Você consegue dizer não quando não concorda com eles?",
+          "kind": "speech"
         },
         {
           "label": "Imagino que algumas oportunidades ainda valham o esforço.",
@@ -5980,7 +6711,9 @@
             "zoe": {
               "respect": 1
             }
-          }
+          },
+          "speech": "Imagino que algumas oportunidades ainda valham o esforço.",
+          "kind": "speech"
         },
         {
           "label": "Vou deixar você aproveitar o intervalo.",
@@ -5994,7 +6727,9 @@
             "bonds": {}
           },
           "memory": [],
-          "social": {}
+          "social": {},
+          "speech": "Vou deixar você aproveitar o intervalo.",
+          "kind": "speech"
         }
       ]
     },
@@ -6015,7 +6750,8 @@
           "effects": {
             "flags": {
               "pessoal_zoe_resposta2": 1,
-              "revelado_zoe": true
+              "gostos_zoe": true,
+              "valores_zoe": true
             },
             "bonds": {
               "zoe": 1
@@ -6026,7 +6762,9 @@
               "trust": 1,
               "respect": 0
             }
-          }
+          },
+          "speech": "Faz sentido ter objetivos que não sejam públicos.",
+          "kind": "speech"
         },
         {
           "label": "Você não precisa justificar tudo que escolhe fazer.",
@@ -6034,7 +6772,8 @@
           "effects": {
             "flags": {
               "pessoal_zoe_resposta2": 2,
-              "revelado_zoe": true
+              "gostos_zoe": true,
+              "valores_zoe": true
             },
             "bonds": {}
           },
@@ -6043,7 +6782,9 @@
               "trust": 0,
               "respect": 1
             }
-          }
+          },
+          "speech": "Você não precisa justificar tudo que escolhe fazer.",
+          "kind": "speech"
         },
         {
           "label": "Espero que consiga reservar tempo para essas coisas.",
@@ -6051,7 +6792,8 @@
           "effects": {
             "flags": {
               "pessoal_zoe_resposta2": 3,
-              "revelado_zoe": true
+              "gostos_zoe": true,
+              "valores_zoe": true
             },
             "bonds": {}
           },
@@ -6060,7 +6802,9 @@
               "trust": 0,
               "respect": 0
             }
-          }
+          },
+          "speech": "Espero que consiga reservar tempo para essas coisas.",
+          "kind": "speech"
         },
         {
           "label": "Deixar o assunto descansar e se despedir.",
@@ -6070,7 +6814,8 @@
               "pessoal_zoe_resposta2": 4
             },
             "bonds": {}
-          }
+          },
+          "kind": "action"
         }
       ],
       "dynamic": [
@@ -6096,7 +6841,7 @@
           "text": "Zoe: — Algumas valem. O problema é quando outras pessoas escolhem por mim."
         }
       ],
-      "textAfterDynamic": "Zoe abre uma nota pessoal no celular, sem mostrar a tela.\n\nZoe: — Tenho uma lista de coisas que quero fazer sem patrocinadores. Algumas são pequenas. Visitar uma exposição, escolher um restaurante sem aprovação de ninguém.\n\nZoe: — Não confunda isso com desistir da minha carreira. Eu só quero que certas decisões continuem sendo minhas."
+      "textAfterDynamic": "Zoe abre uma nota pessoal no celular, sem mostrar a tela.\n\nZoe: — Tenho uma lista de coisas que quero fazer sem patrocinadores. Algumas são pequenas. Visitar uma exposição, escolher um restaurante sem aprovação de ninguém.\n\nZoe: — Não confunda isso com desistir da minha carreira. Eu só quero que certas decisões continuem sendo minhas.\n\nZoe: — Depende do que está em jogo. Mas se eu nunca contrariar ninguém, minha independência vira só uma palavra bonita."
     },
     "pessoal_luka": {
       "id": "pessoal_luka",
@@ -6129,7 +6874,9 @@
               "trust": 1,
               "respect": 1
             }
-          }
+          },
+          "speech": "Eu gosto de entender as coisas, mas não preciso resolver tudo hoje.",
+          "kind": "speech"
         },
         {
           "label": "Às vezes também sinto que tenho de provar que sei o que estou fazendo.",
@@ -6151,7 +6898,9 @@
               "trust": 1,
               "respect": 1
             }
-          }
+          },
+          "speech": "Às vezes também sinto que tenho de provar que sei o que estou fazendo.",
+          "kind": "speech"
         },
         {
           "label": "A Clara tem um ponto. Até um caderno merece folga.",
@@ -6170,7 +6919,9 @@
             "luka": {
               "respect": 1
             }
-          }
+          },
+          "speech": "A Clara tem um ponto. Até um caderno merece folga.",
+          "kind": "speech"
         },
         {
           "label": "Vou deixar você terminar suas anotações.",
@@ -6184,7 +6935,9 @@
             "bonds": {}
           },
           "memory": [],
-          "social": {}
+          "social": {},
+          "speech": "Vou deixar você terminar suas anotações.",
+          "kind": "speech"
         }
       ]
     },
@@ -6205,7 +6958,8 @@
           "effects": {
             "flags": {
               "pessoal_luka_resposta2": 1,
-              "revelado_luka": true
+              "gostos_luka": true,
+              "valores_luka": true
             },
             "bonds": {
               "luka": 1
@@ -6216,7 +6970,9 @@
               "trust": 1,
               "respect": 0
             }
-          }
+          },
+          "speech": "Você pode falar isso com ele sem deixar de aceitar ajuda.",
+          "kind": "speech"
         },
         {
           "label": "Mostre a ele o que você consegue fazer, no seu ritmo.",
@@ -6224,7 +6980,8 @@
           "effects": {
             "flags": {
               "pessoal_luka_resposta2": 2,
-              "revelado_luka": true
+              "gostos_luka": true,
+              "valores_luka": true
             },
             "bonds": {}
           },
@@ -6233,7 +6990,9 @@
               "trust": 0,
               "respect": 1
             }
-          }
+          },
+          "speech": "Mostre a ele o que você consegue fazer, no seu ritmo.",
+          "kind": "speech"
         },
         {
           "label": "Às vezes é mais fácil começar com uma conversa sobre as aulas.",
@@ -6241,7 +7000,8 @@
           "effects": {
             "flags": {
               "pessoal_luka_resposta2": 3,
-              "revelado_luka": true
+              "gostos_luka": true,
+              "valores_luka": true
             },
             "bonds": {}
           },
@@ -6250,7 +7010,9 @@
               "trust": 0,
               "respect": 0
             }
-          }
+          },
+          "speech": "Às vezes é mais fácil começar com uma conversa sobre as aulas.",
+          "kind": "speech"
         },
         {
           "label": "Deixar o assunto descansar e se despedir.",
@@ -6260,7 +7022,8 @@
               "pessoal_luka_resposta2": 4
             },
             "bonds": {}
-          }
+          },
+          "kind": "action"
         }
       ],
       "dynamic": [
@@ -6286,7 +7049,7 @@
           "text": "Luka: — Traição. Vou ter que contar pra Clara que você está do lado dela."
         }
       ],
-      "textAfterDynamic": "Luka vira uma página com uma lista de perguntas sobre as aulas.\n\nLuka: — O Otávio me ajuda desde antes de eu entrar aqui. Só queria que ele percebesse que consigo resolver algumas coisas sozinho. Não quero deixar de ser amigo dele, só quero ter meu espaço."
+      "textAfterDynamic": "Luka vira uma página com uma lista de perguntas sobre as aulas.\n\nLuka: — O Otávio me ajuda desde antes de eu entrar aqui. Só queria que ele percebesse que consigo resolver algumas coisas sozinho. Não quero deixar de ser amigo dele, só quero ter meu espaço.\n\nLuka: — Depende. Já confundi suspeita com certeza. Odeio admitir isso, mas uma pergunta não é uma prova."
     },
     "grupo_conversa": {
       "id": "grupo_conversa",
@@ -6325,7 +7088,9 @@
           "memory": [
             "clara",
             "matteo"
-          ]
+          ],
+          "speech": "Vocês poderiam conversar em particular.",
+          "kind": "speech"
         },
         {
           "label": "Pedir que ouçam um ao outro.",
@@ -6352,7 +7117,9 @@
           "memory": [
             "clara",
             "matteo"
-          ]
+          ],
+          "speech": "Talvez ajude ouvir o que o outro tem a dizer.",
+          "kind": "speech"
         },
         {
           "label": "Não interferir.",
@@ -6376,7 +7143,8 @@
               0
             ]
           ],
-          "memory": []
+          "memory": [],
+          "kind": "action"
         },
         {
           "label": "Dizer que Clara tem razão.",
@@ -6403,7 +7171,9 @@
           "memory": [
             "clara",
             "matteo"
-          ]
+          ],
+          "speech": "Clara, entendo seu lado.",
+          "kind": "speech"
         }
       ]
     },
@@ -6429,7 +7199,9 @@
               "t5_perguntou_lore": true
             },
             "bonds": {}
-          }
+          },
+          "speech": "Como funcionam esses patrocínios?",
+          "kind": "speech"
         },
         {
           "label": "Entrar na brincadeira sobre o cardápio",
@@ -6439,7 +7211,9 @@
               "almoco_piadas": true
             },
             "bonds": {}
-          }
+          },
+          "speech": "Só espero que o pudim não venha com anúncio.",
+          "kind": "speech"
         },
         {
           "label": "Ouvir o grupo e aproveitar a comida",
@@ -6447,7 +7221,8 @@
           "effects": {
             "flags": {},
             "bonds": {}
-          }
+          },
+          "kind": "action"
         }
       ]
     },
@@ -6473,7 +7248,8 @@
             "bonds": {}
           },
           "once": "almoco_clara",
-          "lunchPick": true
+          "lunchPick": true,
+          "kind": "action"
         },
         {
           "label": "Conversar com Luka",
@@ -6483,7 +7259,8 @@
             "bonds": {}
           },
           "once": "almoco_luka",
-          "lunchPick": true
+          "lunchPick": true,
+          "kind": "action"
         },
         {
           "label": "Conversar com Maya",
@@ -6493,7 +7270,8 @@
             "bonds": {}
           },
           "once": "almoco_maya",
-          "lunchPick": true
+          "lunchPick": true,
+          "kind": "action"
         },
         {
           "label": "Conversar com Otávio",
@@ -6503,7 +7281,8 @@
             "bonds": {}
           },
           "once": "almoco_otavio",
-          "lunchPick": true
+          "lunchPick": true,
+          "kind": "action"
         },
         {
           "label": "Encerrar o almoço e se despedir",
@@ -6511,7 +7290,8 @@
           "effects": {
             "flags": {},
             "bonds": {}
-          }
+          },
+          "kind": "action"
         }
       ],
       "dynamic": [
@@ -6559,7 +7339,9 @@
           },
           "memory": [
             "clara"
-          ]
+          ],
+          "speech": "Tem gente interessante. O resto ainda estou descobrindo.",
+          "kind": "speech"
         },
         {
           "label": "Ainda não sei se gosto desse lugar.",
@@ -6576,7 +7358,9 @@
               "trust": 1,
               "respect": 1
             }
-          }
+          },
+          "speech": "Ainda não sei se gosto desse lugar.",
+          "kind": "speech"
         },
         {
           "label": "Prefiro não tirar conclusões no primeiro dia.",
@@ -6593,7 +7377,9 @@
               "trust": 0,
               "respect": 0
             }
-          }
+          },
+          "speech": "Prefiro não tirar conclusões no primeiro dia.",
+          "kind": "speech"
         }
       ]
     },
@@ -6619,7 +7405,9 @@
               "almoco_clara_segundo": 1
             },
             "bonds": {}
-          }
+          },
+          "speech": "As pessoas. Já conheci gente interessante.",
+          "kind": "speech"
         },
         {
           "label": "A chance de estudar e aprender coisas novas.",
@@ -6629,7 +7417,9 @@
               "almoco_clara_segundo": 2
             },
             "bonds": {}
-          }
+          },
+          "speech": "A chance de estudar e aprender coisas novas.",
+          "kind": "speech"
         },
         {
           "label": "Ainda estou procurando. Pergunta amanhã.",
@@ -6639,7 +7429,9 @@
               "almoco_clara_segundo": 3
             },
             "bonds": {}
-          }
+          },
+          "speech": "Ainda estou procurando. Pergunta amanhã.",
+          "kind": "speech"
         }
       ],
       "textAfterDynamic": "Clara: — Se tivesse que escolher uma coisa boa daqui, o que seria?"
@@ -6678,7 +7470,9 @@
           },
           "memory": [
             "luka"
-          ]
+          ],
+          "speech": "Com certeza. Prioridades certas.",
+          "kind": "speech"
         },
         {
           "label": "Só se tiver a biblioteca também.",
@@ -6697,7 +7491,9 @@
               "trust": 0,
               "respect": 1
             }
-          }
+          },
+          "speech": "Só se tiver a biblioteca também.",
+          "kind": "speech"
         },
         {
           "label": "Vou tentar me localizar sozinho primeiro.",
@@ -6714,7 +7510,9 @@
               "trust": 0,
               "respect": 0
             }
-          }
+          },
+          "speech": "Vou tentar me localizar sozinho primeiro.",
+          "kind": "speech"
         }
       ]
     },
@@ -6740,7 +7538,9 @@
               "almoco_luka_segundo": 1
             },
             "bonds": {}
-          }
+          },
+          "speech": "Me avisa quando tiver um horário.",
+          "kind": "speech"
         },
         {
           "label": "Posso ajudar a organizar os materiais.",
@@ -6750,7 +7550,9 @@
               "almoco_luka_segundo": 2
             },
             "bonds": {}
-          }
+          },
+          "speech": "Posso ajudar a organizar os materiais.",
+          "kind": "speech"
         },
         {
           "label": "Por enquanto preciso me adaptar à rotina.",
@@ -6760,7 +7562,9 @@
               "almoco_luka_segundo": 3
             },
             "bonds": {}
-          }
+          },
+          "speech": "Por enquanto preciso me adaptar à rotina.",
+          "kind": "speech"
         }
       ],
       "textAfterDynamic": "Luka: — Estou pensando em montar um grupo de estudos. Sem propaganda no meio, de preferência."
@@ -6799,7 +7603,9 @@
           },
           "memory": [
             "maya"
-          ]
+          ],
+          "speech": "Concordo. Cada um tem seu tempo.",
+          "kind": "speech"
         },
         {
           "label": "Às vezes a primeira impressão ajuda.",
@@ -6816,7 +7622,9 @@
               "trust": 1,
               "respect": 1
             }
-          }
+          },
+          "speech": "Às vezes a primeira impressão ajuda.",
+          "kind": "speech"
         },
         {
           "label": "Vamos falar de outra coisa?",
@@ -6833,7 +7641,9 @@
               "trust": 0,
               "respect": 0
             }
-          }
+          },
+          "speech": "Vamos falar de outra coisa?",
+          "kind": "speech"
         }
       ]
     },
@@ -6859,7 +7669,9 @@
               "almoco_maya_segundo": 1
             },
             "bonds": {}
-          }
+          },
+          "speech": "Valeu pela dica, vou conhecer.",
+          "kind": "speech"
         },
         {
           "label": "Você costuma estudar lá?",
@@ -6869,7 +7681,9 @@
               "almoco_maya_segundo": 2
             },
             "bonds": {}
-          }
+          },
+          "speech": "Você costuma estudar lá?",
+          "kind": "speech"
         },
         {
           "label": "Acho que vou explorar outros lugares primeiro.",
@@ -6879,7 +7693,9 @@
               "almoco_maya_segundo": 3
             },
             "bonds": {}
-          }
+          },
+          "speech": "Acho que vou explorar outros lugares primeiro.",
+          "kind": "speech"
         }
       ],
       "textAfterDynamic": "Maya: — Se quiser um lugar menos barulhento, a biblioteca tem uma sala de leitura no segundo andar."
@@ -6918,7 +7734,9 @@
           },
           "memory": [
             "otavio"
-          ]
+          ],
+          "speech": "Agora sim. Valeu pela companhia.",
+          "kind": "speech"
         },
         {
           "label": "Ainda estou me acostumando com a rotina.",
@@ -6937,7 +7755,9 @@
               "trust": 0,
               "respect": 1
             }
-          }
+          },
+          "speech": "Ainda estou me acostumando com a rotina.",
+          "kind": "speech"
         },
         {
           "label": "Estou bem, prefiro falar de outro assunto.",
@@ -6954,7 +7774,9 @@
               "trust": 0,
               "respect": 0
             }
-          }
+          },
+          "speech": "Estou bem, prefiro falar de outro assunto.",
+          "kind": "speech"
         }
       ]
     },
@@ -6980,7 +7802,9 @@
               "almoco_otavio_segundo": 1
             },
             "bonds": {}
-          }
+          },
+          "speech": "Obrigado. Podemos trocar ideias sobre as aulas.",
+          "kind": "speech"
         },
         {
           "label": "Eu ainda estou formando minha opinião.",
@@ -6990,7 +7814,9 @@
               "almoco_otavio_segundo": 2
             },
             "bonds": {}
-          }
+          },
+          "speech": "Eu ainda estou formando minha opinião.",
+          "kind": "speech"
         },
         {
           "label": "Por enquanto quero só aproveitar o intervalo.",
@@ -7000,7 +7826,9 @@
               "almoco_otavio_segundo": 3
             },
             "bonds": {}
-          }
+          },
+          "speech": "Por enquanto quero só aproveitar o intervalo.",
+          "kind": "speech"
         }
       ],
       "textAfterDynamic": "Otávio: — Se precisar de ajuda para se acostumar com as aulas, pode perguntar. Mas também quero saber como os calouros estão vendo tudo isso."
@@ -7028,6 +7856,20 @@
               "matteo": 1,
               "zoe": 1
             }
+          },
+          "speech": "O que vocês gostam de fazer fora das câmeras?",
+          "kind": "speech",
+          "social": {
+            "matteo": {
+              "trust": 0,
+              "respect": 1,
+              "closeness": 1
+            },
+            "zoe": {
+              "trust": 0,
+              "respect": 1,
+              "closeness": 1
+            }
           }
         },
         {
@@ -7040,7 +7882,9 @@
             "bonds": {
               "zoe": 1
             }
-          }
+          },
+          "speech": "A avaliação parecia mais um espetáculo do que uma aula.",
+          "kind": "speech"
         },
         {
           "label": "Manter a conversa leve e perguntar sobre a comida",
@@ -7050,7 +7894,9 @@
               "almoco_elite_resposta": 2
             },
             "bonds": {}
-          }
+          },
+          "speech": "O que vocês acharam da comida?",
+          "kind": "speech"
         }
       ]
     },
@@ -7072,7 +7918,9 @@
           "effects": {
             "flags": {},
             "bonds": {}
-          }
+          },
+          "speech": "Valeu pela companhia. Até mais.",
+          "kind": "speech"
         }
       ]
     },
@@ -7091,7 +7939,8 @@
           "effects": {
             "flags": {},
             "bonds": {}
-          }
+          },
+          "kind": "action"
         },
         {
           "label": "Conferir as novidades do campus depois do almoço",
@@ -7099,7 +7948,8 @@
           "effects": {
             "flags": {},
             "bonds": {}
-          }
+          },
+          "kind": "action"
         }
       ]
     },
@@ -7120,7 +7970,8 @@
               "almoco_concluido": true
             },
             "bonds": {}
-          }
+          },
+          "kind": "action"
         }
       ]
     },
@@ -7141,7 +7992,8 @@
           "effects": {
             "flags": {},
             "bonds": {}
-          }
+          },
+          "kind": "action"
         }
       ],
       "dynamic": [
@@ -7197,7 +8049,8 @@
           "effects": {
             "flags": {},
             "bonds": {}
-          }
+          },
+          "kind": "action"
         }
       ],
       "dynamic": [
@@ -7253,7 +8106,8 @@
           "effects": {
             "flags": {},
             "bonds": {}
-          }
+          },
+          "kind": "action"
         }
       ],
       "dynamic": [
@@ -7309,7 +8163,8 @@
           "effects": {
             "flags": {},
             "bonds": {}
-          }
+          },
+          "kind": "action"
         }
       ],
       "dynamic": [
@@ -7365,7 +8220,8 @@
           "effects": {
             "flags": {},
             "bonds": {}
-          }
+          },
+          "kind": "action"
         }
       ],
       "dynamic": [
@@ -7421,7 +8277,8 @@
           "effects": {
             "flags": {},
             "bonds": {}
-          }
+          },
+          "kind": "action"
         }
       ],
       "dynamic": [
@@ -7482,7 +8339,9 @@
           "memory": [
             "luka",
             "otavio"
-          ]
+          ],
+          "speech": "Vamos combinar as regras juntos.",
+          "kind": "speech"
         },
         {
           "label": "Prefiro ter meu próprio espaço.",
@@ -7496,7 +8355,9 @@
           "memory": [
             "luka",
             "otavio"
-          ]
+          ],
+          "speech": "Prefiro ter meu próprio espaço.",
+          "kind": "speech"
         },
         {
           "label": "Podem escolher, sou tranquilo com isso.",
@@ -7508,7 +8369,9 @@
             "bonds": {
               "otavio": 1
             }
-          }
+          },
+          "speech": "Podem escolher, sou tranquilo com isso.",
+          "kind": "speech"
         }
       ],
       "people": [
@@ -7535,7 +8398,8 @@
           "effects": {
             "flags": {},
             "bonds": {}
-          }
+          },
+          "kind": "action"
         }
       ],
       "dynamic": [
@@ -7576,7 +8440,9 @@
           "memory": [
             "clara",
             "maya"
-          ]
+          ],
+          "speech": "Vamos combinar as regras juntas.",
+          "kind": "speech"
         },
         {
           "label": "Prefiro ter meu próprio espaço.",
@@ -7590,7 +8456,9 @@
           "memory": [
             "clara",
             "maya"
-          ]
+          ],
+          "speech": "Prefiro ter meu próprio espaço.",
+          "kind": "speech"
         },
         {
           "label": "Escolham vocês, não me importo.",
@@ -7602,7 +8470,9 @@
             "bonds": {
               "clara": 1
             }
-          }
+          },
+          "speech": "Escolham vocês, não me importo.",
+          "kind": "speech"
         }
       ],
       "people": [
@@ -7629,7 +8499,8 @@
           "effects": {
             "flags": {},
             "bonds": {}
-          }
+          },
+          "kind": "action"
         }
       ],
       "dynamic": [
@@ -7668,7 +8539,7 @@
           "text": "Matteo ri balançando a cabeça.\n\nMatteo: — Aproveita enquanto é calouro, {NOME}. No segundo ano a cobrança não dá trégua."
         }
       ],
-      "textAfterDynamic": "Matteo pede um copo de água e olha para o salão. Uma música termina; por alguns segundos, ninguém parece prestar atenção nele.\n\nMatteo: — Quando entrei aqui, achava que ser o segundo colocado significava ter liberdade pra fazer o que quisesse. Hoje tenho uma agenda que nem fui eu que montei.\n\nMatteo: — Não me entenda mal, eu gosto de competir. Só queria que, de vez em quando, alguém perguntasse o que eu gosto além disso.",
+      "textAfterDynamic": "Matteo pede um copo de água e olha para o salão. Uma música termina; por alguns segundos, ninguém parece prestar atenção nele.\n\nMatteo: — Quando entrei aqui, achava que ser o segundo colocado significava ter liberdade pra fazer o que quisesse. Hoje tenho uma agenda que nem fui eu que montei.\n\nMatteo: — Não me entenda mal, eu gosto de competir. Só queria que, de vez em quando, alguém perguntasse o que eu gosto além disso.\n\nMatteo: — Quando não tenho compromisso, gosto de cozinhar ou jogar com os amigos. Nessas horas, ninguém precisa anunciar minha posição no ranking.",
       "choices": [
         {
           "label": "O que você faria em uma tarde sem entrevistas?",
@@ -7680,7 +8551,9 @@
             "bonds": {
               "matteo": 1
             }
-          }
+          },
+          "speech": "O que você faria numa tarde sem entrevistas?",
+          "kind": "speech"
         },
         {
           "label": "Você sente falta de alguém daquela época?",
@@ -7692,7 +8565,9 @@
             "bonds": {
               "matteo": 1
             }
-          }
+          },
+          "speech": "Sente falta de alguém daquela época?",
+          "kind": "speech"
         },
         {
           "label": "Competir não precisa ser a única coisa que define você.",
@@ -7704,7 +8579,9 @@
             "bonds": {
               "matteo": 1
             }
-          }
+          },
+          "speech": "Competir não precisa ser a única coisa que define você.",
+          "kind": "speech"
         },
         {
           "label": "Deixar o assunto de lado e comentar a música.",
@@ -7714,7 +8591,9 @@
               "matteo_bar_leve": true
             },
             "bonds": {}
-          }
+          },
+          "speech": "E a música de hoje, o que você achou?",
+          "kind": "speech"
         }
       ],
       "people": [
@@ -7735,7 +8614,8 @@
           "effects": {
             "flags": {},
             "bonds": {}
-          }
+          },
+          "kind": "action"
         }
       ],
       "dynamic": [
@@ -7776,7 +8656,8 @@
           "effects": {
             "flags": {},
             "bonds": {}
-          }
+          },
+          "kind": "action"
         }
       ],
       "dynamic": [
@@ -7815,7 +8696,8 @@
           "effects": {
             "flags": {},
             "bonds": {}
-          }
+          },
+          "kind": "action"
         }
       ],
       "dynamic": [
@@ -7863,7 +8745,8 @@
           "effects": {
             "flags": {},
             "bonds": {}
-          }
+          },
+          "kind": "action"
         }
       ],
       "dynamic": [
@@ -7890,7 +8773,8 @@
           "effects": {
             "flags": {},
             "bonds": {}
-          }
+          },
+          "kind": "action"
         }
       ],
       "dynamic": [
@@ -7938,7 +8822,8 @@
           "effects": {
             "flags": {},
             "bonds": {}
-          }
+          },
+          "kind": "action"
         }
       ],
       "dynamic": [
@@ -7986,7 +8871,8 @@
           "effects": {
             "flags": {},
             "bonds": {}
-          }
+          },
+          "kind": "action"
         }
       ],
       "dynamic": [
@@ -8034,7 +8920,8 @@
           "effects": {
             "flags": {},
             "bonds": {}
-          }
+          },
+          "kind": "action"
         }
       ],
       "dynamic": [
@@ -8082,7 +8969,8 @@
           "effects": {
             "flags": {},
             "bonds": {}
-          }
+          },
+          "kind": "action"
         }
       ],
       "dynamic": [
@@ -8145,7 +9033,968 @@
           "effects": {
             "flags": {},
             "bonds": {}
-          }
+          },
+          "kind": "action"
+        }
+      ]
+    },
+    "cotidiano_matteo": {
+      "time": "Intervalo da tarde",
+      "stage": "ÁREA VIP",
+      "place": "vip",
+      "people": [
+        "matteo"
+      ],
+      "id": "cotidiano_matteo",
+      "title": "Um intervalo sem câmeras",
+      "text": "Matteo olha uma receita no celular e guarda o aparelho quando você chega.\n\nMatteo: — Não ri. Tô tentando aprender uma massa que não vire cola. É mais difícil do que parece. Quando dá, jogo alguma coisa com os amigos também.",
+      "choices": [
+        {
+          "label": "Qual é o prato que você faz melhor?",
+          "to": "cotidiano_matteo_resposta",
+          "effects": {
+            "flags": {
+              "cotidiano_matteo_escolha": 1
+            },
+            "bonds": {
+              "matteo": 1
+            }
+          },
+          "social": {
+            "matteo": {
+              "closeness": 1
+            }
+          },
+          "speech": "Qual é o prato que você faz melhor?"
+        },
+        {
+          "label": "Você abriria mão de uma oportunidade se achasse injusta?",
+          "to": "cotidiano_matteo_resposta",
+          "effects": {
+            "flags": {
+              "cotidiano_matteo_escolha": 2
+            },
+            "bonds": {}
+          },
+          "social": {
+            "matteo": {
+              "respect": 1
+            }
+          },
+          "speech": "Você abriria mão de uma oportunidade se achasse injusta?"
+        },
+        {
+          "label": "Não quero atrapalhar sua pausa.",
+          "to": "cotidiano_matteo_fim",
+          "effects": {
+            "flags": {
+              "cotidiano_matteo_escolha": 3
+            },
+            "bonds": {}
+          },
+          "social": {},
+          "speech": "Não quero atrapalhar sua pausa. A gente se vê depois."
+        }
+      ]
+    },
+    "cotidiano_matteo_resposta": {
+      "time": "Intervalo da tarde",
+      "stage": "ÁREA VIP",
+      "place": "vip",
+      "people": [
+        "matteo"
+      ],
+      "id": "cotidiano_matteo_resposta",
+      "title": "Um intervalo sem câmeras",
+      "text": "",
+      "dynamic": [
+        {
+          "equals": {
+            "key": "cotidiano_matteo_escolha",
+            "value": 1
+          },
+          "text": "Matteo: — Pergunta perigosa. Faço um risoto decente. O resto ainda está em fase experimental."
+        },
+        {
+          "equals": {
+            "key": "cotidiano_matteo_escolha",
+            "value": 2
+          },
+          "text": "Matteo: — Queria dizer que sim sem hesitar. Mas às vezes penso no que poderia mudar se continuasse tendo influência. Não é uma resposta bonita, eu sei."
+        }
+      ],
+      "choices": [
+        {
+          "label": "Depois me conta se a receita deu certo.",
+          "to": "cotidiano_matteo_fim",
+          "effects": {
+            "flags": {
+              "cotidiano_matteo_segunda": 1,
+              "gostos_matteo": true
+            },
+            "bonds": {}
+          },
+          "social": {
+            "matteo": {
+              "trust": 1
+            }
+          },
+          "speech": "Depois me conta se a receita deu certo."
+        },
+        {
+          "label": "Gostei de conversar. Até mais.",
+          "to": "cotidiano_matteo_fim",
+          "effects": {
+            "flags": {
+              "cotidiano_matteo_segunda": 2,
+              "gostos_matteo": true
+            },
+            "bonds": {}
+          },
+          "social": {},
+          "speech": "Gostei de conversar. Até mais."
+        }
+      ]
+    },
+    "cotidiano_matteo_fim": {
+      "time": "Intervalo da tarde",
+      "stage": "ÁREA VIP",
+      "place": "vip",
+      "people": [
+        "matteo"
+      ],
+      "id": "cotidiano_matteo_fim",
+      "title": "O intervalo continua",
+      "text": "",
+      "dynamic": [
+        {
+          "equals": {
+            "key": "cotidiano_matteo_segunda",
+            "value": 1
+          },
+          "text": "Matteo: — Se der errado, vou chamar de versão experimental."
+        },
+        {
+          "equals": {
+            "key": "cotidiano_matteo_segunda",
+            "value": 2
+          },
+          "text": "Matteo: — Até mais."
+        },
+        {
+          "equals": {
+            "key": "cotidiano_matteo_escolha",
+            "value": 3
+          },
+          "text": "Matteo: — Tudo bem. Nos vemos depois."
+        }
+      ],
+      "textAfterDynamic": "Você se despede e volta ao pátio.",
+      "choices": [
+        {
+          "label": "Voltar à exploração da tarde",
+          "to": "explorar_tarde",
+          "kind": "action"
+        }
+      ]
+    },
+    "cotidiano_maya": {
+      "time": "Intervalo da tarde",
+      "stage": "BIBLIOTECA",
+      "place": "library",
+      "people": [
+        "maya"
+      ],
+      "id": "cotidiano_maya",
+      "title": "Entre páginas",
+      "text": "Maya marca uma página de um romance. Ao lado, há um caderno com títulos de animes.\n\nMaya: — Antes que pergunte: sim, eu adoro livros de romance. Principalmente quando os personagens têm vida própria e não resolvem tudo com um discurso bonito.",
+      "choices": [
+        {
+          "label": "Você tem alguma recomendação de livro ou anime?",
+          "to": "cotidiano_maya_resposta",
+          "effects": {
+            "flags": {
+              "cotidiano_maya_escolha": 1
+            },
+            "bonds": {
+              "maya": 1
+            }
+          },
+          "social": {
+            "maya": {
+              "closeness": 1
+            }
+          },
+          "speech": "Você tem alguma recomendação de livro ou anime?"
+        },
+        {
+          "label": "Acha que boas intenções justificam decidir por alguém?",
+          "to": "cotidiano_maya_resposta",
+          "effects": {
+            "flags": {
+              "cotidiano_maya_escolha": 2
+            },
+            "bonds": {}
+          },
+          "social": {
+            "maya": {
+              "respect": 1
+            }
+          },
+          "speech": "Acha que boas intenções justificam decidir por alguém?"
+        },
+        {
+          "label": "Não quero atrapalhar sua pausa.",
+          "to": "cotidiano_maya_fim",
+          "effects": {
+            "flags": {
+              "cotidiano_maya_escolha": 3
+            },
+            "bonds": {}
+          },
+          "social": {},
+          "speech": "Não quero atrapalhar sua pausa. A gente se vê depois."
+        }
+      ]
+    },
+    "cotidiano_maya_resposta": {
+      "time": "Intervalo da tarde",
+      "stage": "BIBLIOTECA",
+      "place": "library",
+      "people": [
+        "maya"
+      ],
+      "id": "cotidiano_maya_resposta",
+      "title": "Entre páginas",
+      "text": "",
+      "dynamic": [
+        {
+          "equals": {
+            "key": "cotidiano_maya_escolha",
+            "value": 1
+          },
+          "text": "Maya: — Gosto de histórias em que as pessoas mudam aos poucos. Se o final me faz voltar ao primeiro capítulo, melhor ainda."
+        },
+        {
+          "equals": {
+            "key": "cotidiano_maya_escolha",
+            "value": 2
+          },
+          "text": "Maya: — Não. Mesmo quando tenho certeza de que sei o que seria melhor, a escolha não me pertence. É uma regra que tento seguir."
+        }
+      ],
+      "choices": [
+        {
+          "label": "Depois me indica uma história que você gostou.",
+          "to": "cotidiano_maya_fim",
+          "effects": {
+            "flags": {
+              "cotidiano_maya_segunda": 1,
+              "gostos_maya": true
+            },
+            "bonds": {}
+          },
+          "social": {
+            "maya": {
+              "trust": 1
+            }
+          },
+          "speech": "Depois me indica uma história que você gostou."
+        },
+        {
+          "label": "Gostei de conversar. Até mais.",
+          "to": "cotidiano_maya_fim",
+          "effects": {
+            "flags": {
+              "cotidiano_maya_segunda": 2,
+              "gostos_maya": true
+            },
+            "bonds": {}
+          },
+          "social": {},
+          "speech": "Gostei de conversar. Até mais."
+        }
+      ]
+    },
+    "cotidiano_maya_fim": {
+      "time": "Intervalo da tarde",
+      "stage": "BIBLIOTECA",
+      "place": "library",
+      "people": [
+        "maya"
+      ],
+      "id": "cotidiano_maya_fim",
+      "title": "O intervalo continua",
+      "text": "",
+      "dynamic": [
+        {
+          "equals": {
+            "key": "cotidiano_maya_segunda",
+            "value": 1
+          },
+          "text": "Maya: — Pode deixar. Vou escolher uma que não tenha trezentos capítulos."
+        },
+        {
+          "equals": {
+            "key": "cotidiano_maya_segunda",
+            "value": 2
+          },
+          "text": "Maya: — Até mais."
+        },
+        {
+          "equals": {
+            "key": "cotidiano_maya_escolha",
+            "value": 3
+          },
+          "text": "Maya: — Tudo bem. Nos vemos depois."
+        }
+      ],
+      "textAfterDynamic": "Você se despede e volta ao pátio.",
+      "choices": [
+        {
+          "label": "Voltar à exploração da tarde",
+          "to": "explorar_tarde",
+          "kind": "action"
+        }
+      ]
+    },
+    "cotidiano_clara": {
+      "time": "Intervalo da tarde",
+      "stage": "PÁTIO CENTRAL",
+      "place": "patio",
+      "people": [
+        "clara"
+      ],
+      "id": "cotidiano_clara",
+      "title": "Uma playlist sem ranking",
+      "text": "Clara está escolhendo músicas no celular. Uma foto antiga aparece na capa de uma playlist.\n\nClara: — Essa banda é boa. O Luka diz que parece uma panela caindo da escada. Ele não tem cultura.",
+      "choices": [
+        {
+          "label": "Você sempre monta playlists para seus amigos?",
+          "to": "cotidiano_clara_resposta",
+          "effects": {
+            "flags": {
+              "cotidiano_clara_escolha": 1
+            },
+            "bonds": {
+              "clara": 1
+            }
+          },
+          "social": {
+            "clara": {
+              "closeness": 1
+            }
+          },
+          "speech": "Você sempre monta playlists para seus amigos?"
+        },
+        {
+          "label": "E se um amigo fizer algo que você não aprova?",
+          "to": "cotidiano_clara_resposta",
+          "effects": {
+            "flags": {
+              "cotidiano_clara_escolha": 2
+            },
+            "bonds": {}
+          },
+          "social": {
+            "clara": {
+              "respect": 1
+            }
+          },
+          "speech": "E se um amigo fizer algo que você não aprova?"
+        },
+        {
+          "label": "Não quero atrapalhar sua pausa.",
+          "to": "cotidiano_clara_fim",
+          "effects": {
+            "flags": {
+              "cotidiano_clara_escolha": 3
+            },
+            "bonds": {}
+          },
+          "social": {},
+          "speech": "Não quero atrapalhar sua pausa. A gente se vê depois."
+        }
+      ]
+    },
+    "cotidiano_clara_resposta": {
+      "time": "Intervalo da tarde",
+      "stage": "PÁTIO CENTRAL",
+      "place": "patio",
+      "people": [
+        "clara"
+      ],
+      "id": "cotidiano_clara_resposta",
+      "title": "Uma playlist sem ranking",
+      "text": "",
+      "dynamic": [
+        {
+          "equals": {
+            "key": "cotidiano_clara_escolha",
+            "value": 1
+          },
+          "text": "Clara: — Só quando eles merecem. A do Luka tem uma faixa de onze minutos, por pura implicância."
+        },
+        {
+          "equals": {
+            "key": "cotidiano_clara_escolha",
+            "value": 2
+          },
+          "text": "Clara: — Eu defenderia a pessoa, não necessariamente a decisão. Pelo menos é o que eu gostaria de conseguir fazer."
+        }
+      ],
+      "choices": [
+        {
+          "label": "Me manda uma música depois?",
+          "to": "cotidiano_clara_fim",
+          "effects": {
+            "flags": {
+              "cotidiano_clara_segunda": 1,
+              "gostos_clara": true
+            },
+            "bonds": {}
+          },
+          "social": {
+            "clara": {
+              "trust": 1
+            }
+          },
+          "speech": "Me manda uma música depois?"
+        },
+        {
+          "label": "Gostei de conversar. Até mais.",
+          "to": "cotidiano_clara_fim",
+          "effects": {
+            "flags": {
+              "cotidiano_clara_segunda": 2,
+              "gostos_clara": true
+            },
+            "bonds": {}
+          },
+          "social": {},
+          "speech": "Gostei de conversar. Até mais."
+        }
+      ]
+    },
+    "cotidiano_clara_fim": {
+      "time": "Intervalo da tarde",
+      "stage": "PÁTIO CENTRAL",
+      "place": "patio",
+      "people": [
+        "clara"
+      ],
+      "id": "cotidiano_clara_fim",
+      "title": "O intervalo continua",
+      "text": "",
+      "dynamic": [
+        {
+          "equals": {
+            "key": "cotidiano_clara_segunda",
+            "value": 1
+          },
+          "text": "Clara: — Mando. Mas sem pular a faixa mais estranha."
+        },
+        {
+          "equals": {
+            "key": "cotidiano_clara_segunda",
+            "value": 2
+          },
+          "text": "Clara: — Até mais."
+        },
+        {
+          "equals": {
+            "key": "cotidiano_clara_escolha",
+            "value": 3
+          },
+          "text": "Clara: — Tudo bem. Nos vemos depois."
+        }
+      ],
+      "textAfterDynamic": "Você se despede e volta ao pátio.",
+      "choices": [
+        {
+          "label": "Voltar à exploração da tarde",
+          "to": "explorar_tarde",
+          "kind": "action"
+        }
+      ]
+    },
+    "cotidiano_otavio": {
+      "time": "Intervalo da tarde",
+      "stage": "REFEITÓRIO · ÁREA COMUM",
+      "place": "food",
+      "people": [
+        "otavio"
+      ],
+      "id": "cotidiano_otavio",
+      "title": "Fora de quadro",
+      "text": "Otávio está rabiscando ideias de enquadramento para um curta.\n\nOtávio: — Tô tentando imaginar um filme sobre o campus sem transformar tudo em propaganda. A trilha sonora já existe na minha cabeça, falta o resto.",
+      "choices": [
+        {
+          "label": "Que tipo de filme você gostaria de dirigir?",
+          "to": "cotidiano_otavio_resposta",
+          "effects": {
+            "flags": {
+              "cotidiano_otavio_escolha": 1
+            },
+            "bonds": {
+              "otavio": 1
+            }
+          },
+          "social": {
+            "otavio": {
+              "closeness": 1
+            }
+          },
+          "speech": "Que tipo de filme você gostaria de dirigir?"
+        },
+        {
+          "label": "É difícil deixar alguém resolver os próprios problemas?",
+          "to": "cotidiano_otavio_resposta",
+          "effects": {
+            "flags": {
+              "cotidiano_otavio_escolha": 2
+            },
+            "bonds": {}
+          },
+          "social": {
+            "otavio": {
+              "respect": 1
+            }
+          },
+          "speech": "É difícil deixar alguém resolver os próprios problemas?"
+        },
+        {
+          "label": "Não quero atrapalhar sua pausa.",
+          "to": "cotidiano_otavio_fim",
+          "effects": {
+            "flags": {
+              "cotidiano_otavio_escolha": 3
+            },
+            "bonds": {}
+          },
+          "social": {},
+          "speech": "Não quero atrapalhar sua pausa. A gente se vê depois."
+        }
+      ]
+    },
+    "cotidiano_otavio_resposta": {
+      "time": "Intervalo da tarde",
+      "stage": "REFEITÓRIO · ÁREA COMUM",
+      "place": "food",
+      "people": [
+        "otavio"
+      ],
+      "id": "cotidiano_otavio_resposta",
+      "title": "Fora de quadro",
+      "text": "",
+      "dynamic": [
+        {
+          "equals": {
+            "key": "cotidiano_otavio_escolha",
+            "value": 1
+          },
+          "text": "Otávio: — Um em que gente comum tenha espaço. E um final que não precise explicar tudo."
+        },
+        {
+          "equals": {
+            "key": "cotidiano_otavio_escolha",
+            "value": 2
+          },
+          "text": "Otávio: — Às vezes. Quero ajudar, mas tenho que lembrar que não sou o diretor da vida de ninguém."
+        }
+      ],
+      "choices": [
+        {
+          "label": "Gostaria de ver seu projeto quando estiver pronto.",
+          "to": "cotidiano_otavio_fim",
+          "effects": {
+            "flags": {
+              "cotidiano_otavio_segunda": 1,
+              "gostos_otavio": true
+            },
+            "bonds": {}
+          },
+          "social": {
+            "otavio": {
+              "trust": 1
+            }
+          },
+          "speech": "Gostaria de ver seu projeto quando estiver pronto."
+        },
+        {
+          "label": "Gostei de conversar. Até mais.",
+          "to": "cotidiano_otavio_fim",
+          "effects": {
+            "flags": {
+              "cotidiano_otavio_segunda": 2,
+              "gostos_otavio": true
+            },
+            "bonds": {}
+          },
+          "social": {},
+          "speech": "Gostei de conversar. Até mais."
+        }
+      ]
+    },
+    "cotidiano_otavio_fim": {
+      "time": "Intervalo da tarde",
+      "stage": "REFEITÓRIO · ÁREA COMUM",
+      "place": "food",
+      "people": [
+        "otavio"
+      ],
+      "id": "cotidiano_otavio_fim",
+      "title": "O intervalo continua",
+      "text": "",
+      "dynamic": [
+        {
+          "equals": {
+            "key": "cotidiano_otavio_segunda",
+            "value": 1
+          },
+          "text": "Otávio: — Fechado. Ainda vou precisar cortar metade das minhas ideias."
+        },
+        {
+          "equals": {
+            "key": "cotidiano_otavio_segunda",
+            "value": 2
+          },
+          "text": "Otávio: — Até mais."
+        },
+        {
+          "equals": {
+            "key": "cotidiano_otavio_escolha",
+            "value": 3
+          },
+          "text": "Otávio: — Tudo bem. Nos vemos depois."
+        }
+      ],
+      "textAfterDynamic": "Você se despede e volta ao pátio.",
+      "choices": [
+        {
+          "label": "Voltar à exploração da tarde",
+          "to": "explorar_tarde",
+          "kind": "action"
+        }
+      ]
+    },
+    "cotidiano_zoe": {
+      "time": "Intervalo da tarde",
+      "stage": "ÁREA VIP",
+      "place": "vip",
+      "people": [
+        "zoe"
+      ],
+      "id": "cotidiano_zoe",
+      "title": "Um projeto só dela",
+      "text": "Zoe compara duas fotografias do campus e anota uma ideia de composição.\n\nZoe: — Isso aqui não é campanha. É um projeto meu. Gosto de moda, mas também gosto de decidir o que uma imagem diz, sem alguém escolhendo por mim.",
+      "choices": [
+        {
+          "label": "Qual é a ideia por trás das suas fotografias?",
+          "to": "cotidiano_zoe_resposta",
+          "effects": {
+            "flags": {
+              "cotidiano_zoe_escolha": 1
+            },
+            "bonds": {
+              "zoe": 1
+            }
+          },
+          "social": {
+            "zoe": {
+              "closeness": 1
+            }
+          },
+          "speech": "Qual é a ideia por trás das suas fotografias?"
+        },
+        {
+          "label": "Você defenderia alguém mesmo se isso custasse uma oportunidade?",
+          "to": "cotidiano_zoe_resposta",
+          "effects": {
+            "flags": {
+              "cotidiano_zoe_escolha": 2
+            },
+            "bonds": {}
+          },
+          "social": {
+            "zoe": {
+              "respect": 1
+            }
+          },
+          "speech": "Você defenderia alguém mesmo se isso custasse uma oportunidade?"
+        },
+        {
+          "label": "Não quero atrapalhar sua pausa.",
+          "to": "cotidiano_zoe_fim",
+          "effects": {
+            "flags": {
+              "cotidiano_zoe_escolha": 3
+            },
+            "bonds": {}
+          },
+          "social": {},
+          "speech": "Não quero atrapalhar sua pausa. A gente se vê depois."
+        }
+      ]
+    },
+    "cotidiano_zoe_resposta": {
+      "time": "Intervalo da tarde",
+      "stage": "ÁREA VIP",
+      "place": "vip",
+      "people": [
+        "zoe"
+      ],
+      "id": "cotidiano_zoe_resposta",
+      "title": "Um projeto só dela",
+      "text": "",
+      "dynamic": [
+        {
+          "equals": {
+            "key": "cotidiano_zoe_escolha",
+            "value": 1
+          },
+          "text": "Zoe: — Mostrar o que fica fora do enquadramento oficial. Não necessariamente algo grandioso. Às vezes basta uma cadeira vazia."
+        },
+        {
+          "equals": {
+            "key": "cotidiano_zoe_escolha",
+            "value": 2
+          },
+          "text": "Zoe: — Depende do que está em jogo. Mas se eu nunca contrariar ninguém, minha independência vira só uma palavra bonita."
+        }
+      ],
+      "choices": [
+        {
+          "label": "Gostaria de conhecer mais do seu trabalho algum dia.",
+          "to": "cotidiano_zoe_fim",
+          "effects": {
+            "flags": {
+              "cotidiano_zoe_segunda": 1,
+              "gostos_zoe": true
+            },
+            "bonds": {}
+          },
+          "social": {
+            "zoe": {
+              "trust": 1
+            }
+          },
+          "speech": "Gostaria de conhecer mais do seu trabalho algum dia."
+        },
+        {
+          "label": "Gostei de conversar. Até mais.",
+          "to": "cotidiano_zoe_fim",
+          "effects": {
+            "flags": {
+              "cotidiano_zoe_segunda": 2,
+              "gostos_zoe": true
+            },
+            "bonds": {}
+          },
+          "social": {},
+          "speech": "Gostei de conversar. Até mais."
+        }
+      ]
+    },
+    "cotidiano_zoe_fim": {
+      "time": "Intervalo da tarde",
+      "stage": "ÁREA VIP",
+      "place": "vip",
+      "people": [
+        "zoe"
+      ],
+      "id": "cotidiano_zoe_fim",
+      "title": "O intervalo continua",
+      "text": "",
+      "dynamic": [
+        {
+          "equals": {
+            "key": "cotidiano_zoe_segunda",
+            "value": 1
+          },
+          "text": "Zoe: — Talvez eu mostre quando tiver algo de que realmente goste."
+        },
+        {
+          "equals": {
+            "key": "cotidiano_zoe_segunda",
+            "value": 2
+          },
+          "text": "Zoe: — Até mais."
+        },
+        {
+          "equals": {
+            "key": "cotidiano_zoe_escolha",
+            "value": 3
+          },
+          "text": "Zoe: — Tudo bem. Nos vemos depois."
+        }
+      ],
+      "textAfterDynamic": "Você se despede e volta ao pátio.",
+      "choices": [
+        {
+          "label": "Voltar à exploração da tarde",
+          "to": "explorar_tarde",
+          "kind": "action"
+        }
+      ]
+    },
+    "cotidiano_luka": {
+      "time": "Intervalo da tarde",
+      "stage": "REFEITÓRIO · ÁREA COMUM",
+      "place": "food",
+      "people": [
+        "luka"
+      ],
+      "id": "cotidiano_luka",
+      "title": "Uma teoria e um filme ruim",
+      "text": "Luka desenha uma formação de vôlei na margem do caderno.\n\nLuka: — Antes que pergunte: não é uma teoria conspiratória. É uma estratégia pra não perder no vôlei. Depois quero ver um filme de terror ruim, por motivos científicos.",
+      "choices": [
+        {
+          "label": "Qual é o seu critério para um filme de terror ruim?",
+          "to": "cotidiano_luka_resposta",
+          "effects": {
+            "flags": {
+              "cotidiano_luka_escolha": 1
+            },
+            "bonds": {
+              "luka": 1
+            }
+          },
+          "social": {
+            "luka": {
+              "closeness": 1
+            }
+          },
+          "speech": "Qual é o seu critério para um filme de terror ruim?"
+        },
+        {
+          "label": "Você contaria uma teoria aos amigos antes de ter certeza?",
+          "to": "cotidiano_luka_resposta",
+          "effects": {
+            "flags": {
+              "cotidiano_luka_escolha": 2
+            },
+            "bonds": {}
+          },
+          "social": {
+            "luka": {
+              "respect": 1
+            }
+          },
+          "speech": "Você contaria uma teoria aos amigos antes de ter certeza?"
+        },
+        {
+          "label": "Não quero atrapalhar sua pausa.",
+          "to": "cotidiano_luka_fim",
+          "effects": {
+            "flags": {
+              "cotidiano_luka_escolha": 3
+            },
+            "bonds": {}
+          },
+          "social": {},
+          "speech": "Não quero atrapalhar sua pausa. A gente se vê depois."
+        }
+      ]
+    },
+    "cotidiano_luka_resposta": {
+      "time": "Intervalo da tarde",
+      "stage": "REFEITÓRIO · ÁREA COMUM",
+      "place": "food",
+      "people": [
+        "luka"
+      ],
+      "id": "cotidiano_luka_resposta",
+      "title": "Uma teoria e um filme ruim",
+      "text": "",
+      "dynamic": [
+        {
+          "equals": {
+            "key": "cotidiano_luka_escolha",
+            "value": 1
+          },
+          "text": "Luka: — Se o personagem faz uma escolha absurda e ainda assim consegue me assustar, ganhou pontos."
+        },
+        {
+          "equals": {
+            "key": "cotidiano_luka_escolha",
+            "value": 2
+          },
+          "text": "Luka: — Depende. Já confundi suspeita com certeza. Odeio admitir isso, mas uma pergunta não é uma prova."
+        }
+      ],
+      "choices": [
+        {
+          "label": "Depois me conta qual filme você escolheu.",
+          "to": "cotidiano_luka_fim",
+          "effects": {
+            "flags": {
+              "cotidiano_luka_segunda": 1,
+              "gostos_luka": true
+            },
+            "bonds": {}
+          },
+          "social": {
+            "luka": {
+              "trust": 1
+            }
+          },
+          "speech": "Depois me conta qual filme você escolheu."
+        },
+        {
+          "label": "Gostei de conversar. Até mais.",
+          "to": "cotidiano_luka_fim",
+          "effects": {
+            "flags": {
+              "cotidiano_luka_segunda": 2,
+              "gostos_luka": true
+            },
+            "bonds": {}
+          },
+          "social": {},
+          "speech": "Gostei de conversar. Até mais."
+        }
+      ]
+    },
+    "cotidiano_luka_fim": {
+      "time": "Intervalo da tarde",
+      "stage": "REFEITÓRIO · ÁREA COMUM",
+      "place": "food",
+      "people": [
+        "luka"
+      ],
+      "id": "cotidiano_luka_fim",
+      "title": "O intervalo continua",
+      "text": "",
+      "dynamic": [
+        {
+          "equals": {
+            "key": "cotidiano_luka_segunda",
+            "value": 1
+          },
+          "text": "Luka: — Combinado. Se for horrível, vou fazer uma resenha de três páginas."
+        },
+        {
+          "equals": {
+            "key": "cotidiano_luka_segunda",
+            "value": 2
+          },
+          "text": "Luka: — Até mais."
+        },
+        {
+          "equals": {
+            "key": "cotidiano_luka_escolha",
+            "value": 3
+          },
+          "text": "Luka: — Tudo bem. Nos vemos depois."
+        }
+      ],
+      "textAfterDynamic": "Você se despede e volta ao pátio.",
+      "choices": [
+        {
+          "label": "Voltar à exploração da tarde",
+          "to": "explorar_tarde",
+          "kind": "action"
         }
       ]
     }

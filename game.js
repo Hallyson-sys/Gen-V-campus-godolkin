@@ -1,4 +1,4 @@
-/* Gen V: Campus Godolkin — Motor Jogável V0.16.0
+/* Gen V: Campus Godolkin — Motor Jogável V0.17.0
  * Inclui:
  * - Ranking Oficial Completo (#1 ao #100) com Elenco Principal, 92 NPCs da Universidade e o Protagonista
  * - Aba "RANKING" no Menu Principal e no Drawer com filtros (Top 10, Perto de Você, Calouros, Todos #1–#100)
@@ -424,7 +424,7 @@
     return `<header class="app-header">
       <button class="brand" data-action="menu" aria-label="Menu principal">${wordmark()}</button>
       <div class="header-right">
-        <span class="header-status">${screen === 'menu' ? 'VOUGHT // DOSSIÊ' : 'PRÓLOGO · V0.16.0'}</span>
+        <span class="header-status">${screen === 'menu' ? 'VOUGHT // DOSSIÊ' : 'PRÓLOGO · V0.17.0'}</span>
         <button class="menu-btn" data-action="drawer" aria-expanded="${drawerOpen}">
           <span class="menu-btn-bars">${drawerOpen ? '✕' : '☰'}</span>
           <span>${drawerOpen ? 'FECHAR' : 'MENU'}</span>
@@ -687,7 +687,7 @@
   function finishCreation() {
     save = {
       game: 'genv-campus-godolkin',
-      version: '0.16.0',
+      version: '0.17.0',
       slot,
       node: DATA.meta.start,
       perfil: {
@@ -751,7 +751,28 @@
     for(const [a,b,d] of changes){const k=a+':'+b;save.peerChanges[k]=(save.peerChanges[k]||0)+d;}
   }
   function romanceAvailable(id){const npc=CAST.find(x=>x.id===id);return !!(npc?.romanceable && /^Solteir[oa]/i.test(npc.relationshipStatus||''));}
+  function knownStudent(id){
+    const v=save?.visited||[], f=save?.flags||{};
+    return v.includes('almoco_amigos')&&['clara','luka','maya','otavio'].includes(id) || v.includes('almoco_elite')&&['matteo','zoe'].includes(id) || ({clara:f.dorm_f||v.includes('calouros_1')||v.includes('favor_clara'),luka:f.dorm_m||v.includes('calouros_1'),maya:f.dorm_f||v.includes('arcadas_1')||v.includes('maya_tarde'),otavio:f.dorm_m||v.includes('arcadas_1'),matteo:v.includes('elite_1'),zoe:v.includes('elite_1')})[id] || v.includes('pessoal_'+id)||v.includes('cotidiano_'+id);
+  }
+  function bondRequirement(r){
+    if(!save||!knownStudent(r.id))return 'Conheça o estudante primeiro';
+    const a=socialFor(r.id), b=save.bonds?.[r.id]??BASE_BONDS[r.id];
+    const missing=[]; if(b<r.affinity)missing.push('Afinidade '+r.affinity);if(a.trust<r.trust)missing.push('Confiança '+r.trust);if(a.respect<r.respect)missing.push('Respeito '+r.respect);
+    return missing.join(' · ');
+  }
+  function personalArchive(npc){
+    const id=npc.id, req={id,...npc.depth.unlock}, a=socialFor(id), f=save?.flags||{}, v=save?.visited||[];
+    const blocked=bondRequirement(req), hub=SCENES[save?.node]?.hub==='afternoon';
+    const choices=SCENES[save?.node]?.choices||[];
+    const entry=(key,title,unlocked,reason)=>{const i=choices.findIndex(c=>c.to===key), c=choices[i], can=hub&&c&&evaluateChoice(c).visible&&evaluateChoice(c).enabled;return `<div class="depth-entry archive-entry"><b>${v.includes(key)?'✓':unlocked?'◇':'🔒'} ${safe(title)}</b><p>${safe(v.includes(key)?'Conversa já visitada':unlocked?'Disponível no intervalo da tarde':reason)}</p>${can?`<button class="secondary" data-map-choice="${i}">Conversar ↗</button>`:''}</div>`;};
+    return entry('cotidiano_'+id,'Cotidiano e interesses',!!save&&knownStudent(id),'Conheça o estudante primeiro')+entry('pessoal_'+id,npc.depth.title,!blocked,blocked)+`<div class="depth-entry"><b>🔒 Confidências profundas</b><p>Capítulos futuros · confiança 55–85, memórias e acontecimentos específicos. Não basta acumular pontos.</p></div>`;
+  }
   function evaluateChoice(c) {
+    if (c.once && save.visited.includes(c.once)) return {visible:false};
+    if (SCENES[save.node]?.hub === 'afternoon' && c.once && afternoonCount() >= (save.flags.favor_aceito ? 2 : 3)) return {visible:false};
+    if(c.requireKnown&&!knownStudent(c.requireKnown))return {visible:true,enabled:false,lockText:'Conheça o estudante primeiro'};
+    if(c.requireBond){const reason=bondRequirement(c.requireBond);if(reason)return {visible:true,enabled:false,lockText:reason};}
     if(c.romanceTarget && (!romanceAvailable(c.romanceTarget) || (save.romance?.[c.romanceTarget]||0)>0)) return {visible:false};
     if(c.lunchPick && ["clara","luka","maya","otavio"].filter(id=>save.visited.includes("almoco_"+id)).length>=2)return {visible:false};
     if(c.requireFlag&&!save.flags[c.requireFlag])return {visible:false};
@@ -868,6 +889,7 @@
         }
       }
 
+      save.lastUtterance={to,kind:choice.speech?'speech':choice.kind||'action',text:choice.speech||choice.label};
       save.history.push({
         from: save.node,
         to,
@@ -931,6 +953,8 @@
       .map((c, idx) => ({ c, idx, evalRes: evaluateChoice(c) }))
       .filter(x => x.evalRes.visible);
 
+    const utterance=save.lastUtterance?.to===n.id ? save.lastUtterance : null;
+    const playerLine=utterance&&utterance.kind==='speech'?`<div class="line spoken protagonist-line"><strong>${safe(firstName.toUpperCase())} · VOCÊ</strong><span>— ${safe(utterance.text)}</span></div>`:utterance&&utterance.kind==='thought'?`<div class="player-thought"><b>Pensamento</b><p>${safe(utterance.text)}</p></div>`:'';
     const baseTextHtml = n.text ? formatNarrative(encounterText(n)) : '';
     const extraTextHtml = (n.dynamic || [])
       .filter(d => (d.equals && save.flags[d.equals.key] === d.equals.value) || (d.flag && save.flags[d.flag]) || (d.origin && d.origin===save.perfil.origem) || (d.motive && d.motive===save.perfil.motivacao) || (d.arq && d.arq===(save.perfil.personalidade||save.perfil.arquetipo)))
@@ -1000,7 +1024,7 @@
         </div>
 
         <section class="story-window">
-          <div class="story-scroll">${baseTextHtml}${extraTextHtml}${afterDynamicHtml}</div>
+          <div class="story-scroll">${playerLine}${baseTextHtml}${extraTextHtml}${afterDynamicHtml}</div>
           ${hub}${choicesHtml}
           <div class="story-bottom">
             <span>◉ Slot ${slot} · <button data-action="ranking">RANKING #1–#100</button></span>
@@ -1019,7 +1043,7 @@
 
 
   const morningCount=()=>['calouros_1','elite_1','arcadas_1','favor_clara','biblioteca_m'].filter(k=>save.visited.includes(k)).length;
-  const afternoonCount=()=>['clara_retorno','maya_tarde','dorm_tarde','grupo_conversa',...CAST.map(c=>'pessoal_'+c.id)].filter(k=>save.visited.includes(k)).length;
+  const afternoonCount=()=>['clara_retorno','maya_tarde','dorm_tarde','grupo_conversa',...CAST.flatMap(c=>['pessoal_'+c.id,'cotidiano_'+c.id])].filter(k=>save.visited.includes(k)).length;
   const MAP_PLACES=[['gate','Portões / recepção',50,91],['male','Dormitório masculino',16,70],['female','Dormitório feminino',83,70],['single','Alojamento individual',50,76],['patio','Pátio central',50,51],['stairs','Escadarias',17,48],['library','Biblioteca',16,25],['arcade','Arcadas',83,47],['vip','Área VIP',83,25],['arena','Pavilhão B / arena',50,27],['office','Reitoria',50,9],['food','Refeitório',16,9],['tower','Torre Norte',83,9]];
   const scenePlace=k=>SCENES[k]?.place|| (k==='chegada_campus'||k==='dorm_escolha'?'gate':k==='dorm_m'?'male':k==='dorm_f'?'female':k==='dorm_ind'?'single':k==='dorm_tarde'||k==='tarde_7'?(save.flags.dorm_m?'male':save.flags.dorm_f?'female':'single'):k.startsWith('calouros')||k==='favor_clara'?'stairs':k.startsWith('elite')?'vip':k.startsWith('arcadas')?'arcade':k.startsWith('arena')?'arena':k==='biblioteca_m'||k==='maya_tarde'?'library':/^tarde_[234]$/.test(k)?'office':/^tarde_[56]$/.test(k)?'food':k.startsWith('festa')||k==='end'?'tower':k.startsWith('explorar')||k==='clara_retorno'||k==='tarde_1'?'patio':null);
   function campusPositions(){
@@ -1038,12 +1062,23 @@
     for(const id of SCENES[k]?.people||[])pos[id]=here;
     return {...pos,player:here};
   }
+  const MAP_COLORS={player:'#e9ba24',clara:'#bc657d',luka:'#6089bd',maya:'#a28ac7',otavio:'#6da48a',matteo:'#bd7055',zoe:'#e3dfd0'};
+  let mapZoom=1;
+  function mapArt(){
+    const paths='M450 680V65 M145 65V535 M747 65V535 M145 190H747 M145 355H747 M145 535H747 M145 65H747';
+    const building=(x,y,w,h,roof,style)=>{const dx=17,dy=12, top=y-h/2, left=x-w/2;let windows='';for(let i=0;i<Math.floor(w/20);i++){const xx=left+8+i*20;windows+=`<rect x="${xx}" y="${y+dy-5}" width="7" height="12" rx="1" fill="#4e5049" stroke="#e4d6b4" stroke-width="1"/>`;}
+      return `<g stroke="#575744" stroke-width="1.2"><path d="M${left} ${top}l${w} 0 ${dx} ${dy} -${w} 0z" fill="#e1c7a2"/><path d="M${left} ${top}v${h+16}l${w} 0v-${h+16}z" fill="#b78c6c"/><path d="M${left+w} ${top}l${dx} ${dy}v${h+16}l-${dx} -${dy}z" fill="#8d6c54"/><path d="M${left-5} ${top+2}l${w+10} 0 -12 -${h*.36} -${w-14} 0z" fill="${roof}"/><path d="M${left-5} ${top+2}l${w+10} 0 ${dx} ${dy} -${w+10} 0z" fill="${roof}"/><path d="M${left+3} ${top+5}h${w-6}" stroke="#e4d6b4" opacity=".6"/>${windows}<rect x="${x-7}" y="${y+7}" width="14" height="18" rx="3" fill="#50473b"/>${style==='tower'?`<path d="M${x-21} ${top-10}v-42h42v42z" fill="#b69a7b"/><path d="M${x-25} ${top-52}l25 -25 25 25z" fill="#6b7064"/><circle cx="${x}" cy="${top-34}" r="7" fill="#f4e4c4"/>`:''}</g>`;};
+    let trees=''; for(let i=0;i<92;i++){const x=35+(i*137%830), y=32+(i*97%680); if(MAP_PLACES.some(p=>Math.abs(x-p[2]*9)<82&&Math.abs(y-p[3]*7.5)<47)||Math.abs(x-450)<28||Math.abs(x-145)<24||Math.abs(x-747)<24||[65,190,355,535].some(v=>Math.abs(y-v)<23))continue; trees+=`<g><ellipse cx="${x+5}" cy="${y+6}" rx="13" ry="8" fill="#314b30" opacity=".3"/><path d="M${x} ${y+7}v-11" stroke="#77583d" stroke-width="3"/><circle cx="${x}" cy="${y-4}" r="10" fill="${['#506b3e','#6c8350','#8b9b59'][i%3]}" stroke="#465c39"/><circle cx="${x-4}" cy="${y-8}" r="5" fill="#a2ad72" opacity=".7"/></g>`;}
+    return `<svg class="map-art" viewBox="0 0 900 750" preserveAspectRatio="none" aria-hidden="true"><defs><pattern id="lawn17" width="22" height="22" patternUnits="userSpaceOnUse"><path d="M0 12l22 -5 M8 22l14 -4" stroke="#718357" stroke-width=".6" opacity=".28"/></pattern></defs><rect width="900" height="750" fill="#b6c08b"/><rect x="15" y="15" width="870" height="720" rx="15" fill="url(#lawn17)" stroke="#687c50" stroke-width="2"/><path d="${paths}" stroke="#8c8464" stroke-width="23" fill="none" stroke-linecap="round"/><path d="${paths}" stroke="#ded3ae" stroke-width="17" fill="none" stroke-linecap="round"/>${trees}<g fill="#d0b58a" stroke="#a39970"><rect x="375" y="340" width="150" height="84" rx="6"/><circle cx="450" cy="385" r="23" fill="#9bafa7"/><circle cx="450" cy="385" r="12" fill="#cddcd2"/></g><g stroke="#f4edcf" fill="#93a56c"><rect x="225" y="430" width="105" height="58" rx="4"/><path d="M277 430v58 M225 459h105"/><rect x="575" y="430" width="105" height="58" rx="4"/><path d="M627 430v58"/></g>${MAP_PLACES.filter(p=>!['patio','stairs','arcade','gate'].includes(p[0])).map(([id,label,x,y],i)=>building(x*9,y*7.5+(id==='tower'?23:-10),id==='arena'?136:id==='tower'?92:118,id==='arena'?42:34,['#865c48','#777e73','#986a52'][i%3],id==='tower'?'tower':'')).join('')}<g stroke="#827454" fill="#d7c6a0"><path d="M93 338h120v25H93z"/><path d="M94 345h118m-118 7h118m-118 7h118"/><path d="M690 337h120v35H690z"/><path d="M690 337v35m30 -35v35m30 -35v35m30 -35v35m30 -35v35" stroke-width="4"/><path d="M410 660h80v40h-80z"/><path d="M418 660v40m64 -40v40" stroke-width="5"/></g><g fill="#354b37" font-family="Georgia" font-size="13"><text x="24" y="721">CAMPUS GODOLKIN • CARTOGRAFIA</text><text x="855" y="27" text-anchor="middle">N ↑</text></g></svg>`;
+  }
   function mapView(){
     if(!save){menu();return;} screen='map';drawerOpen=false;
     const positions=campusPositions(), selected=MAP_PLACES.find(p=>p[0]===mapSelected), names=id=>id==='player'?getFirstName(save.perfil.nome)+' (você)':getFirstName(CAST.find(x=>x.id===id)?.name||id);
     const choices=SCENES[save.node]?.choices||[];
     const access=selected&&SCENES[save.node]?.hub?choices.map((c,i)=>({c,i})).filter(({c})=>scenePlace(c.to)===selected[0]&&evaluateChoice(c).visible&&evaluateChoice(c).enabled):[];
-    layout(`<main class="play-view"><div class="play-content"><div class="kicker">GODOLKIN // GUIA DO CAMPUS</div><h2>Mapa da universidade</h2><p class="fine">${safe(SCENES[save.node]?.time)} · Localização narrativa do grupo. Toque em um prédio.</p><div class="campus-map"><svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M50 92V9 M16 9V70 M83 9V70 M16 25H83 M16 48H83 M16 70H83 M16 9H83" fill="none" stroke="#8d8059" stroke-width="1.7" stroke-dasharray="2 1"/></svg>${MAP_PLACES.map(([id,label,x,y])=>{const people=Object.keys(positions).filter(k=>positions[k]===id);return `<button class="campus-pin ${people.includes('player')?'here':''} ${mapSelected===id?'selected':''}" data-map-pin="${id}" style="left:${x}%;top:${y}%"><span>${safe(label)}</span><small>${people.map(k=>safe(names(k).slice(0,1))).join(' · ')||'◇'}</small></button>`}).join('')}</div><section class="map-detail"><h3>${selected?safe(selected[1]):'Onde está o grupo?'}</h3>${(selected?Object.entries(positions).filter(([k,v])=>v===selected[0]):Object.entries(positions)).map(([k,v])=>`<div class="map-person"><b>${safe(names(k))}</b><span>${safe(MAP_PLACES.find(p=>p[0]===v)?.[1])}</span></div>`).join('')||'<p>Nenhuma localização conhecida neste ponto da história.</p>'}${access.map(({c,i})=>`<button class="choice" data-map-choice="${i}">${safe(c.label)} ↗</button>`).join('')}${selected&&!access.length?'<p class="fine">Deslocamento disponível apenas nos intervalos e destinos liberados.</p>':''}</section><button class="primary" data-action="resume">← VOLTAR À HISTÓRIA</button></div></main>`);
+    const scroll=document.querySelector('.map-viewport'); const oldX=scroll?.scrollLeft||0,oldY=scroll?.scrollTop||0;
+    layout(`<main class="play-view"><div class="play-content"><div class="kicker">GODOLKIN // GUIA DO CAMPUS</div><h2>Mapa da universidade</h2><p class="fine">${safe(SCENES[save.node]?.time)} · Localização narrativa do grupo. Toque em um prédio.</p><div class="map-tools"><button data-map-zoom="-1" aria-label="Diminuir zoom">−</button><span>${Math.round(mapZoom*100)}% · Arraste para navegar</span><button data-map-zoom="1" aria-label="Aumentar zoom">+</button></div><div class="map-viewport"><div class="campus-map campus-illustrated ${scenePlace(save.node)==='tower'?'map-night':SCENES[save.node]?.hub==='afternoon'?'map-afternoon':''}" style="width:${mapZoom*100}%;height:${Math.round(mapZoom*540)}px">${mapArt()}${MAP_PLACES.map(([id,label,x,y])=>{const people=Object.keys(positions).filter(k=>positions[k]===id);return `<button class="campus-pin ${people.includes('player')?'here':''} ${mapSelected===id?'selected':''}" data-map-pin="${id}" style="left:${x}%;top:${y}%"><span>${safe(label)}</span><small>${people.map(k=>`<i class="map-avatar" style="--pin-color:${MAP_COLORS[k]}" title="${safe(names(k))}">${safe(k==='player'?'P':k==='matteo'?'Mt':k==='maya'?'My':names(k).slice(0,1))}</i>`).join('')||'◇'}</small></button>`}).join('')}</div></div><section class="map-detail"><h3>${selected?safe(selected[1]):'Onde está o grupo?'}</h3>${(selected?Object.entries(positions).filter(([k,v])=>v===selected[0]):Object.entries(positions)).map(([k,v])=>`<div class="map-person"><b><i class="map-avatar" style="--pin-color:${MAP_COLORS[k]}">${safe(k==='player'?'P':k==='matteo'?'Mt':k==='maya'?'My':names(k).slice(0,1))}</i> ${safe(names(k))}</b><span>${safe(MAP_PLACES.find(p=>p[0]===v)?.[1])}</span></div>`).join('')||'<p>Nenhuma localização conhecida neste ponto da história.</p>'}${access.map(({c,i})=>`<button class="choice" data-map-choice="${i}">${safe(c.label)} ↗</button>`).join('')}${selected&&!access.length?'<p class="fine">Deslocamento disponível apenas nos intervalos e destinos liberados.</p>':''}</section><button class="primary" data-action="resume">← VOLTAR À HISTÓRIA</button></div></main>`);
+    const viewport=document.querySelector('.map-viewport');if(viewport){viewport.scrollLeft=oldX;viewport.scrollTop=oldY;}
   }
 
   function rankingView() {
@@ -1310,7 +1345,10 @@
           <section class="depth-panel"><h2>Arquivo em descoberta</h2>
             <p><strong>História pessoal:</strong> ${safe(sel.depth.title)}</p>
             <p><strong>Rotina habitual:</strong> ${Object.entries(sel.depth.routine).map(([t,l])=>safe(({morning:'Manhã',afternoon:'Tarde',night:'Noite'})[t])+': '+safe(MAP_PLACES.find(p=>p[0]===l)?.[1])).join(' · ')}</p>
-            ${[['Histórico',sel.depth.history],['Maior medo',sel.depth.fear],['Contradição',sel.depth.contradiction],['Confidência',sel.depth.secret]].map(([label,value])=>`<div class="depth-entry"><b>${safe(label)}</b><p>${save?.flags?.['revelado_'+sel.id]?safe(value):'🔒 Descubra durante a história pessoal.'}</p></div>`).join('')}
+            <h3>Conversas e descobertas</h3>${personalArchive(sel)}
+            <div class="depth-entry"><b>Gostos e hábitos</b><p>${save?.flags?.['gostos_'+sel.id]||save?.flags?.['revelado_'+sel.id]?safe(sel.depth.hobbies.join(' · ')):'🔒 Descubra conversando no campus.'}</p></div>
+            <div class="depth-entry"><b>Convicções e dilemas</b><p>${save?.flags?.['valores_'+sel.id]?safe(sel.depth.conviction+' '+sel.depth.dilemma):'🔒 Conheça suas opiniões ao longo da história.'}</p></div>
+            ${[['Histórico',sel.depth.history],['Maior medo',sel.depth.fear],['Contradição',sel.depth.contradiction],['Confidência',sel.depth.secret]].map(([label,value])=>`<div class="depth-entry"><b>${safe(label)}</b><p>🔒 Revelação reservada aos próximos capítulos.</p></div>`).join('')}
             <h3>Memórias com você</h3>${(save?.memories||[]).filter(m=>m.people.includes(sel.id)).map(m=>`<p class="fine">${safe(m.label)}</p>`).join('')||'<p class="fine">Nenhuma memória registrada.</p>'}
           </section>
           <h2>Relação com ${safe(playerFirstName)}</h2>
@@ -1530,6 +1568,7 @@
   });
 
   root.addEventListener('click', (e) => {
+    const zoom=e.target.closest('[data-map-zoom]');if(zoom){mapZoom=Math.max(1,Math.min(2.5,mapZoom+Number(zoom.dataset.mapZoom)*.25));mapView();return;}
     const pin=e.target.closest('[data-map-pin]');
     if(pin){mapSelected=pin.dataset.mapPin;mapView();return;}
     const travel=e.target.closest('[data-map-choice]');

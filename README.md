@@ -59,3 +59,11 @@ Sintaxe JS, destinos de cenas e teste de lógica em Node com DOM simulado. Naveg
 - Mapa e CSS mantidos; scripts com identificador 0.16.0. Saves anteriores continuam no mesmo slot; cenas já concluídas não são repetidas automaticamente.
 - Testes: sintaxe, grafo de destinos e consistência das novas condições. Não foi realizado teste integral em navegador.
 - Reação do grupo antes de voltar ao alojamento; o final permanece calculado pelas escolhas anteriores.
+
+## 0.17.0 — Além das aparências
+- 132 cenas; seis encontros de cotidiano, cada um com três etapas e respostas próprias, e dilemas morais integrados às histórias pessoais. Gostos definidos pela autora, incluindo livros de romance da Maya.
+- Dossiês e exploração utilizam os mesmos requisitos de conhecimento prévio, afinidade, confiança e respeito; confidências profundas ficam reservadas a capítulos posteriores. Os novos encontros contam no limite de atividades da tarde.
+- Falas explícitas do protagonista aparecem em destaque azul antes da reação da cena seguinte, persistindo no save. Ações permanecem ações, sem fala inventada.
+- Mapa vetorial original inspirado na referência de cartografia universitária, mantendo os 13 locais e o deslocamento existente. Marcadores individuais coloridos, zoom por botões, rolagem ao ampliar, variação visual de horário. Sem arquivos novos de imagem.
+- Mantém saves anteriores, mas para testar as novas cenas recomenda-se novo slot. Atualize index.html, game.js, story.js, story.json, style.css e README.md. O identificador dos scripts foi atualizado para 0.17.0.
+- Capítulo I e confidências profundas não implementados nesta versão. O mapa continua narrativo, não simulação em tempo real.
